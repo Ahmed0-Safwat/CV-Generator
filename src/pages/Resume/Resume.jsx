@@ -1,5 +1,3 @@
-import "./Resume.css";
-
 function Resume() {
   return (
     <>

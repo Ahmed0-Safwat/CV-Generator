@@ -1,4 +1,3 @@
-import "./Home.css";
 import Content from "../../components/Home/Content/Content.jsx";
 
 function Home() {

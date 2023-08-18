@@ -1,19 +1,20 @@
-/* eslint-disable react/prop-types */
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Box } from "@mui/system";
+import DrawerAppBar from "../AppBar/AppBar";
 
 const Layout = () => {
   return (
-    <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/resume">Resume</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/faq">FAQ</Link>
-      </nav>
+    <Box>
+      <DrawerAppBar />
 
-      <Outlet />
-    </div>
+      <Box
+        sx={{
+          padding: "16px",
+        }}
+      >
+        <Outlet />
+      </Box>
+    </Box>
   );
 };
 
