@@ -1,10 +1,11 @@
 import "./Home.css";
+import Content from "../../components/Home/Content/Content.jsx";
 
 function Home() {
   return (
-    <>
-      <div>Hello world</div>
-    </>
+    <div className="home-wrapper">
+      <Content />
+    </div>
   );
 }
 
