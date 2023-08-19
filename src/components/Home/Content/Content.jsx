@@ -1,6 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Rating from "@mui/material/Rating";
 
 const Content = () => {
   return (
@@ -233,7 +234,8 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#d9d9d961",
+              backgroundColor: "#7d027d",
+              color: "white",
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
@@ -252,7 +254,8 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#d9d9d961",
+              backgroundColor: "#7d027d",
+              color: "white",
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
@@ -286,7 +289,7 @@ const Content = () => {
                 borderRadius: "10px",
                 marginTop: "11%",
               }}
-              src="/assets/newone.gif"
+              src="/assets/New Searching Zoom GIF.gif"
               alt=""
               srcset=""
             />
@@ -358,7 +361,8 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#d9d9d961",
+              backgroundColor: "#7d027d",
+              color: "white",
               width: "85%",
               borderRadius: "10px",
               marginLeft: "10%",
@@ -373,7 +377,8 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#d9d9d961",
+              backgroundColor: "#7d027d",
+              color: "white",
               width: "85%",
               borderRadius: "10px",
               marginLeft: "10%",
@@ -420,7 +425,8 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#d9d9d961",
+              backgroundColor: "#7d027d",
+              color: "white",
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
@@ -437,7 +443,8 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#d9d9d961",
+              backgroundColor: "#7d027d",
+              color: "white",
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
@@ -454,7 +461,8 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#d9d9d961",
+              backgroundColor: "#7d027d",
+              color: "white",
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
@@ -767,6 +775,143 @@ const Content = () => {
             just 15 minutes. Of course, the same can be done to create an
             accompanying application letter, too!
           </Typography>
+        </Stack>
+      </Stack>
+      <br />
+      <br />
+      <Stack
+        sx={{
+          width: "95%",
+          textAlign: "center",
+          backgroundColor: "#f7f7f7",
+          borderRadius: "10px",
+          boxShadow: "0px 0px 20px gray",
+          margin: "10px auto",
+        }}
+      >
+        <Stack>
+          <Stack>
+            <Typography style={{ marginTop: "10px" }} variant="h5" gutterBottom>
+              Some of Customer's Reviews
+            </Typography>
+          </Stack>
+        </Stack>
+        <Stack
+          direction="row"
+          justifyContent="space-evenly"
+          sx={{
+            width: "100%",
+            textAlign: "center",
+            backgroundColor: "#f7f7f7",
+            borderRadius: "10px",
+            margin: "10px auto",
+          }}
+        >
+          <Stack
+            sx={{
+              width: "33%",
+            }}
+          >
+            <Stack>
+              <img src="/assets/random1.jpg" alt="" />
+            </Stack>
+            <Stack>
+              <Typography
+                style={{ marginTop: "10px" }}
+                variant="h6"
+                gutterBottom
+              >
+                Steven Rafual
+              </Typography>
+            </Stack>
+            <Stack sx={{ width: "100%" }}>
+              <Typography variant="subtitle2" gutterBottom>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                sunt asperiores unde iste? Sequi nihil id deserunt repellat!
+                Quibusdam similique, dolores eveniet suscipit iste reiciendis
+                amet maiores corporis doloribus error?
+              </Typography>
+            </Stack>
+            <Stack>
+              <Rating
+                style={{ margin: "0px auto" }}
+                name="read-only"
+                value={4}
+                readOnly
+              />
+            </Stack>
+          </Stack>
+          <Stack
+            sx={{
+              width: "33%",
+            }}
+          >
+            <Stack>
+              <img style={{}} src="/assets/random2.jpeg" alt="" />
+            </Stack>
+            <Stack>
+              <Typography
+                style={{ marginTop: "10px" }}
+                variant="h6"
+                gutterBottom
+              >
+                Scott Smith
+              </Typography>
+            </Stack>
+            <Stack sx={{ width: "100%" }}>
+              <Typography variant="subtitle2" gutterBottom>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                sunt asperiores unde iste? Sequi nihil id deserunt repellat!
+                Quibusdam similique, dolores eveniet suscipit iste reiciendis
+                amet maiores corporis doloribus error?
+              </Typography>
+            </Stack>
+            <Stack>
+              <Rating
+                style={{
+                  margin: "0px auto",
+                }}
+                name="half-rating-read"
+                defaultValue={4.5}
+                precision={0.5}
+                readOnly
+              />
+            </Stack>
+          </Stack>
+          <Stack
+            sx={{
+              width: "33%",
+            }}
+          >
+            <Stack>
+              <img src="/assets/random3.jpg" alt="" />
+            </Stack>
+            <Stack>
+              <Typography
+                style={{ marginTop: "10px" }}
+                variant="h6"
+                gutterBottom
+              >
+                Marlyn Jackob
+              </Typography>
+            </Stack>
+            <Stack sx={{ width: "100%" }}>
+              <Typography variant="subtitle2" gutterBottom>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                sunt asperiores unde iste? Sequi nihil id deserunt repellat!
+                Quibusdam similique, dolores eveniet suscipit iste reiciendis
+                amet maiores corporis doloribus error?
+              </Typography>
+            </Stack>
+            <Stack>
+              <Rating
+                style={{ margin: "0px auto" }}
+                name="read-only"
+                value={5}
+                readOnly
+              />
+            </Stack>
+          </Stack>
         </Stack>
       </Stack>
     </Stack>
