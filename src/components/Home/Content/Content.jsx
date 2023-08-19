@@ -782,7 +782,7 @@ const Content = () => {
         sx={{
           width: "95%",
           textAlign: "center",
-          backgroundColor: "#f7f7f7",
+          background: "linear-gradient(to left bottom, purple, #246cb6)",
           borderRadius: "12px",
           boxShadow: "0px 0px 20px gray",
           margin: "10px auto",
@@ -801,14 +801,15 @@ const Content = () => {
           sx={{
             width: "100%",
             textAlign: "center",
-            backgroundColor: "#f7f7f7",
+            background: "linear-gradient(to left bottom, purple, #246cb6)",
             borderRadius: "0px",
+            color: "white",
             margin: "10px auto",
           }}
         >
           <Stack
             sx={{
-              width: "33%",
+              width: "30%",
             }}
           >
             <Stack>
@@ -842,11 +843,11 @@ const Content = () => {
           </Stack>
           <Stack
             sx={{
-              width: "33%",
+              width: "30%",
             }}
           >
             <Stack>
-              <img style={{}} src="/assets/random2.jpeg" alt="" />
+              <img src="/assets/random2.jpeg" alt="" />
             </Stack>
             <Stack>
               <Typography
@@ -879,7 +880,7 @@ const Content = () => {
           </Stack>
           <Stack
             sx={{
-              width: "33%",
+              width: "30%",
             }}
           >
             <Stack>
