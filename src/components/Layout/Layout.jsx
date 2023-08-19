@@ -7,11 +7,7 @@ const Layout = () => {
     <Box>
       <DrawerAppBar />
 
-      <Box
-        sx={{
-          padding: "16px",
-        }}
-      >
+      <Box>
         <Outlet />
       </Box>
     </Box>
