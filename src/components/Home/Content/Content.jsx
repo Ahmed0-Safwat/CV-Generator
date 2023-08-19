@@ -778,13 +778,12 @@ const Content = () => {
         </Stack>
       </Stack>
       <br />
-      <br />
       <Stack
         sx={{
           width: "95%",
           textAlign: "center",
           backgroundColor: "#f7f7f7",
-          borderRadius: "10px",
+          borderRadius: "12px",
           boxShadow: "0px 0px 20px gray",
           margin: "10px auto",
         }}
@@ -803,7 +802,7 @@ const Content = () => {
             width: "100%",
             textAlign: "center",
             backgroundColor: "#f7f7f7",
-            borderRadius: "10px",
+            borderRadius: "0px",
             margin: "10px auto",
           }}
         >
