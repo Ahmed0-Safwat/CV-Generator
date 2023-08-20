@@ -12,7 +12,7 @@ const Content = () => {
   return (
     <Stack
       sx={{
-        backgroundColor: "#80808021",
+        backgroundColor: "#34a8ff4f",
       }}
     >
       <Stack>
