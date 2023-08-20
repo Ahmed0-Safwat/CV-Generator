@@ -317,26 +317,15 @@ const Content = () => {
           <Stack>
             <img
               style={{
-                width: "100%",
+                width: "90%",
                 height: "60%",
                 borderRadius: "10px",
-                marginTop: "30px",
+                margin: "30px",
               }}
-              src="/assets/one-one.gif"
+              src="/assets/important.gif"
               alt=""
               srcset=""
             />
-          </Stack>
-          <Stack>
-            <Button
-              style={{
-                width: "115px",
-                margin: "-50px auto",
-              }}
-              variant="contained"
-            >
-              create CV
-            </Button>
           </Stack>
         </Stack>
         <Stack
@@ -392,6 +381,17 @@ const Content = () => {
               them apart from other candidates, making them an essential
               component of an effective CV.
             </Typography>
+          </Stack>
+          <Stack>
+            <Button
+              style={{
+                width: "115px",
+                margin: "20px auto",
+              }}
+              variant="contained"
+            >
+              create CV
+            </Button>
           </Stack>
         </Stack>
       </Stack>

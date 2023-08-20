@@ -1,8 +1,10 @@
+import Content from "../../components/FAQ/Content.jsx";
+
 function QuestionsAndAnswers() {
   return (
-    <>
-      <div>QuestionsAndAnswers</div>
-    </>
+    <div className="home-wrapper">
+      <Content />
+    </div>
   );
 }
 

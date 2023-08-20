@@ -3,6 +3,11 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Height } from "@mui/icons-material";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 const Content = () => {
   return (
     <Stack
@@ -87,18 +92,18 @@ const Content = () => {
             required
             id="outlined-required"
             label="User-Name"
-            type="Email"
             defaultValue=""
           />
 
           <TextField
             style={{
               marginBottom: "10px",
+              color: "white",
             }}
-            id="outlined-password-input"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
+            required
+            id="outlined-required"
+            label="Email"
+            defaultValue=""
           />
 
           <TextField
@@ -113,6 +118,7 @@ const Content = () => {
           />
         </Box>
       </Stack>
+      <br />
     </Stack>
   );
 };
