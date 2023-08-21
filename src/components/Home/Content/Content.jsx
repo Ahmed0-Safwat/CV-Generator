@@ -234,7 +234,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#7d027d",
+              background: "linear-gradient(to left bottom, purple, #246cb6)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -254,7 +254,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#7d027d",
+              background: "linear-gradient(to left bottom, purple, #246cb6)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -350,7 +350,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#7d027d",
+              background: "linear-gradient(to left bottom, purple, #246cb6)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -366,7 +366,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#7d027d",
+              background: "linear-gradient(to left bottom, purple, #246cb6)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -425,7 +425,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#7d027d",
+              background: "linear-gradient(to left bottom, purple, #246cb6)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -443,7 +443,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#7d027d",
+              background: "linear-gradient(to left bottom, purple, #246cb6)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -461,7 +461,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              backgroundColor: "#7d027d",
+              background: "linear-gradient(to left bottom, purple, #246cb6)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
