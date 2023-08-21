@@ -56,10 +56,10 @@ const Content = () => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              In the first step of our CV maker entitled ‘Personal Details’, you
-              can add a photo to your CV. Simply click on the photo icon next to
-              the entry fields. You can then upload, edit, and then add your
-              photo to your Resume.
+              In the first step of our CV creator entitled ‘Personal Details’,
+              you can add a photo to your CV. Simply click on the photo icon
+              next to the entry fields. You can then upload, edit, and then add
+              your photo to your Resume.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -178,7 +178,7 @@ const Content = () => {
               You can hide items on your Resume by clicking on the 3 dots next
               to the item you want to hide and then clicking "Hide component".
               When you want to add or show the item again, you can select it
-              from the selection bar at the bottom of step 2 of our CV maker.
+              from the selection bar at the bottom of step 2 of our CV creator.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -195,12 +195,13 @@ const Content = () => {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Does it cost money to use CVmaker.com?</Typography>
+            <Typography>Does it cost money to use CV-Creator.com?</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              You can try the CVCreator service and premium templates for $1 .Or
-              You can try the CVCreator service and Normal templates for $0.5.
+              You can try the CV-Creator service and premium templates for $1
+              .Or You can try the CV-Creator service and Normal templates for
+              $0.5
             </Typography>
           </AccordionDetails>
         </Accordion>
