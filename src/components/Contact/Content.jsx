@@ -87,7 +87,7 @@ const Content = () => {
           <TextField
             style={{
               marginBottom: "10px",
-              color: "white",
+              width: "98%",
             }}
             required
             id="outlined-required"
@@ -98,7 +98,7 @@ const Content = () => {
           <TextField
             style={{
               marginBottom: "10px",
-              color: "white",
+              width: "98%",
             }}
             required
             id="outlined-required"
@@ -109,6 +109,7 @@ const Content = () => {
           <TextField
             style={{
               marginBottom: "10px",
+              width: "98%",
             }}
             id="outlined-multiline-static"
             label="Issue"

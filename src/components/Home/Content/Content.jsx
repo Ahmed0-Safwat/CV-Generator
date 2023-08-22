@@ -239,7 +239,7 @@ const Content = () => {
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
-              padding: "5px",
+              padding: "16px",
               boxShadow: "10px 10px 10px gray",
             }}
           >
@@ -259,7 +259,7 @@ const Content = () => {
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
-              padding: "5px",
+              padding: "16px",
               boxShadow: "10px 10px 10px gray",
             }}
           >
@@ -355,7 +355,7 @@ const Content = () => {
               width: "85%",
               borderRadius: "10px",
               marginLeft: "10%",
-              padding: "5px",
+              padding: "16px",
               boxShadow: "10px 10px 10px gray",
             }}
           >
@@ -371,7 +371,7 @@ const Content = () => {
               width: "85%",
               borderRadius: "10px",
               marginLeft: "10%",
-              padding: "5px",
+              padding: "16px",
               boxShadow: "10px 10px 10px gray",
             }}
           >
@@ -430,7 +430,7 @@ const Content = () => {
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
-              padding: "5px",
+              padding: "16px",
               boxShadow: "10px 10px 10px gray",
             }}
           >
@@ -448,7 +448,7 @@ const Content = () => {
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
-              padding: "5px",
+              padding: "16px",
               boxShadow: "10px 10px 10px gray",
             }}
           >
@@ -466,7 +466,7 @@ const Content = () => {
               width: "85%",
               borderRadius: "10px",
               marginLeft: "20px",
-              padding: "5px",
+              padding: "16px",
               boxShadow: "10px 10px 10px gray",
             }}
           >
@@ -538,7 +538,7 @@ const Content = () => {
             width: "80%",
             backgroundColor: "white",
             boxShadow: "0px 0px 6px gray",
-            padding: "8px",
+            padding: "24px",
             borderRadius: "5px",
           }}
           style={{
@@ -570,7 +570,7 @@ const Content = () => {
             width: "80%",
             backgroundColor: "white",
             boxShadow: "0px 0px 6px gray",
-            padding: "8px",
+            padding: "24px",
             borderRadius: "5px",
           }}
           style={{
@@ -713,7 +713,7 @@ const Content = () => {
             width: "80%",
             backgroundColor: "white",
             boxShadow: "0px 0px 6px gray",
-            padding: "8px",
+            padding: "24px",
             borderRadius: "5px",
           }}
           style={{
@@ -750,7 +750,7 @@ const Content = () => {
             width: "80%",
             backgroundColor: "white",
             boxShadow: "0px 0px 6px gray",
-            padding: "8px",
+            padding: "24px",
             borderRadius: "5px",
           }}
           style={{
