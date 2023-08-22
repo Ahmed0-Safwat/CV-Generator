@@ -9,6 +9,7 @@ const Content = () => {
     <Stack
       sx={{
         backgroundColor: "#34a8ff4f",
+        height: "100%",
       }}
     >
       <Stack
