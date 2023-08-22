@@ -13,17 +13,15 @@ const Content = () => {
     <Stack
       sx={{
         backgroundColor: "#34a8ff4f",
-        height: "100%",
       }}
     >
       <Stack>
         <img
           style={{
-            width: "400px",
-            height: "150px",
+            width: "15%",
             margin: "30px auto",
           }}
-          src="/assets/Contact.jpg"
+          src="/assets/Contact.gif"
           alt=""
         />
       </Stack>
@@ -121,7 +119,6 @@ const Content = () => {
         </Box>
       </Stack>
       <br />
-
     </Stack>
   );
 };
