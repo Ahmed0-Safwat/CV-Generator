@@ -12,14 +12,24 @@ const Content = () => {
         height: "100%",
       }}
     >
+      <Stack>
+        <img
+          style={{
+            width: "10%",
+            margin: "1px auto",
+          }}
+          src="/assets/FAQ .gif"
+          alt=""
+        />
+      </Stack>
       <Stack
         sx={{
-          margin: "30px auto",
+          margin: "0px auto",
           textAlign: "center",
           width: "70%",
         }}
       >
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h4" gutterBottom>
           FAQ
         </Typography>
 
