@@ -320,9 +320,9 @@ const Content = () => {
                 width: "90%",
                 height: "60%",
                 borderRadius: "10px",
-                margin: "30px",
+                margin: "60px",
               }}
-              src="/assets/important.gif"
+              src="/assets/Red Girl No Background.gif"
               alt=""
               srcset=""
             />
