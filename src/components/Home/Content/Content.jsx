@@ -234,7 +234,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              background: "linear-gradient(to left bottom, purple, #246cb6)",
+              background: "linear-gradient(to left bottom, #074c88, #81a9d1)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -254,7 +254,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              background: "linear-gradient(to left bottom, purple, #246cb6)",
+              background: "linear-gradient(to left bottom, #074c88, #81a9d1)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -284,10 +284,10 @@ const Content = () => {
           <Stack>
             <img
               style={{
-                width: "100%",
+                width: "90%",
                 height: "85%",
                 borderRadius: "10px",
-                marginTop: "11%",
+                margin: "20% auto",
               }}
               src="/assets/New Searching Zoom GIF.gif"
               alt=""
@@ -350,7 +350,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              background: "linear-gradient(to left bottom, purple, #246cb6)",
+              background: "linear-gradient(to left bottom, #074c88, #81a9d1)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -366,7 +366,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              background: "linear-gradient(to left bottom, purple, #246cb6)",
+              background: "linear-gradient(to left bottom, #074c88, #81a9d1)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -425,7 +425,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              background: "linear-gradient(to left bottom, purple, #246cb6)",
+              background: "linear-gradient(to left bottom, #074c88, #81a9d1)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -443,7 +443,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              background: "linear-gradient(to left bottom, purple, #246cb6)",
+              background: "linear-gradient(to left bottom, #074c88, #81a9d1)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -461,7 +461,7 @@ const Content = () => {
           </Stack>
           <Stack
             style={{
-              background: "linear-gradient(to left bottom, purple, #246cb6)",
+              background: "linear-gradient(to left bottom, #074c88, #81a9d1)",
               color: "white",
               width: "85%",
               borderRadius: "10px",
@@ -491,6 +491,7 @@ const Content = () => {
                 width: "100%",
                 height: "90%",
                 borderRadius: "10px",
+                margin: "20px auto",
               }}
               src="/assets/selector.gif"
               alt=""
@@ -499,11 +500,11 @@ const Content = () => {
           </Stack>
         </Stack>
       </Stack>
+      <br />
 
       <Stack
         spacing="10px"
         sx={{
-          height: "1770px",
           backgroundColor: "#f7f7f7",
           display: "flex",
           flexDirection: "column",
@@ -776,13 +777,13 @@ const Content = () => {
             accompanying application letter, too!
           </Typography>
         </Stack>
+        <br />
       </Stack>
-      <br />
       <Stack
         sx={{
           width: "95%",
           textAlign: "center",
-          background: "linear-gradient(to left bottom, purple, #246cb6)",
+          background: "linear-gradient(to left bottom, #074c88, #577a9e)",
           borderRadius: "12px",
           boxShadow: "0px 0px 20px gray",
           margin: "10px auto",
@@ -790,8 +791,12 @@ const Content = () => {
       >
         <Stack>
           <Stack>
-            <Typography style={{ marginTop: "10px" }} variant="h5" gutterBottom>
-              Some of Customer's Reviews
+            <Typography
+              style={{ marginTop: "10px", color: "#ffffffdb" }}
+              variant="h5"
+              gutterBottom
+            >
+              Reviews
             </Typography>
           </Stack>
         </Stack>
@@ -801,7 +806,7 @@ const Content = () => {
           sx={{
             width: "100%",
             textAlign: "center",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             borderRadius: "0px",
             color: "white",
             margin: "10px auto",
