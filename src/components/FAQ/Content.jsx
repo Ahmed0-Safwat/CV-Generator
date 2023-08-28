@@ -54,12 +54,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "20px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
@@ -78,12 +84,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
@@ -103,12 +115,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
@@ -125,12 +143,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
@@ -149,12 +173,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
@@ -173,12 +203,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
@@ -197,12 +233,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
@@ -219,12 +261,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
@@ -244,12 +292,18 @@ const Content = () => {
         <Accordion
           sx={{
             marginBottom: "25px",
-            background: "linear-gradient(to left bottom, purple, #246cb6)",
+            background: "linear-gradient(to left bottom, #074c88, #577a9e)",
             color: "white",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <ExpandMoreIcon
+                sx={{
+                  color: "white",
+                }}
+              />
+            }
             aria-controls="panel2a-content"
             id="panel2a-header"
           >

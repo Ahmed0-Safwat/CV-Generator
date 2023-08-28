@@ -48,7 +48,7 @@ const Content = () => {
           autoComplete="off"
         >
           <Typography style={{}} variant="subtitle1" gutterBottom>
-            Contact Form
+            Contact Us
           </Typography>
 
           <Typography
