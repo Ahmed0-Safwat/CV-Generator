@@ -1,8 +1,10 @@
+import Content from "../../components/Blog/Content.jsx";
+
 function Blog() {
   return (
-    <>
-      <div>Blog</div>
-    </>
+    <div className="home-wrapper">
+      <Content />
+    </div>
   );
 }
 
