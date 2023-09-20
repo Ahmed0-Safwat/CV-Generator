@@ -2,207 +2,13 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
+import HeroContent from "./HeroContent";
 
 const Content = () => {
   return (
     <Stack>
-      <Stack
-        // spacing="5px"
-        sx={{
-          alignItems: "center",
-          backgroundColor: "#A7DFFF",
-          height: "385px",
-        }}
-      >
-        <img
-          src="/assets/newenter.gif"
-          alt=""
-          srcset=""
-          style={{
-            width: "270px",
-            height: "170x",
-          }}
-        />
-        <Typography
-          variant="h5"
-          sx={{
-            fontSize: "20px",
-            textAlign: "center",
-          }}
-        >
-          Create your very own professional Resume and download it within 15
-          minutes.
-        </Typography>
+      <HeroContent />
 
-        <Button
-          sx={{
-            marginTop: "30px",
-          }}
-          variant="contained"
-        >
-          Create Cv
-        </Button>
-      </Stack>
-
-      <Stack
-        sx={{
-          backgroundColor: "#8080801a",
-          boxShadow: "0px 3px 8px #00000014",
-        }}
-      >
-        <Stack
-          spacing="20px"
-          style={{
-            width: "80%",
-            display: "flex",
-            flexDirection: "row",
-            margin: "-25px auto ",
-            backgroundColor: "#fff",
-            boxShadow: "0px 2px 10px gray",
-            borderRadius: "10px",
-          }}
-        >
-          <Stack
-            sx={{
-              backgroundColor: "white",
-              width: "235px",
-            }}
-          >
-            <img
-              src="/assets/Badge1.png  "
-              alt=""
-              style={{
-                width: "80px",
-                height: "80x",
-                margin: "25px auto",
-              }}
-            />
-          </Stack>
-          <Stack
-            sx={{
-              marginLeft: "20px",
-            }}
-          >
-            <Typography variant="h6">Quick and easy resume builder</Typography>
-
-            <Typography
-              sx={{
-                color: "gray",
-              }}
-              variant="subtitle1"
-              gutterBottom
-            >
-              With our online CV maker, it is simple for anyone to quickly
-              create a professional resume. Enter your personal details and
-              begin filling out your resume content. Finally, choose one of our
-              36 available resume layouts , and download your resume.
-            </Typography>
-          </Stack>
-        </Stack>
-        <br />
-        <br />
-        <Stack
-          spacing="20px"
-          sx={{
-            backgroundColor: "blue",
-            width: "80%",
-            display: "flex",
-            flexDirection: "row",
-            margin: "0px auto ",
-            backgroundColor: "#fff",
-            boxShadow: "0px 2px 10px gray",
-            borderRadius: "10px",
-          }}
-        >
-          <Stack
-            sx={{
-              backgroundColor: "white",
-              width: "160px",
-            }}
-          >
-            <img
-              src="/assets/Badge2.png  "
-              alt=""
-              style={{
-                width: "80px",
-                height: "80x",
-                margin: "25px auto",
-              }}
-            />
-          </Stack>
-          <Stack
-            sx={{
-              marginLeft: "20px",
-            }}
-          >
-            <Typography variant="h6">More likely to land a job</Typography>
-
-            <Typography
-              sx={{
-                color: "gray",
-              }}
-              variant="subtitle1"
-              gutterBottom
-            >
-              With a representative and professional resume, you will stand out
-              amongst all other applicants. You are probably more likely to be
-              invited to an interview with an professional Resume.
-            </Typography>
-          </Stack>
-        </Stack>
-        <br />
-        <Stack
-          spacing="20px"
-          sx={{
-            backgroundColor: "blue",
-            width: "80%",
-            display: "flex",
-            flexDirection: "row",
-            margin: "0px auto ",
-            backgroundColor: "#fff",
-            boxShadow: "0px 2px 10px gray",
-            borderRadius: "10px",
-          }}
-        >
-          <Stack
-            sx={{
-              backgroundColor: "white",
-              width: "235px",
-            }}
-          >
-            <img
-              src="/assets/Badge3.png  "
-              alt=""
-              style={{
-                width: "80px",
-                height: "80x",
-                margin: "25px auto",
-              }}
-            />
-          </Stack>
-          <Stack
-            sx={{
-              marginLeft: "20px",
-            }}
-          >
-            <Typography variant="h6">Organize your applications</Typography>
-
-            <Typography
-              sx={{
-                color: "gray",
-              }}
-              variant="subtitle1"
-              gutterBottom
-            >
-              Often, it is important to be able to tailor your resume based on
-              the job you wish to apply for. With CV maker, you can create and
-              manage several different resumes in an organised way through your
-              own personal account hub.
-            </Typography>
-          </Stack>
-        </Stack>
-        <br />
-      </Stack>
       <Stack
         sx={{
           display: "flex",
@@ -249,7 +55,7 @@ const Content = () => {
               information is strategically presented. It is through this
               document that their capabilities and potential are showcased,
               leaving no doubt that they are the perfect fit for the
-              organization's success.
+              organizations success.
             </Typography>
           </Stack>
           <Stack
@@ -270,8 +76,8 @@ const Content = () => {
               arranged and every morsel of information is strategically
               conveyed. This document becomes a powerful testament to their
               skills, expertise, and unwavering commitment, leaving an indelible
-              impression that they are the catalyst for the company's triumph
-              and innovation.
+              impression that they are the catalyst for the companys triumph and
+              innovation.
             </Typography>
           </Stack>
         </Stack>
@@ -291,7 +97,7 @@ const Content = () => {
               }}
               src="/assets/New Searching Zoom GIF.gif"
               alt=""
-              srcset=""
+              srcSet=""
             />
           </Stack>
         </Stack>
@@ -324,7 +130,6 @@ const Content = () => {
               }}
               src="/assets/Red Girl No Background.gif"
               alt=""
-              srcset=""
             />
           </Stack>
         </Stack>
@@ -361,7 +166,7 @@ const Content = () => {
           >
             <Typography variant="subtitle1" gutterBottom>
               {">>"} Skills are crucial in a CV because they provide a concise
-              summary of an individual's abilities and qualifications.
+              summary of an individuals abilities and qualifications.
             </Typography>
           </Stack>
           <Stack
@@ -377,9 +182,9 @@ const Content = () => {
           >
             <Typography variant="subtitle1" gutterBottom>
               {">>"} Overall, skills play a pivotal role in communicating an
-              individual's abilities, matching job requirements, and setting
-              them apart from other candidates, making them an essential
-              component of an effective CV.
+              individuals abilities, matching job requirements, and setting them
+              apart from other candidates, making them an essential component of
+              an effective CV.
             </Typography>
           </Stack>
           <Stack>
@@ -455,7 +260,7 @@ const Content = () => {
             <Typography variant="subtitle1" gutterBottom>
               {">>"} Versatility: I possess a versatile skill set that allows me
               to adapt and excel in various roles and responsibilities. Whether
-              it's [specific skills], I am confident in my ability to contribute
+              its [specific skills], I am confident in my ability to contribute
               effectively and make a significant impact.
             </Typography>
           </Stack>
@@ -495,7 +300,7 @@ const Content = () => {
               }}
               src="/assets/selector.gif"
               alt=""
-              srcset=""
+              srcSet=""
             />
           </Stack>
         </Stack>
@@ -556,9 +361,9 @@ const Content = () => {
             variant="subtitle1"
             gutterBottom
           >
-            -CV or resume is an abbreviation of the Latin words 'curriculum
-            vitae', which mean 'life course'. A professional resume provides a
-            summary and a good overview of someone's life. Your resume includes
+            -CV or resume is an abbreviation of the Latin words `curriculum
+            vitae`, which mean `life course`. A professional resume provides a
+            summary and a good overview of someones life. Your resume includes
             your education(s) and qualifications, work experience, skills, and
             important qualities. By means of your resume, your potential
             employer will be able to get a good picture of your skills, work
@@ -608,7 +413,7 @@ const Content = () => {
             job interview. Therefore, you always start by mentioning your full
             name and email address and (mobile) phone number. Also mention your
             place of residence and address, as an employer might prefer an
-            employee living nearby. In case a driver's license is required for
+            employee living nearby. In case a drivers license is required for
             the role, also mention it. In case you have a representative
             LinkedIn profile or personal website, you can include a link to it
             in the personal details section.

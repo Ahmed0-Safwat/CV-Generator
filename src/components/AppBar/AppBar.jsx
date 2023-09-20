@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
+import SignInModal from "../SignInModal/SignInModal";
 
 const drawerWidth = 240;
 const navItems = [
@@ -43,6 +44,7 @@ const navItems = [
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -52,6 +54,14 @@ function DrawerAppBar(props) {
 
   const handleRouting = (route) => {
     navigate(route);
+  };
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   const drawer = (
@@ -78,6 +88,10 @@ function DrawerAppBar(props) {
           </ListItem>
         ))}
       </List>
+
+      <Button variant="contained" onClick={handleOpenModal}>
+        Sign In
+      </Button>
     </Box>
   );
 
@@ -125,6 +139,10 @@ function DrawerAppBar(props) {
                 <Link to={item.link}>{item.name}</Link>
               </Button>
             ))}
+
+            <Button variant="contained" onClick={handleOpenModal}>
+              Sign In
+            </Button>
           </Box>
 
           <IconButton
@@ -166,6 +184,8 @@ function DrawerAppBar(props) {
         </Drawer>
       </Box>
       <Box component="main" sx={{ p: 3 }}></Box>
+
+      {modalOpen && <SignInModal open={modalOpen} onClose={handleCloseModal} />}
     </Box>
   );
 }
