@@ -1,11 +1,7 @@
 import Content from "../../components/FAQ/Content.jsx";
 
 function QuestionsAndAnswers() {
-  return (
-    <div className="home-wrapper">
-      <Content />
-    </div>
-  );
+  return <Content />;
 }
 
 export default QuestionsAndAnswers;

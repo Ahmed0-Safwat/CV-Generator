@@ -1,11 +1,7 @@
 import Content from "../../components/Home/Content/Content.jsx";
 
 function Home() {
-  return (
-    <div className="home-wrapper">
-      <Content />
-    </div>
-  );
+  return <Content />;
 }
 
 export default Home;
