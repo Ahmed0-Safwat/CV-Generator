@@ -1,15 +1,12 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
-import InboxIcon from "@mui/icons-material/Inbox";
-import DraftsIcon from "@mui/icons-material/Drafts";
+
 const Content = () => {
   return (
     <Stack>
@@ -35,7 +32,7 @@ const Content = () => {
           flexDirection: "row",
         }}
       >
-        <Stack sx={{ width: "100%", maxWidth: 360, bgcolor: "	#F4F4F4" }}>
+        <Stack sx={{ width: "100%", maxWidth: 235, bgcolor: "	#F4F4F4" }}>
           <nav aria-label="secondary mailbox folders">
             <List>
               <ListItem disablePadding>

@@ -107,7 +107,11 @@ const HeroContent = () => {
           sx={{
             width: "80%",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: { xs: "column", lg: "row" },
+            alignItems: {
+              xs: "center",
+              lg: "flex-start",
+            },
             backgroundColor: "#fff",
             boxShadow: "0px 2px 10px gray",
             borderRadius: "10px",
@@ -128,6 +132,7 @@ const HeroContent = () => {
             <Typography
               sx={{
                 color: "gray",
+                textAlign: { xs: "center", lg: "start" },
               }}
               variant="subtitle1"
               gutterBottom
