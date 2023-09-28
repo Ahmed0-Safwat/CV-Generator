@@ -47,8 +47,8 @@ const HeroContent = () => {
         spacing={2}
         alignItems="center"
         sx={{
-          backgroundColor: "#8080801a",
-          boxShadow: "0px 3px 8px #00000014",
+          // backgroundColor: "#8080801a",
+          // boxShadow: "0px 3px 8px #00000014",
           transform: "translateY(-25px)",
         }}
       >
@@ -96,7 +96,7 @@ const HeroContent = () => {
               With our online CV maker, it is simple for anyone to quickly
               create a professional resume. Enter your personal details and
               begin filling out your resume content. Finally, choose one of our
-              36 available resume layouts , and download your resume.
+              36 available resume layouts .
             </Typography>
           </Stack>
         </Stack>
