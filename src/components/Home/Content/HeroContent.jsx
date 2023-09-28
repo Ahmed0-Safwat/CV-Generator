@@ -127,7 +127,14 @@ const HeroContent = () => {
           />
 
           <Stack>
-            <Typography variant="h6">More likely to land a job</Typography>
+            <Typography
+              sx={{
+                textAlign: { xs: "center", lg: "start" },
+              }}
+              variant="h6"
+            >
+              More likely to land a job
+            </Typography>
 
             <Typography
               sx={{
@@ -150,7 +157,11 @@ const HeroContent = () => {
           sx={{
             width: "80%",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: { xs: "column", lg: "row" },
+            alignItems: {
+              xs: "center",
+              lg: "flex-start",
+            },
             backgroundColor: "#fff",
             boxShadow: "0px 2px 10px gray",
             borderRadius: "10px",
@@ -166,11 +177,19 @@ const HeroContent = () => {
           />
 
           <Stack>
-            <Typography variant="h6">Organize your applications</Typography>
+            <Typography
+              sx={{
+                textAlign: { xs: "center", lg: "start" },
+              }}
+              variant="h6"
+            >
+              Organize your applications
+            </Typography>
 
             <Typography
               sx={{
                 color: "gray",
+                textAlign: { xs: "center", lg: "start" },
               }}
               variant="subtitle1"
               gutterBottom
