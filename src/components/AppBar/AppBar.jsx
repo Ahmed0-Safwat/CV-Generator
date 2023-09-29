@@ -152,9 +152,9 @@ function DrawerAppBar(props) {
             onClick={handleDrawerToggle}
             sx={{
               display: { sm: "none" },
-              backgroundColor: "black",
+              backgroundColor: "#2284d0",
               "&:hover": {
-                backgroundColor: "black",
+                backgroundColor: "gray",
               },
             }}
           >

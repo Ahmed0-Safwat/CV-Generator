@@ -44,6 +44,14 @@ const ThirdComponent = () => {
             boxShadow: "0px 0px 6px gray",
             padding: "24px",
             borderRadius: "5px",
+            alignItems: {
+              xs: "center",
+              lg: "flex-start",
+            },
+            textAlign: {
+              xs: "center",
+              lg: "left",
+            },
           }}
           style={{
             margin: "10px auto",
@@ -76,6 +84,14 @@ const ThirdComponent = () => {
             boxShadow: "0px 0px 6px gray",
             padding: "24px",
             borderRadius: "5px",
+            alignItems: {
+              xs: "center",
+              lg: "flex-start",
+            },
+            textAlign: {
+              xs: "center",
+              lg: "left",
+            },
           }}
           style={{
             margin: "10px auto",
@@ -219,6 +235,14 @@ const ThirdComponent = () => {
             boxShadow: "0px 0px 6px gray",
             padding: "24px",
             borderRadius: "5px",
+            alignItems: {
+              xs: "center",
+              lg: "flex-start",
+            },
+            textAlign: {
+              xs: "center",
+              lg: "left",
+            },
           }}
           style={{
             margin: "10px auto",
@@ -256,13 +280,21 @@ const ThirdComponent = () => {
             boxShadow: "0px 0px 6px gray",
             padding: "24px",
             borderRadius: "5px",
+            alignItems: {
+              xs: "center",
+              lg: "flex-start",
+            },
+            textAlign: {
+              xs: "center",
+              lg: "left",
+            },
           }}
           style={{
             margin: "10px auto",
           }}
         >
           <Typography variant="h6" gutterBottom>
-            How to make your own resume (or application letter)
+            How to make your own resume (or application letter) ?
           </Typography>
           <Typography
             style={{

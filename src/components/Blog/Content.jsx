@@ -32,7 +32,14 @@ const Content = () => {
           flexDirection: "row",
         }}
       >
-        <Stack sx={{ width: "100%", maxWidth: 235, bgcolor: "	#F4F4F4" }}>
+        <Stack
+          sx={{
+            width: "100%",
+            display: { xs: "none", md: "none", lg: "inline-block" },
+            maxWidth: 235,
+            bgcolor: "	#F4F4F4",
+          }}
+        >
           <nav aria-label="secondary mailbox folders">
             <List>
               <ListItem disablePadding>

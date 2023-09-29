@@ -83,16 +83,6 @@ const Content = () => {
             If you do not receive an email within 5 days confirmation after
             submitting the contact form, please fill in the form again!
           </Typography>
-          <TextField
-            style={{
-              marginBottom: "10px",
-              width: "98%",
-            }}
-            required
-            id="outlined-required"
-            label="User-Name"
-            defaultValue=""
-          />
 
           <TextField
             style={{
