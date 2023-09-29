@@ -5,7 +5,7 @@ import ThirdComponent from "./ThirdComponent";
 
 const Content = () => {
   return (
-    <Stack>
+    <Stack width="100%">
       <HeroContent />
       <SecondComponent />
       <ThirdComponent />
