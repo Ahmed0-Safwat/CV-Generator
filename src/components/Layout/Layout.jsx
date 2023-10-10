@@ -1,16 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { Box } from "@mui/system";
-import DrawerAppBar from "../AppBar/AppBar";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 const Layout = () => {
   return (
     <Box>
-      {/* <DrawerAppBar /> */}
       <Header />
-
-      <Box>
+      <Box
+        sx={{
+          transform: "translateY(-90px)",
+        }}
+      >
         <Outlet />
         <Footer />
       </Box>

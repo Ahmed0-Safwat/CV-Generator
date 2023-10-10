@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -11,6 +11,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
+import SignModal from "../SignModal/SignModal";
 
 const pages = ["Home", "Company", "Services", "Projects", "Blog", "FAQs"];
 
@@ -18,6 +19,7 @@ const Header = () => {
   const [currentRoute, setCurrentRoute] = useState("HOME");
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isTabletView } = useWindowSize();
+  const [modalOpen, setModalOpen] = useState(false);
 
   // useEffect(() => {
   //   if (pathname === "/") {
@@ -74,13 +76,21 @@ const Header = () => {
     });
   };
 
-  const handleLetsTalk = () => {
-    if (isTabletView) {
-      // push(`/contact-us`);
-    } else {
-      scrollToTargetById("footer");
-    }
+  const handleOpenModal = () => {
+    setModalOpen(true);
   };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  // const handleLetsTalk = () => {
+  //   if (isTabletView) {
+  //     // push(`/contact-us`);
+  //   } else {
+  //     scrollToTargetById("footer");
+  //   }
+  // };
 
   const drawer = (
     <Box paddingTop={1} sx={{ backgroundColor: "black" }}>
@@ -128,7 +138,7 @@ const Header = () => {
 
   return (
     <AppBar
-      position="absolute"
+      position="relative"
       component="nav"
       sx={{
         top: "16px",
@@ -140,6 +150,7 @@ const Header = () => {
         alignItems: "center",
         flexDirection: "row",
         boxShadow: "none",
+        zIndex: 1000,
       }}
     >
       <Stack
@@ -205,9 +216,9 @@ const Header = () => {
             fontSize: "14px",
             fontWeight: "bold",
           }}
-          onClick={handleLetsTalk}
+          onClick={handleOpenModal}
         >
-          Let's Talk
+          Login
         </Button>
         <IconButton
           size="large"
@@ -237,6 +248,7 @@ const Header = () => {
           {drawer}
         </Drawer>
       </Box>
+      {modalOpen && <SignModal open={modalOpen} onClose={handleCloseModal} />}
     </AppBar>
   );
 };

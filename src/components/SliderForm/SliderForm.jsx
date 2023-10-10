@@ -1,5 +1,7 @@
 import React from "react";
 import * as Components from "./Components";
+import useSignupUser from "../../api/login/signup";
+import useSigninUser from "../../api/login/signup";
 
 function SliderForm() {
   const [signIn, toggle] = React.useState(true);
@@ -12,6 +14,8 @@ function SliderForm() {
   });
   const [errors, setErrors] = React.useState({});
   const [submitted, setSubmitted] = React.useState(false);
+  const { mutate: signUpMutation } = useSignupUser();
+  const { mutate: signInMutation } = useSigninUser();
 
   const areSignInFieldsFilled = formData.signInEmail && formData.signInPassword;
   const areSignUpFieldsFilled =
@@ -72,8 +76,22 @@ function SliderForm() {
     const passwordError = validate("signUpPassword", formData.signUpPassword);
 
     if (!nameError && !emailError && !passwordError) {
-      // TODO: Submit the formData to the backend API for sign up
       console.log("SignUp data:", formData);
+
+      const data = {
+        name: formData.name,
+        email: formData.signUpEmail,
+        password: formData.signUpPassword,
+      };
+
+      signUpMutation(data, {
+        onSuccess: (response) => {
+          window.location.href = response.redirect_url;
+        },
+        onError: (error) => {
+          console.log("Error:", error);
+        },
+      });
     }
   };
 
@@ -87,8 +105,21 @@ function SliderForm() {
 
     // Now, after validation, check if there are any errors
     if (!emailError && !passwordError) {
-      // TODO: Submit the formData to the backend API for sign in
       console.log("SignIn data:", formData);
+
+      const data = {
+        email: formData.signInEmail,
+        password: formData.signInPassword,
+      };
+
+      signInMutation(data, {
+        onSuccess: (response) => {
+          window.location.href = response.redirect_url;
+        },
+        onError: (error) => {
+          console.log("Error:", error);
+        },
+      });
     }
   };
 

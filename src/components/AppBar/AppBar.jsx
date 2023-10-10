@@ -15,7 +15,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
-import SignInModal from "../SignInModal/SignInModal";
+import SignModal from "../SignModal/SignModal";
 
 const drawerWidth = 240;
 const navItems = [
@@ -185,7 +185,7 @@ function DrawerAppBar(props) {
       </Box>
       <Box component="main" sx={{ p: 3 }}></Box>
 
-      {modalOpen && <SignInModal open={modalOpen} onClose={handleCloseModal} />}
+      {modalOpen && <SignModal open={modalOpen} onClose={handleCloseModal} />}
     </Box>
   );
 }
