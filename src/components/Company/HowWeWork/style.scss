@@ -1,0 +1,48 @@
+.how-we-work-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  .how-we-work-content-text-container {
+    padding: 0 24px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    .how-we-work-content-header {
+      margin: auto;
+      font-weight: 500;
+      font-size: 30px;
+      color: #1f1f1f;
+    }
+    .how-we-work-content-description {
+      margin: auto;
+      font-size: 14px;
+      color: #1f1f1f;
+    }
+  }
+
+  .cards-section-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .buttom-text-container {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    .buttom-text {
+      margin: auto;
+      font-weight: 500;
+      font-size: 16px;
+      color: #e41469;
+      text-align: center;
+    }
+  }
+}

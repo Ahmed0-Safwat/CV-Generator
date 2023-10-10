@@ -1,0 +1,29 @@
+.faq-container {
+  max-width: 996px;
+  width: 100%;
+  .faq-header-container {
+    .header {
+      margin: auto;
+      color: #03adb5;
+      font-weight: 500;
+      font-size: 30px;
+    }
+  }
+  .faq-body-container {
+    padding: 0 24px;
+  }
+
+  .answer {
+    margin: auto;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1f1f1f;
+    padding: 0 40px;
+  }
+  .ant-collapse-header-text {
+    margin: auto;
+    font-weight: 500;
+    font-size: 16;
+    color: #1f1f1f;
+  }
+}
