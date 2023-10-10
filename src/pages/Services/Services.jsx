@@ -1,7 +1,7 @@
 import Content from "../../components/Contact/Content.jsx";
 
-function Contact() {
+function Services() {
   return <Content />;
 }
 
-export default Contact;
+export default Services;

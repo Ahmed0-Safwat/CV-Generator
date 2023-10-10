@@ -7,61 +7,53 @@ import Button from "@mui/material/Button";
 import { Stack } from "@mui/material";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Divider from "@mui/material/Divider";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import SignModal from "../SignModal/SignModal";
+import ListItem from "@mui/material/ListItem";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const pages = ["Home", "Company", "Services", "Projects", "Blog", "FAQs"];
-
+const navItems = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Company",
+    link: "/company",
+  },
+  {
+    name: "Services",
+    link: "/services",
+  },
+  {
+    name: "Resume",
+    link: "/resume",
+  },
+  {
+    name: "FAQ",
+    link: "/faq",
+  },
+];
 const Header = () => {
   const [currentRoute, setCurrentRoute] = useState("HOME");
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isTabletView } = useWindowSize();
   const [modalOpen, setModalOpen] = useState(false);
 
-  // useEffect(() => {
-  //   if (pathname === "/") {
-  //     setCurrentRoute("HOME");
-  //   } else {
-  //     setCurrentRoute(pathname.toUpperCase().replace("/", ""));
-  //   }
-
-  //   return () => {
-  //     setCurrentRoute("");
-  //   };
-  // }, [pathname]);
-
   const handleDrawerToggle = (e) => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const handleRouting = (page) => {
-    const route = page.toUpperCase();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
-    // switch (route) {
-    //   case "HOME":
-    //     push(`/`);
-    //     break;
-    //   case "COMPANY":
-    //     push("/company");
-    //     break;
-    //   case "SERVICES":
-    //     push("/services");
-    //     break;
-    //   case "PROJECTS":
-    //     push("/projects");
-    //     break;
-    //   case "BLOG":
-    //     push("/blog");
-    //     break;
-    //   case "FAQS":
-    //     push("/faq");
-    //     break;
-    //   default:
-    //     break;
-    // }
+  const navigate = useNavigate();
+
+  const handleRouting = (route) => {
+    navigate(route);
   };
 
   const scrollToTargetById = (id) => {
@@ -84,55 +76,34 @@ const Header = () => {
     setModalOpen(false);
   };
 
-  // const handleLetsTalk = () => {
-  //   if (isTabletView) {
-  //     // push(`/contact-us`);
-  //   } else {
-  //     scrollToTargetById("footer");
-  //   }
-  // };
-
   const drawer = (
-    <Box paddingTop={1} sx={{ backgroundColor: "black" }}>
-      <img
-        src={"/images/wexcute-logo-text-1.svg"}
-        width={168}
-        height={40}
-        alt="Wexcute Logo"
-      />
-      <Divider />
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Box sx={{ marginTop: 2 }}>
+        <img src="/assets/logo.png" alt="" />
+      </Box>
 
-      <List
-        sx={{ width: "100%", maxWidth: 250, bgcolor: "background.paper" }}
-        component="nav"
-        aria-labelledby="nested-list-subheader"
-      >
-        {pages.map((page) => {
-          return (
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.name} disablePadding>
             <ListItemButton
-              key={page}
-              onClick={() => handleRouting(page)}
               sx={{
-                color:
-                  currentRoute === page.toUpperCase()
-                    ? "primary.main"
-                    : "secondary.contrastText",
+                textAlign: "center",
+                ":hover": {
+                  color: "#fbbe3e",
+                },
               }}
+              onClick={() => handleRouting(item.link)}
             >
-              <ListItemIcon
-                sx={{
-                  color:
-                    currentRoute === page.toUpperCase()
-                      ? "primary.main"
-                      : "secondary.contrastText",
-                }}
-              >
-                {page}
-              </ListItemIcon>
+              {item.name}
             </ListItemButton>
-          );
-        })}
+          </ListItem>
+        ))}
       </List>
+
+      <Button variant="contained" onClick={handleOpenModal}>
+        Sign In
+      </Button>
     </Box>
   );
 
@@ -141,8 +112,8 @@ const Header = () => {
       position="relative"
       component="nav"
       sx={{
-        top: "16px",
-        background: "transparent",
+        top: "0",
+        backgroundColor: isHome ? "transparent" : "#14181c",
         height: "90px",
         width: "100%",
         justifyContent: "space-between",
@@ -183,24 +154,22 @@ const Header = () => {
             justifyContent: "center",
           }}
         >
-          {pages.map((page) => (
+          {navItems.map((page) => (
             <Button
-              key={page}
+              key={page.name}
               sx={{
                 color: "white",
                 px: "20px",
                 borderBottom:
-                  currentRoute === page.toUpperCase()
-                    ? "2px solid #E41469"
-                    : "none",
+                  location === page.link ? "2px solid #E41469" : "none",
                 fontSize: "16px",
                 fontWeight: 400,
               }}
               onClick={() => {
-                handleRouting(page);
+                handleRouting(page.link);
               }}
             >
-              {page}
+              {page.name}
             </Button>
           ))}
         </Box>

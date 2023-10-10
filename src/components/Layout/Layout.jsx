@@ -5,9 +5,10 @@ import Footer from "../Footer/Footer";
 
 const Layout = () => {
   return (
-    <Box>
+    <Box height="100%">
       <Header />
       <Box
+        height="100%"
         sx={{
           transform: "translateY(-90px)",
         }}
