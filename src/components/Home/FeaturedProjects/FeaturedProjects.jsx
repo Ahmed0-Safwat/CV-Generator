@@ -75,7 +75,7 @@ const FeaturedProjects = () => {
             maxWidth={{ xs: "100%", lg: "300px" }}
             className="values-title"
           >
-            Featured Projects
+            Featured CVs
           </Typography>
 
           <Typography
@@ -85,7 +85,7 @@ const FeaturedProjects = () => {
             fontWeight={400}
             lineHeight="38px"
           >
-            WeXcute delivers digital solutions that work.We have a proven track
+            CV Creator delivers effective CV solutions. We have a proven track
             record of success with a diverse range of clients. Contact us to
             learn more.
           </Typography>

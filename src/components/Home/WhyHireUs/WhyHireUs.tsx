@@ -6,8 +6,10 @@ import "./style.scss";
 
 const WhyHireUsData = {
   title: `Why you should hire us?`,
-  body: `We have the expertise and experience to help you with all of your tech needs. Whether you are looking to develop a new product,
-  improve your existing IT infrastructure, or create a more efficient workflow, we can help you achieve your goals.`,
+  body: `We possess the knowledge and experience to assist you 
+  with all your CV-related needs. Whether you want to craft a
+   new CV, enhance your existing one, or optimize your professional profile, we have the expertise
+    to support your objectives.`,
 };
 
 const WhyHireUs = () => {

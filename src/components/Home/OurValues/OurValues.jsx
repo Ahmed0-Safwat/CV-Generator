@@ -5,17 +5,17 @@ import WexcuteCard from "../../Common/Card/WexcuteCard";
 const OurExpertiesCards = [
   {
     cardIcon: "./images/quality-icon.svg",
-    cardText: "Reliable digital solutions that exceed expectations.",
+    cardText: "Reliable CV solutions that exceed expectations.",
     cardTitle: "Quality",
   },
   {
     cardIcon: "./images/collaboration-icon.svg",
-    cardText: `We align solutions with clients' goals, fostering partnerships for results.`,
+    cardText: `We align solutions with clients' career goals, fostering partnerships for results.`,
     cardTitle: "Collaboration",
   },
   {
     cardIcon: "./images/innovation-icon.svg",
-    cardText: "We stay ahead of trends and harness tech to drive growth.",
+    cardText: "We stay ahead of trends and harness tech to advance your CV.",
     cardTitle: "Innovation",
   },
   {
@@ -57,10 +57,10 @@ const OurExperties = () => {
             fontWeight={400}
             lineHeight="38px"
           >
-            WeXcute is a team of passionate software engineers who are dedicated
-            to creating smart solutions that help businesses thrive in the
-            digital world. We provide personalized, cutting-edge digital product
-            development services to businesses of all sizes.
+            Your CV is your professional story, and we are here to help you
+            craft it into a compelling narrative. CV Creator is a team of
+            experts dedicated to providing you with personalized CV creation
+            services tailored to your unique career journey.
           </Typography>
         </Stack>
 

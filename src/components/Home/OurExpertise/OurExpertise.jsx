@@ -5,33 +5,33 @@ import WexcuteCard from "../../Common/Card/WexcuteCard";
 const SERVICES_CARDS = [
   {
     cardIcon: "./images/web-design-icon.svg",
-    cardText: `We create stunning and user-friendly websites that convert.`,
-    cardTitle: "Web Design",
+    cardText: `We craft captivating and user-friendly CVs that impress.`,
+    cardTitle: "CV Design",
   },
   {
     cardIcon: "/images/mobile-app-icon.svg",
-    cardText: `We build engaging mobile apps that capture attention.`,
+    cardText: `We design mobile-friendly CVs that capture attention.`,
     cardTitle: "Mobile Applications",
   },
   {
     cardIcon: "/images/web-games-icon.svg",
-    cardText: `We create captivating web games that engage and entertain.`,
-    cardTitle: "Web Games",
+    cardText: `We design compelling resume templates that enhance your CV.`,
+    cardTitle: "Resume Templates",
   },
   {
     cardIcon: "/images/web-app-icon.svg",
-    cardText: "We develop custom web apps that streamline your business.",
-    cardTitle: "Web Applications",
+    cardText: "We create personalized CVs that stand out.",
+    cardTitle: "CV Maker",
   },
   {
     cardIcon: "/images/modules-icon.svg",
-    cardText: "We develop custom extensions that enhance digital products.",
-    cardTitle: "Modules/Addons",
+    cardText: "We provide tips and tools to enhance your CV.",
+    cardTitle: "Skills Enhancement",
   },
   {
     cardIcon: "/images/consulting-icon.svg",
-    cardText: `We help you maximize your digital potential through consultation`,
-    cardTitle: "Consulting & Advisory",
+    cardText: `We offer consultation to maximize your professional potential.`,
+    cardTitle: "Career Advice",
   },
 ];
 

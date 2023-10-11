@@ -107,7 +107,7 @@ const NewContactUs = () => {
               mb={2}
               className="lets-talk-header"
             >
-              Let's Talk
+              Let’s Begin
             </Typography>
             <Typography
               fontSize="20px"
@@ -116,8 +116,8 @@ const NewContactUs = () => {
               color="white"
             >
               Reach out to us today in the way that's most convenient for you.
-              We're excited to hear from you and help you take your business to
-              the next level!
+              We're excited to hear from you and assist you in creating a
+              standout CV!
             </Typography>
           </Stack>
           <Stack
@@ -241,7 +241,7 @@ const NewContactUs = () => {
                 lineHeight="24px"
                 color="white"
               >
-                <a href="mailto:info@wexcute.com">info@wexcute.com</a>
+                <a href="mailto:info@wexcute.com">info@CV-Creator.com</a>
               </Typography>
             </Stack>
 
@@ -261,7 +261,7 @@ const NewContactUs = () => {
                 lineHeight="24px"
                 color="white"
               >
-                Mon - Fri: 9 am — 6 pm
+                Sun - Thurs: 9 am — 6 pm
               </Typography>
             </Stack>
           </Stack>

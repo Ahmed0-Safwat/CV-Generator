@@ -16,24 +16,24 @@ const HowItWorksCards = [
     id: 1,
     isReversed: false,
     cardTitleNumber: "STEP 1",
-    cardTitle: "Discover",
+    cardTitle: "Explore",
     cardText:
-      "We dive deep into understanding your business goals, target audience, and market landscape to create a tailored strategy. By closely collaborating with you, we ensure our solutions align with your vision and objectives, positioning your business for success.",
+      "We explore your background and career goals, aligning our tools to your needs for effective, tailored solutions.",
   },
   {
     id: 2,
     cardTitle: "Design",
     isReversed: true,
     cardTitleNumber: "STEP 2",
-    cardText: `Our team of engineers crafts a visually appealing and user-friendly interface for your digital product. We focus on creating an engaging experience that reflects your brand's identity and caters to your users' needs, resulting in increased customer satisfaction and loyalty.`,
+    cardText: `Our team creates visually appealing, user-friendly templates that reflect your professional brand.`,
   },
   {
     id: 3,
-    cardTitle: "Develop",
+    cardTitle: "Build",
     isReversed: false,
     cardTitleNumber: "STEP 3",
     cardText:
-      "We bring your vision to life with robust software development and mobile app development services. Utilising agile methodologies and the latest technologies, we ensure efficient and iterative progress throughout the project, allowing us to adapt to changing requirements and deliver exceptional results.",
+      "We bring your CV to life with agile development, using the latest technologies to deliver exceptional results.",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const HowItWorksCards = [
     isReversed: true,
     cardTitleNumber: "STEP 4",
     cardText:
-      "Our meticulous quality assurance process ensures a polished final product, ready for launch. We provide ongoing support, maintenance, and updates to keep your digital solutions up-to-date, secure, and optimised for peak performance.",
+      "We provide polished digital resumes with meticulous quality assurance, ongoing support, and updates.",
   },
 ];
 
@@ -76,7 +76,7 @@ const HowItWorks = () => {
               fontWeight={700}
               className="how-it-works-title"
             >
-              How it works?
+              How It Happens?
             </Typography>
 
             <Typography
@@ -86,8 +86,8 @@ const HowItWorks = () => {
               fontWeight={400}
               lineHeight="32px"
             >
-              Our <strong>4D</strong> digital product development process
-              guarantees success.
+              Our <strong>4D</strong> Comprehensive CV Creation Process Ensures
+              Your Success.
             </Typography>
           </Stack>
 

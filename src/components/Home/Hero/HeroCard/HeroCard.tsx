@@ -108,7 +108,7 @@ const HeroCard: React.FC<Props> = ({
                 fontWeight: 600,
               }}
             >
-              Let's Talk
+              Let's Begin
             </Button>
           </Stack>
         </Stack>
