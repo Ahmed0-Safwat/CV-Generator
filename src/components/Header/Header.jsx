@@ -133,17 +133,17 @@ const Header = () => {
       >
         {isTabletView ? (
           <img
-            src={"/images/wexcute-logo-icon.svg"}
-            width={56}
-            height={56}
-            alt="Wexcute Logo"
+            src={"/images/cvcreator-logo.png"}
+            width={180}
+            height={40}
+            alt="Cv-Creator Logo"
           />
         ) : (
           <img
-            src={"/images/wexcute-logo-text-1.svg"}
+            src={"/images/cvcreator-logo.png"}
             width={220}
-            height={56}
-            alt="Wexcute Logo"
+            height={48}
+            alt="Cv-Creator Logo"
           />
         )}
         <Box
