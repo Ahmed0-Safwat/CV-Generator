@@ -4,8 +4,8 @@ import { Stack } from "@mui/material";
 
 const hero = [
   {
-    title: `Your Brand,\nOur Expertise.`,
-    subTitle: `Let's take your business to the next level.`,
+    title: `Your Cv,\nOur Expertise.`,
+    subTitle: `Let's take your cv to the next level.`,
     backgroundImageUrl: "/images/hero-image.png",
   },
 ];

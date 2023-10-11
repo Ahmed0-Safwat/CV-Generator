@@ -43,7 +43,7 @@ const Footer = () => {
           paddingX: "24px",
         }}
       >
-        <Stack>©{currentYear}. All rights reserved by wexcute OÜ.</Stack>
+        <Stack>©{currentYear}. All rights reserved by Cv-Creator.</Stack>
       </Stack>
     </Box>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
@@ -119,8 +119,8 @@ export const OverlayContainer = styled.div`
 
 export const Overlay = styled.div`
   background: #ff416c;
-  background: -webkit-linear-gradient(to right, #2b95ff, #6bb2d7);
-  background: linear-gradient(to right, #2b95ff, #6bb2d7);
+  background: -webkit-linear-gradient(to right, #ff2be5, #d76b6b);
+  background: linear-gradient(to right, #ff2be5, #d76b6b);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
