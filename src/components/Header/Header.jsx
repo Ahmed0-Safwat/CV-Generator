@@ -79,7 +79,11 @@ const Header = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Box sx={{ marginTop: 2 }}>
-        <img src="/assets/logo.png" alt="" />
+        <img
+          style={{ width: "100%" }}
+          src="/images/cvcreator-logo.png"
+          alt=""
+        />
       </Box>
 
       <Divider />
@@ -90,7 +94,7 @@ const Header = () => {
               sx={{
                 textAlign: "center",
                 ":hover": {
-                  color: "#fbbe3e",
+                  color: "#41819e",
                 },
               }}
               onClick={() => handleRouting(item.link)}
@@ -211,7 +215,11 @@ const Header = () => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            "& .MuiDrawer-paper": { width: "240px" },
+            "& .MuiDrawer-paper": {
+              width: "240px",
+              backgroundColor: "#000000e8",
+              color: "white",
+            },
           }}
         >
           {drawer}
