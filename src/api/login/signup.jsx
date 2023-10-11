@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 const useSignupUser = () => {
   const signupUser = async (data) => {
     const response = await fetch(
-      "http://moaaz2002-001-site1.atempurl.com/api/Users/register",
+      "https://moaaz2002-001-site1.atempurl.com/api/Users/register",
       {
         method: "POST",
         headers: {
