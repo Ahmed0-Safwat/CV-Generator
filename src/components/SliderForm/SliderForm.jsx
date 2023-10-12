@@ -86,7 +86,7 @@ function SliderForm() {
 
       signUpMutation(data, {
         onSuccess: (response) => {
-          window.location.href = response.redirect_url;
+          console.log("Success:", response);
         },
         onError: (error) => {
           console.log("Error:", error);
@@ -114,7 +114,7 @@ function SliderForm() {
 
       signInMutation(data, {
         onSuccess: (response) => {
-          window.location.href = response.redirect_url;
+          console.log("Success:", response);
         },
         onError: (error) => {
           console.log("Error:", error);
