@@ -1,7 +1,7 @@
 import React from "react";
 import * as Components from "./Components";
 import useSignupUser from "../../api/login/signup";
-import useSigninUser from "../../api/login/signup";
+import useSigninUser from "../../api/login/signin";
 
 function SliderForm() {
   const [signIn, toggle] = React.useState(true);
