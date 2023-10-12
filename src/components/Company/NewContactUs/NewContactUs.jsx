@@ -106,8 +106,9 @@ const NewContactUs = () => {
               fontWeight={700}
               mb={2}
               className="lets-talk-header"
+              
             >
-              Let’s Begin
+              Let's Begin
             </Typography>
             <Typography
               fontSize="20px"
