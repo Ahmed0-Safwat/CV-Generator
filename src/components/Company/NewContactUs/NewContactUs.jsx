@@ -106,7 +106,6 @@ const NewContactUs = () => {
               fontWeight={700}
               mb={2}
               className="lets-talk-header"
-              
             >
               Let's Begin
             </Typography>
@@ -152,7 +151,7 @@ const NewContactUs = () => {
                     lineHeight="24px"
                     color="white"
                   >
-                    Road 18, Sarayat El Maadi, 5th Floor,Building # 55, Cairo.
+                    Road 8, Ahmed-Orabi, 1th Floor,Building # 2, Cairo.
                   </Typography>
                 </Stack>
 
@@ -167,54 +166,7 @@ const NewContactUs = () => {
                     lineHeight="24px"
                     color="white"
                   >
-                    +20 1000 20 9911
-                  </Typography>
-                </Stack>
-              </Stack>
-            </Stack>
-
-            <Stack spacing={3} maxWidth={"300px"}>
-              <Stack direction="row" alignItems="center" spacing={1}>
-                <img
-                  src={"/images/de.svg"}
-                  width={27}
-                  height={20}
-                  alt="image"
-                />
-
-                <Typography color="white" fontWeight={500} fontSize="20px">
-                  Germany
-                </Typography>
-              </Stack>
-
-              <Stack spacing={1} justifyContent={"center"}>
-                <Stack direction="row" alignItems="center" spacing={2}>
-                  <LocationOnOutlinedIcon
-                    sx={{ color: "white", width: "24px", height: "24px" }}
-                  />
-
-                  <Typography
-                    fontSize="16px"
-                    fontWeight={400}
-                    lineHeight="24px"
-                    color="white"
-                  >
-                    Lindenstraße 1, 20099 Hamburg.
-                  </Typography>
-                </Stack>
-
-                <Stack direction="row" alignItems="center" spacing={2}>
-                  <LocalPhoneOutlinedIcon
-                    sx={{ color: "white", width: "24px", height: "24px" }}
-                  />
-
-                  <Typography
-                    fontSize="16px"
-                    fontWeight={400}
-                    lineHeight="24px"
-                    color="white"
-                  >
-                    +49 1573 2897307
+                    +20 1114277227
                   </Typography>
                 </Stack>
               </Stack>
@@ -244,26 +196,26 @@ const NewContactUs = () => {
               >
                 <a href="mailto:info@wexcute.com">info@CV-Creator.com</a>
               </Typography>
-            </Stack>
 
-            <Stack spacing={3} maxWidth="300px" width="100%">
-              <Stack direction="row" alignItems="center" spacing={1}>
-                <AccessTimeOutlinedIcon
-                  sx={{ color: "white", width: "24px", height: "24px" }}
-                />
+              <Stack spacing={3} maxWidth="300px" width="100%">
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <AccessTimeOutlinedIcon
+                    sx={{ color: "white", width: "24px", height: "24px" }}
+                  />
 
-                <Typography color="white" fontWeight={500} fontSize="20px">
-                  Working Hours
+                  <Typography color="white" fontWeight={500} fontSize="20px">
+                    Working Hours
+                  </Typography>
+                </Stack>
+                <Typography
+                  fontSize="16px"
+                  fontWeight={400}
+                  lineHeight="24px"
+                  color="white"
+                >
+                  Sun - Thurs: 9 am — 6 pm
                 </Typography>
               </Stack>
-              <Typography
-                fontSize="16px"
-                fontWeight={400}
-                lineHeight="24px"
-                color="white"
-              >
-                Sun - Thurs: 9 am — 6 pm
-              </Typography>
             </Stack>
           </Stack>
 
