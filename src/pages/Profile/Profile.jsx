@@ -53,11 +53,12 @@ const Profile = () => {
             <Typography
               align="center"
               fontWeight={600}
-              lineHeight="35px"
               className="how-it-works-title"
               sx={{
                 color: "white",
                 fontSize: { xs: "14px", md: "24px", lg: "32px" },
+                lineHeight:{ xs: "30px", md: "45px", lg: "50px" },
+
               }}
             >
               Ahmed Safwat
@@ -86,17 +87,17 @@ const Profile = () => {
         }}
       >
         <Typography
-          align="center"
-          fontSize="50px"
           lineHeight="52px"
           fontWeight={600}
           className="how-it-works-title"
+          
           sx={{
-            fontFamily: "Pacifico",
-            textDecorationLine: "underline",
+            fontSize: { xs: "10px", md: "30px", lg: "40px" },
+            textAlign:{ xs: "center", md: "center", lg: "start" },
+            p:3,
           }}
         >
-          Saved Cv
+          Your Curriculum vitaes
         </Typography>
         <Stack
           gap={2}
@@ -118,7 +119,6 @@ const Profile = () => {
           <img
             style={{
               width: "400px",
-
               height: "400px",
               borderRadius: "20px",
             }}
@@ -127,7 +127,6 @@ const Profile = () => {
           <img
             style={{
               width: "400px",
-
               height: "400px",
               borderRadius: "20px",
             }}
