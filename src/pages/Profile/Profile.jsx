@@ -21,12 +21,7 @@ const Profile = () => {
       >
         <Stack
           sx={{
-            ml: { xs: 0, md: 0, lg: 4 },
-            alignItems: {
-              xs: "center",
-              md: "center",
-              lg: "flex-start",
-            },
+            alignItems: "center",
             textAlign: {
               xs: "center",
               lg: "left",
@@ -46,7 +41,7 @@ const Profile = () => {
           >
             <img
               style={{ width: "50%", borderRadius: "50%" }}
-              src="/images/profile.jpg"
+              src="/images/profile.png"
               alt=""
             />
 
@@ -57,8 +52,7 @@ const Profile = () => {
               sx={{
                 color: "white",
                 fontSize: { xs: "14px", md: "24px", lg: "32px" },
-                lineHeight:{ xs: "30px", md: "45px", lg: "50px" },
-
+                lineHeight: { xs: "30px", md: "45px", lg: "50px" },
               }}
             >
               Ahmed Safwat
@@ -81,24 +75,22 @@ const Profile = () => {
 
       <Stack
         width="100%"
-        spacing={4}
+        spacing={2}
         sx={{
           padding: "16px",
         }}
       >
-        <Typography
-          lineHeight="52px"
-          fontWeight={600}
-          className="how-it-works-title"
-          
+        <Divider
+          textAlign="left"
           sx={{
-            fontSize: { xs: "10px", md: "30px", lg: "40px" },
-            textAlign:{ xs: "center", md: "center", lg: "start" },
-            p:3,
+            fontSize: { xs: "24px", md: "25px", lg: "30px" },
+            textAlign: { xs: "center", md: "center", lg: "start" },
+            p: 3,
           }}
         >
+          {" "}
           Your Curriculum vitaes
-        </Typography>
+        </Divider>
         <Stack
           gap={2}
           sx={{
@@ -114,7 +106,7 @@ const Profile = () => {
               height: "400px",
               borderRadius: "20px",
             }}
-            src=" /images/hero-image.png"
+            src=" /images/Mockup1.png"
           />
           <img
             style={{
@@ -122,7 +114,7 @@ const Profile = () => {
               height: "400px",
               borderRadius: "20px",
             }}
-            src=" /images/hero-image.png"
+            src=" /images/Mockup2.png"
           />
           <img
             style={{
@@ -130,7 +122,7 @@ const Profile = () => {
               height: "400px",
               borderRadius: "20px",
             }}
-            src=" /images/hero-image.png"
+            src=" /images/Mockup3.png"
           />
           <img
             style={{
@@ -139,7 +131,7 @@ const Profile = () => {
               height: "400px",
               borderRadius: "20px",
             }}
-            src=" /images/hero-image.png"
+            src=" /images/Mockup4.png"
           />
         </Stack>
       </Stack>
