@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Hero from "../../components/Profile/Hero/Hero";
@@ -21,6 +21,7 @@ const Profile = () => {
       src: "/images/Mockup4.png",
     },
   ];
+
   return (
     <Stack
       sx={{
@@ -28,7 +29,6 @@ const Profile = () => {
       }}
     >
       <Hero />
-
       <Stack
         width="100%"
         spacing={2}

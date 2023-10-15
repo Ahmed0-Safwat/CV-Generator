@@ -98,9 +98,9 @@ const ImagesCarousel = ({ carouselImages }: ImagesCarouselProps) => {
     <div className="carousel">
       <Slider {...settings}>
         {carouselImages.map((slideData) => {
-          const { source: imageSource, title, subtitle } = slideData;
+          const { source: imageSource, title } = slideData;
           return (
-            <div className="slide-content">
+            <div key={title} className="slide-content">
               <Stack className="slide-image" sx={{ maxWidth: slideWidth }}>
                 <img
                   src={imageSource}
@@ -109,14 +109,6 @@ const ImagesCarousel = ({ carouselImages }: ImagesCarouselProps) => {
                   alt={title}
                 />
               </Stack>
-              {/* <div className="slide-text">
-                <Typography sx={{ color: '#FFFFFF' }} variant="h4" className="title" mb={1}>
-                  {title}
-                </Typography>
-                <Typography color="text.secondary" className="subtitle" sx={{ fontWeight: 500, color: 'rgba(255, 255, 255, 0.68)' }}>
-                  {subtitle}
-                </Typography>
-              </div> */}
             </div>
           );
         })}

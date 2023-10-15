@@ -1,15 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
 
-const useSignupUser = () => {
-  const signupUser = async (data) => {
+const useVerifyEmail = () => {
+  const verifyEmail = async (data) => {
     const response = await fetch(
-      "https://moaaz2002-001-site1.atempurl.com/api/Users/register",
+      `https://moaaz2002-001-site1.atempurl.com/api/Users/Email/VerifyMail?email=${data?.email}&token=${data?.token}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
       }
     );
 
@@ -17,11 +16,11 @@ const useSignupUser = () => {
       const responseData = await response.json();
       return responseData;
     } else {
-      return response;
+      throw new Error("Error posting data");
     }
   };
 
-  return useMutation(signupUser);
+  return useMutation(verifyEmail);
 };
 
-export default useSignupUser;
+export default useVerifyEmail;

@@ -31,7 +31,7 @@ const ConfirmationModal = ({ open, onClose }) => {
           boxShadow: 24,
         }}
       >
-        <SliderForm />
+        <SliderForm handleClose={handleClose} />
       </Box>
     </Modal>
   );

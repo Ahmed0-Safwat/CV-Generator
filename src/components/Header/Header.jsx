@@ -14,6 +14,7 @@ import SignModal from "../SignModal/SignModal";
 import ListItem from "@mui/material/ListItem";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import ProfileSection from "../ProfileSection/ProfileSection";
 
 const navItems = [
   {
@@ -178,31 +179,20 @@ const Header = () => {
           ))}
         </Box>
 
-        <Button
-          variant="contained"
-          sx={{
-            display: { xs: "none", lg: "block" },
-            padding: "0px",
-            borderRadius: "100px",
-            minWidth: "120px",
-            height: "46px",
-            fontSize: "14px",
-            fontWeight: "bold",
-          }}
-          onClick={handleOpenModal}
-        >
-          Login
-        </Button>
-        <IconButton
-          size="large"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          color="inherit"
-          sx={{ display: { md: "block", lg: "none" } }}
-        >
-          <MenuIcon />
-        </IconButton>
+        <Stack direction="row" spacing={0}>
+          <IconButton
+            size="large"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            color="inherit"
+            sx={{ display: { md: "block", lg: "none" }, padding: 0 }}
+          >
+            <MenuIcon />
+          </IconButton>
+
+          <ProfileSection handleOpenModal={handleOpenModal} />
+        </Stack>
       </Stack>
       <Box id="drawer-wrapper" component="nav">
         <Drawer

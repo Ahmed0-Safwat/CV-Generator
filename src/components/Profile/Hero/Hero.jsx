@@ -1,7 +1,17 @@
 import "./style.scss";
 import { Stack, Typography, Avatar, Box } from "@mui/material";
+import ImageUpload from "../../ImageUpload/ImageUpload";
+import { useStore } from "../../../hooks/useStore";
+import shallow from "zustand/shallow";
 
 const Hero = () => {
+  const { globalState } = useStore(
+    (state) => ({
+      globalState: state.globalState,
+    }),
+    shallow
+  );
+
   return (
     <Stack
       sx={{
@@ -38,15 +48,17 @@ const Hero = () => {
             m: 2,
           }}
         >
-          <Avatar
-            alt=""
-            src=""
-            sx={{
-              width: { xs: "64px", sm: "108px", md: "144px" },
-              height: { xs: "64px", sm: "108px", md: "144px" },
-            }}
-          />
-
+          <Box position="relative">
+            <Avatar
+              alt=""
+              src={globalState.image || ""}
+              sx={{
+                width: { xs: "64px", sm: "108px", md: "144px" },
+                height: { xs: "64px", sm: "108px", md: "144px" },
+              }}
+            />
+            <ImageUpload />,
+          </Box>
           <Box>
             <Typography
               align="center"

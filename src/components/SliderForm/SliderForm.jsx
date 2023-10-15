@@ -2,17 +2,32 @@ import React from "react";
 import * as Components from "./Components";
 import useSignupUser from "../../api/login/signup";
 import useSigninUser from "../../api/login/signin";
+import { Stack } from "@mui/material";
+import { useStore } from "../../hooks/useStore";
 
-function SliderForm() {
+function SliderForm({ handleClose }) {
   const [signIn, toggle] = React.useState(true);
+  const [showValidationComponent, setShowValidationComponent] =
+    React.useState(false);
   const [formData, setFormData] = React.useState({
     name: "",
     signUpEmail: "",
     signUpPassword: "",
     signInEmail: "",
     signInPassword: "",
+    otp: null,
   });
-  const [errors, setErrors] = React.useState({});
+  const [errors, setErrors] = React.useState({
+    name: "",
+    signUpEmail: "",
+    signUpPassword: "",
+    signInEmail: "",
+    signInPassword: "",
+    signInError: "",
+    signUpError: "",
+    verifyError: "",
+    verifySuccess: "",
+  });
   const [submitted, setSubmitted] = React.useState(false);
   const { mutate: signUpMutation } = useSignupUser();
   const { mutate: signInMutation } = useSigninUser();
@@ -85,14 +100,61 @@ function SliderForm() {
       };
 
       signUpMutation(data, {
-        onSuccess: (response) => {
-          console.log("Success:", response);
-        },
         onError: (error) => {
-          console.log("Error:", error);
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            signUpError: "An error occurred during sign up.",
+          }));
+        },
+        onSettled: (res) => {
+          console.log("res:", res);
+          if (res?.status === 400) {
+            console.log("11111HEREEE");
+
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              signUpError: "Email Already Exists",
+            }));
+          } else {
+            console.log("HEREEE");
+            setShowValidationComponent(true);
+          }
         },
       });
     }
+  };
+
+  const handleVerifyEmail = async (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+
+    const data = {
+      email: formData.signUpEmail,
+      token: formData.otp,
+    };
+
+    await fetch(
+      `https://moaaz2002-001-site1.atempurl.com/api/Users/Email/VerifyMail?email=${data?.email}&token=${data?.token}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    ).then((res) => {
+      if (res.status === 200) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          verifySuccess: "Email Verified Successfully Please Sign in",
+        }));
+      } else {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          verifyError: "Invalid OTP Number",
+        }));
+      }
+    });
   };
 
   const handleSignInClick = (e) => {
@@ -112,12 +174,34 @@ function SliderForm() {
         password: formData.signInPassword,
       };
 
+      const notVerifiedMessage =
+        "Email is not Verified ,Verification mail sent!";
+
       signInMutation(data, {
         onSuccess: (response) => {
-          console.log("Success:", response);
+          if (response.message === notVerifiedMessage) {
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              signInError: "Email is not verified",
+            }));
+          } else {
+            console.log("response", response);
+            useStore.setState({
+              globalState: {
+                user: response.user,
+                token: response.token,
+              },
+            });
+            handleClose();
+          }
         },
         onError: (error) => {
-          console.log("Error:", error);
+          if (error) {
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              signInError: "Email does not exist",
+            }));
+          }
         },
       });
     }
@@ -126,43 +210,76 @@ function SliderForm() {
   return (
     <Components.Container>
       <Components.SignUpContainer signinIn={signIn}>
-        <Components.Form noValidate>
-          <Components.Title>Create Account</Components.Title>
-          <Components.Input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-          {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
-          <Components.Input
-            type="email"
-            name="signUpEmail"
-            placeholder="Email"
-            value={formData.signUpEmail}
-            onChange={handleChange}
-          />
-          {errors.signUpEmail && (
-            <div style={{ color: "red" }}>{errors.signUpEmail}</div>
-          )}
-          <Components.Input
-            type="password"
-            name="signUpPassword"
-            placeholder="Password"
-            value={formData.signUpPassword}
-            onChange={handleChange}
-          />
-          {errors.signUpPassword && (
-            <div style={{ color: "red" }}>{errors.signUpPassword}</div>
-          )}
-          <Components.Button
-            disabled={!areSignUpFieldsFilled} // button is disabled if not both fields have some string value
-            onClick={handleSignUp}
-          >
-            Sign Up
-          </Components.Button>
-        </Components.Form>
+        {showValidationComponent ? (
+          <Components.Form noValidate>
+            <Stack spacing={3}>
+              <Components.Title>Verify Account</Components.Title>
+              <Components.Input
+                type="number"
+                name="otp"
+                placeholder="Enter OTP"
+                value={formData.otp}
+                onChange={handleChange}
+              />
+              {errors.verifyError && (
+                <div style={{ color: "red" }}>{errors.verifyError}</div>
+              )}
+              {errors.verifySuccess && (
+                <div style={{ color: "green" }}>{errors.verifySuccess}</div>
+              )}
+
+              <Components.Button
+                disabled={!areSignUpFieldsFilled} // button is disabled if not both fields have some string value
+                onClick={handleVerifyEmail}
+              >
+                Verify
+              </Components.Button>
+            </Stack>
+          </Components.Form>
+        ) : (
+          <Components.Form noValidate>
+            <Components.Title>Create Account</Components.Title>
+            <Components.Input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+
+            {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
+            <Components.Input
+              type="email"
+              name="signUpEmail"
+              placeholder="Email"
+              value={formData.signUpEmail}
+              onChange={handleChange}
+            />
+            {errors.signUpEmail && (
+              <div style={{ color: "red" }}>{errors.signUpEmail}</div>
+            )}
+            <Components.Input
+              type="password"
+              name="signUpPassword"
+              placeholder="Password"
+              value={formData.signUpPassword}
+              onChange={handleChange}
+            />
+            <Stack spacing={2}>
+              {(errors.signUpPassword || errors.signUpError) && (
+                <div style={{ color: "red" }}>
+                  {errors.signUpPassword || errors.signUpError}
+                </div>
+              )}
+              <Components.Button
+                disabled={!areSignUpFieldsFilled} // button is disabled if not both fields have some string value
+                onClick={handleSignUp}
+              >
+                Sign Up
+              </Components.Button>
+            </Stack>
+          </Components.Form>
+        )}
       </Components.SignUpContainer>
 
       <Components.SignInContainer signinIn={signIn}>
@@ -185,9 +302,12 @@ function SliderForm() {
             value={formData.signInPassword}
             onChange={handleChange}
           />
-          {errors.signInPassword && (
-            <div style={{ color: "red" }}>{errors.signInPassword}</div>
+          {(errors.signInPassword || errors.signInError) && (
+            <div style={{ color: "red" }}>
+              {errors.signInPassword || errors.signInError}
+            </div>
           )}
+
           <Components.Anchor href="#">Forgot your password?</Components.Anchor>
           <Components.Button
             disabled={!areSignInFieldsFilled} // button is disabled if not both fields have some string value
