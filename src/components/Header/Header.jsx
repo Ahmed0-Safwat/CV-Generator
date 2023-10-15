@@ -117,7 +117,7 @@ const Header = () => {
       component="nav"
       sx={{
         top: "0",
-        backgroundColor: isHome ? "transparent" : "#14181c",
+        backgroundColor: "transparent",
         height: "90px",
         width: "100%",
         justifyContent: "space-between",

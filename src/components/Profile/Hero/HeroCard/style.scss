@@ -1,0 +1,16 @@
+#hero-card {
+  .hero-content-wrapper {
+    text-wrap: balance;
+
+    .content-title {
+      background: -webkit-linear-gradient(302deg, #03adb5 8.02%, #e41469 78.29%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .learn-more-btn {
+    width: 120px;
+    border-radius: 4px;
+  }
+}
