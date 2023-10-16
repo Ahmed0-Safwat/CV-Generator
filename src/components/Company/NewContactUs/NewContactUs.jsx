@@ -194,7 +194,9 @@ const NewContactUs = () => {
                 lineHeight="24px"
                 color="white"
               >
-                <a href="mailto:info@wexcute.com">info@CV-Creator.com</a>
+                <a href="https://mail.google.com/mail/u/0/#inbox">
+                  info@CV-Creator.com
+                </a>
               </Typography>
 
               <Stack spacing={3} maxWidth="300px" width="100%">
