@@ -71,10 +71,9 @@ const OurExpertise = () => {
             lineHeight="38px"
             width="100%"
           >
-            WeXcute offers a wide range of software development and app
-            solutions for startups, SMEs, and large corporations. Explore our
-            services to discover how we can help your business thrive in the
-            digital landscape.
+            CV Creator provides a wide range of CV-building solutions for
+            professionals at all career stages. Explore our services to discover
+            how we can help you succeed in your job search.
           </Typography>
         </Stack>
 
