@@ -1,8 +1,9 @@
 import TextField from "@mui/material/TextField";
 import Hero from "../../components/Home/Hero/Hero";
-import OutlinedInput from "@mui/material/OutlinedInput";
-
-import { Stack, Typography } from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import Button from "@mui/material/Button";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { Stack, Typography, Divider } from "@mui/material";
 
 function Services() {
   return (
@@ -16,6 +17,16 @@ function Services() {
           mt: 4,
         }}
       >
+        <Stack sx={{ textAlign: "center" }}>
+          <PersonIcon
+            sx={{
+              width: "42px",
+              height: "42px",
+              margin: "0px auto",
+            }}
+          />
+          personal info
+        </Stack>
         <Stack gap={4}>
           <Stack
             sx={{
@@ -49,6 +60,7 @@ function Services() {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
+                flexWrap: "wrap",
               }}
             >
               <TextField
@@ -152,6 +164,19 @@ function Services() {
             </Stack>
           </Stack>
         </Stack>
+        <Stack>
+          <Button
+            sx={{
+              margin: "0px auto",
+              width: { xs: "20%", sm: "12%", md: "15%", lg: "12%" },
+            }}
+            variant="contained"
+          >
+            Next
+            <NavigateNextIcon />
+          </Button>
+        </Stack>
+        <Divider />
         <Stack gap={4}>
           <Stack
             sx={{
@@ -437,6 +462,18 @@ function Services() {
               />
             </Stack>
           </Stack>
+        </Stack>
+        <Stack>
+          <Button
+            sx={{
+              margin: "0px auto",
+              width: { xs: "25%", sm: "17%", md: "15%", lg: "10%" },
+            }}
+            variant="contained"
+          >
+            Generate
+            <NavigateNextIcon />
+          </Button>
         </Stack>
       </Stack>
     </>
