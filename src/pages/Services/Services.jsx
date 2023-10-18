@@ -4,7 +4,30 @@ import PersonIcon from "@mui/icons-material/Person";
 import Button from "@mui/material/Button";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Stack, Typography, Divider } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
 
+const currencies = [
+  {
+    value: "20%",
+    label: "Poor",
+  },
+  {
+    value: "40%",
+    label: "Fair",
+  },
+  {
+    value: "60%",
+    label: "Good",
+  },
+  {
+    value: "80%",
+    label: "Very Good",
+  },
+  {
+    value: "100%",
+    label: "Excellent",
+  },
+];
 function Services() {
   return (
     <>
@@ -168,7 +191,8 @@ function Services() {
           <Button
             sx={{
               margin: "0px auto",
-              width: { xs: "20%", sm: "12%", md: "15%", lg: "12%" },
+              width: { xs: "20%", sm: "12%", md: "13%", lg: "10%" },
+              fontSize: { xs: "17px", sm: "18px", md: "21px", lg: "24px" },
             }}
             variant="contained"
           >
@@ -176,7 +200,7 @@ function Services() {
             <NavigateNextIcon />
           </Button>
         </Stack>
-        <Divider />
+        {/* *************************************************************************************** */}
         <Stack gap={4}>
           <Stack
             sx={{
@@ -259,6 +283,8 @@ function Services() {
             </Stack>
           </Stack>
         </Stack>
+        {/* *************************************************************************************** */}
+
         <Stack gap={4}>
           <Stack
             sx={{
@@ -354,6 +380,8 @@ function Services() {
             </Stack>
           </Stack>
         </Stack>
+        {/* *************************************************************************************** */}
+
         <Stack gap={4}>
           <Stack
             sx={{
@@ -416,6 +444,8 @@ function Services() {
             </Stack>
           </Stack>
         </Stack>
+        {/* *************************************************************************************** */}
+
         <Stack gap={4}>
           <Stack
             sx={{
@@ -453,21 +483,39 @@ function Services() {
             >
               <TextField
                 style={{
-                  width: "95%",
-                  margin: "0px auto",
+                  width: "49%",
                 }}
                 required
                 id="outlined-required"
                 label="Skill"
               />
+              <TextField
+                style={{
+                  width: "49%",
+                }}
+                id="outlined-select-currency"
+                select
+                label="Select"
+                defaultValue="EUR"
+                helperText="Please Select Your Skill Level"
+              >
+                {currencies.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Stack>
           </Stack>
         </Stack>
+        {/* *************************************************************************************** */}
+
         <Stack>
           <Button
             sx={{
               margin: "0px auto",
-              width: { xs: "25%", sm: "17%", md: "15%", lg: "10%" },
+              width: { xs: "30%", sm: "17%", md: "15%", lg: "13%" },
+              fontSize: { xs: "17px", sm: "20px", md: "21px", lg: "25px" },
             }}
             variant="contained"
           >
