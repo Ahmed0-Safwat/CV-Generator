@@ -1,6 +1,6 @@
 import Hero from "../../components/Home/Hero/Hero";
 import React from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Divider } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -16,11 +16,11 @@ function Resume() {
           width: "60%",
           backgroundColor: "blue",
           display: "flex",
-          margin: "5px auto",
+          margin: "50px auto",
           flexDirection: "row",
+          mb: 9,
         }}
       >
-        <Stack></Stack>
         <Stack
           gap={2}
           sx={{
@@ -179,6 +179,7 @@ function Resume() {
             >
               Education
             </Typography>
+            {/* *********** */}
             <Stack spacing={4}>
               <Stack>
                 <Typography
@@ -286,8 +287,8 @@ function Resume() {
                 </Typography>
               </Stack>
             </Stack>
+            {/* *********** */}
           </Stack>
-
           <Stack
             gap={2}
             sx={{
@@ -967,6 +968,466 @@ function Resume() {
         </Stack>
       </Stack>
       {/* ********************************************************************************************** */}
+      <Stack
+        sx={{
+          width: "100%",
+          height: "16px",
+          backgroundColor: "Black",
+          borderRadius: "4px",
+        }}
+      ></Stack>
+      {/* ********************************************************************************************** */}
+      <Stack
+        sx={{
+          width: "60%",
+          backgroundColor: "blue",
+          display: "flex",
+          margin: "50px auto",
+          flexDirection: "row",
+          mb: 9,
+        }}
+      >
+        <Stack
+          sx={{
+            width: "27%",
+            backgroundColor: "#d0d0d0",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Stack>
+            <Avatar
+              sx={{
+                width: "200px",
+                height: "200px",
+                m: "32px auto",
+              }}
+              alt="Remy Sharp"
+              src="/images/temp-photo.jpg"
+            />
+          </Stack>
+
+          <Stack
+            sx={{
+              margin: "0px auto",
+              backgroundColor: "#43443f",
+              width: "80%",
+              borderRadius: "50px",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "30px",
+                fontWeight: "600",
+                fontStyle: "normal",
+                color: "white",
+                textAlign: "center",
+                padding: "8px",
+              }}
+            >
+              Contact Me
+            </Typography>
+          </Stack>
+          <Stack
+            gap={2}
+            sx={{
+              margin: "16px auto",
+              width: "80%",
+            }}
+          >
+            <Stack
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "15px",
+                justifyContent: "space-between",
+              }}
+            >
+              <Stack
+                spacing={3.2}
+                sx={{
+                  color: "#43443f",
+                }}
+              >
+                <CallIcon />
+                <LocationOnIcon />
+                <AlternateEmailIcon />
+                <LinkedInIcon />
+              </Stack>
+              <Stack spacing={3}>
+                <Typography
+                  sx={{
+                    color: "#43443f",
+                    fontSize: "17px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                  }}
+                >
+                  +01114277227
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#43443f",
+                    fontSize: "17px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                  }}
+                >
+                  123 Anywhere St., Any City
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#43443f",
+                    fontSize: "17px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                  }}
+                >
+                  hello@reallygreatcompany.com
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#43443f",
+                    fontSize: "17px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                  }}
+                >
+                  www.reallygreatsite.com
+                </Typography>
+              </Stack>
+            </Stack>
+          </Stack>
+          <Stack
+            sx={{
+              margin: "16px auto",
+              backgroundColor: "#43443f",
+              width: "80%",
+              borderRadius: "50px",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "30px",
+                fontWeight: "600",
+                fontStyle: "normal",
+                color: "white",
+                textAlign: "center",
+                padding: "8px",
+              }}
+            >
+              Education
+            </Typography>
+          </Stack>
+          <Stack
+            spacing={4}
+            sx={{
+              margin: "16px auto",
+              width: "80%",
+            }}
+          >
+            <Stack>
+              <Typography
+                sx={{
+                  color: "#43443f",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                }}
+              >
+                Master Degree in Computer Science
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#43443f",
+                  fontSize: "18px",
+                  fontWeight: "400",
+                  fontStyle: "normal",
+                }}
+              >
+                Misr International University
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#626161",
+                  fontSize: "17px",
+                  fontWeight: "500",
+                  fontStyle: "normal",
+                }}
+              >
+                2017 - Present
+              </Typography>
+            </Stack>
+            <Stack>
+              <Typography
+                sx={{
+                  color: "#43443f",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                }}
+              >
+                Master Degree in Computer Science
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#43443f",
+                  fontSize: "18px",
+                  fontWeight: "400",
+                  fontStyle: "normal",
+                }}
+              >
+                Misr International University
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#626161",
+                  fontSize: "17px",
+                  fontWeight: "500",
+                  fontStyle: "normal",
+                }}
+              >
+                2013 - 2017
+              </Typography>
+            </Stack>
+            <Stack>
+              <Typography
+                sx={{
+                  color: "#43443f",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                }}
+              >
+                Master Degree in Computer Science
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#43443f",
+                  fontSize: "18px",
+                  fontWeight: "400",
+                  fontStyle: "normal",
+                }}
+              >
+                Misr International University
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#626161",
+                  fontSize: "17px",
+                  fontWeight: "500",
+                  fontStyle: "normal",
+                }}
+              >
+                2010 - 2013
+              </Typography>
+            </Stack>
+          </Stack>
+          <Stack
+            sx={{
+              margin: "16px auto",
+              backgroundColor: "#43443f",
+              width: "80%",
+              borderRadius: "50px",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "30px",
+                fontWeight: "600",
+                fontStyle: "normal",
+                color: "white",
+                textAlign: "center",
+                padding: "8px",
+              }}
+            >
+              Skills
+            </Typography>
+          </Stack>
+          <Stack
+            spacing={3}
+            sx={{
+              margin: "16px auto",
+              width: "80%",
+            }}
+          >
+            <li
+              style={{
+                color: "#43443f",
+                fontSize: "17px",
+                fontWeight: "600",
+                fontStyle: "normal",
+              }}
+            >
+              UI/UX
+            </li>
+            <li
+              style={{
+                color: "#43443f",
+                fontSize: "17px",
+                fontWeight: "600",
+                fontStyle: "normal",
+              }}
+            >
+              Visual Design
+            </li>
+            <li
+              style={{
+                color: "#43443f",
+                fontSize: "17px",
+                fontWeight: "600",
+                fontStyle: "normal",
+              }}
+            >
+              WireFrames
+            </li>
+            <li
+              style={{
+                color: "#43443f",
+                fontSize: "17px",
+                fontWeight: "600",
+                fontStyle: "normal",
+              }}
+            >
+              StoryBoards
+            </li>
+            <li
+              style={{
+                color: "#43443f",
+                fontSize: "17px",
+                fontWeight: "600",
+                fontStyle: "normal",
+              }}
+            >
+              User Flows
+            </li>
+            <li
+              style={{
+                color: "#43443f",
+                fontSize: "17px",
+                fontWeight: "600",
+                fontStyle: "normal",
+              }}
+            >
+              Process Flows
+            </li>
+          </Stack>
+        </Stack>
+
+        <Stack
+          sx={{
+            width: "75%",
+            backgroundColor: "#e6e4e4",
+            padding: "32px",
+          }}
+        >
+          <Stack>
+            <Typography
+              sx={{
+                fontSize: "50px",
+                fontWeight: "800",
+                fontStyle: "normal",
+                color: "#43443f",
+              }}
+            >
+              Dani Martinez
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "30px",
+                fontWeight: "400",
+                letterSpacing: "8px",
+                fontStyle: "normal",
+                color: "#5d5d5d",
+              }}
+            >
+              Marketing Manager
+            </Typography>
+          </Stack>
+          <Divider
+            sx={{
+              fontSize: "30px",
+              fontWeight: "800",
+              fontStyle: "normal",
+              color: "#43443f",
+              mt: 10,
+            }}
+            textAlign="left"
+          >
+            WORK EXPERIENCE
+          </Divider>
+
+          {/* ******************************************* */}
+          <Stack
+            spacing={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              mt: 4,
+            }}
+          >
+            {/* *********************** */}
+
+            <Stack
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#5d5d5d",
+                }}
+              >
+                Job Position here
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#5d5d5d",
+                }}
+              >
+                2019-2022
+              </Typography>
+            </Stack>
+            <Stack>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#5d5d5d",
+                }}
+              >
+                Company Name Location
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#5d5d5d",
+                }}
+              >
+                2019-2022
+              </Typography>
+            </Stack>
+            {/* *********************** */}
+            <Stack></Stack>
+            <Stack></Stack>
+          </Stack>
+          {/* ******************************************* */}
+        </Stack>
+      </Stack>
     </>
   );
 }
