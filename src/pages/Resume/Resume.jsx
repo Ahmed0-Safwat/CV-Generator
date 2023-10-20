@@ -287,7 +287,6 @@ function Resume() {
               </Stack>
             </Stack>
           </Stack>
-          {/* *************************** */}
 
           <Stack
             gap={2}
@@ -426,8 +425,6 @@ function Resume() {
               </Stack>
             </Stack>
           </Stack>
-
-          {/* *************************** */}
         </Stack>
         <Stack
           sx={{
