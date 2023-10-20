@@ -4,8 +4,8 @@ import { Stack, Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import EmailIcon from "@mui/icons-material/Email";
-import LanguageIcon from "@mui/icons-material/Language";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 function Resume() {
   return (
     <>
@@ -13,7 +13,7 @@ function Resume() {
 
       <Stack
         sx={{
-          width: "80%",
+          width: "60%",
           backgroundColor: "blue",
           display: "flex",
           margin: "5px auto",
@@ -24,176 +24,952 @@ function Resume() {
         <Stack
           gap={2}
           sx={{
-            width: "30%",
-            backgroundColor: "#1f395a",
+            width: "27%",
+            backgroundColor: "#023437",
             display: "flex",
             flexDirection: "column",
           }}
         >
-          <Avatar
-            sx={{
-              width: "200px",
-              height: "200px",
-              m: "10px auto",
-            }}
-            alt="Remy Sharp"
-            src="/images/temp-photo.jpg"
-          />
+          <Stack gap={0}>
+            <Avatar
+              sx={{
+                width: "200px",
+                height: "200px",
+                m: "8px auto",
+              }}
+              alt="Remy Sharp"
+              src="/images/temp-photo.jpg"
+            />
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "30px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "center",
+              }}
+            >
+              Ahmed Safwat
+            </Typography>
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "22px",
+                fontWeight: "300",
+                fontStyle: "normal",
+                textAlign: "center",
+              }}
+            >
+              Web Developer
+            </Typography>
+          </Stack>
           <Stack
             sx={{
-              width: "100%",
-              height: "2px",
+              width: "83%",
+              height: "0.5px",
               backgroundColor: "#FFF",
+              margin: "0px auto",
             }}
           ></Stack>
 
           <Stack
+            gap={2}
             sx={{
               display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
+              flexDirection: "column",
+              width: "100%",
+              padding: "24px",
             }}
           >
-            <Stack
-              spacing={3}
+            <Typography
               sx={{
                 color: "#FFF",
+                fontSize: "25px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "start",
               }}
             >
-              <CallIcon />
-              <LocationOnIcon />
-              <EmailIcon />
-              <LanguageIcon />
-            </Stack>
+              Contact Info
+            </Typography>
             <Stack
-              spacing={3}
               sx={{
-                color: "#FFF",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
               }}
             >
-              <Typography
+              <Stack
+                spacing={3.2}
                 sx={{
                   color: "#FFF",
-                  fontSize: "17px",
-                  fontWeight: "400",
-                  fontStyle: "normal",
                 }}
               >
-                +01114277227
-              </Typography>
-              <Typography
+                <CallIcon />
+                <LocationOnIcon />
+                <AlternateEmailIcon />
+                <LinkedInIcon />
+              </Stack>
+              <Stack
+                spacing={3}
                 sx={{
                   color: "#FFF",
-                  fontSize: "17px",
-                  fontWeight: "400",
-                  fontStyle: "normal",
                 }}
               >
-                hello@reallygreatcompany.com{" "}
-              </Typography>
-              <Typography
-                sx={{
-                  color: "#FFF",
-                  fontSize: "17px",
-                  fontWeight: "400",
-                  fontStyle: "normal",
-                }}
-              >
-                123 Anywhere St., Any City{" "}
-              </Typography>
-              <Typography
-                sx={{
-                  color: "#FFF",
-                  fontSize: "17px",
-                  fontWeight: "400",
-                  fontStyle: "normal",
-                }}
-              >
-                www.reallygreatsite.com{" "}
-              </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "17px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                  }}
+                >
+                  +01114277227
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "17px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                  }}
+                >
+                  123 Anywhere St., Any City
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "17px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                  }}
+                >
+                  hello@reallygreatcompany.com
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "17px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                  }}
+                >
+                  www.reallygreatsite.com
+                </Typography>
+              </Stack>
             </Stack>
           </Stack>
           <Stack
+            gap={2}
             sx={{
-              width: "100%",
-              height: "2px",
-              backgroundColor: "#FFF",
+              display: "flex",
+              flexDirection: "column",
+              width: "95%",
+              padding: "24px",
             }}
-          ></Stack>
-          <Stack spacing={2}>
-            <Stack>
-              <Typography
-                sx={{
-                  color: "#FFF",
-                  fontSize: "25px",
-                  fontWeight: "500",
-                  fontStyle: "normal",
-                  ml: 5,
-                }}
-              >
-                About me.
-              </Typography>
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "25px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "start",
+              }}
+            >
+              Education
+            </Typography>
+            <Stack spacing={4}>
+              <Stack>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "17px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                    color: "#34a0c9",
+                  }}
+                >
+                  2010-2013
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                    color: "white",
+                  }}
+                >
+                  Master Degree in Computer Science
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "300",
+                    fontStyle: "normal",
+                    color: "#cfc5c5",
+                  }}
+                >
+                  Misr International University
+                </Typography>
+              </Stack>
+              <Stack>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "17px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                    color: "#34a0c9",
+                  }}
+                >
+                  2010-2013
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                    color: "white",
+                  }}
+                >
+                  Master Degree in Computer Science
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "300",
+                    fontStyle: "normal",
+                    color: "#cfc5c5",
+                  }}
+                >
+                  Badr University In Cairo
+                </Typography>
+              </Stack>
+              <Stack>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "17px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                    color: "#34a0c9",
+                  }}
+                >
+                  2010-2013
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                    color: "white",
+                  }}
+                >
+                  Master Degree in Computer Science
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "300",
+                    fontStyle: "normal",
+                    color: "#cfc5c5",
+                  }}
+                >
+                  American University In Cairo
+                </Typography>
+              </Stack>
             </Stack>
-            <Stack>
+          </Stack>
+          {/* *************************** */}
+
+          <Stack
+            gap={2}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "95%",
+              padding: "24px",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "25px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "start",
+              }}
+            >
+              LANGUAGES
+            </Typography>
+            <Stack spacing={4}>
               <Stack
                 sx={{
-                  width: "90px",
-                  height: "2px",
-                  backgroundColor: "#FFF",
-                  ml: 28,
+                  display: "flex",
+                  flexDirection: "column",
                 }}
-              ></Stack>
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    Arabic
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "90%",
+                    height: "8px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "100%",
+                      height: "8px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    English
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "90%",
+                    height: "8px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "90%",
+                      height: "8px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    Spanish
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "90%",
+                    height: "8px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "65%",
+                      height: "8px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
             </Stack>
+          </Stack>
+
+          {/* *************************** */}
+        </Stack>
+        <Stack
+          sx={{
+            width: "75%",
+            backgroundColor: "white",
+            textAlign: "center",
+            backgroundColor: "#ebdbdb",
+          }}
+        >
+          <Stack>
             <Stack
+              gap={2.3}
               sx={{
-                width: "90%",
+                padding: "32px",
               }}
             >
               <Typography
                 sx={{
                   color: "#FFF",
-                  fontSize: "16px",
-                  fontWeight: "300",
-                  lineHeight: "28px",
+                  fontSize: "27px",
+                  fontWeight: "700",
                   fontStyle: "normal",
-                  ml: 5,
+                  color: "#023437",
                 }}
               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Officiis quae provident sapiente eaque dolorem nesciunt porro!
-                Aspernatur architecto exercitationem placeat minus modi,
-                similique eos possimus quis, eligendi, assumenda accusantium
-                ipsa?
+                ABOUT ME
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#FFF",
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  fontStyle: "normal",
+                  color: "#000000db",
+                }}
+              >
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ducimus itaque enim cupiditate illo explicabo incidunt fugiat,
+                delectus dolor laborum nam aperiam nulla quae neque autem atque
+                praesentium in porro eum. Lorem ipsum dolor sit, amet
+                consectetur adipisicing elit. Ducimus itaque enim cupiditate
+                illo explicabo incidunt fugiat, delectus dolor laborum nam
+                aperiam nulla quae neque autem atque praesentium in porro eum.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ducimus itaque enim cupiditate illo explicabo incidunt fugiat,
+                delectus dolor laborum nam aperiam nulla quae neque autem atque
+                praesentium in porro eum. Lorem ipsum dolor sit, amet
+                consectetur adipisicing elit. Ducimus itaque enim cupiditate
+                illo explicabo incidunt fugiat, delectus dolor laborum nam
+                aperiam nulla quae neque autem atque praesentium in porro eum.
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#FFF",
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  fontStyle: "normal",
+                  color: "#000000db",
+                }}
+              >
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ducimus itaque enim cupiditate illo explicabo incidunt fugiat,
+                delectus dolor laborum nam aperiam nulla quae neque autem atque
+                praesentium in porro eum.
               </Typography>
             </Stack>
-          </Stack>
-          <Stack
-            sx={{
-              width: 0,
-              height: 0,
-              borderRightWidth: 200,
-              borderLeftWidth: 200,
-              borderTopWidth: 150,
-              borderStyle: "solid",
-              backgroundColor: "transparent",
-              borderLeftColor: "transparent",
-              borderRightColor: "transparent",
-              borderTopColor: "orange",
-            }}
-          ></Stack>
-        </Stack>
+            <Stack
+              gap={4}
+              sx={{
+                padding: "24px",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#FFF",
+                  fontSize: "27px",
+                  fontWeight: "700",
+                  fontStyle: "normal",
+                  color: "#023437",
+                }}
+              >
+                EXPERIENCE
+              </Typography>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Stack
+                  sx={{
+                    width: "17%",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    2020 - Present
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    Company Name
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "80%",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "22px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "#237781",
+                    }}
+                  >
+                    Senior UX Designer
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "18px",
+                      fontWeight: "500",
+                      fontStyle: "normal",
+                      color: "#000000db",
+                    }}
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat
+                    maiores cum mollitia, explicabo iure similique eius,
+                    necessitatibus accusamus eos, saepe deleniti debitis sed?
+                  </Typography>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Stack
+                  sx={{
+                    width: "17%",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    2017 - 2020
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    Company Name
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "80%",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "22px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "#237781",
+                    }}
+                  >
+                    UI/UX Designer
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "18px",
+                      fontWeight: "500",
+                      fontStyle: "normal",
+                      color: "#000000db",
+                    }}
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat
+                    maiores cum mollitia, explicabo iure similique eius,
+                    necessitatibus accusamus eos, saepe deleniti debitis sed?
+                  </Typography>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Stack
+                  sx={{
+                    width: "17%",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    2013 - 2017
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    Company Name
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "80%",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "22px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "#237781",
+                    }}
+                  >
+                    Junior UI/UX Designer
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "18px",
+                      fontWeight: "500",
+                      fontStyle: "normal",
+                      color: "#000000db",
+                    }}
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat
+                    maiores cum mollitia, explicabo iure similique eius,
+                    necessitatibus accusamus eos, saepe deleniti debitis sed?
+                  </Typography>
+                </Stack>
+              </Stack>
+            </Stack>
+            <Stack
+              gap={5}
+              sx={{
+                padding: "24px",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#FFF",
+                  fontSize: "27px",
+                  fontWeight: "700",
+                  fontStyle: "normal",
+                  color: "#023437",
+                }}
+              >
+                PROFESSIONAL SKILLS
+              </Typography>
 
-        <Stack
-          sx={{
-            width: "70%",
-            backgroundColor: "white",
-            textAlign: "center",
-            backgroundColor: "aqua",
-          }}
-        >
-          Ahmed Safwat
+              <Stack
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    HTML
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "85%",
+                    height: "18px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "80%",
+                      height: "18px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    CSS
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "85%",
+                    height: "18px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "50%",
+                      height: "18px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    JAVASCRIPT
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "85%",
+                    height: "18px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "70%",
+                      height: "18px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    PHOTOSHOP
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "85%",
+                    height: "18px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "100%",
+                      height: "18px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    ILLUSTRATOR
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "85%",
+                    height: "18px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "85%",
+                      height: "18px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                }}
+              >
+                <Stack>
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                      fontStyle: "normal",
+                      color: "gray",
+                    }}
+                  >
+                    ILLUSTRATOR
+                  </Typography>
+                </Stack>
+                <Stack
+                  sx={{
+                    width: "85%",
+                    height: "18px",
+                    backgroundColor: "#80808059",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Stack
+                    sx={{
+                      width: "65%",
+                      height: "18px",
+                      borderRadius: "4px",
+
+                      backgroundColor: "#17c0fa",
+                    }}
+                  ></Stack>
+                </Stack>
+              </Stack>
+            </Stack>
+          </Stack>
         </Stack>
       </Stack>
+      {/* ********************************************************************************************** */}
     </>
   );
 }
