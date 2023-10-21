@@ -1362,68 +1362,292 @@ function Resume() {
 
           {/* ******************************************* */}
           <Stack
-            spacing={4}
+            spacing={10}
             sx={{
               display: "flex",
               flexDirection: "column",
               mt: 4,
             }}
           >
-            {/* *********************** */}
-
-            <Stack
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <Typography
+            <Stack>
+              <Stack
                 sx={{
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  fontStyle: "normal",
-                  color: "#5d5d5d",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
                 }}
               >
-                Job Position here
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  fontStyle: "normal",
-                  color: "#5d5d5d",
-                }}
-              >
-                2019-2022
-              </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  Job Position here
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  2019-2022
+                </Typography>
+              </Stack>
+              <Stack>
+                <Typography
+                  sx={{
+                    fontSize: "24px",
+                    fontWeight: "700",
+                    fontStyle: "normal",
+                    color: "#43443f",
+                  }}
+                >
+                  Company Name Location
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Soluta, dolorum, rem recusandae temporibus assumenda illo
+                  perspiciatis modi optio at praesentium quidem. Animi eligendi
+                  natus ullam quasi facilis porro sit culpa.
+                </Typography>
+              </Stack>
             </Stack>
             <Stack>
-              <Typography
+              <Stack
                 sx={{
-                  fontSize: "24px",
-                  fontWeight: "600",
-                  fontStyle: "normal",
-                  color: "#5d5d5d",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
                 }}
               >
-                Company Name Location
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  Job Position here
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  2016-2019
+                </Typography>
+              </Stack>
+              <Stack>
+                <Typography
+                  sx={{
+                    fontSize: "24px",
+                    fontWeight: "700",
+                    fontStyle: "normal",
+                    color: "#43443f",
+                  }}
+                >
+                  Company Name Location
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Soluta, dolorum, rem recusandae temporibus assumenda illo
+                  perspiciatis modi optio at praesentium quidem. Animi eligendi
+                  natus ullam quasi facilis porro sit culpa.
+                </Typography>
+              </Stack>
+            </Stack>
+            <Stack>
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  Job Position here
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  2013-2016
+                </Typography>
+              </Stack>
+              <Stack>
+                <Typography
+                  sx={{
+                    fontSize: "24px",
+                    fontWeight: "700",
+                    fontStyle: "normal",
+                    color: "#43443f",
+                  }}
+                >
+                  Company Name Location
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "500",
+                    fontStyle: "normal",
+                    color: "#5d5d5d",
+                  }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Soluta, dolorum, rem recusandae temporibus assumenda illo
+                  perspiciatis modi optio at praesentium quidem. Animi eligendi
+                  natus ullam quasi facilis porro sit culpa.
+                </Typography>
+              </Stack>
+            </Stack>
+          </Stack>
+          <Divider
+            sx={{
+              fontSize: "30px",
+              fontWeight: "800",
+              fontStyle: "normal",
+              color: "#43443f",
+              mt: 10,
+            }}
+            textAlign="left"
+          >
+            REFERENCES
+          </Divider>
+          {/* ******************************************* */}
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <Stack spacing={1} sx={{ mt: 8, width: "50%" }}>
+              <Typography
+                sx={{
+                  fontSize: "26px",
+                  fontWeight: "800",
+                  fontStyle: "normal",
+                  color: "#43443f",
+                }}
+              >
+                Harumi Kobayashi
               </Typography>
               <Typography
                 sx={{
-                  fontSize: "20px",
-                  fontWeight: "600",
+                  fontSize: "22px",
+                  fontWeight: "500",
                   fontStyle: "normal",
-                  color: "#5d5d5d",
+                  color: "#43443f",
                 }}
               >
-                2019-2022
+                Wardiere inc. / CEO
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#43443f",
+                }}
+              >
+                Phone :<span style={{ color: "gray" }}> 123-456-7890</span>
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#43443f",
+                }}
+              >
+                Email :
+                <span style={{ color: "gray" }}>
+                  {" "}
+                  hello@reallygreatsite.com
+                </span>
               </Typography>
             </Stack>
-            {/* *********************** */}
-            <Stack></Stack>
-            <Stack></Stack>
+            {/* ******************* */}
+
+            <Stack spacing={1} sx={{ mt: 8, width: "50%" }}>
+              <Typography
+                sx={{
+                  fontSize: "26px",
+                  fontWeight: "800",
+                  fontStyle: "normal",
+                  color: "#43443f",
+                }}
+              >
+                Bailey Dupont
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "22px",
+                  fontWeight: "500",
+                  fontStyle: "normal",
+                  color: "#43443f",
+                }}
+              >
+                Wardiere inc. / CEO
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#43443f",
+                }}
+              >
+                Phone :<span style={{ color: "gray" }}> 123-456-7890</span>
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  fontStyle: "normal",
+                  color: "#43443f",
+                }}
+              >
+                Email :
+                <span style={{ color: "gray" }}>
+                  {" "}
+                  hello@reallygreatsite.com
+                </span>
+              </Typography>
+            </Stack>
           </Stack>
           {/* ******************************************* */}
         </Stack>
