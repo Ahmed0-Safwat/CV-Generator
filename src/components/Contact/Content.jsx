@@ -92,7 +92,7 @@ const Content = () => {
             required
             id="outlined-required"
             label="Email"
-            defaultValue=""
+            placeholder=""
           />
 
           <TextField
@@ -104,7 +104,7 @@ const Content = () => {
             label="Issue"
             multiline
             rows={4}
-            defaultValue=""
+            placeholder=""
           />
         </Box>
       </Stack>

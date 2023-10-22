@@ -94,7 +94,7 @@ function Services() {
                 id="outlined-required"
                 type="upload"
                 label="First Name"
-                defaultValue="e.g.John"
+                placeholder="e.g.John"
               />
               <TextField
                 style={{
@@ -103,7 +103,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Middle Name"
-                defaultValue="e.g.Herbert "
+                placeholder="e.g.Herbert"
               />
               <TextField
                 style={{
@@ -112,7 +112,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Last Name"
-                defaultValue="e.g.Doe"
+                placeholder="e.g.Doe"
               />
             </Stack>
             <Stack
@@ -129,7 +129,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Your Image"
-                defaultValue="Upload Your Image "
+                placeholder="Upload Your Image"
               />
               <TextField
                 style={{
@@ -138,7 +138,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Designation"
-                defaultValue="e.g. Sr.Accountants "
+                placeholder="e.g. Sr.Accountants "
               />
               <TextField
                 style={{
@@ -147,7 +147,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Address"
-                defaultValue="e.g. Lake Street-23"
+                placeholder="e.g. Lake Street-23"
               />
             </Stack>
             <Stack
@@ -164,7 +164,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Email"
-                defaultValue="e.g.johndoe@gmail.com"
+                placeholder="e.g.johndoe@gmail.com"
               />
               <TextField
                 style={{
@@ -173,7 +173,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Phone Nom:"
-                defaultValue="e.g. 456-768-798 "
+                placeholder="e.g. 456-768-798 "
               />
               <TextField
                 style={{
@@ -182,7 +182,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Summary"
-                defaultValue="e.g.Doe"
+                placeholder="e.g.Doe"
               />
             </Stack>
           </Stack>
@@ -243,7 +243,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Title"
-                defaultValue="e.g.johndoe@gmail.com"
+                placeholder="e.g.johndoe@gmail.com"
               />
               <TextField
                 style={{
@@ -252,7 +252,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Description"
-                defaultValue="e.g.johndoe@gmail.com"
+                placeholder="e.g.johndoe@gmail.com"
               />
             </Stack>
             <Stack
@@ -269,7 +269,7 @@ function Services() {
                 required
                 id="outlined-required"
                 label="Title"
-                defaultValue="e.g.johndoe@gmail.com"
+                placeholder="e.g.johndoe@gmail.com"
               />
               <TextField
                 style={{
@@ -278,13 +278,12 @@ function Services() {
                 required
                 id="component-outlined"
                 label="Description"
-                defaultValue="e.g.johndoe@gmail.com"
+                placeholder="e.g.johndoe@gmail.com"
               />
             </Stack>
           </Stack>
         </Stack>
         {/* *************************************************************************************** */}
-
         <Stack gap={4}>
           <Stack
             sx={{
@@ -381,7 +380,6 @@ function Services() {
           </Stack>
         </Stack>
         {/* *************************************************************************************** */}
-
         <Stack gap={4}>
           <Stack
             sx={{
@@ -445,7 +443,6 @@ function Services() {
           </Stack>
         </Stack>
         {/* *************************************************************************************** */}
-
         <Stack gap={4}>
           <Stack
             sx={{
@@ -496,7 +493,70 @@ function Services() {
                 id="outlined-select-currency"
                 select
                 label="Select"
-                defaultValue="EUR"
+                placeholder="EUR"
+                helperText="Please Select Your Skill Level"
+              >
+                {currencies.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Stack>
+          </Stack>
+        </Stack>
+        {/* *************************************************************************************** */}
+        <Stack gap={4}>
+          <Stack
+            sx={{
+              width: "85%",
+              backgroundColor: "#1e2532",
+              color: "white",
+              margin: "5px auto",
+              p: 1.5,
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "22px",
+                fontWeight: "400",
+                fontStyle: "normal",
+              }}
+            >
+              LANGUAGES
+            </Typography>
+          </Stack>
+          <Stack
+            gap={8}
+            sx={{
+              width: "85%",
+              margin: "0px auto",
+            }}
+          >
+            <Stack
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <TextField
+                style={{
+                  width: "49%",
+                }}
+                required
+                id="outlined-required"
+                label="language"
+              />
+              <TextField
+                style={{
+                  width: "49%",
+                }}
+                id="outlined-select-currency"
+                select
+                label="Select"
+                placeholder="EUR"
                 helperText="Please Select Your Skill Level"
               >
                 {currencies.map((option) => (
