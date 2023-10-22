@@ -124,7 +124,7 @@ function Resume() {
                     fontStyle: "normal",
                   }}
                 >
-                  +01114277227
+                  +123-456-7890
                 </Typography>
                 <Typography
                   sx={{
@@ -1064,7 +1064,7 @@ function Resume() {
                     fontStyle: "normal",
                   }}
                 >
-                  +01114277227
+                  +123-456-7890
                 </Typography>
                 <Typography
                   sx={{
@@ -1333,18 +1333,18 @@ function Resume() {
                 color: "#43443f",
               }}
             >
-              Dani Martinez
+              Ahmed Safwat
             </Typography>
             <Typography
               sx={{
                 fontSize: "30px",
                 fontWeight: "400",
-                letterSpacing: "8px",
+                letterSpacing: "6px",
                 fontStyle: "normal",
                 color: "#5d5d5d",
               }}
             >
-              Marketing Manager
+              Software Engineer
             </Typography>
           </Stack>
           <Divider

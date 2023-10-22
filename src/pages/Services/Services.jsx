@@ -219,7 +219,7 @@ function Services() {
                 fontStyle: "normal",
               }}
             >
-              ACHIEVEMENTS
+              EDUCATION
             </Typography>
           </Stack>
           <Stack
@@ -242,8 +242,8 @@ function Services() {
                 }}
                 required
                 id="outlined-required"
-                label="Title"
-                placeholder="e.g.johndoe@gmail.com"
+                label="University"
+                placeholder="e.g.American University In Cairo"
               />
               <TextField
                 style={{
@@ -251,8 +251,8 @@ function Services() {
                 }}
                 required
                 id="outlined-required"
-                label="Description"
-                placeholder="e.g.johndoe@gmail.com"
+                label="Department"
+                placeholder="e.g.Computer Science"
               />
             </Stack>
             <Stack
@@ -268,8 +268,8 @@ function Services() {
                 }}
                 required
                 id="outlined-required"
-                label="Title"
-                placeholder="e.g.johndoe@gmail.com"
+                label="Start Date"
+                placeholder="10/8/2020"
               />
               <TextField
                 style={{
@@ -277,8 +277,8 @@ function Services() {
                 }}
                 required
                 id="component-outlined"
-                label="Description"
-                placeholder="e.g.johndoe@gmail.com"
+                label="End Date"
+                placeholder="12/6/2022"
               />
             </Stack>
           </Stack>
@@ -443,6 +443,7 @@ function Services() {
           </Stack>
         </Stack>
         {/* *************************************************************************************** */}
+
         <Stack gap={4}>
           <Stack
             sx={{
