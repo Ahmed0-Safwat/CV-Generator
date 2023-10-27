@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -30,6 +30,10 @@ const navItems = [
     link: "/services",
   },
   {
+    name: "Projects",
+    link: "/projects",
+  },
+  {
     name: "Resume",
     link: "/resume",
   },
@@ -39,7 +43,7 @@ const navItems = [
   },
 ];
 const Header = () => {
-  const [currentRoute, setCurrentRoute] = useState("HOME");
+  const [currentRoute, setCurrentRoute] = useState("/");
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isTabletView } = useWindowSize();
   const [modalOpen, setModalOpen] = useState(false);
@@ -49,24 +53,16 @@ const Header = () => {
   };
 
   const location = useLocation();
-  const isHome = location.pathname === "/";
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    console.log("location", location.pathname);
+    setCurrentRoute(location.pathname);
+  }, [location.pathname, navigate]);
+
   const handleRouting = (route) => {
     navigate(route);
-  };
-
-  const scrollToTargetById = (id) => {
-    const element = document.getElementById(id);
-    const headerOffset = 76;
-    const elementPosition = element?.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
   };
 
   const handleOpenModal = () => {
@@ -166,7 +162,7 @@ const Header = () => {
                 color: "white",
                 px: "20px",
                 borderBottom:
-                  location === page.link ? "2px solid #E41469" : "none",
+                  currentRoute === page.link ? "2px solid #E41469" : "none",
                 fontSize: "16px",
                 fontWeight: 400,
               }}

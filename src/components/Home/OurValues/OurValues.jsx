@@ -1,6 +1,6 @@
 import "./style.scss";
 import { Stack, Typography } from "@mui/material";
-import WexcuteCard from "../../Common/Card/WexcuteCard";
+import Card from "../../Common/Card/Card";
 
 const OurExpertiesCards = [
   {
@@ -72,7 +72,7 @@ const OurExperties = () => {
           useFlexGap
         >
           {OurExpertiesCards.map((card) => (
-            <WexcuteCard
+            <Card
               key={card.cardTitle}
               icon={card.cardIcon}
               title={card.cardTitle}

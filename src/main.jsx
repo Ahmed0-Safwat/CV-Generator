@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import Home from "./pages/Home/Home.jsx";
 import Resume from "./pages/Resume/Resume.jsx";
 import Services from "./pages/Services/Services.jsx";
-import QuestionsAndAnswers from "./pages/QuestionsAndAnswers/QuestionsAndAnswers.jsx";
+import FAQPage from "./pages/FAQ/FAQ";
 import Company from "./pages/Company/Company.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/Layout.jsx";
@@ -13,6 +13,7 @@ import { QueryClient } from "@tanstack/react-query";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./utils/theme";
 import Profile from "./pages/Profile/Profile.jsx";
+import Projects from "./pages/Projects/Projects.jsx";
 
 const queryClient = new QueryClient();
 
@@ -33,12 +34,16 @@ const router = createBrowserRouter([
         element: <Services />,
       },
       {
+        path: "/projects",
+        element: <Projects />,
+      },
+      {
         path: "/resume",
         element: <Resume />,
       },
       {
         path: "/faq",
-        element: <QuestionsAndAnswers />,
+        element: <FAQPage />,
       },
       {
         path: "/profile",

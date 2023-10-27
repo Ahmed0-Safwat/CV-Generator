@@ -1,6 +1,6 @@
 import "./style.scss";
 import { Stack, Typography } from "@mui/material";
-import WexcuteCard from "../../Common/Card/WexcuteCard";
+import Card from "../../Common/Card/Card";
 
 const SERVICES_CARDS = [
   {
@@ -87,7 +87,7 @@ const OurExpertise = () => {
             {SERVICES_CARDS.map(
               (card, index) =>
                 index < Math.ceil(SERVICES_CARDS.length / 2) && (
-                  <WexcuteCard
+                  <Card
                     icon={card.cardIcon}
                     title={card.cardTitle}
                     body={card.cardText}
@@ -105,7 +105,7 @@ const OurExpertise = () => {
             {SERVICES_CARDS.map(
               (card, index) =>
                 index >= Math.ceil(SERVICES_CARDS.length / 2) && (
-                  <WexcuteCard
+                  <Card
                     icon={card.cardIcon}
                     title={card.cardTitle}
                     body={card.cardText}
