@@ -57,7 +57,6 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("location", location.pathname);
     setCurrentRoute(location.pathname);
   }, [location.pathname, navigate]);
 

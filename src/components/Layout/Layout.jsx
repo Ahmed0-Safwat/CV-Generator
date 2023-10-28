@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Box } from "@mui/system";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import WithUserProvider from "../../providers/WithUserProvider";
 
 const Layout = () => {
   return (
@@ -20,4 +21,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default WithUserProvider(Layout);

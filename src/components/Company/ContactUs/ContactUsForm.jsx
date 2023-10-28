@@ -56,7 +56,6 @@ const ContactUsForm = () => {
     event.preventDefault();
 
     if (validateFields()) {
-      console.log(formValues);
       sendEmail(formValues);
     }
   };
@@ -71,11 +70,6 @@ const ContactUsForm = () => {
       )
       .then(
         (response) => {
-          console.log(
-            "Email successfully sent!",
-            response.status,
-            response.text
-          );
           setFormValues({ name: "", email: "", phone: "", text: "" }); // Clear form
           setEmailSent(true); // Set emailSent state to true
 

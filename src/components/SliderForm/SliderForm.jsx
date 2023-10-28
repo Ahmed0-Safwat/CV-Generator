@@ -91,8 +91,6 @@ function SliderForm({ handleClose }) {
     const passwordError = validate("signUpPassword", formData.signUpPassword);
 
     if (!nameError && !emailError && !passwordError) {
-      console.log("SignUp data:", formData);
-
       const data = {
         name: formData.name,
         email: formData.signUpEmail,
@@ -107,16 +105,12 @@ function SliderForm({ handleClose }) {
           }));
         },
         onSettled: (res) => {
-          console.log("res:", res);
           if (res?.status === 400) {
-            console.log("11111HEREEE");
-
             setErrors((prevErrors) => ({
               ...prevErrors,
               signUpError: "Email Already Exists",
             }));
           } else {
-            console.log("HEREEE");
             setShowValidationComponent(true);
           }
         },
@@ -167,8 +161,6 @@ function SliderForm({ handleClose }) {
 
     // Now, after validation, check if there are any errors
     if (!emailError && !passwordError) {
-      console.log("SignIn data:", formData);
-
       const data = {
         email: formData.signInEmail,
         password: formData.signInPassword,
@@ -179,19 +171,26 @@ function SliderForm({ handleClose }) {
 
       signInMutation(data, {
         onSuccess: (response) => {
+          console.log("response", response);
           if (response.message === notVerifiedMessage) {
             setErrors((prevErrors) => ({
               ...prevErrors,
               signInError: "Email is not verified",
             }));
           } else {
-            console.log("response", response);
             useStore.setState({
               globalState: {
-                user: response.user,
+                user: { ...response.user, image: response.imageBase64 },
                 token: response.token,
+                image: response.imageBase64,
               },
             });
+            sessionStorage.setItem(
+              "user",
+              JSON.stringify({ ...response.user, image: response.imageBase64 })
+            );
+            sessionStorage.setItem("token", JSON.stringify(response.token));
+
             handleClose();
           }
         },

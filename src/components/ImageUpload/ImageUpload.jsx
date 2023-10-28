@@ -5,38 +5,45 @@ import Box from "@mui/material/Box";
 import { useStore } from "../../hooks/useStore";
 
 function ImageUpload() {
-  const [image, setImage] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
-
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setImage(file);
-      setPreviewUrl(URL.createObjectURL(file));
-
       useStore.setState({
         globalState: {
+          ...useStore.getState().globalState,
           image: URL.createObjectURL(file),
         },
       });
 
-      const formData = new FormData();
-      formData.append("image", file);
+      console.log("URL.createObjectURL(file)", URL.createObjectURL(file));
 
-      fetch(
-        "https://moaaz2002-001-site1.atempurl.com/api/profileimages/upload",
-        {
-          method: "POST",
-          body: formData,
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
+      const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+
+      sessionStorage.setItem(
+        "user",
+        JSON.stringify({
+          ...sessionStorageUser,
+          image: URL.createObjectURL(file),
         })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+      );
+
+      // const formData = new FormData();
+      // formData.append("image", file);
+
+      // fetch(
+      //   "https://moaaz2002-001-site1.atempurl.com/api/profileimages/upload",
+      //   {
+      //     method: "POST",
+      //     body: formData,
+      //   }
+      // )
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error:", error);
+      //   });
     }
   };
 

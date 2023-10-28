@@ -34,7 +34,7 @@ const ProfileSection = ({ handleOpenModal }) => {
 
   const navigate = useNavigate();
 
-  console.log("globalState", globalState);
+  console.log("image", image);
 
   return user ? (
     <React.Fragment>
