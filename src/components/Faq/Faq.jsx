@@ -12,30 +12,23 @@ import { ExpandMore } from "@mui/icons-material";
 const accordionItems = [
   {
     id: 1,
-    accordionQuestion: "What types of businesses do you work with?",
-    accordionAnswer: `WeXcute works with a diverse range of businesses, from start-ups and small to medium-sized companies to large corporations.
-    Our expertise spans various sectors, and we tailor our services to meet the unique needs of each client, ensuring successful
-    digital product development.`,
+    accordionQuestion: "What services do you provide for CV creation?",
+    accordionAnswer: `CV Creator can craft various CV styles, including Chronological, Functional, Combination, Targeted, and Creative CVs. These styles cater to diverse career backgrounds and goals, ensuring that you receive a CV that matches your specific needs.`,
   },
   {
     id: 2,
-    accordionQuestion: "What services do you offer?",
-    accordionAnswer: `We offer a comprehensive suite of services, including Web design, Web Applications, Mobile Applications, Modules/Addons, Web
-    Games, VR Solutions, as well as Consulting & Advisory services to help you make informed decisions about your digital product
-    development. Check them out here..`,
+    accordionQuestion: "What services do you provide for CV creation?",
+    accordionAnswer: `CV Creator offers a range of services to assist you in crafting a compelling CV.`,
   },
   {
     id: 3,
-    accordionQuestion: "What is your process for developing a digital product?",
-    accordionAnswer: `We are very proud of our 4D development process, but you can find a full explanation of all the steps here.`,
+    accordionQuestion: "What is your process for developing a CV?",
+    accordionAnswer: `Our CV development process at CV Creator is designed to make crafting a professional CV as efficient and effective as possible.`,
   },
   {
     id: 4,
-    accordionQuestion:
-      "How long does it typically take to develop a digital product?",
-    accordionAnswer: `The timeline for developing a digital product depends on the project's complexity and requirements. On average, a project may
-    take anywhere from a few weeks to several months. We'll provide you with a clear timeline during the project proposal and
-    agreement phase.`,
+    accordionQuestion: "How long does it typically take to create a CV?",
+    accordionAnswer: `The time required to create a CV can vary depending on your specific needs and how much time you can invest in the process. In general, you can create a CV on CV Creator in just a matter of minutes with max 15 minute.`,
   },
   {
     id: 5,

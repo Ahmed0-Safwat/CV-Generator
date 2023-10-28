@@ -4,7 +4,7 @@ import { Stack } from "@mui/material";
 
 const hero = [
   {
-    title: `From inspiration to innovation`,
+    title: `All your questions,answered.`,
     subTitle: ``,
     backgroundImageUrl: "/images/hero-image.png",
   },

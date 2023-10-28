@@ -6,41 +6,35 @@ import Card from "../../Common/Card/Card";
 const HowWeWorkCards = [
   {
     cardIcon: "/images/consultation-icon.svg",
-    cardText: `Start your journey with a consultation to discuss your project goals and expectations. We'll work with you to understand your business and create a tailored digital solution.`,
+    cardText: `Begin your CV creation journey with a consultation to discuss your goals and expectations. We'll work with you to understand your background and career aspirations, ensuring your CV meets your needs. `,
     cardTitle: "Initial Consultation",
   },
   {
     cardIcon: "/images/project-proposal-icon.svg",
-    cardText: `Based on our initial consultation, we'll create a comprehensive project proposal that outlines the scope, timeline, and costs. Once we've agreed on the details, we'll sign a contract and begin developing your digital solution.`,
-    cardTitle: "Project Proposal & Agreement",
+    cardText: `Based on our initial consultation, we'll create a comprehensive CV draft that outlines your skills, experiences, and achievements. We'll collaborate with you to refine and tailor the content to match your career goals.`,
+    cardTitle: "CV Crafting & Review",
   },
   {
     cardIcon: "/images/discovery-icon.svg",
-    cardText: `We'll work with you to develop a strategic plan for your digital product development process, ensuring your solution meets your business objectives and user needs.`,
-    cardTitle: "Discovery & Strategy",
+    cardText: `We'll focus on creating a visually appealing and effective CV format. We'll gather feedback and make revisions until you're satisfied with the design`,
+    cardTitle: "Design & Formatting",
   },
   {
     cardIcon: "/images/design-icon.svg",
-    cardText: `We create a visually appealing and user-friendly interface for your digital product. We'll gather feedback and refine the design until you're satisfied.`,
-    cardTitle: "Design & Prototyping",
-  },
-  {
-    cardIcon: "/images/development-icon.svg",
-    cardText:
-      "Before launching your digital product, we perform a rigorous quality assurance process to ensure a polished and reliable final product.",
-    cardTitle: "Development & Testing",
+    cardText: `Before finalizing your CV, we perform a thorough editing and proofreading process to ensure accuracy and professionalism.`,
+    cardTitle: "Editing & Proofreading",
   },
   {
     cardIcon: "/images/deployment-icon.svg",
     cardText:
-      "We deploy your digital solution and assist in its launch, ensuring a smooth transition and providing guidance on management.",
-    cardTitle: "Deployment & Launch",
+      "We'll deliver your polished CV, and you can review it to ensure it meets your expectations.",
+    cardTitle: "Delivery & Review",
   },
   {
     cardIcon: "/images/support-icon.svg",
     cardText:
-      "We offer ongoing support and maintenance to keep your digital solutions performing at their best. Contact us today to start your journey towards digital success.",
-    cardTitle: "Ongoing Support & Maintenance",
+      "We offer ongoing support and updates to keep your CV up-to-date and effective in your job search. Contact us today to start creating your standout CV.",
+    cardTitle: "Ongoing Support",
   },
 ];
 
@@ -80,10 +74,10 @@ const HowWeWork = () => {
             fontWeight={400}
             lineHeight="38px"
           >
-            WeXcute's customer-centric approach delivers exceptional digital
-            solutions through a detailed work process rooted in software
-            engineering best practices. We foster collaborative partnerships and
-            go above and beyond to provide a seamless experience.
+            Our user-centric approach ensures exceptional CV solutions through a
+            detailed process rooted in industry best practices. We prioritize
+            collaboration and go the extra mile to deliver a seamless experience
+            for our users.
           </Typography>
         </Stack>
 

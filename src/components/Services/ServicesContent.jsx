@@ -5,39 +5,34 @@ import { Stack, Typography } from "@mui/material";
 const SERVICES_CARDS = [
   {
     icon: "/images/web-design-icon.svg",
-    text: `We create stunning and user-friendly websites that convert.`,
-    title: "Web Design",
+    text: `We craft visually appealing and user-friendly CVs that leave a lasting impression.`,
+    title: "CV Design",
   },
   {
     icon: "/images/web-app-icon.svg",
-    text: "We develop custom web apps that streamline your business.",
-    title: "Web Applications",
+    text: "We create custom CV building tools that streamline your resume creation process.",
+    title: "CV Application",
   },
   {
     icon: "/images/mobile-app-icon.svg",
-    text: `We build engaging mobile apps that capture attention.`,
-    title: "Mobile Applications",
+    text: `WWe create mobile apps for on-the-go CV creation.`,
+    title: "Mobile CV App",
   },
 
   {
     icon: "/images/modules-icon.svg",
-    text: "We develop custom extensions that enhance digital products.",
-    title: "Modules/Addons",
+    text: "We offer custom extensions to enhance your CV-building experience.",
+    title: "Add-Ons",
   },
   {
     icon: "/images/web-games-icon.svg",
-    text: `We create captivating web games that engage and entertain.`,
-    title: "Web Games",
+    text: `We design compelling resume templates that enhance your CV.`,
+    title: "Resume Templates",
   },
   {
     icon: "/images/consulting-icon.svg",
-    text: `We help you maximize your digital potential through consultation`,
+    text: `WWe offer expert guidance to help you optimize your CV and enhance your career potential.`,
     title: "Consulting & Advisory",
-  },
-  {
-    icon: "/images/vr-icon.svg",
-    text: "Captivating VR solutions for training, marketing, and entertainment.",
-    title: "VR Solutions",
   },
 ];
 
@@ -71,7 +66,7 @@ const ServicesContent = () => {
             maxWidth={{ xs: "100%", lg: "306px" }}
             alignSelf="flex-start"
           >
-            Our Expertise
+            Our Services
           </Typography>
 
           <Typography
@@ -82,10 +77,10 @@ const ServicesContent = () => {
             maxWidth={{ xs: "100%", lg: "791px" }}
             color="#232932"
           >
-            At WeXcute, we offer a wide range of software development and app
-            solutions, catering to the unique needs of startups, SMEs, and large
-            corporations. Explore our comprehensive services below to discover
-            how we can help your business thrive in the digital landscape.
+            At CV Creator, we offer a comprehensive range of CV and resume
+            solutions tailored to meet the unique needs of job seekers at all
+            career stages. Explore our services below and discover how we can
+            help you succeed in your professional journey.
           </Typography>
         </Stack>
 
@@ -143,7 +138,7 @@ const ServicesContent = () => {
                   lineHeight="50px"
                   width="100%"
                 >
-                  Startup Solutions
+                  Career Solutions
                 </Typography>
 
                 <Typography
@@ -152,10 +147,10 @@ const ServicesContent = () => {
                   lineHeight="30px"
                   width="100%"
                 >
-                  Transform your vision into reality with our tailored startup
-                  solutions. Our experienced team will guide you through every
-                  step of the digital product development process, ensuring your
-                  business hits the ground running.
+                  Turn your career aspirations into reality with our tailored
+                  career solutions. Our experienced team will guide you through
+                  every step of creating a standout CV, ensuring you make a
+                  strong impression on potential employers.
                 </Typography>
               </Stack>
             </Stack>
@@ -179,7 +174,7 @@ const ServicesContent = () => {
                 alignItems="center"
               >
                 <img
-                  src={"/images/corporate-solution-image.png"}
+                  src={"/images/services1.png"}
                   alt={"photo"}
                   width={360}
                   height={300}
@@ -197,7 +192,7 @@ const ServicesContent = () => {
                   maxWidth="330px"
                   width="100%"
                 >
-                  Corporate Solutions
+                  Professional Solutions
                 </Typography>
 
                 <Typography
@@ -206,11 +201,10 @@ const ServicesContent = () => {
                   lineHeight="30px"
                   width="100%"
                 >
-                  Empower your business with our custom corporate solutions. We
-                  offer smart IT solutions that streamline your operations,
-                  enhance productivity, and strengthen your digital
-                  infrastructure, enabling your organisations to scale with
-                  ease.
+                  Empower your professional journey with our custom solutions.
+                  We offer smart tools and resources that streamline your CV
+                  creation process, enhancing your chances of landing your dream
+                  job. With CV Creator, you can scale your career with ease.
                 </Typography>
               </Stack>
             </Stack>
@@ -236,7 +230,7 @@ const ServicesContent = () => {
               width="100%"
             >
               <img
-                src={"/images/app-development-image.png"}
+                src={"/images/services2.png"}
                 alt={"photo"}
                 width={335}
                 height={412}
@@ -255,13 +249,13 @@ const ServicesContent = () => {
                 maxWidth="330px"
                 width="100%"
               >
-                App Development
+                Resume Creation
               </Typography>
 
               <Typography fontSize="16px" fontWeight={400} lineHeight="30px">
-                Stay ahead with our app development services. We create
-                seamless, user-friendly experiences that drive engagement and
-                boost your digital presence.
+                Stay ahead with our CV creation services. We create seamless,
+                user-friendly experiences that showcase your skills and boost
+                your professional presence.
               </Typography>
             </Stack>
           </Stack>
@@ -293,7 +287,7 @@ const ServicesContent = () => {
               lineHeight="56px"
               sx={{ width: "100%", maxWidth: "308px" }}
             >
-              Expertise Dimensions
+              CV Creation Expertise
             </Typography>
           </Stack>
 

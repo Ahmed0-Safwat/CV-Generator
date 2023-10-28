@@ -35,18 +35,18 @@ const WhoWeAre = () => {
               lineHeight="38px"
               color="#232932"
             >
-              WeXcute was founded by two friends Mohamed and Abdallah who
-              transformed an idea into a successful digital solution: the
-              largest e-bike sharing mobile app in the Middle East.
+              CV Creator was founded by a team of passionate professionals
+              dedicated to providing individuals with the tools to build
+              outstanding resumes.
               <br />
-              <br /> Inspired by this accomplishment, WeXcute was established to
-              help businesses of all sizes turn their ideas and concepts into
-              reality. We strive to create exceptional digital solutions
-              tailored to the unique needs of each client.
+              <br /> Inspired by our mission to empower job seekers, CV Creator
+              was established to simplify the process of crafting a standout CV.
+              We are committed to delivering top-notch digital solutions
+              tailored to your professional needs.
               <br />
               <br />
-              We operate from two offices in Cairo, Egypt and Hamburg, Germany,
-              but we serve clients worldwide.
+              While our headquarters are in Cairo, Egypt, we serve users
+              globally.
             </Typography>
           </Stack>
 
@@ -69,7 +69,7 @@ const WhoWeAre = () => {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                30<span style={{ color: "#E41469" }}>+</span>
+                6<span style={{ color: "#E41469" }}>+</span>
               </Typography>
 
               <Typography
@@ -160,11 +160,9 @@ const WhoWeAre = () => {
               color="#232932"
               align="center"
             >
-              WeXcute is a digital solutions company that helps businesses
-              achieve their goals with exceptional digital solutions. We dive
-              deep into research and work closely with our clients to identify
-              the most effective solutions and ensure that they exceed
-              expectations.
+              CV Creator: Your Partner in Exceptional CVs. We're dedicated to
+              your career success, crafting standout CVs through research and
+              collaboration. Your success, our commitment.
             </Typography>
 
             <Button

@@ -7,7 +7,7 @@ const Services = () => {
   return (
     <>
       <HeroCard
-        title={"Building the future,\n today"}
+        title={"Crafting the Future,\n today"}
         backgroundImageUrl={"/images/hero-image.png"}
         hasButton={false}
         heroCardHeight="632px"

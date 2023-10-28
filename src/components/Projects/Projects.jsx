@@ -5,94 +5,78 @@ import { Stack, Typography } from "@mui/material";
 const projectsCards = [
   {
     id: 2,
-    isReversed: true,
-    cardIcon: "/images/nissan.svg",
-    cardTitle: "Nissan",
-    cardSecondaryTitle: "Automobile Self-Service",
-    cardTertiaryTitle: "Maintenance Tracking and Reminders",
-    cardBackground: "#e0e0e0",
-    cardSecondaryText: `Take control of your car's needs with self-service options, putting you in the driver's seat of your vehicle's care.`,
+    isReversed: false,
+    cardIcon: "/images/projects1.png",
+    cardTitle: "Chronological CV",
+    cardSecondaryTitle: "Structure",
+    cardTertiaryTitle: "Suitable For",
+    cardBackground: "#c79e82d1",
+    cardSecondaryText: `It's straightforward with sections for a professional summary, work experience, education, and skills.`,
     cardTertiaryText:
-      "Keep your Nissan running smoothly with automated maintenance tracking and timely reminders.",
-    cardText: `Nissan's application has undergone a significant transformation from its previous, more traditional form, which was used by Nissan Egypt. The updated version introduces a range of brand-new functions, enhancing your experience with Nissan.`,
-    innerText: "The car app that does it all.",
+      "Ideal for those with a consistent work history, emphasizing career growth.",
+    cardText: `The chronological CV, also known as a reverse-chronological CV, is the most common type. It lists your work experiences in reverse chronological order, starting with your most recent job and working backward.`,
+    innerText: "Lists work history.",
   },
   {
     id: 3,
-    isReversed: false,
-    cardIcon: "/images/whats-on-2.svg",
-    cardTitle: "What’s On?",
-    cardSecondaryTitle: "Complete Programming Schedules",
-    cardTertiaryTitle: "Set Reminders",
-    cardBackground: "#ffebee",
+    isReversed: true,
+    cardIcon: "/images/projects2.png",
+    cardTitle: "Functional CV",
+    cardSecondaryTitle: "Structure",
+    cardTertiaryTitle: "Suitable For",
+    cardBackground: "#d1c5c5c7",
     cardSecondaryText:
-      "Gain access to the complete programming schedules of various channels, ensuring you never miss a moment of your favorite shows.",
+      "It starts with a skills summary followed by work experience, education, and additional sections for achievements or certifications.",
     cardTertiaryText:
-      "Stay on top of your must-watch shows by setting reminders directly within the app. Never miss an episode again.",
-    cardText: `The "What's On?" app is tailor-made for avid television viewers, especially those who indulge in entertainment networks. It offers a comprehensive suite of features to enhance your TV-watching experience.`,
-    innerText: "The magic of movies, on the go.",
+      "Ideal for career changers, recent graduates, or those with employment gaps.",
+    cardText: `The functional CV focuses on skills and qualifications rather than your work history. It's ideal for individuals with employment gaps or changing careers.`,
+    innerText: "Focuses on skills.",
   },
   {
     id: 1,
     isReversed: false,
-    cardIcon: "/images/lina-mockup-2.svg",
-    cardTitle: "Lina",
-    cardSecondaryTitle: "Job Offering and Searching Tool",
-    cardTertiaryTitle: "Q&A Sessions",
-    cardBackground: "#e0f2f1",
+    cardIcon: "/images/projects3.png",
+    cardTitle: "Combination CV",
+    cardSecondaryTitle: "Structure",
+    cardTertiaryTitle: "Suitable For",
+    cardBackground: "#737373ad",
     cardSecondaryText:
-      "Find job opportunities or post job listings, tailored to your needs and the local job market.",
+      "It combines the skills summary, work experience, and other sections like education or certifications.",
     cardTertiaryText:
-      "Join insightful Q&A sessions conducted by subject matter experts, expanding your knowledge and connecting with industry leaders.",
+      "Great for those wanting to emphasize both skills and work experience without gaps.",
     cardText:
-      "Lina is the first social networking application to come out of Egypt, specifically designed to cater to users in Egypt and the Middle East. It offers more than just a typical social media experience. With Lina, you can access a range of useful features.",
-    innerText: "Connect with the world, one click.",
+      "The combination CV, as the name suggests, blends elements of both chronological and functional CVs. It features a skills section upfront and follows with work history in reverse chronological order.",
+    innerText: "Blends skills and work history.",
   },
   {
     id: 4,
     isReversed: true,
-    cardIcon: "/images/jeep-new.png",
-    cardTitle: "Jeep",
-    cardSecondaryTitle: "Digital Transformation",
-    cardTertiaryTitle: "Effortless Component Ordering",
-    cardBackground: "#fffde7",
+    cardIcon: "/images/projects4.png",
+    cardTitle: "Targeted CV",
+    cardSecondaryTitle: "Structure",
+    cardTertiaryTitle: "Suitable For",
+    cardBackground: "#04979e8c",
     cardSecondaryText:
-      "Witness a full-fledged digital transformation within the Jeep service landscape in KSA. Our app brings innovation to the forefront.",
-    cardTertiaryText: `Experience the convenience of ordering Jeep-specific components and accessories right from your mobile device. We've simplified the process of enhancing your Jeep.`,
-    cardText: `At Wexcute, we're proud to present a remarkable project: the Jeep KSA Mobile App. This project redefines the Jeep experience in Saudi Arabia (KSA) by seamlessly merging technology and adventure. Explore the key highlights of this exceptional endeavor.`,
-    innerText: "Jeep, at your fingertips.",
+      "Adapts to job requirements, usually starting with a tailored career summary followed by key qualifications and experiences.",
+    cardTertiaryText: `Ideal for job applicants seeking to strongly align their CV with specific job requirements.`,
+    cardText: `A targeted CV is customized for a specific job or company. It emphasizes the skills and experiences most relevant to that particular position.`,
+    innerText: "Customized zed for specific jobs.",
   },
   {
     id: 5,
     isReversed: false,
-    cardIcon: "/images/we.svg",
-    cardTitle: "Telecom Egypt",
-    cardSecondaryTitle: "Streamlined SIM Card Issuance",
-    cardTertiaryTitle: "Comprehensive Service Support",
-    cardBackground: "#f3e5f5",
+    cardIcon: "/images/projects5.png",
+    cardTitle: "Creative CV",
+    cardSecondaryTitle: "Structure",
+    cardTertiaryTitle: "Suitable For",
+    cardBackground: "#485f7c9e",
     cardSecondaryText:
-      "Our web application simplifies the issuance of SIM cards. Customers can effortlessly complete the process using their IDs or passports, ensuring a seamless experience.",
+      "It can be highly personalized but typically includes sections like a bio, work history, skills, and a portfolio section.",
     cardTertiaryText:
-      "Beyond SIM card issuance, our application extends its capabilities to support a range of additional services, making it a versatile tool for both customers and Telecom Egypt.",
+      "Perfect for individuals in creative industries like graphic design or advertising, where creativity is highly valued.",
     cardText:
-      "We are thrilled to spotlight one of our standout projects: the Telecom Egypt Web Application. This exceptional web application was meticulously crafted to enhance customer experiences at self-service kiosks within WE branches. Discover how it redefines convenience and service.",
-    innerText: "Connect to what matters",
-  },
-  {
-    id: 6,
-    isReversed: true,
-    cardIcon: "/images/baddel-mobile-2.svg",
-    cardTitle: "Baddel",
-    cardSecondaryTitle: "Unlock and Go",
-    cardTertiaryTitle: "Account Management",
-    cardBackground: "#e8f5e9",
-    cardSecondaryText:
-      "Our user-friendly application enables quick and easy bike and scooter rentals. With just a few taps, you can unlock your preferred mode of transport and embark on your journey.",
-    cardTertiaryText:
-      "Take control of your mobility experience. Manage your user account effortlessly, ensuring a smooth and personalized experience every time you ride.",
-    cardText:
-      "Baddel is a cutting-edge micro-mobility system that transforms city navigation. Rent regular bikes, electric bikes, and scooters from any station and return them to any other station in the network.",
-    innerText: "Your Micro Mobility Solution",
+      "A creative CV allows you to showcase your personality and creativity. It often includes unique visuals, infographics, or unconventional layouts to stand out.",
+    innerText: "Visually engaging for creatives.",
   },
 ];
 
@@ -104,11 +88,11 @@ const ProjectsPage = () => {
       <Stack className="section-content" spacing={7}>
         <Stack maxWidth="1200px" width="100%" className="projects-text-wrapper">
           <Typography fontSize="24px" fontWeight={400} lineHeight="46px">
-            Our diverse portfolio showcases our expertise across various
-            industries, highlighting our commitment to delivering exceptional
-            results for businesses of all sizes. Explore our standout projects
-            and see how we've transformed ideas into successful digital
-            solutions.
+            Our diverse CV portfolio demonstrates our proficiency in a wide
+            range of fields, emphasizing our dedication to producing outstanding
+            CVs that cater to individuals of all backgrounds and aspirations.
+            Discover our exceptional CV examples to witness how we've translated
+            unique stories into compelling professional profiles.
           </Typography>
         </Stack>
 

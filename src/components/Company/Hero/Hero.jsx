@@ -4,8 +4,8 @@ import { Stack } from "@mui/material";
 
 const hero = [
   {
-    title: `Hello World/>`,
-    subTitle: `Let's Elevate Your Career.`,
+    title: `Welcome to My CV.. `,
+    subTitle: `We are CV Creator :)`,
     backgroundImageUrl: "/images/hero-image.png",
   },
 ];
