@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useStore } from "../hooks/useStore";
 import CircularProgress from "@mui/material/CircularProgress";
+import Stack from "@mui/material/Stack";
 
 const WithUserProvider = (Component) => {
   const WrappedComponent = (props) => {
@@ -21,7 +22,13 @@ const WithUserProvider = (Component) => {
       setIsLoading(false);
     }, []);
 
-    return isLoading ? <CircularProgress /> : <Component {...props} />;
+    return isLoading ? (
+      <Stack height="100%" alignItems="center" justifyContent="center">
+        <CircularProgress />
+      </Stack>
+    ) : (
+      <Component {...props} />
+    );
   };
 
   return WrappedComponent;

@@ -7,7 +7,7 @@ main {
   width: 100%;
   padding: 0;
   margin: 0;
-  background-image: url("../public/images/tile.png");
+  background-image: url("../images/tile.png");
   background-position: 50% 0;
   opacity: 1;
   background-repeat: no-repeat;
