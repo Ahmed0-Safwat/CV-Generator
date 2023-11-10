@@ -17,24 +17,24 @@ const accordionItems = [
   },
   {
     id: 2,
-    accordionQuestion: "What services do you provide for CV creation?",
-    accordionAnswer: `CV Creator offers a range of services to assist you in crafting a compelling CV.`,
+    accordionQuestion:
+      "Can you create custom CV features and sections tailored to my career goals?",
+    accordionAnswer: `At CV Creator, we offer flexibility in creating custom CV features and sections tailored to your unique career goals. This includes personalized sections, content tailoring, design elements, keyword optimization, and integration with online profiles. Our aim is to help you craft a CV that perfectly aligns with your aspirations, regardless of your industry or sector.`,
   },
   {
     id: 3,
     accordionQuestion: "What is your process for developing a CV?",
-    accordionAnswer: `Our CV development process at CV Creator is designed to make crafting a professional CV as efficient and effective as possible.`,
+    accordionAnswer: `CV Creator streamlines the CV creation process for efficiency and effectiveness. It involves an exploration of your background and career goals, user-friendly design, content development with writing tips, customization for a unique CV, secure storage, easy sharing, and ongoing support. This process caters to various professionals, whether you're a recent graduate or an experienced career changer.`,
   },
   {
     id: 4,
     accordionQuestion: "How long does it typically take to create a CV?",
-    accordionAnswer: `The time required to create a CV can vary depending on your specific needs and how much time you can invest in the process. In general, you can create a CV on CV Creator in just a matter of minutes with max 15 minute.`,
+    accordionAnswer: `Creating a CV on CV Creator is a quick process, taking just a matter of minutes. Factors affecting the time include existing materials, customization, review, and familiarity with the platform. It can take as little as a few hours or more, depending on personal preferences and requirements.`,
   },
   {
     id: 5,
-    accordionQuestion: "How much does it cost to develop a digital product?",
-    accordionAnswer: `The cost of developing a digital product varies depending on the project's scope, complexity, and specific requirements. We
-    provide a detailed cost estimate in our project proposal after our initial consultation.`,
+    accordionQuestion: "How much does it cost to create a CV?",
+    accordionAnswer: `Creating a CV on CV Creator offers both free and premium features. Free services include basic template choices and formatting. Premium features provide advanced options like multiple formats, grammar help, and more templates for a one-time or subscription fee. Optional services, such as professional review, are also available for an extra cost, catering to various budget preferences.`,
   },
   {
     id: 6,
@@ -45,10 +45,8 @@ const accordionItems = [
   },
   {
     id: 7,
-    accordionQuestion:
-      "Do you offer ongoing support and maintenance after the product is launched?",
-    accordionAnswer: `Yes, we offer ongoing support and maintenance services to ensure your digital solution stays up-to-date, secure, and optimised
-    for peak performance. Our commitment to your long-term success means we're here to assist you as your business grows and`,
+    accordionQuestion: "How do you ensure the quality of your CVs?",
+    accordionAnswer: `CV Creator is dedicated to producing high-quality CVs. Our quality assurance process incorporates professional templates, built-in spell-check and grammar tools, easy formatting, and guidance for compelling content. Users can review, edit, and seek feedback. For added assurance, we offer an optional expert review service. These elements ensure CVs reflect individuals' skills and experiences effectively.`,
   },
   {
     id: 8,
@@ -58,11 +56,8 @@ const accordionItems = [
   },
   {
     id: 9,
-    accordionQuestion:
-      "Can your team of engineers integrate my digital product with existing systems and software?",
-    accordionAnswer: `Yes, our team of experienced engineers can integrate your digital product with your existing systems and software, ensuring
-    seamless connectivity and interoperability. We work with you to understand your current infrastructure and create a tailored
-    solution that aligns with your business needs.`,
+    accordionQuestion: "Do you offer support after the CV is completed?",
+    accordionAnswer: `CV Creator offers continuous support beyond CV creation. You can edit and update your CV, access technical support, receive content advice, and opt for expert services if needed. Our FAQs and resources are available to assist you at every career stage, ensuring your CV remains a valuable tool as your professional journey evolves.`,
   },
   {
     id: 10,
@@ -74,11 +69,8 @@ const accordionItems = [
   },
   {
     id: 11,
-    accordionQuestion:
-      "Will I own the intellectual property rights to my project?",
-    accordionAnswer: `Yes, upon completion of the project and receipt of final payment, you will own the intellectual property rights to your
-    digital product/software engineering project, including source code, design assets, and any other materials created
-    specifically for your project.`,
+    accordionQuestion: "How do I get started with CV Creator?",
+    accordionAnswer: `CV Creator makes CV creation simple and efficient. Sign up, choose a template, enter your information, customize the layout and design, preview, and edit. Download your CV in various formats and share it. Optional expert services are available for professional guidance. Our user-friendly platform ensures your CV represents your skills and experience effectively.`,
   },
   {
     id: 12,
@@ -91,26 +83,18 @@ const accordionItems = [
   {
     id: 13,
     accordionQuestion:
-      "Can you help with the marketing and promotion of my digital product development project?",
-    accordionAnswer: `While our primary focus is on software and app development, we can provide guidance and recommendations for marketing and
-    promoting your digital product development project. Our expertise in the industry and understanding of your target audience
-    enables us to offer valuable insights and suggest effective marketing strategies.`,
+      "Can your team assist in tailoring the CV to my specific career goals?",
+    accordionAnswer: `At CV Creator, we help tailor your CV for your specific career goals. Choose from various templates, personalize sections, customize content, design, and layout. Optional expert services are available for professional guidance. We ensure your CV aligns with your career aspirations, whether it's for a specific job, industry, or career change. Your success is our priority.`,
   },
   {
     id: 14,
-    accordionQuestion:
-      "How do you handle data security and user privacy in your smart IT solutions?",
-    accordionAnswer: `We take data security and user privacy very seriously. Our team adheres to industry best practices and follows relevant data
-    protection regulations to ensure your smart IT solutions comply with the required standards. We implement robust security
-    measures and conduct thorough testing to minimise potential vulnerabilities.`,
+    accordionQuestion: "How do you ensure my CV project stays on schedule?",
+    accordionAnswer: `At CV Creator, we prioritize staying on schedule for your CV project with a structured process and various tools. Our approach includes project management tools, timely communication, clear deadlines, streamlined processes, customer collaboration, expert assistance, and quality assurance to ensure your CV is delivered on time without compromising quality. Your project's timely completion is our commitment.`,
   },
   {
     id: 15,
-    accordionQuestion:
-      "Can you develop custom features and functionalities for my digital product development stages?",
-    accordionAnswer: `Absolutely! Our team specialises in creating tailored digital solutions with custom features and functionalities that cater to
-    your specific business needs and objectives during the digital product development stages. We work closely with you to
-    understand your requirements and develop a solution that sets your product apart.`,
+    accordionQuestion: "Will I have ownership of the CV?",
+    accordionAnswer: `At CV Creator, you have full ownership of the CV we create for you. Your CV is your personal and professional document. Once it's completed, it's entirely yours to use, share, or modify as you see fit. We respect your ownership rights and ensure you have complete control over the final document.`,
   },
 ];
 

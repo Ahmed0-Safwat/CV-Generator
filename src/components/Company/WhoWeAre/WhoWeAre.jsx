@@ -69,7 +69,7 @@ const WhoWeAre = () => {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                6<span style={{ color: "#E41469" }}>+</span>
+                4<span style={{ color: "#E41469" }}>+</span>
               </Typography>
 
               <Typography
@@ -80,7 +80,7 @@ const WhoWeAre = () => {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                Projects
+                Templates
               </Typography>
             </Stack>
 
@@ -93,7 +93,7 @@ const WhoWeAre = () => {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                20<span style={{ color: "#E41469" }}>+</span>
+                70<span style={{ color: "#E41469" }}>+</span>
               </Typography>
 
               <Typography
@@ -117,7 +117,7 @@ const WhoWeAre = () => {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                4<span style={{ color: "#E41469" }}>+</span>
+                3<span style={{ color: "#E41469" }}>+</span>
               </Typography>
 
               <Typography
