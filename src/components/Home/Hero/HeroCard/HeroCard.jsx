@@ -3,25 +3,13 @@ import { useWindowSize } from "../../../../hooks/useWindowSize";
 import React from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 
-interface Props {
-  title: string;
-  subTitle: string;
-  backgroundImageUrl: string;
-  styleProps?: React.CSSProperties;
-}
-
-const HeroCard: React.FC<Props> = ({
-  title,
-  subTitle,
-  backgroundImageUrl,
-  styleProps,
-}) => {
+const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
   const { isMobileView, isTabletView } = useWindowSize();
 
-  const scrollToTargetById = (id: string) => {
+  const scrollToTargetById = (id) => {
     const element = document.getElementById(id);
     const headerOffset = 76;
-    const elementPosition = element?.getBoundingClientRect().top as number;
+    const elementPosition = element?.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
     window.scrollTo({
@@ -32,6 +20,7 @@ const HeroCard: React.FC<Props> = ({
 
   const handleContactUs = () => {
     if (isTabletView) {
+      //
     } else {
       scrollToTargetById("footer");
     }

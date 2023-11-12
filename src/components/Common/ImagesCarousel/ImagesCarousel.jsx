@@ -5,18 +5,9 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import ArrowBack from "@mui/icons-material/ChevronLeft";
 import ArrowNext from "@mui/icons-material/ChevronRight";
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useWindowSize } from "../../../hooks/useWindowSize";
-
-export interface CarouselImage {
-  id: number;
-  source: string;
-  title: string;
-  subtitle: string;
-}
-interface ImagesCarouselProps {
-  carouselImages: CarouselImage[];
-}
+import { useStore } from "../../../hooks/useStore";
 
 const POINTS_COUNT = 4;
 const POINT_WIDTH = 25;
@@ -70,8 +61,8 @@ const PrevArrow = (props) => {
   );
 };
 
-const ImagesCarousel = ({ carouselImages }: ImagesCarouselProps) => {
-  const { width: windowWidth, isTabletView, isMobileView } = useWindowSize();
+const ImagesCarousel = ({ carouselImages, shouldClick }) => {
+  const { isTabletView, isMobileView } = useWindowSize();
   const [slideWidth, setSlideWidth] = useState(DEFAULT_SLIDE_WIDTH);
 
   useEffect(() => {
@@ -91,21 +82,44 @@ const ImagesCarousel = ({ carouselImages }: ImagesCarouselProps) => {
     infinite: true,
     pauseOnFocus: true,
     easing: "ease",
-    slidesToShow: Math.floor(windowWidth / slideWidth),
+    slidesToShow: 4,
     centerMode: true,
   };
+
+  const handleClick = (slideData) => {
+    if (shouldClick) {
+      useStore.setState({
+        globalState: {
+          ...useStore.getState().globalState,
+          shouldShowStepper: true,
+          selectedCV: slideData,
+        },
+      });
+    }
+  };
+
   return (
     <div className="carousel">
       <Slider {...settings}>
         {carouselImages.map((slideData) => {
           const { source: imageSource, title } = slideData;
           return (
-            <div key={title} className="slide-content">
-              <Stack className="slide-image" sx={{ maxWidth: slideWidth }}>
+            <div
+              key={title}
+              className="slide-content"
+              onClick={() => handleClick(slideData)}
+            >
+              <Stack
+                className="slide-image"
+                sx={{
+                  maxWidth: slideWidth,
+                  cursor: shouldClick ? "pointer" : "default",
+                }}
+              >
                 <img
                   src={imageSource}
                   width={slideWidth}
-                  height={320}
+                  height={350}
                   alt={title}
                 />
               </Stack>

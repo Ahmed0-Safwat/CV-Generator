@@ -80,7 +80,7 @@ const projectsCards = [
   },
 ];
 
-const ProjectsPage = () => {
+const ProjectsCards = () => {
   const innerBackgroundImageUrl = "/images/projects-card-inner-bg.png";
 
   return (
@@ -235,4 +235,4 @@ const ProjectsPage = () => {
   );
 };
 
-export default ProjectsPage;
+export default ProjectsCards;

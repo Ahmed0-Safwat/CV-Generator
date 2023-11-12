@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
-import ProjectsPage from "../../components/Projects/Projects";
-import Card from "../../components/Projects/Projects";
+import ProjectsCards from "../../components/Projects/Projects";
 import Hero from "../../components/Projects/Hero/Hero";
 
 const Projects = () => {
@@ -9,15 +8,12 @@ const Projects = () => {
     <>
       <Hero />
 
-      <Card
+      <ProjectsCards
         title={"From inspiration to innovation"}
         backgroundImageUrl={"/images/hero-image.png"}
         hasButton={false}
         CardHeight="632px"
       />
-      <div className="projects-page-wrapper">
-        <ProjectsPage />
-      </div>
     </>
   );
 };

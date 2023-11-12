@@ -15,6 +15,7 @@ import ListItem from "@mui/material/ListItem";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ProfileSection from "../ProfileSection/ProfileSection";
+import { useStore } from "../../hooks/useStore";
 
 const navItems = [
   {
@@ -61,6 +62,14 @@ const Header = () => {
   }, [location.pathname, navigate]);
 
   const handleRouting = (route) => {
+    useStore.setState({
+      globalState: {
+        ...useStore.getState().globalState,
+        activeStep: 0,
+        shouldShowStepper: false,
+      },
+    });
+
     navigate(route);
   };
 

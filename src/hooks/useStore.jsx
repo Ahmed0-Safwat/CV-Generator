@@ -5,5 +5,8 @@ export const useStore = create(() => ({
     user: null,
     token: null,
     image: null,
+    activeStep: 0,
+    shouldShowStepper: false,
+    selectedCV: null,
   },
 }));
