@@ -14,10 +14,10 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import useHelpForm from "../../../api/helpForm/helpForm";
 
 const NewContactUs = () => {
-  const asPath = "s";
-  const isContactUsPage = asPath === "/contact-us";
+  const { mutate: helpMutation } = useHelpForm();
 
   const [formValues, setFormValues] = useState({
     firstName: "",
@@ -61,30 +61,20 @@ const NewContactUs = () => {
   };
 
   const sendEmail = (templateParams) => {
-    // emailjs
-    //   .send(
-    //     "service_ibjw9ha",
-    //     "template_ify6tqv",
-    //     templateParams,
-    //     "dsE_EFZFMuVJdPC9k"
-    //   )
-    //   .then(
-    //     (response) => {
-    //       console.log(
-    //         "Email successfully sent!",
-    //         response.status,
-    //         response.text
-    //       );
-    //       setFormValues({ firstName: "", lastName: "", email: "", text: "" });
-    //       setEmailSent(true);
-    //       setTimeout(() => {
-    //         setEmailSent(false);
-    //       }, 10000);
-    //     },
-    //     (error) => {
-    //       console.error("Email failed to send.", error);
-    //     }
-    //   );
+    helpMutation(
+      {
+        firstName: templateParams.firstName,
+        lastName: templateParams.lastName,
+        email: templateParams.email,
+        message: templateParams.text,
+      },
+      {
+        onSuccess: (data) => {
+          console.log("data", data);
+          setEmailSent(true);
+        },
+      }
+    );
   };
 
   return (
