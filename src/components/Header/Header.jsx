@@ -143,15 +143,15 @@ const Header = () => {
         {isTabletView ? (
           <img
             src={"/images/cvcreator-logo.png"}
-            width={180}
+            width={200}
             height={40}
             alt="Cv-Creator Logo"
           />
         ) : (
           <img
             src={"/images/cvcreator-logo.png"}
-            width={220}
-            height={48}
+            width={260}
+            height={50}
             alt="Cv-Creator Logo"
           />
         )}

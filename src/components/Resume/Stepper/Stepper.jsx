@@ -3,8 +3,6 @@ import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import { useStore } from "../../../hooks/useStore";
 import shallow from "zustand/shallow";
 
@@ -30,7 +28,7 @@ export default function HorizontalLinearStepper() {
   //   };
 
   return (
-    <Box sx={{ width: "80%", color: "white" }}>
+    <Box sx={{ width: "65%", color: "white" }}>
       <Stepper activeStep={activeStep}>
         {steps.map((label) => {
           const stepProps = {};
@@ -47,8 +45,8 @@ export default function HorizontalLinearStepper() {
                     color: "white !important",
                   },
                   "& .MuiStepIcon-root": {
-                    width: "40px",
-                    height: "40px",
+                    width: "70px",
+                    height: "70px",
                     borderRadius: "50%",
                   },
                 }}
