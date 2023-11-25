@@ -67,6 +67,17 @@ const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
             >
               {title}
             </Typography>
+            <Typography
+              variant="h4"
+              className="content-subTitle"
+              color="white"
+              sx={{
+                fontSize: { xs: "1.5rem", md: "2rem", xl: "2.5rem" },
+                fontWeight: 500,
+              }}
+            >
+              {subTitle}
+            </Typography>
           </Stack>
         </Stack>
       </Stack>
@@ -80,10 +91,10 @@ const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
         useFlexGap
       >
         <img
-          src={"/images/Mockup1.png"}
+          src={"/images/resume home image.png"}
           alt={"photo"}
-          width={360}
-          height={300}
+          width={410}
+          height={400}
           style={{
             objectFit: "cover",
           }}

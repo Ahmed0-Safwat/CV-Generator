@@ -119,7 +119,7 @@ const ImagesCarousel = ({ carouselImages, shouldClick }) => {
                 <img
                   src={imageSource}
                   width={slideWidth}
-                  height={350}
+                  height={550}
                   alt={title}
                 />
               </Stack>

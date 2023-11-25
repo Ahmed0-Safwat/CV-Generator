@@ -11,32 +11,32 @@ import ResumeButtons from "../../components/Resume/ResumeForm/ResumeButtons";
 const projectsSectionCards = [
   {
     id: 1,
-    source: "/images/Mockup1.png",
+    source: "/images/temp 1.jpg",
     title: "Lina",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 2,
-    source: "/images/Mockup2.png",
+    source: "/images/temp 2.jpg",
     title: "Nissan",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 3,
-    source: "/images/Mockup3.png",
+    source: "/images/temp 3.webp",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 4,
-    source: "/images/Mockup4.png",
-    title: "Jeep KSA",
+    source: "/images/temp 3.webp",
+    title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 5,
-    source: "/images/Mockup4.png",
-    title: "Jeep KSA",
+    source: "/images/temp 3.webp",
+    title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
 ];

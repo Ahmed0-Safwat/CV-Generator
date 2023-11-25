@@ -8,8 +8,8 @@ import HorizontalNonLinearStepper from "../Stepper/Stepper";
 
 const hero = [
   {
-    title: `Your Career Job,\nOur Expertise.`,
-    subTitle: `Let's Elevate Your Career.`,
+    title: `Cv Generator`,
+    subTitle: `Create a Professional CV,\nOnline in No Time.`,
     backgroundImageUrl: "/images/hero-image.png",
   },
 ];
