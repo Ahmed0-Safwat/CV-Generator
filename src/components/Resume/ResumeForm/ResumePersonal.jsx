@@ -1,36 +1,74 @@
 import React from "react";
 import { TextField, Stack, Typography } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
-import { useStore } from "../../../hooks/useStore";
+import { useFormContext } from "react-hook-form";
 
 const ResumePersonal = () => {
+  const { register, setValue } = useFormContext();
+
   const textFieldData = [
-    { label: "First Name", placeholder: "e.g. John" },
-    { label: "Middle Name", placeholder: "e.g. Herbert" },
-    { label: "Last Name", placeholder: "e.g. Doe" },
-    { label: "Your Image", placeholder: "Upload Your Image" },
-    { label: "Designation", placeholder: "e.g. Sr. Accountants" },
-    { label: "Address", placeholder: "e.g. Lake Street-23" },
-    { label: "Email", placeholder: "e.g. johndoe@gmail.com" },
-    { label: "Phone Nom:", placeholder: "e.g. 456-768-798" },
-    { label: "Summary", placeholder: "e.g. Doe" },
+    {
+      label: "First Name",
+      placeholder: "e.g. John",
+      type: "text",
+      name: "firstName",
+    },
+    {
+      label: "Middle Name",
+      placeholder: "e.g. Herbert",
+      type: "text",
+      name: "middleName",
+    },
+    {
+      label: "Last Name",
+      placeholder: "e.g. Doe",
+      type: "text",
+      name: "lastName",
+    },
+    {
+      label: "Email",
+      placeholder: "e.g. johndoe@gmail.com",
+      type: "email",
+      name: "email",
+    },
+    {
+      label: "Phone Nom:",
+      placeholder: "e.g. 456-768-798",
+      type: "tel",
+      name: "phone",
+    },
+    {
+      label: "Address",
+      placeholder: "e.g. Lake Street-23",
+      type: "text",
+      name: "address",
+    },
+    { label: "Your Image", placeholder: "", type: "file", name: "img" },
   ];
 
   const renderTextFields = (start, end) => (
     <Stack
       direction="row"
-      justifyContent="space-between"
       flexWrap="wrap"
+      gap={2}
       sx={{ width: "100%", margin: "0 auto" }}
     >
       {textFieldData.slice(start, end).map((item, index) => (
         <TextField
+          {...register(`personal.${item.name}`)}
+          onChange={(value) => {
+            setValue(`personal.${item.name}`, value.target.value);
+          }}
           key={index}
+          type={item.type}
           sx={{ width: "32%" }}
           required
           id={`outlined-${item.label.toLowerCase()}`}
           label={item.label}
           placeholder={item.placeholder}
+          variant="outlined"
+          name={item.name}
+          {...(item.type === "file" && { focused: true })}
         />
       ))}
     </Stack>

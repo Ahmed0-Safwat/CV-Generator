@@ -2,49 +2,47 @@ import React from "react";
 import { TextField, Stack, Typography, MenuItem } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 
-const currencies = [
-  { value: "20%", label: "Poor" },
-  { value: "40%", label: "Fair" },
-  { value: "60%", label: "Good" },
-  { value: "80%", label: "Very Good" },
-  { value: "100%", label: "Excellent" },
+const languageLevels = [
+  { value: "Basic", label: "Basic" },
+  { value: "Conversational", label: "Conversational" },
+  { value: "Fluent", label: "Fluent" },
+  { value: "Native/Bilingual", label: "Native/Bilingual" },
 ];
 
-const ResumeSkills = () => {
+const ResumeLanguages = () => {
   const { register, watch, setValue } = useFormContext();
 
-  const renderSkillNameField = (sectionIndex) => {
-    const fieldName = `skills[${sectionIndex}].skillName`;
+  const renderLanguageNameField = (sectionIndex) => {
+    const fieldName = `languages[${sectionIndex}].languageName`;
     return (
       <TextField
         key={fieldName}
         {...register(fieldName)}
         fullWidth
         required
-        id={`outlined-skillname`}
-        label="Skill"
+        id={`outlined-languagename`}
+        label="Language"
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
       />
     );
   };
 
-  // Function to render the skill level dropdown
-  const renderSkillLevelField = (sectionIndex) => {
-    const fieldName = `skills[${sectionIndex}].skillLevel`;
+  const renderLanguageLevelField = (sectionIndex) => {
+    const fieldName = `languages[${sectionIndex}].languageLevel`;
     return (
       <TextField
         key={fieldName}
         {...register(fieldName)}
         select
         fullWidth
-        id={`outlined-skilllevel`}
-        label="Skill Level"
+        id={`outlined-languagelevel`}
+        label="Proficiency Level"
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
-        helperText="Please Select Your Skill Level"
+        helperText="Please Select Your Proficiency Level"
       >
-        {currencies.map((option) => (
+        {languageLevels.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
@@ -65,7 +63,7 @@ const ResumeSkills = () => {
         }}
       >
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
-          SKILLS
+          LANGUAGES
         </Typography>
       </Stack>
       <Stack gap={2} sx={{ width: "100%", margin: "0 auto" }}>
@@ -76,8 +74,8 @@ const ResumeSkills = () => {
             direction={{ xs: "column", sm: "row" }}
             spacing={2}
           >
-            {renderSkillNameField(index)}
-            {renderSkillLevelField(index)}
+            {renderLanguageNameField(index)}
+            {renderLanguageLevelField(index)}
           </Stack>
         ))}
       </Stack>
@@ -85,4 +83,4 @@ const ResumeSkills = () => {
   );
 };
 
-export default ResumeSkills;
+export default ResumeLanguages;

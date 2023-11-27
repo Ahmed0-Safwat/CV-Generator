@@ -1,12 +1,17 @@
 import Hero from "../../components/Resume/Hero/Hero";
 import React from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import Stack from "@mui/material/Stack";
 import ImagesCarousel from "../../components/Common/ImagesCarousel/ImagesCarousel";
 import { useStore } from "../../hooks/useStore";
 import shallow from "zustand/shallow";
 import ResumePersonal from "../../components/Resume/ResumeForm/ResumePersonal";
 import ResumeSkills from "../../components/Resume/ResumeForm/ResumeSkills";
+import ResumeProjects from "../../components/Resume/ResumeForm/ResumeProjects";
+import ResumeExperience from "../../components/Resume/ResumeForm/ResumeExperience";
 import ResumeButtons from "../../components/Resume/ResumeForm/ResumeButtons";
+import ResumeEducation from "../../components/Resume/ResumeForm/ResumeEducation";
+import ResumeLanguages from "../../components/Resume/ResumeForm/ResumeLanguages";
 
 const projectsSectionCards = [
   {
@@ -51,12 +56,71 @@ function Resume() {
 
   const { shouldShowStepper, activeStep } = globalState;
 
+  const formControl = useForm({
+    defaultValues: {
+      personal: {
+        firstName: "",
+        middleName: "",
+        lastName: "",
+        img: null,
+        address: "",
+        email: "",
+        phone: "",
+      },
+      education: [
+        {
+          university: "",
+          department: "",
+          startdate: "",
+          enddate: "",
+        },
+      ],
+      experience: [
+        {
+          jobTitle: "",
+          company: "",
+          location: "",
+          startdate: "",
+          enddate: "",
+          description: "",
+        },
+      ],
+      project: [
+        {
+          projectname: "",
+          projectlink: "",
+          description: "",
+        },
+      ],
+      skills: [
+        {
+          skillName: "",
+          skillLevel: "",
+        },
+      ],
+      languages: [
+        {
+          languageName: "",
+          languageLevel: "",
+        },
+      ],
+    },
+  });
+
   const getCurrentResumeComponent = () => {
     switch (activeStep) {
       case 0:
         return <ResumePersonal />;
       case 1:
-        return <ResumeSkills />;
+        return (
+          <>
+            <ResumeEducation />
+            <ResumeExperience />
+            <ResumeProjects />
+            <ResumeSkills />
+            <ResumeLanguages />
+          </>
+        );
       case 2:
         return <ResumePersonal />;
       default:
@@ -65,7 +129,7 @@ function Resume() {
   };
 
   return (
-    <>
+    <FormProvider {...formControl}>
       <Hero />
 
       <Stack
@@ -86,7 +150,7 @@ function Resume() {
           <ImagesCarousel carouselImages={projectsSectionCards} shouldClick />
         )}
       </Stack>
-    </>
+    </FormProvider>
   );
 }
 export default Resume;
