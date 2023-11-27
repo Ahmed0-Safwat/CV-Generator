@@ -12,6 +12,7 @@ import ResumeExperience from "../../components/Resume/ResumeForm/ResumeExperienc
 import ResumeButtons from "../../components/Resume/ResumeForm/ResumeButtons";
 import ResumeEducation from "../../components/Resume/ResumeForm/ResumeEducation";
 import ResumeLanguages from "../../components/Resume/ResumeForm/ResumeLanguages";
+import Template from "../../components/Resume/Template/Template";
 
 const projectsSectionCards = [
   {
@@ -122,7 +123,7 @@ function Resume() {
           </>
         );
       case 2:
-        return <ResumePersonal />;
+        return <Template />;
       default:
         break;
     }
