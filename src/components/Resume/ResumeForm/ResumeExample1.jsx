@@ -1,7 +1,7 @@
 import React from "react";
 import "./firsttemp.css";
 
-const ResumeExample = () => {
+const ResumeExample1 = () => {
   return (
     <>
       <div className="container">
@@ -187,4 +187,4 @@ const ResumeExample = () => {
   );
 };
 
-export default ResumeExample;
+export default ResumeExample1;
