@@ -3,12 +3,19 @@ import { TextField, Stack, Typography } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 
 const ResumeProjects = () => {
-  const { register, watch, setValue } = useFormContext();
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
 
   const renderTextField = (field, sectionIndex) => {
-    const fieldName = `project[${sectionIndex}].${field
-      .toLowerCase()
-      .replace(/\s/g, "")}`;
+    const baseFieldName = field.toLowerCase().replace(/\s/g, "");
+    const fieldName = `project[${sectionIndex}].${baseFieldName}`;
+
+    const error = Boolean(errors.project?.[sectionIndex]?.[baseFieldName]);
+    const helperText = errors.project?.[sectionIndex]?.[baseFieldName]?.message;
 
     return (
       <TextField
@@ -20,6 +27,8 @@ const ResumeProjects = () => {
         label={field}
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
+        error={error}
+        helperText={helperText}
       />
     );
   };

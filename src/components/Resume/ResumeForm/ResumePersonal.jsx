@@ -4,7 +4,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useFormContext } from "react-hook-form";
 
 const ResumePersonal = () => {
-  const { register, setValue } = useFormContext();
+  const {
+    register,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
 
   const textFieldData = [
     {
@@ -69,6 +73,8 @@ const ResumePersonal = () => {
           variant="outlined"
           name={item.name}
           {...(item.type === "file" && { focused: true })}
+          error={Boolean(errors.personal?.[item.name])}
+          helperText={errors.personal?.[item.name]?.message}
         />
       ))}
     </Stack>

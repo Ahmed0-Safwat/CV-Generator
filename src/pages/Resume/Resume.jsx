@@ -16,6 +16,8 @@ import ResumeLanguages from "../../components/Resume/ResumeForm/ResumeLanguages"
 // import ResumeExample1 from "../../components/Resume/ResumeForm/ResumeExample1";
 // import ResumeExample2 from "../../components/Resume/ResumeForm/ResumeExample2";
 import ResumeExample3 from "../../components/Resume/ResumeForm/ResumeExample3";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const projectsSectionCards = [
   {
@@ -60,7 +62,67 @@ function Resume() {
 
   const { shouldShowStepper, activeStep } = globalState;
 
+  const personalSchema = Yup.object().shape({
+    personal: Yup.object().shape({
+      firstName: Yup.string().required("First name is required"),
+      middleName: Yup.string().required("Middle name is required"),
+      lastName: Yup.string().required("Last name is required"),
+      email: Yup.string()
+        .email("Email must be a valid email address")
+        .required("Email is required"),
+      phone: Yup.string().required("Phone number is required"),
+      address: Yup.string().required("Address is required"),
+      img: Yup.mixed().required("Image is required"),
+    }),
+  });
+
+  const otherSchema = Yup.object().shape({
+    education: Yup.array().of(
+      Yup.object().shape({
+        university: Yup.string().required("University is required"),
+        department: Yup.string().required("Department is required"),
+        startdate: Yup.date().required("Start date is required"),
+        enddate: Yup.date().required("End date is required"),
+      })
+    ),
+    experience: Yup.array().of(
+      Yup.object().shape({
+        jobTitle: Yup.string().required("Job title is required"),
+        company: Yup.string().required("Company is required"),
+        location: Yup.string().required("Location is required"),
+        startdate: Yup.date().required("Start date is required"),
+        enddate: Yup.date().required("End date is required"),
+        description: Yup.string().required("Description is required"),
+      })
+    ),
+    project: Yup.array().of(
+      Yup.object().shape({
+        projectname: Yup.string().required("Project name is required"),
+        projectlink: Yup.string()
+          .url("Must be a valid URL")
+          .required("Project link is required"),
+        description: Yup.string().required("Description is required"),
+      })
+    ),
+    skills: Yup.array().of(
+      Yup.object().shape({
+        skillName: Yup.string().required("Skill name is required"),
+        skillLevel: Yup.string().required("Skill level is required"),
+      })
+    ),
+    languages: Yup.array().of(
+      Yup.object().shape({
+        languageName: Yup.string().required("Language name is required"),
+        languageLevel: Yup.string().required("Language level is required"),
+      })
+    ),
+  });
+
+  const currentSchema = activeStep === 0 ? personalSchema : otherSchema;
+
   const formControl = useForm({
+    resolver: yupResolver(currentSchema),
+
     defaultValues: {
       personal: {
         firstName: "",

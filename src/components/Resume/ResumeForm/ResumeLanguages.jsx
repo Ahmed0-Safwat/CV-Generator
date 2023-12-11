@@ -10,10 +10,16 @@ const languageLevels = [
 ];
 
 const ResumeLanguages = () => {
-  const { register, watch, setValue } = useFormContext();
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
 
   const renderLanguageNameField = (sectionIndex) => {
     const fieldName = `languages[${sectionIndex}].languageName`;
+
     return (
       <TextField
         key={fieldName}
@@ -24,12 +30,15 @@ const ResumeLanguages = () => {
         label="Language"
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
+        error={Boolean(errors.languages?.[sectionIndex]?.languageName)}
+        helperText={errors.languages?.[sectionIndex]?.languageName?.message}
       />
     );
   };
 
   const renderLanguageLevelField = (sectionIndex) => {
     const fieldName = `languages[${sectionIndex}].languageLevel`;
+
     return (
       <TextField
         key={fieldName}
@@ -40,7 +49,8 @@ const ResumeLanguages = () => {
         label="Proficiency Level"
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
-        helperText="Please Select Your Proficiency Level"
+        error={Boolean(errors.languages?.[sectionIndex]?.languageLevel)}
+        helperText={errors.languages?.[sectionIndex]?.languageLevel?.message}
       >
         {languageLevels.map((option) => (
           <MenuItem key={option.value} value={option.value}>
@@ -67,7 +77,6 @@ const ResumeLanguages = () => {
         </Typography>
       </Stack>
       <Stack gap={2} sx={{ width: "100%", margin: "0 auto" }}>
-        {/* Adjust the index as per your data structure */}
         {[0].map((index) => (
           <Stack
             key={index}

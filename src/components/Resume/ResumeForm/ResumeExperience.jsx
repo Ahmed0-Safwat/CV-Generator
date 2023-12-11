@@ -3,13 +3,23 @@ import { TextField, Stack, Typography } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 
 const ResumeExperience = () => {
-  const { register, watch, setValue } = useFormContext();
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
 
   const renderTextField = (field, sectionIndex) => {
-    let fieldName = field.toLowerCase().replace(/\s/g, "");
-    if (fieldName === "company/organization") fieldName = "company";
+    let baseFieldName = field.toLowerCase().replace(/\s/g, "");
+    if (baseFieldName === "company/organization") baseFieldName = "company";
+    if (field === "Title") baseFieldName = "jobTitle";
 
-    fieldName = `experience[${sectionIndex}].${fieldName}`;
+    const fieldName = `experience[${sectionIndex}].${baseFieldName}`;
+
+    const error = Boolean(errors.experience?.[sectionIndex]?.[baseFieldName]);
+    const helperText =
+      errors.experience?.[sectionIndex]?.[baseFieldName]?.message;
 
     return (
       <TextField
@@ -20,6 +30,8 @@ const ResumeExperience = () => {
         label={field}
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
+        error={error}
+        helperText={helperText}
         sx={{ width: "32%" }}
       />
     );
