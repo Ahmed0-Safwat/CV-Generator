@@ -1,6 +1,9 @@
 import React from "react";
 import { TextField, Stack, Typography } from "@mui/material";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { useFormContext } from "react-hook-form";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
 const ResumeExperience = () => {
   const {
@@ -21,6 +24,30 @@ const ResumeExperience = () => {
     const helperText =
       errors.experience?.[sectionIndex]?.[baseFieldName]?.message;
 
+    if (baseFieldName === "startdate" || baseFieldName === "enddate") {
+      return (
+        <>
+          <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>
+            <DesktopDatePicker
+              label={field}
+              inputFormat="MM/dd/yyyy"
+              value={watch(fieldName)}
+              onChange={(newValue) => setValue(fieldName, newValue)}
+              sx={{ width: "32%" }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  required
+                  error={error}
+                  helperText={helperText}
+                />
+              )}
+            />
+          </LocalizationProvider>
+        </>
+      );
+    }
+
     return (
       <TextField
         key={fieldName}
@@ -37,7 +64,6 @@ const ResumeExperience = () => {
     );
   };
 
-  // Experience fields to be rendered
   const experienceFields = [
     "Title",
     "Company / Organization",
@@ -46,7 +72,6 @@ const ResumeExperience = () => {
     "End Date",
     "Description",
   ];
-
   return (
     <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>
       <Stack

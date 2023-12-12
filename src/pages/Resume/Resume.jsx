@@ -98,9 +98,7 @@ function Resume() {
     project: Yup.array().of(
       Yup.object().shape({
         projectname: Yup.string().required("Project name is required"),
-        projectlink: Yup.string()
-          .url("Must be a valid URL")
-          .required("Project link is required"),
+        projectlink: Yup.string().required("Project link is required"),
         description: Yup.string().required("Description is required"),
       })
     ),
