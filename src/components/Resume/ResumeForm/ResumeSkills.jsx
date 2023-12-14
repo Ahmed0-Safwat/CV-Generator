@@ -11,7 +11,12 @@ const currencies = [
 ];
 
 const ResumeSkills = () => {
-  const { register, watch, setValue } = useFormContext();
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
 
   const renderSkillNameField = (sectionIndex) => {
     const fieldName = `skills[${sectionIndex}].skillName`;
@@ -24,12 +29,13 @@ const ResumeSkills = () => {
         id={`outlined-skillname`}
         label="Skill"
         value={watch(fieldName)}
+        error={Boolean(errors.skills?.[sectionIndex]?.skillName)}
+        helperText={errors.skills?.[sectionIndex]?.skillName?.message}
         onChange={(e) => setValue(fieldName, e.target.value)}
       />
     );
   };
 
-  // Function to render the skill level dropdown
   const renderSkillLevelField = (sectionIndex) => {
     const fieldName = `skills[${sectionIndex}].skillLevel`;
     return (
@@ -42,7 +48,8 @@ const ResumeSkills = () => {
         label="Skill Level"
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
-        helperText="Please Select Your Skill Level"
+        error={Boolean(errors.skills?.[sectionIndex]?.skillLevel)}
+        helperText={errors.skills?.[sectionIndex]?.skillLevel?.message}
       >
         {currencies.map((option) => (
           <MenuItem key={option.value} value={option.value}>

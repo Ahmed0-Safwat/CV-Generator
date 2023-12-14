@@ -709,7 +709,6 @@ const Template = () => {
               color: "#312b2b",
               fontWeight: 600,
               textAlign: "center",
-              color: "white",
               margin: "2px auto",
             }}
             variant="h5"
@@ -763,7 +762,6 @@ const Template = () => {
               color: "#312b2b",
               fontWeight: 600,
               textAlign: "center",
-              color: "white",
               margin: "2px auto",
             }}
             variant="h5"
@@ -817,7 +815,6 @@ const Template = () => {
               color: "#312b2b",
               fontWeight: 600,
               textAlign: "center",
-              color: "white",
               margin: "2px auto",
             }}
             variant="h5"
@@ -871,7 +868,6 @@ const Template = () => {
               color: "#312b2b",
               fontWeight: 600,
               textAlign: "center",
-              color: "white",
               margin: "2px auto",
             }}
             variant="h5"

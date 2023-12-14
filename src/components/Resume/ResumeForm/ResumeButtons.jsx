@@ -4,6 +4,7 @@ import shallow from "zustand/shallow";
 import { Button } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useStore } from "../../../hooks/useStore";
+import { useFormContext } from "react-hook-form";
 
 const ResumeButtons = () => {
   const { globalState } = useStore(
@@ -12,17 +13,20 @@ const ResumeButtons = () => {
     }),
     shallow
   );
-
   const { activeStep } = globalState;
+  const { handleSubmit } = useFormContext();
 
-  const handleNext = () => {
+  const onSubmit = (data) => {
+    console.log("data", data);
     useStore.setState({
       globalState: {
-        ...useStore.getState().globalState,
-        activeStep: useStore.getState().globalState.activeStep + 1,
+        ...globalState,
+        activeStep: activeStep + 1,
       },
     });
   };
+
+  const handleNext = handleSubmit(onSubmit);
 
   const handleBack = () => {
     useStore.setState({

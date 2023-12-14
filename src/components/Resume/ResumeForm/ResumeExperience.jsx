@@ -1,15 +1,52 @@
 import React from "react";
 import { TextField, Stack, Typography } from "@mui/material";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { useFormContext } from "react-hook-form";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
 const ResumeExperience = () => {
-  const { register, watch, setValue } = useFormContext();
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
 
   const renderTextField = (field, sectionIndex) => {
-    let fieldName = field.toLowerCase().replace(/\s/g, "");
-    if (fieldName === "company/organization") fieldName = "company";
+    let baseFieldName = field.toLowerCase().replace(/\s/g, "");
+    if (baseFieldName === "company/organization") baseFieldName = "company";
+    if (field === "Title") baseFieldName = "jobTitle";
 
-    fieldName = `experience[${sectionIndex}].${fieldName}`;
+    const fieldName = `experience[${sectionIndex}].${baseFieldName}`;
+
+    const error = Boolean(errors.experience?.[sectionIndex]?.[baseFieldName]);
+    const helperText =
+      errors.experience?.[sectionIndex]?.[baseFieldName]?.message;
+
+    if (baseFieldName === "startdate" || baseFieldName === "enddate") {
+      return (
+        <>
+          <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>
+            <DesktopDatePicker
+              label={field}
+              inputFormat="MM/dd/yyyy"
+              value={watch(fieldName)}
+              onChange={(newValue) => setValue(fieldName, newValue)}
+              sx={{ width: "32%" }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  required
+                  error={error}
+                  helperText={helperText}
+                />
+              )}
+            />
+          </LocalizationProvider>
+        </>
+      );
+    }
 
     return (
       <TextField
@@ -20,12 +57,13 @@ const ResumeExperience = () => {
         label={field}
         value={watch(fieldName)}
         onChange={(e) => setValue(fieldName, e.target.value)}
+        error={error}
+        helperText={helperText}
         sx={{ width: "32%" }}
       />
     );
   };
 
-  // Experience fields to be rendered
   const experienceFields = [
     "Title",
     "Company / Organization",
@@ -34,7 +72,6 @@ const ResumeExperience = () => {
     "End Date",
     "Description",
   ];
-
   return (
     <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>
       <Stack
