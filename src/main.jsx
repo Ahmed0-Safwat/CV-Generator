@@ -14,7 +14,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./utils/theme";
 import Profile from "./pages/Profile/Profile.jsx";
 import Projects from "./pages/Projects/Projects.jsx";
-import AiChat from "./pages/AiChat/AiChat.jsx";
+import AIChat from "./pages/AIChat/AIChat.jsx";
 
 const queryClient = new QueryClient();
 
@@ -39,10 +39,6 @@ const router = createBrowserRouter([
         element: <Projects />,
       },
       {
-        path: "/aichat",
-        element: <AiChat />,
-      },
-      {
         path: "/resume",
         element: <Resume />,
       },
@@ -53,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/aichat",
+        element: <AIChat />,
       },
     ],
   },

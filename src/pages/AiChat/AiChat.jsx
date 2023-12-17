@@ -1,9 +1,15 @@
+import { Box } from "@mui/material";
+import Hero from "../../components/AiChat/Hero/Hero";
+import { Stack } from "@mui/material";
+
 function AiChat() {
   return (
-    <div className="AiChat">
-      <h1>AI Chat</h1>
-      <p>AI Chat</p>
-    </div>
+    <Box>
+      <Hero />
+      <Stack>
+        <h1>ssas</h1>
+      </Stack>
+    </Box>
   );
 }
 export default AiChat;
