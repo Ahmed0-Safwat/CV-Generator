@@ -1,4 +1,4 @@
-.hero {
+/* .hero {
   .hero-container {
     display: flex;
     align-items: center;
@@ -11,4 +11,32 @@
     padding-left: 24px;
     padding-right: 24px;
   }
+} */
+
+.test {
+  background-color: transparent;
+  font-size: 15px;
+  padding-top: 8px;
+}
+.test .cs-message__content {
+  background-color: purple;
+  color: white;
+ 
+}
+
+.test .cs-message-input__content-editor-wrapper {
+  background-color: purple;
+}
+.test .cs-message-input__content-editor {
+  background-color: purple;
+  color: white;
+}
+.test .cs-message-input__content-editor[data-placeholder]:empty:before {
+  color: white;
+}
+.test .cs-message-input__tools:first-child .cs-button:last-child {
+  display: none;
+}
+.test .cs-message-input__tools:last-child .cs-button:last-child {
+  color: black;
 }
