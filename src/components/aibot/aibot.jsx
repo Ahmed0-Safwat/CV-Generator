@@ -10,7 +10,7 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = "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";
+const API_KEY = "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";
 const systemMessage = {
   role: "system",
   content:
@@ -20,7 +20,7 @@ const systemMessage = {
 function AiBot() {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm Crespo Ask Me ",
+      message: "Hello, How can I help you today?",
       sentTime: "just now",
       sender: "ChatGPT",
     },
@@ -88,24 +88,24 @@ function AiBot() {
       style={{
         display: "flex",
         justifyContent: "center",
-        padding: "20px",
+        padding: "8px",
       }}
     >
       <div
         style={{
           position: "relative",
           height: "800px",
-          width: "1100px",
+          width: "1300px",
         }}
       >
-        <MainContainer className="test">
+        <MainContainer style={{ border: "2px solid #9bd3d5" }} className="test">
           <ChatContainer className="test">
             <MessageList
               className="test"
               scrollBehavior="smooth"
               typingIndicator={
                 isTyping ? (
-                  <TypingIndicator content="ChatGPT is typing" />
+                  <TypingIndicator content="CV-Creator is typing" />
                 ) : null
               }
             >

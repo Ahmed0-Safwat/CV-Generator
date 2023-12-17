@@ -12,23 +12,24 @@
     padding-right: 24px;
   }
 } */
-
+.border {
+  border: 2px solid black;
+}
 .test {
   background-color: transparent;
   font-size: 15px;
-  padding-top: 8px;
+  padding-top: 4px;
 }
 .test .cs-message__content {
-  background-color: purple;
+  background: linear-gradient(302deg, #03adb5 8.02%, #060103 78.29%);
   color: white;
- 
 }
 
 .test .cs-message-input__content-editor-wrapper {
-  background-color: purple;
+  background-color: #03adb5;
 }
 .test .cs-message-input__content-editor {
-  background-color: purple;
+  background-color: #03adb5;
   color: white;
 }
 .test .cs-message-input__content-editor[data-placeholder]:empty:before {
@@ -38,5 +39,6 @@
   display: none;
 }
 .test .cs-message-input__tools:last-child .cs-button:last-child {
-  color: black;
+  background: linear-gradient(302deg, #03adb5 8.02%, #060103 78.29%);
+  color: white;
 }
