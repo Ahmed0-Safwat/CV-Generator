@@ -31,6 +31,10 @@ const navItems = [
     link: "/services",
   },
   {
+    name: "AI Chat",
+    link: "/aichat",
+  },
+  {
     name: "Projects",
     link: "/projects",
   },
