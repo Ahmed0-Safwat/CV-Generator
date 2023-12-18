@@ -1,0 +1,44 @@
+/* .hero {
+  .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 660px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+} */
+.border {
+  border: 2px solid black;
+}
+.test {
+  background-color: transparent;
+  font-size: 15px;
+  padding-top: 4px;
+}
+.test .cs-message__content {
+  background: linear-gradient(302deg, #03adb5 8.02%, #060103 78.29%);
+  color: white;
+}
+
+.test .cs-message-input__content-editor-wrapper {
+  background-color: #03adb5;
+}
+.test .cs-message-input__content-editor {
+  background-color: #03adb5;
+  color: white;
+}
+.test .cs-message-input__content-editor[data-placeholder]:empty:before {
+  color: white;
+}
+.test .cs-message-input__tools:first-child .cs-button:last-child {
+  display: none;
+}
+.test .cs-message-input__tools:last-child .cs-button:last-child {
+  background: linear-gradient(302deg, #03adb5 8.02%, #060103 78.29%);
+  color: white;
+}

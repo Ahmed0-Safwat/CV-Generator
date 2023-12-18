@@ -15,7 +15,9 @@ import ResumeLanguages from "../../components/Resume/ResumeForm/ResumeLanguages"
 // import Template from "../../components/Resume/Template/Template";
 // import ResumeExample1 from "../../components/Resume/ResumeForm/ResumeExample1";
 // import ResumeExample2 from "../../components/Resume/ResumeForm/ResumeExample2";
-import ResumeExample3 from "../../components/Resume/ResumeForm/ResumeExample3";
+// import ResumeExample3 from "../../components/Resume/ResumeForm/ResumeExample3";
+// import ResumeExample4 from "../../components/Resume/ResumeForm/ResumeExample4";
+import ResumeExample5 from "../../components/Resume/ResumeForm/ResumeExample5";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
@@ -186,7 +188,9 @@ function Resume() {
           </>
         );
       case 2:
-        return <ResumeExample3 />;
+        return <ResumeExample5 />;
+      // return <ResumeExample4 />;
+      // return <ResumeExample3 />;
       // return <ResumeExample2 />;
       // return <ResumeExample1 />;
       // return <Template />;
