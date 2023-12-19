@@ -1,190 +1,501 @@
 import React from "react";
-import "./firsttemp.css";
+import { Stack, Typography, LinearProgress } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import CallIcon from "@mui/icons-material/Call";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const ResumeExample1 = () => {
   return (
     <>
-      <div className="container">
-        <div className="left_Side">
-          <div className="profileText">
-            <div className="imgBx">
-              <img src="/images/temp 3.webp" alt="Profile" />
-            </div>
-            <h2>
-              Muhammed Irshad <br />
-              <span>Web Developer</span>
-            </h2>
-          </div>
-          <div className="contactInfo">
-            <h3 className="title"> Contact Info</h3>
-            <ul>
-              <li>
-                <span className="icon">
-                  <i className="fa fa-phone" aria-hidden="true"></i>
-                </span>
-                <span className="text">+1 234 5678 900</span>
-              </li>
-              <li>
-                <span className="icon">
-                  <i className="fa fa-envelope-o" aria-hidden="true"></i>
-                </span>
-                <span className="text">john_doe@email.com</span>
-              </li>
-              <li>
-                <span className="icon">
-                  <i className="fa fa-globe" aria-hidden="true"></i>
-                </span>
-                <span className="text">www.mywebsite.com</span>
-              </li>
-              <li>
-                <span className="icon">
-                  <i className="fa fa-linkedin" aria-hidden="true"></i>
-                </span>
-                <span className="text">www.linkedin.com/me</span>
-              </li>
-              <li>
-                <span className="icon">
-                  <i className="fa fa-map-marker" aria-hidden="true"></i>
-                </span>
-                <span className="text">Patna, Bihar,India</span>
-              </li>
-            </ul>
-          </div>
-          <div className="contactInfo education">
-            <h3 className="title">Education</h3>
-            <ul>
-              <li>
-                <h5>2010 - 2013</h5>
-                <h4>Master Degree in Computer Science</h4>
-                <h4>University Name</h4>
-              </li>
-              <li>
-                <h5>2007 - 2010</h5>
-                <h4>Bachelor Degree in Computer Science</h4>
-                <h4>University Name</h4>
-              </li>
-              <li>
-                <h5>1997 - 2007</h5>
-                <h4>Matriculation</h4>
-                <h4>University Name</h4>
-              </li>
-            </ul>
-          </div>
-          <div className="contactInfo language">
-            <h3 className="title">Languages</h3>
-            <ul>
-              <li>
-                <span className="text">English</span>
-                <span className="percent">
-                  <div style={{ width: "100%" }}></div>
-                </span>
-              </li>
-              <li>
-                <span className="text">Spanish</span>
-                <span className="percent">
-                  <div style={{ width: "70%" }}></div>
-                </span>
-              </li>
-              <li>
-                <span className="text">Hindi</span>
-                <span className="percent">
-                  <div style={{ width: "100%" }}></div>
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="right_Side">
-          <div className="about">
-            <h2 className="title2">Profile</h2>
-            <p>
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-              amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
-              placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-              pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae,
-              ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-              condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac
-              dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
-              Praesent dapibus, neque id cursus faucibus, tortor neque egestas
-              augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam
-              dui mi, tincidunt quis, accumsan porttitor, facilisis luctus,
-              metus
-            </p>
-          </div>
-          <div className="about">
-            <h2 className="title2">Experience</h2>
-            <div className="box">
-              <div className="year_company">
-                <h5>2019 - Present</h5>
-                <h5>Company Name</h5>
-              </div>
-              <div className="text">
-                <h4>UX/UI Designer</h4>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-              </div>
-            </div>
-            <h2 className="title2">Experience</h2>
-            <div className="box">
-              <div className="year_company">
-                <h5>2014 - 2016</h5>
-                <h5>Company Name</h5>
-              </div>
-              <div className="text">
-                <h4>Junior UX Designer</h4>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-              </div>
-            </div>
-          </div>
-          <div className="about skills">
-            <h2 className="title2">Professional Skills</h2>
-            <div className="box">
-              <h4>CSS</h4>
-              <div className="percent">
-                <div style={{ width: "95%" }}></div>
-              </div>
-            </div>
-            <div className="box">
-              <h4>Javascript</h4>
-              <div className="percent">
-                <div style={{ width: "80%" }}></div>
-              </div>
-            </div>
-            <div className="box">
-              <h4>Photoshop</h4>
-              <div className="percent">
-                <div style={{ width: "70%" }}></div>
-              </div>
-            </div>
-            <div className="box">
-              <h4>Html</h4>
-              <div className="percent">
-                <div style={{ width: "100%" }}></div>
-              </div>
-            </div>
-          </div>
-          <div className="about interest">
-            <h2 className="title2">Interest</h2>
-            <ul>
-              <li>
-                <i className="fa fa-gamepad" aria-hidden="true"></i> Gaming
-              </li>
-              <li>
-                <i className="fa fa-microphone" aria-hidden="true"></i> Singing
-              </li>
-              <li>
-                <i className="fa fa-book" aria-hidden="true"></i> Reading
-              </li>
-              <li>
-                <i className="fa fa-cutlery" aria-hidden="true"></i> Cooking
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Stack
+        sx={{
+          width: "80%",
+          backgroundColor: "blue",
+          display: "flex",
+          flexDirection: { xs: "column", md: "column", lg: "row" }, // Change to column for medium screens
+          margin: "50px auto",
+          mb: 9,
+        }}
+      >
+        {/* Left Column */}
+        <Stack
+          gap={2}
+          sx={{
+            width: { xs: "100%", md: "100%", lg: "27%" }, // Adjust width for medium screens
+            backgroundColor: "#023437",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Stack gap={0}>
+            {/* Profile Image, Name, and Role */}
+            <Avatar
+              sx={{
+                width: "200px",
+                height: "200px",
+                m: "8px auto",
+              }}
+              alt="Remy Sharp"
+              src="/images/temp-photo.jpg"
+            />
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "28px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "center",
+              }}
+            >
+              Ahmed Safwat
+            </Typography>
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "20px",
+                fontWeight: "300",
+                fontStyle: "normal",
+                textAlign: "center",
+              }}
+            >
+              Web Developer
+            </Typography>
+          </Stack>
+          {/* Contact Information */}
+          <Stack
+            sx={{
+              width: "83%",
+              height: "0.5px",
+              backgroundColor: "#FFF",
+              margin: "0px auto",
+            }}
+          ></Stack>
+          <Stack
+            gap={2}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              padding: "24px",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "26px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "start",
+              }}
+            >
+              Contact Info
+            </Typography>
+            <Stack
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Stack
+                spacing={3.2}
+                sx={{
+                  color: "#FFF",
+                }}
+              >
+                <CallIcon />
+                <LocationOnIcon />
+                <AlternateEmailIcon />
+                <LinkedInIcon />
+              </Stack>
+              <Stack
+                spacing={3}
+                sx={{
+                  color: "#FFF",
+                }}
+              >
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                  }}
+                >
+                  +123-456-7890
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                  }}
+                >
+                  123 Anywhere St., Any City
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                  }}
+                >
+                  hello@reallygreatcompany.com
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#FFF",
+                    fontSize: "18px",
+                    fontWeight: "400",
+                    fontStyle: "normal",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  www.reallygreatsite.com
+                </Typography>
+              </Stack>
+            </Stack>
+          </Stack>
+          {/* Education Section */}
+          <Stack
+            gap={2}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "95%",
+              padding: "24px",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "26px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "start",
+              }}
+            >
+              Education
+            </Typography>
+            <Stack spacing={4}>
+              {/* Education Entry 1 */}
+              <EducationEntry
+                period="2010-2013"
+                degree="Master Degree in Computer Science"
+                institution="Misr International University"
+              />
+              {/* Education Entry 2 */}
+              <EducationEntry
+                period="2010-2013"
+                degree="Master Degree in Computer Science"
+                institution="Badr University In Cairo"
+              />
+              {/* Education Entry 3 */}
+              <EducationEntry
+                period="2010-2013"
+                degree="Master Degree in Computer Science"
+                institution="American University In Cairo"
+              />
+            </Stack>
+          </Stack>
+          {/* Language Section */}
+          <Stack
+            gap={2}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "95%",
+              padding: "24px",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#FFF",
+                fontSize: "26px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                textAlign: "start",
+              }}
+            >
+              LANGUAGES
+            </Typography>
+            <Stack spacing={4}>
+              {/* Language Entry 1 */}
+              <LanguageEntry language="Arabic" proficiency={0.8} />
+              {/* Language Entry 2 */}
+              <LanguageEntry language="English" proficiency={0.5} />
+              {/* Language Entry 3 */}
+              <LanguageEntry language="Spanish" proficiency={0.65} />
+            </Stack>
+          </Stack>
+        </Stack>
+
+        {/* Right Column */}
+        <Stack
+          sx={{
+            width: "100%", // Adjust width for medium screens
+            textAlign: "center",
+            backgroundColor: "#ebdbdb",
+          }}
+        >
+          {/* About Me Section */}
+          <Stack
+            gap={4}
+            sx={{
+              padding: "24px",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "24px",
+                fontWeight: "700",
+                fontStyle: "normal",
+                color: "#023437",
+              }}
+            >
+              ABOUT ME
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                fontWeight: "500",
+                fontStyle: "normal",
+                color: "#000000db",
+              }}
+            >
+              Experienced Web Developer with a demonstrated history of working
+              in the information technology and services industry. Skilled in
+              React, JavaScript, and HTML/CSS. Strong engineering professional
+              with a Master's degree focused on Computer Science.Experienced Web
+              Developer with a demonstrated history of working in the
+              information technology and services industry. Skilled in React,
+              JavaScript, and HTML/CSS. Strong engineering professional with a
+              Master's degree focused on Computer Science.Developer with a
+              demonstrated history of working in the information technology and
+              services industry. Skilled in React, JavaScript, and HTML/CSS.
+              Strong engineering professional with a Master's degree focused on
+              Computer Science.
+            </Typography>
+          </Stack>
+
+          {/* Experience Section */}
+          <Stack
+            gap={4}
+            sx={{
+              padding: "24px",
+              backgroundColor: "#ebdbdb",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "27px",
+                fontWeight: "700",
+                fontStyle: "normal",
+                color: "#023437",
+              }}
+            >
+              EXPERIENCE
+            </Typography>
+            <Stack spacing={4}>
+              {/* Experience Entry 1 */}
+              <ExperienceEntry
+                period="2019 - Present"
+                companyName="XYZ Corporation"
+                position="Senior Frontend Developer"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat maiores cum mollitia, explicabo iure similique eius, necessitatibus accusamus eos, saepe deleniti debitis sed?"
+              />
+              {/* Experience Entry 2 */}
+              <ExperienceEntry
+                period="2017 - 2019"
+                companyName="ABC Tech"
+                position="Software Engineer"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat maiores cum mollitia, explicabo iure similique eius, necessitatibus accusamus eos, saepe deleniti debitis sed?"
+              />
+              {/* Experience Entry 3 */}
+              <ExperienceEntry
+                period="2013 - 2017"
+                companyName="Company Name"
+                position="Junior UI/UX Designer"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat maiores cum mollitia, explicabo iure similique eius, necessitatibus accusamus eos, saepe deleniti debitis sed?"
+              />
+            </Stack>
+          </Stack>
+          {/* Skills Section */}
+          <Stack
+            gap={2}
+            sx={{
+              padding: "24px",
+              backgroundColor: "#ebdbdb",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "24px",
+                fontWeight: "700",
+                fontStyle: "normal",
+                color: "#023437",
+              }}
+            >
+              SKILLS
+            </Typography>
+            <Stack spacing={4}>
+              {/* Skill Entry 1 */}
+              <SkillEntry skill="React" proficiency={0.9} />
+              {/* Skill Entry 2 */}
+              <SkillEntry skill="JavaScript" proficiency={0.85} />
+              {/* Skill Entry 3 */}
+              <SkillEntry skill="HTML/CSS" proficiency={0.95} />
+              {/* Skill Entry 4 */}
+              <SkillEntry skill="CSS" proficiency={0.65} />
+              {/* Skill Entry 5 */}
+              <SkillEntry skill="TypeScript" proficiency={0.75} />
+              {/* Skill Entry 6 */}
+              <SkillEntry skill="C Language" proficiency={1} />
+            </Stack>
+          </Stack>
+        </Stack>
+      </Stack>
     </>
   );
 };
+
+const EducationEntry = ({ period, degree, institution }) => (
+  <Stack>
+    <Typography
+      sx={{
+        fontSize: "14px",
+        fontWeight: "600",
+        fontStyle: "normal",
+        color: "#237781",
+      }}
+    >
+      {period}
+    </Typography>
+    <Typography
+      sx={{
+        fontSize: "18px",
+        fontWeight: "600",
+        fontStyle: "normal",
+        color: "#237781",
+      }}
+    >
+      {degree}
+    </Typography>
+    <Typography
+      sx={{
+        fontSize: "14px",
+        fontWeight: "500",
+        fontStyle: "normal",
+        color: "#000000db",
+      }}
+    >
+      {institution}
+    </Typography>
+  </Stack>
+);
+
+const LanguageEntry = ({ language, proficiency }) => (
+  <Stack>
+    <Typography
+      sx={{
+        fontSize: "18px",
+        fontWeight: "600",
+        fontStyle: "normal",
+        color: "#237781",
+      }}
+    >
+      {language}
+    </Typography>
+    <LinearProgress
+      variant="determinate"
+      value={proficiency * 100}
+      sx={{
+        height: 8,
+        borderRadius: 5,
+        marginTop: 1,
+        backgroundColor: "#c0c0c0",
+      }}
+    />
+  </Stack>
+);
+
+const SkillEntry = ({ skill, proficiency }) => (
+  <Stack>
+    <Typography
+      sx={{
+        fontSize: "18px",
+        fontWeight: "600",
+        fontStyle: "normal",
+        color: "#237781",
+      }}
+    >
+      {skill}
+    </Typography>
+    <LinearProgress
+      variant="determinate"
+      value={proficiency * 100}
+      sx={{
+        height: 8,
+        borderRadius: 5,
+        marginTop: 1,
+        backgroundColor: "#c0c0c0",
+      }}
+    />
+  </Stack>
+);
+
+const ExperienceEntry = ({ period, companyName, position, description }) => (
+  <Stack
+    sx={{
+      display: "flex",
+      flexDirection: "column", // Change to column for medium screens
+    }}
+  >
+    <Typography
+      sx={{
+        fontSize: "12px",
+        fontWeight: "600",
+        fontStyle: "normal",
+        color: "gray",
+      }}
+    >
+      {period}
+    </Typography>
+    <Typography
+      sx={{
+        fontSize: "12px",
+        fontWeight: "600",
+        fontStyle: "normal",
+        color: "gray",
+      }}
+    >
+      {companyName}
+    </Typography>
+    <Typography
+      sx={{
+        fontSize: "18px",
+        fontWeight: "600",
+        fontStyle: "normal",
+        color: "#237781",
+      }}
+    >
+      {position}
+    </Typography>
+    <Typography
+      sx={{
+        fontSize: "14px",
+        fontWeight: "500",
+        fontStyle: "normal",
+        color: "#000000db",
+      }}
+    >
+      {description}
+    </Typography>
+  </Stack>
+);
 
 export default ResumeExample1;
