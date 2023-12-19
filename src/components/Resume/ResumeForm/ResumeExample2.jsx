@@ -301,7 +301,12 @@ const ResumeExample2 = () => {
           <SkillsList />
         </Grid>
 
-        <Grid item xs={12} sm={8} sx={{ padding: "32px" }}>
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          sx={{ padding: "32px", backgroundColor: "white" }}
+        >
           <Stack>
             <Typography
               sx={{
