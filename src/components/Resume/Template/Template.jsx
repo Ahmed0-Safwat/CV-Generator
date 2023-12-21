@@ -25,10 +25,10 @@ const Template = () => {
           }}
         >
           <img
-            src="/images/temp-photo.jpg"
+            src="/images/template3-personalimg.avif"
             style={{
               borderRadius: "20px",
-              width: "200px",
+              width: "240px",
               height: "225px",
               marginTop: "24px",
             }}
@@ -43,7 +43,7 @@ const Template = () => {
             variant="h4"
             gutterBottom
           >
-            Yousria Abo elnaga abd Elhameed
+            Martin Hardy Smith
           </Typography>
           <Typography
             sx={{
@@ -53,7 +53,7 @@ const Template = () => {
             variant="h6"
             gutterBottom
           >
-            Address: Yousriaaoelnaga@yahoo.com
+            Email: MartinHardySmith@yahoo.com
           </Typography>
           <Typography
             sx={{
@@ -63,8 +63,9 @@ const Template = () => {
             variant="h6"
             gutterBottom
           >
-            Phone: +2011484477999
+            Phone: +20111155550
           </Typography>
+
           <Typography
             sx={{
               color: "#868484",
@@ -73,7 +74,7 @@ const Template = () => {
             variant="h6"
             gutterBottom
           >
-            Email: Yousriaaoelnaga@yahoo.com
+            Address: Road 10, Madent-Nasr
           </Typography>
         </Stack>
       </Stack>
@@ -610,83 +611,6 @@ const Template = () => {
                 voluptas quas iste maiores harum?
               </span>
             </li>
-            <li>
-              <b>
-                <u>Scopus ID:</u>{" "}
-              </b>
-              <span style={{ fontWeight: "600", color: "rgb(72 71 71)" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit harum suscipit dolores veniam nesciunt tempora,
-                facilis libero at pariatur nisi iste? Aut ad deserunt, vero
-                accusamus reiciendis quis reprehenderit sed.
-              </span>
-            </li>
-            <li>
-              <b>
-                <u>Scopus ID:</u>{" "}
-              </b>
-              <span style={{ fontWeight: "600", color: "rgb(72 71 71)" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit harum suscipit dolores veniam nesciunt tempora,
-                facilis libero at pariatur nisi iste? Aut ad deserunt, vero
-                accusamus reiciendis quis reprehenderit sed.
-              </span>
-            </li>
-            <li>
-              <b>
-                <u>Scopus ID:</u>{" "}
-              </b>
-              <span style={{ fontWeight: "600", color: "rgb(72 71 71)" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit harum suscipit dolores veniam nesciunt tempora,
-                facilis libero at pariatur nisi iste? Aut ad deserunt, vero
-                accusamus reiciendis quis reprehenderit sed.
-              </span>
-            </li>
-            <li>
-              <b>
-                <u>Scopus ID:</u>{" "}
-              </b>
-              <span style={{ fontWeight: "600", color: "rgb(72 71 71)" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit harum suscipit dolores veniam nesciunt tempora,
-                facilis libero at pariatur nisi iste? Aut ad deserunt, vero
-                accusamus reiciendis quis reprehenderit sed.
-              </span>
-            </li>
-            <li>
-              <b>
-                <u>Scopus ID:</u>{" "}
-              </b>
-              <span style={{ fontWeight: "600", color: "rgb(72 71 71)" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit harum suscipit dolores veniam nesciunt tempora,
-                facilis libero at pariatur nisi iste? Aut ad deserunt, vero
-                accusamus reiciendis quis reprehenderit sed.
-              </span>
-            </li>
-            <li>
-              <b>
-                <u>Scopus ID:</u>{" "}
-              </b>
-              <span style={{ fontWeight: "600", color: "rgb(72 71 71)" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit harum suscipit dolores veniam nesciunt tempora,
-                facilis libero at pariatur nisi iste? Aut ad deserunt, vero
-                accusamus reiciendis quis reprehenderit sed.
-              </span>
-            </li>
-            <li>
-              <b>
-                <u>Scopus ID:</u>{" "}
-              </b>
-              <span style={{ fontWeight: "600", color: "rgb(72 71 71)" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit harum suscipit dolores veniam nesciunt tempora,
-                facilis libero at pariatur nisi iste? Aut ad deserunt, vero
-                accusamus reiciendis quis reprehenderit sed.
-              </span>
-            </li>
           </Stack>
         </ol>
       </Stack>
@@ -714,10 +638,10 @@ const Template = () => {
             variant="h5"
             gutterBottom
           >
-            SUPERVION OF MASTER THESIS
+            Honors and Awards
           </Typography>
         </Stack>
-        <ol style={{ fontSize: "20px", color: "black" }}>
+        <ul style={{ fontSize: "20px", color: "black", marginTop: "30px" }}>
           <Stack spacing={4}>
             <li>
               <span style={{ fontWeight: "500", color: "black" }}>
@@ -744,7 +668,15 @@ const Template = () => {
               </span>
             </li>
             <li>
-              <span href="" style={{ fontWeight: "500", color: "black" }}>
+              <span style={{ fontWeight: "500", color: "black" }}>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Reiciendis autem velit natus illo optio? Et nisi laboriosam
+                inventore autem commodi. Cumque, non. Ex fuga, accusantium eius
+                placeat repellat velit voluptate!
+              </span>
+            </li>
+            <li>
+              <span style={{ fontWeight: "500", color: "black" }}>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Reiciendis autem velit natus illo optio? Et nisi laboriosam
                 inventore autem commodi. Cumque, non. Ex fuga, accusantium eius
@@ -752,166 +684,7 @@ const Template = () => {
               </span>
             </li>
           </Stack>
-        </ol>
-      </Stack>
-      {/* **************************************** */}
-      <Stack sx={{ p: 4 }}>
-        <Stack sx={{ backgroundColor: "black", marginTop: "20px" }}>
-          <Typography
-            sx={{
-              color: "white",
-              fontWeight: 600,
-              textAlign: "center",
-              margin: "2px auto",
-            }}
-            variant="h5"
-            gutterBottom
-          >
-            SUPERVION OF PHD THESIS
-          </Typography>
-        </Stack>
-        <ol style={{ fontSize: "20px", color: "black" }}>
-          <Stack spacing={4}>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-                dolorem enim ex praesentium voluptatibus debitis eligendi
-                reiciendis repellendus voluptate nesciunt quaerat laborum,
-                recusandae ea, iure sit aliquid obcaecati nisi maxime.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Repellendus odio eum in quis itaque. At maxime ea magni
-                repellendus? Molestiae, ratione optio! Quibusdam illum voluptate
-                dicta officia, blanditiis doloremque voluptatum.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores modi dolore veritatis autem libero quibusdam natus
-                accusamus quia velit, suscipit qui magni soluta, sit ipsum nisi
-                deserunt harum totam quasi.
-              </span>
-            </li>
-            <li>
-              <span href="" style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Reiciendis autem velit natus illo optio? Et nisi laboriosam
-                inventore autem commodi. Cumque, non. Ex fuga, accusantium eius
-                placeat repellat velit voluptate!
-              </span>
-            </li>
-          </Stack>
-        </ol>
-      </Stack>
-      {/* **************************************** */}
-      <Stack sx={{ p: 4 }}>
-        <Stack sx={{ backgroundColor: "black", marginTop: "20px" }}>
-          <Typography
-            sx={{
-              color: "white",
-              fontWeight: 600,
-              textAlign: "center",
-              margin: "2px auto",
-            }}
-            variant="h5"
-            gutterBottom
-          >
-            ARBITRATION THESIS
-          </Typography>
-        </Stack>
-        <ol style={{ fontSize: "20px", color: "black" }}>
-          <Stack spacing={4}>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-                dolorem enim ex praesentium voluptatibus debitis eligendi
-                reiciendis repellendus voluptate nesciunt quaerat laborum,
-                recusandae ea, iure sit aliquid obcaecati nisi maxime.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Repellendus odio eum in quis itaque. At maxime ea magni
-                repellendus? Molestiae, ratione optio! Quibusdam illum voluptate
-                dicta officia, blanditiis doloremque voluptatum.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores modi dolore veritatis autem libero quibusdam natus
-                accusamus quia velit, suscipit qui magni soluta, sit ipsum nisi
-                deserunt harum totam quasi.
-              </span>
-            </li>
-            <li>
-              <span href="" style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Reiciendis autem velit natus illo optio? Et nisi laboriosam
-                inventore autem commodi. Cumque, non. Ex fuga, accusantium eius
-                placeat repellat velit voluptate!
-              </span>
-            </li>
-          </Stack>
-        </ol>
-      </Stack>
-      {/* **************************************** */}
-      <Stack sx={{ p: 4 }}>
-        <Stack sx={{ backgroundColor: "black", marginTop: "20px" }}>
-          <Typography
-            sx={{
-              color: "white",
-              fontWeight: 600,
-              textAlign: "center",
-              margin: "2px auto",
-            }}
-            variant="h5"
-            gutterBottom
-          >
-            ATTEND CONFERENCES
-          </Typography>
-        </Stack>
-        <ol style={{ fontSize: "20px", color: "black" }}>
-          <Stack spacing={4}>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-                dolorem enim ex praesentium voluptatibus debitis eligendi
-                reiciendis repellendus voluptate nesciunt quaerat laborum,
-                recusandae ea, iure sit aliquid obcaecati nisi maxime.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Repellendus odio eum in quis itaque. At maxime ea magni
-                repellendus? Molestiae, ratione optio! Quibusdam illum voluptate
-                dicta officia, blanditiis doloremque voluptatum.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores modi dolore veritatis autem libero quibusdam natus
-                accusamus quia velit, suscipit qui magni soluta, sit ipsum nisi
-                deserunt harum totam quasi.
-              </span>
-            </li>
-            <li>
-              <span href="" style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Reiciendis autem velit natus illo optio? Et nisi laboriosam
-                inventore autem commodi. Cumque, non. Ex fuga, accusantium eius
-                placeat repellat velit voluptate!
-              </span>
-            </li>
-          </Stack>
-        </ol>
+        </ul>
       </Stack>
       {/* **************************************** */}
       <Stack sx={{ p: 4 }}>
@@ -926,66 +699,56 @@ const Template = () => {
           Teaching Experience
         </Typography>
         <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
-        <ol style={{ fontSize: "20px", color: "black" }}>
-          <Stack spacing={4}>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-                dolorem enim ex praesentium voluptatibus debitis eligendi
-                reiciendis repellendus voluptate nesciunt quaerat laborum,
-                recusandae ea, iure sit aliquid obcaecati nisi maxime.
-              </span>
+        <Stack spacing={3}>
+          <ul>
+            <li
+              style={{
+                fontWeight: "500",
+                fontSize: "20px",
+                marginBottom: "30px",
+                marginTop: "40px",
+              }}
+            >
+              09/16 – present: ASSISTANT PROFESSOR
+              <ul>
+                <li style={{ fontWeight: "400" }}>
+                  Higher Technological Institute, Computer Sciences Department,
+                  10th of Ramadan City, Egypt.
+                </li>
+              </ul>
             </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Repellendus odio eum in quis itaque. At maxime ea magni
-                repellendus? Molestiae, ratione optio! Quibusdam illum voluptate
-                dicta officia, blanditiis doloremque voluptatum.
-              </span>
+            <li
+              style={{
+                fontWeight: "500",
+                fontSize: "20px",
+                marginBottom: "30px",
+              }}
+            >
+              01/08 - 09/16: GRADUATE TEACHING / RESEARCH ASSISTANT
+              <ul>
+                <li style={{ fontWeight: "400", fontSize: "20px" }}>
+                  Higher Technological Institute, Computer Sciences Department,
+                  10th of Ramadan City, Egypt.
+                </li>
+              </ul>
             </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores modi dolore veritatis autem libero quibusdam natus
-                accusamus quia velit, suscipit qui magni soluta, sit ipsum nisi
-                deserunt harum totam quasi.
-              </span>
+            <li
+              style={{
+                fontWeight: "500",
+                fontSize: "20px",
+                marginBottom: "30px",
+              }}
+            >
+              09/03 - 01/08: TEACHING ASSISTANT / INSTRUCTOR
+              <ul>
+                <li style={{ fontWeight: "400", fontSize: "20px" }}>
+                  Higher Technological Institute, Computer Sciences Department,
+                  10th of Ramadan City, Egypt.
+                </li>
+              </ul>
             </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Reiciendis autem velit natus illo optio? Et nisi laboriosam
-                inventore autem commodi. Cumque, non. Ex fuga, accusantium eius
-                placeat repellat velit voluptate!
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                distinctio minus deserunt libero totam suscipit eos! Inventore
-                voluptas magni, reprehenderit expedita similique totam iste odit
-                ea, aliquam quam fuga ut.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                distinctio minus deserunt libero totam suscipit eos! Inventore
-                voluptas magni, reprehenderit expedita similique totam iste odit
-                ea, aliquam quam fuga ut.
-              </span>
-            </li>
-            <li>
-              <span style={{ fontWeight: "500", color: "black" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                distinctio minus deserunt libero totam suscipit eos! Inventore
-                voluptas magni, reprehenderit expedita similique totam iste odit
-                ea, aliquam quam fuga ut.
-              </span>
-            </li>
-          </Stack>
-        </ol>
+          </ul>
+        </Stack>
       </Stack>
       {/* **************************************** */}
       <Stack sx={{ p: 4 }}>
@@ -1000,462 +763,43 @@ const Template = () => {
           Education
         </Typography>
         <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            marginTop: "20px",
-          }}
-        >
-          <thead>
-            <tr>
-              <th
-                style={{
-                  border: "2px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  backgroundColor: "#f2f2f2",
-                  fontSize: "20px",
-                }}
-              ></th>
-              <th
-                style={{
-                  border: "2px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  backgroundColor: "#f2f2f2",
-                  fontSize: "20px",
-                }}
-              >
-                Course Name
-              </th>
-              <th
-                style={{
-                  border: "2px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  backgroundColor: "#f2f2f2",
-                  fontSize: "20px",
-                }}
-              >
-                Degree
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                1
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Calculus I{" "}
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "320px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Engineering programs (Egypt)</li>
-                  <li>Mathematics program (k.s.a)</li>{" "}
-                  <li>Computer science (k.s.a)</li>
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                  maxWidth: "50px",
-                }}
-              >
-                2
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Calculus II
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Engineering programs (Egypt)</li>
-                  <li>Mathematics program (k.s.a)</li>{" "}
-                  <li>Computer science (k.s.a)</li>
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                3
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Advanced calculus{" "}
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Engineering programs (Egypt)</li>
-                  <li>Mathematics program (k.s.a)</li>{" "}
-                  <li>Computer science (k.s.a)</li>
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                4
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Numerical methods
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Engineering programs (Egypt)</li>
-                  <li>Mathematics program (k.s.a)</li>{" "}
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                5
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Complex analysis{" "}
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Engineering programs (Egypt)</li>
-                  <li>Mathematics program (k.s.a)</li>{" "}
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                6
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Statistics and probability
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Engineering programs (Egypt)</li>
-                  <li>Mathematics program (k.s.a)</li>{" "}
-                  <li>Computer science (k.s.a)</li>
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                7
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Operation research
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Mathematics program (k.s.a)</li>{" "}
-                  <li>Computer science (k.s.a)</li>
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                8
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Artificial intelligent{" "}
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack spacing={2}>
-                  <li>Computer science (k.s.a)</li>
-                </Stack>{" "}
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                9
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Game programming{" "}
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack>
-                  <li>Graduate studies</li>
-                </Stack>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "21px",
-                }}
-              >
-                10
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  whiteSpace: "normal",
-                  maxWidth: "320px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                }}
-              >
-                Dynamic programming
-              </td>
-              <td
-                style={{
-                  border: "1px solid black",
-                  textAlign: "left",
-                  padding: "8px",
-                  fontWeight: "500",
-                  fontSize: "18px",
-                  maxWidth: "200px",
-                }}
-              >
-                <Stack>
-                  <li>Graduate studies</li>
-                </Stack>{" "}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <ul style={{ fontSize: "20px" }}>
+          <Stack spacing={3}>
+            <li>
+              <b>Operation Research</b>
+            </li>
+            <li>
+              <b>Decision Support Systems</b>
+            </li>
+            <li>
+              <b>Data Structure</b>
+            </li>
+            <li>
+              <b>Introduction to Computers</b>
+            </li>
+            <li>
+              <b>Introduction to Information Systems</b>
+            </li>
+            <li>
+              <b>Systems Analysis</b>
+            </li>
+            <li>
+              <b>Artificial Intelligence</b>
+            </li>
+            <li>
+              <b>Expert Systems</b>
+            </li>
+            <li>
+              <b>Logic Programming</b>
+            </li>
+            <li>
+              <b>Structure Programming</b>
+            </li>
+            <li>
+              <b>Object Oriented Programming</b>
+            </li>
+          </Stack>
+        </ul>
       </Stack>
       {/* **************************************** */}
     </Stack>
