@@ -7,7 +7,7 @@ const Template = () => {
     <Stack
       spacing={4}
       sx={{
-        width: "100%",
+        width: "90%",
         border: "1px solid black",
         backgroundColor: "#e8e8e8",
       }}
@@ -28,7 +28,7 @@ const Template = () => {
             src="/images/temp-photo.jpg"
             style={{
               borderRadius: "20px",
-              width: "225px",
+              width: "200px",
               height: "225px",
               marginTop: "24px",
             }}
@@ -703,10 +703,10 @@ const Template = () => {
           Certifications or Professional Registrations
         </Typography>
         <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
-        <Stack sx={{ backgroundColor: "#615454", marginTop: "20px" }}>
+        <Stack sx={{ backgroundColor: "black", marginTop: "20px" }}>
           <Typography
             sx={{
-              color: "#312b2b",
+              color: "white",
               fontWeight: 600,
               textAlign: "center",
               margin: "2px auto",
@@ -756,10 +756,10 @@ const Template = () => {
       </Stack>
       {/* **************************************** */}
       <Stack sx={{ p: 4 }}>
-        <Stack sx={{ backgroundColor: "#615454", marginTop: "20px" }}>
+        <Stack sx={{ backgroundColor: "black", marginTop: "20px" }}>
           <Typography
             sx={{
-              color: "#312b2b",
+              color: "white",
               fontWeight: 600,
               textAlign: "center",
               margin: "2px auto",
@@ -809,10 +809,10 @@ const Template = () => {
       </Stack>
       {/* **************************************** */}
       <Stack sx={{ p: 4 }}>
-        <Stack sx={{ backgroundColor: "#615454", marginTop: "20px" }}>
+        <Stack sx={{ backgroundColor: "black", marginTop: "20px" }}>
           <Typography
             sx={{
-              color: "#312b2b",
+              color: "white",
               fontWeight: 600,
               textAlign: "center",
               margin: "2px auto",
@@ -862,10 +862,10 @@ const Template = () => {
       </Stack>
       {/* **************************************** */}
       <Stack sx={{ p: 4 }}>
-        <Stack sx={{ backgroundColor: "#615454", marginTop: "20px" }}>
+        <Stack sx={{ backgroundColor: "black", marginTop: "20px" }}>
           <Typography
             sx={{
-              color: "#312b2b",
+              color: "white",
               fontWeight: 600,
               textAlign: "center",
               margin: "2px auto",
