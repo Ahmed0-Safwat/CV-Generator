@@ -21,12 +21,41 @@ const ContactInfo = () => {
         gap: 2,
       }}
     >
+      {/* need this appear when the size is XS */}
+      <Stack>
+        <Typography
+          sx={{
+            fontSize: { xs: "35px", sm: "35px", md: "32px", lg: "35px" },
+            fontWeight: "800",
+            fontStyle: "normal",
+            color: "#43443f",
+            textAlign: "center",
+            display: { xs: "block", sm: "none", md: "none", lg: "none" }, // Display on xs, hide on sm, md, lg
+          }}
+        >
+          Ahmed Safwat
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: "25px", sm: "20px", md: "25px", lg: "20px" },
+            fontWeight: "500",
+            letterSpacing: { xs: "3px", sm: "2px", md: "6px", lg: "6px" },
+            fontStyle: "normal",
+            color: "#5d5d5d",
+            textAlign: "center",
+            display: { xs: "block", sm: "none", md: "none", lg: "none" }, // Display on xs, hide on sm, md, lg
+          }}
+        >
+          Software Engineer
+        </Typography>
+      </Stack>
       {contactInfoData.map((info, index) => (
         <Stack
           key={index}
           direction="row"
-          spacing={1}
+          spacing={2}
           alignItems="center"
+          marginBottom={1}
           sx={{ color: "#43443f" }}
         >
           {info.icon}
@@ -241,8 +270,8 @@ const ResumeExample2 = () => {
     <Grid
       container
       sx={{
-        width: "80%",
-        backgroundColor: "blue",
+        width: "90%",
+        backgroundColor: "black",
         margin: "50px auto",
         flexDirection: "column",
       }}
@@ -310,26 +339,45 @@ const ResumeExample2 = () => {
           <Stack>
             <Typography
               sx={{
-                fontSize: "50px",
+                fontSize: { xs: "25px", sm: "35px", md: "50px", lg: "50px" },
                 fontWeight: "800",
                 fontStyle: "normal",
                 color: "#43443f",
+                display: { xs: "none", sm: "block", md: "block", lg: "block" }, // Display on sm, md, lg
               }}
             >
               Ahmed Safwat
             </Typography>
             <Typography
               sx={{
-                fontSize: "30px",
-                fontWeight: "400",
-                letterSpacing: "6px",
+                fontSize: { xs: "24px", sm: "25px", md: "30px", lg: "30px" },
+                fontWeight: "500",
+                letterSpacing: { xs: "4px", sm: "2px", md: "6px", lg: "6px" },
                 fontStyle: "normal",
                 color: "#5d5d5d",
+                display: { xs: "none", sm: "block", md: "block", lg: "block" }, // Display on sm, md, lg
               }}
             >
               Software Engineer
             </Typography>
           </Stack>
+          <Divider
+            sx={{
+              fontSize: "30px",
+              fontWeight: "800",
+              fontStyle: "normal",
+              color: "#43443f",
+              mt: 10,
+            }}
+            textAlign="left"
+          >
+            About Me
+          </Divider>
+          <WorkExperienceItem
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Soluta, dolorum, rem recusandae temporibus assumenda illo perspiciatis modi optio at praesentium quidem.
+            Animi eligendi natus ullam quasi facilis porro sit culpa."
+          />
           <Divider
             sx={{
               fontSize: "30px",
@@ -385,7 +433,7 @@ const ResumeExample2 = () => {
           </Divider>
 
           <Stack
-            direction="row"
+            direction={{ xs: "column", sm: "row" }}
             justifyContent="space-between"
             sx={{
               display: "flex",

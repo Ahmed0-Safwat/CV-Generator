@@ -6,15 +6,22 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
+const contactInfoData = [
+  { icon: <CallIcon />, text: "+123-456-7890" },
+  { icon: <LocationOnIcon />, text: "123 Anywhere St., Any City" },
+  { icon: <AlternateEmailIcon />, text: "hello@reallygreatcompany.com" },
+  { icon: <LinkedInIcon />, text: "www.reallygreatsite.com" },
+];
+
 const ResumeExample1 = () => {
   return (
     <>
       <Stack
         sx={{
-          width: "80%",
+          width: "90%",
           backgroundColor: "blue",
           display: "flex",
-          flexDirection: { xs: "column", md: "column", lg: "row" }, // Change to column for medium screens
+          flexDirection: { xs: "column", md: "column", lg: "row" },
           margin: "50px auto",
           mb: 9,
         }}
@@ -23,7 +30,7 @@ const ResumeExample1 = () => {
         <Stack
           gap={2}
           sx={{
-            width: { xs: "100%", md: "100%", lg: "27%" }, // Adjust width for medium screens
+            width: { xs: "100%", md: "100%", lg: "33%" },
             backgroundColor: "#023437",
             display: "flex",
             flexDirection: "column",
@@ -65,18 +72,11 @@ const ResumeExample1 = () => {
           </Stack>
           {/* Contact Information */}
           <Stack
-            sx={{
-              width: "83%",
-              height: "0.5px",
-              backgroundColor: "#FFF",
-              margin: "0px auto",
-            }}
-          ></Stack>
-          <Stack
             gap={2}
             sx={{
               display: "flex",
               flexDirection: "column",
+
               width: "100%",
               padding: "24px",
             }}
@@ -93,71 +93,34 @@ const ResumeExample1 = () => {
               Contact Info
             </Typography>
             <Stack
+              direction="column"
+              justifyContent="space-between"
               sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
+                color: "#FFF",
+                width: "100%",
               }}
             >
-              <Stack
-                spacing={3.2}
-                sx={{
-                  color: "#FFF",
-                }}
-              >
-                <CallIcon />
-                <LocationOnIcon />
-                <AlternateEmailIcon />
-                <LinkedInIcon />
-              </Stack>
-              <Stack
-                spacing={3}
-                sx={{
-                  color: "#FFF",
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: "#FFF",
-                    fontSize: "18px",
-                    fontWeight: "400",
-                    fontStyle: "normal",
-                  }}
+              {contactInfoData.map((info, index) => (
+                <Stack
+                  key={index}
+                  direction="row"
+                  spacing={2}
+                  alignItems="center"
+                  marginBottom={3}
                 >
-                  +123-456-7890
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#FFF",
-                    fontSize: "18px",
-                    fontWeight: "400",
-                    fontStyle: "normal",
-                  }}
-                >
-                  123 Anywhere St., Any City
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#FFF",
-                    fontSize: "18px",
-                    fontWeight: "400",
-                    fontStyle: "normal",
-                  }}
-                >
-                  hello@reallygreatcompany.com
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#FFF",
-                    fontSize: "18px",
-                    fontWeight: "400",
-                    fontStyle: "normal",
-                    wordWrap: "break-word",
-                  }}
-                >
-                  www.reallygreatsite.com
-                </Typography>
-              </Stack>
+                  {info.icon}
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "500",
+                      fontStyle: "normal",
+                    }}
+                  >
+                    {info.text}
+                  </Typography>
+                </Stack>
+              ))}
             </Stack>
           </Stack>
           {/* Education Section */}
