@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import "../../components/AiChat/usless.css";
 import {
@@ -10,6 +10,13 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
+const API_KEY = "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";
+const systemMessage = {
+  role: "system",
+  content:
+    "Explain things like you're talking to a software professional with 2 years of experience.",
+};
+
 function AiBot() {
   const [messages, setMessages] = useState([
     {
@@ -19,12 +26,6 @@ function AiBot() {
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
-  const [apiKey, setApiKey] = useState("");
-
-  useEffect(() => {
-    // Fetch the API key when the component mounts
-    setApiKey(import.meta.env.VITE_API_KEY || "");
-  }, []); // Add an empty dependency array to run the effect only once
 
   const handleSend = async (message) => {
     const newMessage = {
@@ -54,57 +55,31 @@ function AiBot() {
 
     const apiRequestBody = {
       model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content:
-            "Explain things like you're talking to a software professional with 2 years of experience.",
-        },
-        ...apiMessages,
-      ],
+      messages: [systemMessage, ...apiMessages],
     };
 
-    try {
-      const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            Authorization: "Bearer " + apiKey,
-            "Content-Type": "application/json",
+    await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + API_KEY,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(apiRequestBody),
+    })
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setMessages([
+          ...chatMessages,
+          {
+            message: data.choices[0].message.content,
+            sender: "ChatGPT",
           },
-          body: JSON.stringify(apiRequestBody),
-        }
-      );
-
-      if (!response.ok) {
-        if (response.status === 401) {
-          throw new Error(
-            `Unauthorized: Please check your API key and permissions.`
-          );
-        } else {
-          throw new Error(
-            `Failed to fetch response from OpenAI API: ${response.status} - ${response.statusText}`
-          );
-        }
-      }
-
-      const data = await response.json();
-
-      setMessages([
-        ...chatMessages,
-        {
-          message: data.choices[0].message.content,
-          sender: "ChatGPT",
-        },
-      ]);
-
-      setIsTyping(false);
-    } catch (error) {
-      console.error("Error fetching response from OpenAI API:", error.message);
-      // Handle error, e.g., display an error message to the user
-      setIsTyping(false);
-    }
+        ]);
+        setIsTyping(false);
+      });
   }
 
   return (
