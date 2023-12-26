@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 const useVerifyEmail = () => {
   const verifyEmail = async (data) => {
     const response = await fetch(
-      `https://moaaz2002-001-site1.atempurl.com/api/Users/Email/VerifyMail?email=${data?.email}&token=${data?.token}`,
+      `https://moaaaz2002-001-site1.btempurl.com/api/Users/Email/VerifyMail?email=${data?.email}&token=${data?.token}`,
       {
         method: "POST",
         headers: {

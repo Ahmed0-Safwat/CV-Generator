@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 const useHelpForm = () => {
   const helpForm = async (data) => {
     const response = await fetch(
-      "https://moaaz2002-001-site1.atempurl.com/api/Support/Messages",
+      "https://moaaaz2002-001-site1.btempurl.com/api/Support/Message",
       {
         method: "POST",
         headers: {
