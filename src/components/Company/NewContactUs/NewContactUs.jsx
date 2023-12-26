@@ -252,8 +252,9 @@ const NewContactUs = () => {
                 {emailSent && (
                   <Typography
                     color="primary.main"
-                    variant="h1"
+                    variant="h6"
                     textAlign="center"
+                    fontWeight={400}
                   >
                     Email has been sent successfully!
                   </Typography>
