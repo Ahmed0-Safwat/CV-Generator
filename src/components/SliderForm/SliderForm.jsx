@@ -128,7 +128,7 @@ function SliderForm({ handleClose }) {
     };
 
     await fetch(
-      `https://moaaz2002-001-site1.atempurl.com/api/Users/Email/VerifyMail?email=${data?.email}&token=${data?.token}`,
+      `https://moaaaz2002-001-site1.btempurl.com/api/Users/Email/VerifyMail?email=${data?.email}&token=${data?.token}`,
       {
         method: "POST",
         headers: {
@@ -224,7 +224,7 @@ function SliderForm({ handleClose }) {
                 <div style={{ color: "red" }}>{errors.verifyError}</div>
               )}
               {errors.verifySuccess && (
-                <div style={{ color: "green" }}>{errors.verifySuccess}</div>
+                <div style={{ color: "#03adb5" }}>{errors.verifySuccess}</div>
               )}
 
               <Components.Button
