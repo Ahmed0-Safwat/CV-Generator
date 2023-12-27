@@ -1,7 +1,9 @@
 import "./style.scss";
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-
+import ResumeExample1 from "../../components/Resume/ResumeForm/ResumeExample1";
+import ResumeExample2 from "../../components/Resume/ResumeForm/ResumeExample2";
+import Template from "../../components/Resume/Template/Template";
 const SERVICES_CARDS = [
   {
     icon: "/images/web-design-icon.svg",
@@ -48,6 +50,10 @@ const ServicesContent = () => {
         padding={0}
         paddingBottom={2}
       >
+        <ResumeExample1 />
+        <ResumeExample2 />
+        <Template />
+
         <Stack
           pt="100px"
           maxWidth="1200px"
@@ -83,7 +89,6 @@ const ServicesContent = () => {
             help you succeed in your professional journey.
           </Typography>
         </Stack>
-
         <Stack
           direction={{ xs: "column", lg: "row" }}
           spacing={3}
@@ -260,7 +265,6 @@ const ServicesContent = () => {
             </Stack>
           </Stack>
         </Stack>
-
         <Stack
           className="expertise-dimensions-wrapper"
           direction="row"

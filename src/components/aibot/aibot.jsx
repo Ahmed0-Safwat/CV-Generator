@@ -95,7 +95,7 @@ function AiBot() {
         style={{
           position: "relative",
           height: "800px",
-          width: "1300px",
+          width: "800px",
         }}
       >
         <MainContainer style={{ border: "2px solid #9bd3d5" }} className="test">
