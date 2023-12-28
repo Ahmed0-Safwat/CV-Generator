@@ -1,11 +1,15 @@
-import React from "react";
-import { TextField, Stack, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { useFormContext } from "react-hook-form";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const ResumeEducation = () => {
+  const [educationFieldsCount, setEducationFieldsCount] = useState(1);
+
   const {
     register,
     watch,
@@ -59,12 +63,23 @@ const ResumeEducation = () => {
     );
   };
 
+  const handleAddEducationField = () => {
+    setEducationFieldsCount((prevCount) => prevCount + 1);
+  };
+
+  const handleRemoveEducationField = () => {
+    if (educationFieldsCount > 1) {
+      setEducationFieldsCount((prevCount) => prevCount - 1);
+    }
+  };
+
   const educationFields = [
     "University",
     "Department",
     "Start Date",
     "End Date",
   ];
+
   return (
     <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>
       <Stack
@@ -74,14 +89,52 @@ const ResumeEducation = () => {
           color: "white",
           margin: "5px auto",
           p: 1.5,
+          position: "relative",
         }}
       >
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
           EDUCATION
         </Typography>
+        <IconButton
+          color="primary"
+          sx={{ position: "absolute", top: "10px", right: "10px" }}
+          onClick={handleAddEducationField}
+        >
+          <AddIcon />
+        </IconButton>
       </Stack>
       <Stack gap={2} sx={{ margin: "0 auto" }} direction="row" flexWrap="wrap">
-        {educationFields.map((field, index) => renderTextField(field, 0))}
+        {Array.from({ length: educationFieldsCount }).map((_, index) =>
+          educationFields.map((field, fieldIndex) => (
+            <React.Fragment key={fieldIndex}>
+              {renderTextField(field, index)}
+              {fieldIndex === educationFields.length - 1 && (
+                <Stack
+                  direction="row"
+                  alignItems="flex-end"
+                  spacing={2}
+                  sx={{
+                    position: "relative",
+                    width: "100%",
+                    marginTop: "15px", // Adjust the marginTop here
+                  }}
+                >
+                  <IconButton
+                    color="secondary"
+                    sx={{
+                      position: "absolute",
+                      bottom: "-5px",
+                      right: "5px",
+                    }}
+                    onClick={handleRemoveEducationField}
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+                </Stack>
+              )}
+            </React.Fragment>
+          ))
+        )}
       </Stack>
     </Stack>
   );

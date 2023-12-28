@@ -1,6 +1,14 @@
-import React from "react";
-import { TextField, Stack, Typography, MenuItem } from "@mui/material";
+import React, { useState } from "react";
+import {
+  TextField,
+  Stack,
+  Typography,
+  MenuItem,
+  IconButton,
+} from "@mui/material";
 import { useFormContext } from "react-hook-form";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const languageLevels = [
   { value: "Basic", label: "Basic" },
@@ -10,6 +18,8 @@ const languageLevels = [
 ];
 
 const ResumeLanguages = () => {
+  const [languageFieldsCount, setLanguageFieldsCount] = useState(1);
+
   const {
     register,
     watch,
@@ -61,6 +71,16 @@ const ResumeLanguages = () => {
     );
   };
 
+  const handleAddLanguageField = () => {
+    setLanguageFieldsCount((prevCount) => prevCount + 1);
+  };
+
+  const handleRemoveLanguageField = () => {
+    if (languageFieldsCount > 1) {
+      setLanguageFieldsCount((prevCount) => prevCount - 1);
+    }
+  };
+
   return (
     <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>
       <Stack
@@ -70,14 +90,22 @@ const ResumeLanguages = () => {
           color: "white",
           margin: "5px auto",
           p: 1.5,
+          position: "relative",
         }}
       >
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
           LANGUAGES
         </Typography>
+        <IconButton
+          color="primary"
+          sx={{ position: "absolute", top: "10px", right: "10px" }}
+          onClick={handleAddLanguageField}
+        >
+          <AddIcon />
+        </IconButton>
       </Stack>
       <Stack gap={2} sx={{ width: "100%", margin: "0 auto" }}>
-        {[0].map((index) => (
+        {Array.from({ length: languageFieldsCount }).map((_, index) => (
           <Stack
             key={index}
             direction={{ xs: "column", sm: "row" }}
@@ -87,6 +115,25 @@ const ResumeLanguages = () => {
             {renderLanguageLevelField(index)}
           </Stack>
         ))}
+      </Stack>
+      <Stack
+        direction="row"
+        alignItems="flex-end"
+        justifyContent="flex-end"
+        mt={2}
+        sx={{ position: "relative" }}
+      >
+        <IconButton
+          color="secondary"
+          sx={{
+            position: "absolute",
+            bottom: "-5px",
+            right: "5px",
+          }}
+          onClick={handleRemoveLanguageField}
+        >
+          <RemoveIcon />
+        </IconButton>
       </Stack>
     </Stack>
   );
