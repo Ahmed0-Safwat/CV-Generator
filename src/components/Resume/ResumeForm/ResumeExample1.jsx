@@ -28,7 +28,7 @@ const ResumeExample1 = () => {
       <Stack
         id="resume"
         sx={{
-          width: "100%",
+          width: "80%",
           backgroundColor: "blue",
           display: "flex",
           flexDirection: { xs: "column", md: "column", lg: "row" },

@@ -54,22 +54,30 @@ const ResumeButtons = () => {
   };
 
   const downloadPdfDocument = () => {
-    const input = document.getElementById("resume");
+    const element = document.getElementById("resume");
 
-    html2canvas(input, {
-      windowWidth: input.scrollWidth,
-      windowHeight: input.scrollHeight,
-    }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
+    const captureAndSavePdf = () => {
+      html2canvas(element).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
 
-      const pdfWidth = canvas.width;
-      const pdfHeight = canvas.height;
+        const aspectRatio = canvas.width / canvas.height;
 
-      const pdf = new jsPDF("p", "pt", [pdfWidth, pdfHeight]);
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        const imgWidth = 210;
 
-      pdf.save("resume.pdf");
-    });
+        const imgHeight = imgWidth / aspectRatio;
+        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+        pdf.save("advanced-styled-page.pdf");
+      });
+    };
+
+    // Ensure that styles have rendered before capturing content and saving PDF
+    if (document.readyState === "complete") {
+      captureAndSavePdf();
+    } else {
+      window.onload = captureAndSavePdf;
+    }
   };
 
   return (
