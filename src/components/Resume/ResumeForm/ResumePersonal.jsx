@@ -4,7 +4,6 @@ import {
   Stack,
   Typography,
   Avatar,
-  Box,
   IconButton,
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
@@ -56,17 +55,18 @@ const ResumePersonal = () => {
       type: "text",
       name: "firstName",
     },
-    {
-      label: "Middle Name",
-      placeholder: "e.g. Herbert",
-      type: "text",
-      name: "middleName",
-    },
+
     {
       label: "Last Name",
       placeholder: "e.g. Doe",
       type: "text",
       name: "lastName",
+    },
+    {
+      label: "Job Title",
+      placeholder: "Software Engineer",
+      type: "text",
+      name: "jobTitle",
     },
     {
       label: "Email",
@@ -86,6 +86,12 @@ const ResumePersonal = () => {
       placeholder: "e.g. Lake Street-23",
       type: "text",
       name: "address",
+    },
+    {
+      label: "About Me",
+      placeholder: "About Me...",
+      type: "text",
+      name: "aboutMe",
     },
     { label: "Your Image", placeholder: "", type: "file", name: "img" },
   ];
@@ -140,10 +146,34 @@ const ResumePersonal = () => {
       gap={2}
       sx={{ width: "100%", margin: "0 auto" }}
     >
-      {textFieldData
-        .slice(start, end)
-        .map((item, index) =>
-          item.type !== "file" ? (
+      {textFieldData.slice(start, end).map((item, index) => {
+        if (item.type === "file") {
+          return renderImageUpload();
+        } else if (item.name === "aboutMe") {
+          // Textarea for "About Me"
+          return (
+            <TextField
+              {...register(`personal.${item.name}`)}
+              key={index}
+              multiline
+              rows={4}
+              sx={{ width: "100%" }}
+              required
+              id={`outlined-${item.label.toLowerCase()}`}
+              label={item.label}
+              placeholder={item.placeholder}
+              variant="outlined"
+              name={item.name}
+              onChange={(event) =>
+                setValue(`personal.${item.name}`, event.target.value)
+              }
+              error={Boolean(errors.personal?.[item.name])}
+              helperText={errors.personal?.[item.name]?.message}
+            />
+          );
+        } else {
+          // Standard TextField
+          return (
             <TextField
               {...register(`personal.${item.name}`)}
               onChange={
@@ -163,10 +193,9 @@ const ResumePersonal = () => {
               error={Boolean(errors.personal?.[item.name])}
               helperText={errors.personal?.[item.name]?.message}
             />
-          ) : (
-            renderImageUpload()
-          )
-        )}
+          );
+        }
+      })}
     </Stack>
   );
 

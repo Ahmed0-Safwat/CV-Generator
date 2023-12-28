@@ -5,6 +5,8 @@ import { Button } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useStore } from "../../../hooks/useStore";
 import { useFormContext } from "react-hook-form";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 const ResumeButtons = () => {
   const { globalState } = useStore(
@@ -16,7 +18,7 @@ const ResumeButtons = () => {
   const { activeStep } = globalState;
   const { handleSubmit } = useFormContext();
 
-  const onSubmit = (data) => {
+  const handleNextFunction = (data) => {
     console.log("data", data);
     useStore.setState({
       globalState: {
@@ -26,7 +28,12 @@ const ResumeButtons = () => {
     });
   };
 
-  const handleNext = handleSubmit(onSubmit);
+  const submit = (data) => {
+    console.log("data", data);
+  };
+
+  const handleNext = handleSubmit(handleNextFunction);
+  const handleSubmitFunction = handleSubmit(submit);
 
   const handleBack = () => {
     useStore.setState({
@@ -43,6 +50,25 @@ const ResumeButtons = () => {
         ...useStore.getState().globalState,
         activeStep: 0,
       },
+    });
+  };
+
+  const downloadPdfDocument = () => {
+    const input = document.getElementById("resume");
+
+    html2canvas(input, {
+      windowWidth: input.scrollWidth,
+      windowHeight: input.scrollHeight,
+    }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+
+      const pdfWidth = canvas.width;
+      const pdfHeight = canvas.height;
+
+      const pdf = new jsPDF("p", "pt", [pdfWidth, pdfHeight]);
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+      pdf.save("resume.pdf");
     });
   };
 
@@ -95,7 +121,7 @@ const ResumeButtons = () => {
               }}
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              //   onClick={handleNext}
+              onClick={handleSubmitFunction}
             >
               Save
             </Button>
@@ -110,7 +136,7 @@ const ResumeButtons = () => {
               }}
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              //   onClick={handleNext}
+              onClick={downloadPdfDocument}
             >
               Download
             </Button>

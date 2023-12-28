@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Avatar, Box } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
-
+import useSignoutUser from "../../api/login/signout";
 import { useStore } from "../../hooks/useStore";
 import shallow from "zustand/shallow";
 
@@ -22,6 +21,7 @@ const ProfileSection = ({ handleOpenModal }) => {
   );
 
   const { user, image } = globalState;
+  const [userData, setUserData] = useState(user);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -34,9 +34,23 @@ const ProfileSection = ({ handleOpenModal }) => {
 
   const navigate = useNavigate();
 
+  const { mutate: signOutMutation } = useSignoutUser();
+
   console.log("image", image);
 
-  return user ? (
+  useEffect(() => {
+    setUserData(user);
+  }, [user]);
+
+  const handleSignout = () => {
+    signOutMutation();
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user");
+    setUserData(null);
+    navigate("/");
+  };
+
+  return userData ? (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
         <Tooltip title="Account settings">
@@ -97,7 +111,7 @@ const ProfileSection = ({ handleOpenModal }) => {
           <Avatar src={image || ""} /> My profile
         </MenuItem>
         <Divider />
-        <MenuItem onClick={() => {}}>
+        <MenuItem onClick={handleSignout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

@@ -1,24 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Stack, Typography, LinearProgress } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
-const contactInfoData = [
-  { icon: <CallIcon />, text: "+123-456-7890" },
-  { icon: <LocationOnIcon />, text: "123 Anywhere St., Any City" },
-  { icon: <AlternateEmailIcon />, text: "hello@reallygreatcompany.com" },
-  { icon: <LinkedInIcon />, text: "www.reallygreatsite.com" },
-];
+import { useFormContext } from "react-hook-form";
 
 const ResumeExample1 = () => {
+  const { getValues: data } = useFormContext();
+  const [imageURL, setImageURL] = useState(null);
+
+  useEffect(() => {
+    if (data()?.personal?.img && data().personal.img.length > 0) {
+      const file = data().personal.img[0];
+      if (file instanceof File) {
+        const newImageUrl = URL.createObjectURL(file);
+        setImageURL(newImageUrl);
+
+        // Clean up the object URL on unmount
+        return () => URL.revokeObjectURL(newImageUrl);
+      }
+    }
+  }, [data()?.personal?.img]);
+
   return (
     <>
       <Stack
+        id="resume"
         sx={{
-          width: "90%",
+          width: "100%",
           backgroundColor: "blue",
           display: "flex",
           flexDirection: { xs: "column", md: "column", lg: "row" },
@@ -45,29 +55,30 @@ const ResumeExample1 = () => {
                 m: "8px auto",
               }}
               alt="Remy Sharp"
-              src="/images/temp-photo.jpg"
+              // src="/images/temp-photo.jpg"
+              src={imageURL}
             />
             <Typography
               sx={{
                 color: "#FFF",
                 fontSize: "28px",
                 fontWeight: "500",
-                fontStyle: "normal",
+
                 textAlign: "center",
               }}
             >
-              Ahmed Safwat
+              {data()?.personal?.firstName} {data()?.personal?.lastName}
             </Typography>
             <Typography
               sx={{
                 color: "#FFF",
                 fontSize: "20px",
                 fontWeight: "300",
-                fontStyle: "normal",
+
                 textAlign: "center",
               }}
             >
-              Web Developer
+              {data()?.personal?.jobTitle}
             </Typography>
           </Stack>
           {/* Contact Information */}
@@ -86,7 +97,7 @@ const ResumeExample1 = () => {
                 color: "#FFF",
                 fontSize: "26px",
                 fontWeight: "500",
-                fontStyle: "normal",
+
                 textAlign: "start",
               }}
             >
@@ -100,29 +111,54 @@ const ResumeExample1 = () => {
                 width: "100%",
               }}
             >
-              {contactInfoData.map((info, index) => (
-                <Stack
-                  key={index}
-                  direction="row"
-                  spacing={2}
-                  alignItems="center"
-                  marginBottom={3}
-                >
-                  {info.icon}
+              <Stack
+                direction="column"
+                spacing={2}
+                alignItems="flex-start"
+                marginBottom={3}
+              >
+                <Stack direction="row" spacing={2}>
+                  <CallIcon />
                   <Typography
                     sx={{
                       color: "#FFF",
                       fontSize: "17px",
                       fontWeight: "500",
-                      fontStyle: "normal",
                     }}
                   >
-                    {info.text}
+                    {data()?.personal?.phone}
                   </Typography>
                 </Stack>
-              ))}
+
+                <Stack direction="row" spacing={2}>
+                  <LocationOnIcon />
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {data()?.personal?.address}
+                  </Typography>
+                </Stack>
+
+                <Stack direction="row" spacing={2}>
+                  <AlternateEmailIcon />
+                  <Typography
+                    sx={{
+                      color: "#FFF",
+                      fontSize: "17px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {data()?.personal?.email}
+                  </Typography>
+                </Stack>
+              </Stack>
             </Stack>
           </Stack>
+
           {/* Education Section */}
           <Stack
             gap={2}
@@ -138,7 +174,7 @@ const ResumeExample1 = () => {
                 color: "#FFF",
                 fontSize: "26px",
                 fontWeight: "500",
-                fontStyle: "normal",
+
                 textAlign: "start",
               }}
             >
@@ -146,25 +182,18 @@ const ResumeExample1 = () => {
             </Typography>
             <Stack spacing={4}>
               {/* Education Entry 1 */}
-              <EducationEntry
-                period="2010-2013"
-                degree="Master Degree in Computer Science"
-                institution="Misr International University"
-              />
-              {/* Education Entry 2 */}
-              <EducationEntry
-                period="2010-2013"
-                degree="Master Degree in Computer Science"
-                institution="Badr University In Cairo"
-              />
-              {/* Education Entry 3 */}
-              <EducationEntry
-                period="2010-2013"
-                degree="Master Degree in Computer Science"
-                institution="American University In Cairo"
-              />
+              {data()?.education?.map((item) => (
+                <EducationEntry
+                  key={item.university}
+                  startDate={new Date(item.startdate).getFullYear()}
+                  endDate={new Date(item.enddate).getFullYear()}
+                  degree={item.department}
+                  institution={item.university}
+                />
+              ))}
             </Stack>
           </Stack>
+
           {/* Language Section */}
           <Stack
             gap={2}
@@ -180,19 +209,20 @@ const ResumeExample1 = () => {
                 color: "#FFF",
                 fontSize: "26px",
                 fontWeight: "500",
-                fontStyle: "normal",
+
                 textAlign: "start",
               }}
             >
               LANGUAGES
             </Typography>
             <Stack spacing={4}>
-              {/* Language Entry 1 */}
-              <LanguageEntry language="Arabic" proficiency={0.8} />
-              {/* Language Entry 2 */}
-              <LanguageEntry language="English" proficiency={0.5} />
-              {/* Language Entry 3 */}
-              <LanguageEntry language="Spanish" proficiency={0.65} />
+              {data()?.languages?.map((item) => (
+                <LanguageEntry
+                  key={item.languageName}
+                  language={item.languageName}
+                  proficiency={item.languageLevel}
+                />
+              ))}
             </Stack>
           </Stack>
         </Stack>
@@ -216,7 +246,7 @@ const ResumeExample1 = () => {
               sx={{
                 fontSize: "24px",
                 fontWeight: "700",
-                fontStyle: "normal",
+
                 color: "#023437",
               }}
             >
@@ -226,22 +256,11 @@ const ResumeExample1 = () => {
               sx={{
                 fontSize: "16px",
                 fontWeight: "500",
-                fontStyle: "normal",
+
                 color: "#000000db",
               }}
             >
-              Experienced Web Developer with a demonstrated history of working
-              in the information technology and services industry. Skilled in
-              React, JavaScript, and HTML/CSS. Strong engineering professional
-              with a Master's degree focused on Computer Science.Experienced Web
-              Developer with a demonstrated history of working in the
-              information technology and services industry. Skilled in React,
-              JavaScript, and HTML/CSS. Strong engineering professional with a
-              Master's degree focused on Computer Science.Developer with a
-              demonstrated history of working in the information technology and
-              services industry. Skilled in React, JavaScript, and HTML/CSS.
-              Strong engineering professional with a Master's degree focused on
-              Computer Science.
+              {data()?.personal?.aboutMe}
             </Typography>
           </Stack>
 
@@ -257,36 +276,27 @@ const ResumeExample1 = () => {
               sx={{
                 fontSize: "27px",
                 fontWeight: "700",
-                fontStyle: "normal",
+
                 color: "#023437",
               }}
             >
               EXPERIENCE
             </Typography>
             <Stack spacing={4}>
-              {/* Experience Entry 1 */}
-              <ExperienceEntry
-                period="2019 - Present"
-                companyName="XYZ Corporation"
-                position="Senior Frontend Developer"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat maiores cum mollitia, explicabo iure similique eius, necessitatibus accusamus eos, saepe deleniti debitis sed?"
-              />
-              {/* Experience Entry 2 */}
-              <ExperienceEntry
-                period="2017 - 2019"
-                companyName="ABC Tech"
-                position="Software Engineer"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat maiores cum mollitia, explicabo iure similique eius, necessitatibus accusamus eos, saepe deleniti debitis sed?"
-              />
-              {/* Experience Entry 3 */}
-              <ExperienceEntry
-                period="2013 - 2017"
-                companyName="Company Name"
-                position="Junior UI/UX Designer"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit eos. Aperiam, ab soluta. Accusantium placeat maiores cum mollitia, explicabo iure similique eius, necessitatibus accusamus eos, saepe deleniti debitis sed?"
-              />
+              {data()?.experience?.map((item) => (
+                <ExperienceEntry
+                  key={item.company}
+                  period={`${new Date(
+                    item.startdate
+                  ).getFullYear()} - ${new Date(item.enddate).getFullYear()}`}
+                  companyName={item.company}
+                  position={item.jobTitle}
+                  description={item.description}
+                />
+              ))}
             </Stack>
           </Stack>
+
           {/* Skills Section */}
           <Stack
             gap={2}
@@ -299,25 +309,20 @@ const ResumeExample1 = () => {
               sx={{
                 fontSize: "24px",
                 fontWeight: "700",
-                fontStyle: "normal",
+
                 color: "#023437",
               }}
             >
               SKILLS
             </Typography>
             <Stack spacing={4}>
-              {/* Skill Entry 1 */}
-              <SkillEntry skill="React" proficiency={0.9} />
-              {/* Skill Entry 2 */}
-              <SkillEntry skill="JavaScript" proficiency={0.85} />
-              {/* Skill Entry 3 */}
-              <SkillEntry skill="HTML/CSS" proficiency={0.95} />
-              {/* Skill Entry 4 */}
-              <SkillEntry skill="CSS" proficiency={0.65} />
-              {/* Skill Entry 5 */}
-              <SkillEntry skill="TypeScript" proficiency={0.75} />
-              {/* Skill Entry 6 */}
-              <SkillEntry skill="C Language" proficiency={1} />
+              {data()?.skills?.map((item) => (
+                <SkillEntry
+                  key={item.skillName}
+                  skill={item.skillName}
+                  proficiency={parseFloat(item.skillLevel) / 100}
+                />
+              ))}
             </Stack>
           </Stack>
         </Stack>
@@ -326,23 +331,23 @@ const ResumeExample1 = () => {
   );
 };
 
-const EducationEntry = ({ period, degree, institution }) => (
+const EducationEntry = ({ startDate, endDate, degree, institution }) => (
   <Stack>
     <Typography
       sx={{
         fontSize: "14px",
         fontWeight: "600",
-        fontStyle: "normal",
+
         color: "#237781",
       }}
     >
-      {period}
+      {startDate}-{endDate}
     </Typography>
     <Typography
       sx={{
         fontSize: "18px",
         fontWeight: "600",
-        fontStyle: "normal",
+
         color: "#237781",
       }}
     >
@@ -352,8 +357,7 @@ const EducationEntry = ({ period, degree, institution }) => (
       sx={{
         fontSize: "14px",
         fontWeight: "500",
-        fontStyle: "normal",
-        color: "#000000db",
+        color: "white",
       }}
     >
       {institution}
@@ -362,27 +366,29 @@ const EducationEntry = ({ period, degree, institution }) => (
 );
 
 const LanguageEntry = ({ language, proficiency }) => (
-  <Stack>
+  <Stack direction="row">
     <Typography
       sx={{
         fontSize: "18px",
         fontWeight: "600",
-        fontStyle: "normal",
+
         color: "#237781",
       }}
     >
-      {language}
+      {language}:
     </Typography>
-    <LinearProgress
-      variant="determinate"
-      value={proficiency * 100}
+
+    <Typography
       sx={{
-        height: 8,
-        borderRadius: 5,
-        marginTop: 1,
-        backgroundColor: "#c0c0c0",
+        fontSize: "18px",
+        fontWeight: "600",
+
+        color: "#237781",
       }}
-    />
+    >
+      &nbsp;
+      {proficiency}
+    </Typography>
   </Stack>
 );
 
@@ -392,7 +398,7 @@ const SkillEntry = ({ skill, proficiency }) => (
       sx={{
         fontSize: "18px",
         fontWeight: "600",
-        fontStyle: "normal",
+
         color: "#237781",
       }}
     >
@@ -422,7 +428,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
       sx={{
         fontSize: "12px",
         fontWeight: "600",
-        fontStyle: "normal",
+
         color: "gray",
       }}
     >
@@ -432,7 +438,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
       sx={{
         fontSize: "12px",
         fontWeight: "600",
-        fontStyle: "normal",
+
         color: "gray",
       }}
     >
@@ -442,7 +448,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
       sx={{
         fontSize: "18px",
         fontWeight: "600",
-        fontStyle: "normal",
+
         color: "#237781",
       }}
     >
@@ -452,7 +458,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
       sx={{
         fontSize: "14px",
         fontWeight: "500",
-        fontStyle: "normal",
+
         color: "#000000db",
       }}
     >

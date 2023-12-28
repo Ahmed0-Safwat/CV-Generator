@@ -9,7 +9,6 @@ const WithUserProvider = (Component) => {
     useEffect(() => {
       const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
 
-      console.log("sessionStorageUser", sessionStorageUser);
       if (sessionStorageUser) {
         useStore.setState({
           globalState: {
