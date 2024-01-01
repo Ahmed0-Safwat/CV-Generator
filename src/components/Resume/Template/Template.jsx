@@ -50,7 +50,14 @@ const ListStack = ({ items }) => (
     </ul>
   </Stack>
 );
-
+const References = [
+  {
+    name: "Harumi Kobayashi",
+    position: "Wardiere inc. / CEO",
+    phone: "123-456-7890",
+    email: "hello@reallygreatsite.com",
+  },
+];
 const Template = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
@@ -445,6 +452,12 @@ const Template = () => {
       <TemplateEntry
         title="Courses Taught"
         content={<ListStack items={coursesTaught} />}
+      />
+
+      {/* REFERENCES */}
+      <TemplateEntry
+        title="References"
+        content={<ListStack items={References} />}
       />
     </Stack>
   );
