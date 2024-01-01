@@ -246,7 +246,6 @@ const ResumeExample1 = () => {
               sx={{
                 fontSize: "24px",
                 fontWeight: "700",
-
                 color: "#023437",
               }}
             >
@@ -254,9 +253,8 @@ const ResumeExample1 = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: "16px",
+                fontSize: "18px",
                 fontWeight: "500",
-
                 color: "#000000db",
               }}
             >
@@ -345,7 +343,7 @@ const EducationEntry = ({ startDate, endDate, degree, institution }) => (
     </Typography>
     <Typography
       sx={{
-        fontSize: "18px",
+        fontSize: "16px",
         fontWeight: "600",
 
         color: "#237781",
@@ -355,7 +353,7 @@ const EducationEntry = ({ startDate, endDate, degree, institution }) => (
     </Typography>
     <Typography
       sx={{
-        fontSize: "14px",
+        fontSize: "18px",
         fontWeight: "500",
         color: "white",
       }}
@@ -383,7 +381,7 @@ const LanguageEntry = ({ language, proficiency }) => (
         fontSize: "18px",
         fontWeight: "600",
 
-        color: "#237781",
+        color: "white",
       }}
     >
       &nbsp;
@@ -426,7 +424,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
   >
     <Typography
       sx={{
-        fontSize: "12px",
+        fontSize: "14px",
         fontWeight: "600",
 
         color: "gray",
@@ -436,7 +434,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
     </Typography>
     <Typography
       sx={{
-        fontSize: "12px",
+        fontSize: "16px",
         fontWeight: "600",
 
         color: "gray",
@@ -446,7 +444,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
     </Typography>
     <Typography
       sx={{
-        fontSize: "18px",
+        fontSize: "16px",
         fontWeight: "600",
 
         color: "#237781",
@@ -456,7 +454,7 @@ const ExperienceEntry = ({ period, companyName, position, description }) => (
     </Typography>
     <Typography
       sx={{
-        fontSize: "14px",
+        fontSize: "18px",
         fontWeight: "500",
 
         color: "#000000db",

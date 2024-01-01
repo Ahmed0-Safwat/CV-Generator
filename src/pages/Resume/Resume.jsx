@@ -19,7 +19,7 @@ import * as Yup from "yup";
 const projectsSectionCards = [
   {
     id: 1,
-    source: "/images/temp 1.jpg",
+    source: "/images/temp 1.png",
     title: "Lina",
     subtitle: "Design, Mobile App, Web",
   },
@@ -31,19 +31,19 @@ const projectsSectionCards = [
   },
   {
     id: 3,
-    source: "/images/temp 3.webp",
+    source: "/images/temp 3.jpg",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 4,
-    source: "/images/temp 3.webp",
+    source: "/images/temp 3.jpg",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 5,
-    source: "/images/temp 3.webp",
+    source: "/images/temp 3.jpg",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },

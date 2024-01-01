@@ -1,12 +1,12 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
-import shallow from "zustand/shallow";
 import { Button } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useStore } from "../../../hooks/useStore";
 import { useFormContext } from "react-hook-form";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import { shallow } from "zustand/shallow";
 
 const ResumeButtons = () => {
   const { globalState } = useStore(

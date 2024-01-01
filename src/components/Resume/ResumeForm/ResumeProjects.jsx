@@ -21,8 +21,7 @@ const ResumeProjects = () => {
     const fieldName = `project[${sectionIndex}].${baseFieldName}`;
 
     const error = Boolean(errors.project?.[sectionIndex]?.[baseFieldName]);
-    const helperText =
-      errors.project?.[sectionIndex]?.[baseFieldName]?.message;
+    const helperText = errors.project?.[sectionIndex]?.[baseFieldName]?.message;
 
     return (
       <TextField
@@ -73,7 +72,11 @@ const ResumeProjects = () => {
           <AddIcon />
         </IconButton>
       </Stack>
-      <Stack gap={2} sx={{ width: "100%", margin: "0 auto" }} direction="column">
+      <Stack
+        gap={2}
+        sx={{ width: "100%", margin: "0 auto" }}
+        direction="column"
+      >
         {Array.from({ length: projectFieldsCount }).map((_, index) => (
           <Stack key={index} direction="row">
             {projectFields.map((field) => renderTextField(field, index))}
