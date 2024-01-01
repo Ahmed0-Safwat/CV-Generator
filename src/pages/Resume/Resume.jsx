@@ -37,13 +37,13 @@ const projectsSectionCards = [
   },
   {
     id: 4,
-    source: "/images/temp 3.jpg",
+    source: "/images/temp 1.png",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 5,
-    source: "/images/temp 3.jpg",
+    source: "/images/temp 2.jpg",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
