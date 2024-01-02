@@ -50,8 +50,8 @@ const ResumeExample1 = () => {
             {/* Profile Image, Name, and Role */}
             <Avatar
               sx={{
-                width: "200px",
-                height: "200px",
+                width: "250px",
+                height: "250px",
                 m: "8px auto",
               }}
               alt="Remy Sharp"

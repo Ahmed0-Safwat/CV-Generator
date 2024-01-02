@@ -289,8 +289,8 @@ const ResumeExample2 = () => {
           <Stack>
             <Avatar
               sx={{
-                width: "200px",
-                height: "200px",
+                width: "250px",
+                height: "250px",
                 m: "32px auto",
               }}
               alt="Remy Sharp"
