@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Components from "./Components";
 import useSignupUser from "../../api/login/signup";
 import useSigninUser from "../../api/login/signin";
 import { Stack } from "@mui/material";
 import { useStore } from "../../hooks/useStore";
+import { set } from "date-fns";
 
 function SliderForm({ handleClose }) {
   const [signIn, toggle] = React.useState(true);
+  const [isInResetPassword, setIsInResetPassword] = useState(false);
+  const [isInOTPPassword, setIsInOTPPassword] = useState(false);
   const [showValidationComponent, setShowValidationComponent] =
     React.useState(false);
   const [formData, setFormData] = React.useState({
@@ -16,7 +19,11 @@ function SliderForm({ handleClose }) {
     signInEmail: "",
     signInPassword: "",
     otp: null,
+    resetEmail: "", // Added resetEmail
+    resetEmailPassword: "", // Added resetEmailPassword
   });
+
+  // Updated state with resetEmailError
   const [errors, setErrors] = React.useState({
     name: "",
     signUpEmail: "",
@@ -27,6 +34,9 @@ function SliderForm({ handleClose }) {
     signUpError: "",
     verifyError: "",
     verifySuccess: "",
+    resetEmail: "",
+    resetEmailOtp: "",
+    resetEmailPassword: "",
   });
   const [submitted, setSubmitted] = React.useState(false);
   const { mutate: signUpMutation } = useSignupUser();
@@ -49,6 +59,12 @@ function SliderForm({ handleClose }) {
 
   const validate = (name, value) => {
     let errorMsg = "";
+    // ... existing validation logic ...
+
+    setErrors((prevState) => ({
+      ...prevState,
+      [name]: errorMsg,
+    }));
 
     switch (name) {
       case "name":
@@ -58,6 +74,7 @@ function SliderForm({ handleClose }) {
         break;
       case "signUpEmail":
       case "signInEmail":
+      case "resetEmail":
         // eslint-disable-next-line no-case-declarations
         const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
         if (!emailPattern.test(value)) {
@@ -66,6 +83,7 @@ function SliderForm({ handleClose }) {
         break;
       case "signUpPassword":
       case "signInPassword":
+      case "resetEmailPassword":
         if (value.length < 6) {
           errorMsg = "Password should be at least 6 characters long.";
         }
@@ -191,6 +209,32 @@ function SliderForm({ handleClose }) {
             );
             sessionStorage.setItem("token", JSON.stringify(response.token));
 
+            // clear data & errors
+            setFormData({
+              name: "",
+              signUpEmail: "",
+              signUpPassword: "",
+              signInEmail: "",
+              signInPassword: "",
+              otp: null,
+              resetEmail: "", // Added resetEmail
+              resetEmailPassword: "", // Added resetEmailPassword
+            });
+            setErrors({
+              name: "",
+              signUpEmail: "",
+              signUpPassword: "",
+              signInEmail: "",
+              signInPassword: "",
+              signInError: "",
+              signUpError: "",
+              verifyError: "",
+              verifySuccess: "",
+              resetEmail: "",
+              resetEmailOtp: "",
+              resetEmailPassword: "",
+            });
+
             handleClose();
           }
         },
@@ -202,6 +246,97 @@ function SliderForm({ handleClose }) {
             }));
           }
         },
+      });
+    }
+  };
+
+  const handleResetClick = async (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    const resetError = validate("resetEmail", formData.resetEmail);
+
+    if (!resetError) {
+      console.log("Reset email to be sent:", formData.resetEmail);
+
+      // Construct the URL with the email as a query parameter
+      const url = new URL(
+        `https://moaaaz2002-001-site1.btempurl.com/api/Users/Email/ResetPassword`
+      );
+      url.searchParams.append("email", formData.resetEmail);
+
+      await fetch(url.toString(), {
+        method: "POST",
+      }).then((res) => {
+        if (res.status === 200) {
+          setIsInOTPPassword(true);
+        } else {
+          console.error("Error Response:", res); // Debug log for error response
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            verifyError: "No user registered with that email.",
+          }));
+        }
+      });
+    }
+  };
+
+  const handleResetWithOTPClick = async (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    const resetError = validate("resetEmail", formData.resetEmail);
+    const otpError = validate("otp", formData.otp);
+    const newPassword = validate(
+      "resetEmailPassword",
+      formData.resetEmailPassword
+    );
+
+    if (!resetError && !otpError && !newPassword) {
+      // Construct the URL with the email, otp, and newPassword as query parameters
+      const url = new URL(
+        `https://moaaaz2002-001-site1.btempurl.com/api/Users/Email/VerifyResetCode`
+      );
+      url.searchParams.append("email", formData.resetEmail);
+      url.searchParams.append("token", formData.otp);
+      url.searchParams.append("newPassword", formData.resetEmailPassword);
+
+      await fetch(url.toString(), {
+        method: "PUT",
+      }).then((res) => {
+        if (res.status === 200) {
+          setIsInResetPassword(false);
+          setIsInOTPPassword(false);
+          // clear data & errors
+          setFormData({
+            name: "",
+            signUpEmail: "",
+            signUpPassword: "",
+            signInEmail: "",
+            signInPassword: "",
+            otp: null,
+            resetEmail: "", // Added resetEmail
+            resetEmailPassword: "", // Added resetEmailPassword
+          });
+          setErrors({
+            name: "",
+            signUpEmail: "",
+            signUpPassword: "",
+            signInEmail: "",
+            signInPassword: "",
+            signInError: "",
+            signUpError: "",
+            verifyError: "",
+            verifySuccess: "",
+            resetEmail: "",
+            resetEmailOtp: "",
+            resetEmailPassword: "",
+          });
+        } else {
+          console.error("Error Response:", res); // Debug log for error response
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            resetEmailOtp: "Invalid OTP Number",
+          }));
+        }
       });
     }
   };
@@ -281,41 +416,139 @@ function SliderForm({ handleClose }) {
         )}
       </Components.SignUpContainer>
 
-      <Components.SignInContainer signinIn={signIn}>
-        <Components.Form noValidate>
-          <Components.Title>Sign in</Components.Title>
-          <Components.Input
-            type="email"
-            name="signInEmail"
-            placeholder="Email"
-            value={formData.signInEmail}
-            onChange={handleChange}
-          />
-          {errors.signInEmail && (
-            <div style={{ color: "red" }}>{errors.signInEmail}</div>
-          )}
-          <Components.Input
-            type="password"
-            name="signInPassword"
-            placeholder="Password"
-            value={formData.signInPassword}
-            onChange={handleChange}
-          />
-          {(errors.signInPassword || errors.signInError) && (
-            <div style={{ color: "red" }}>
-              {errors.signInPassword || errors.signInError}
-            </div>
-          )}
+      {isInResetPassword ? (
+        isInOTPPassword ? (
+          <Components.SignInContainer signinIn={signIn}>
+            <Components.Form noValidate>
+              <Components.Title>Reset with OTP</Components.Title>
+              <Components.Input
+                type="email"
+                name="resetEmail"
+                placeholder="Email"
+                value={formData.resetEmail}
+                onChange={handleChange}
+              />
+              {errors.resetEmail && (
+                <div style={{ color: "red" }}>{errors.resetEmail}</div>
+              )}
 
-          <Components.Anchor href="#">Forgot your password?</Components.Anchor>
-          <Components.Button
-            disabled={!areSignInFieldsFilled} // button is disabled if not both fields have some string value
-            onClick={handleSignInClick}
-          >
-            Sign In
-          </Components.Button>
-        </Components.Form>
-      </Components.SignInContainer>
+              <Components.Input
+                type="number"
+                name="otp"
+                placeholder="Enter OTP"
+                value={formData.otp}
+                onChange={handleChange}
+              />
+              {errors.resetEmailOtp && (
+                <div style={{ color: "red" }}>{errors.resetEmailOtp}</div>
+              )}
+
+              <Components.Input
+                type="password"
+                name="resetEmailPassword"
+                placeholder="Password"
+                value={formData.resetEmailPassword}
+                onChange={handleChange}
+              />
+              {errors.resetEmailPassword && (
+                <div style={{ color: "red" }}>{errors.resetEmailPassword}</div>
+              )}
+
+              <Components.Anchor
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  setIsInResetPassword((prev) => !prev);
+                  setIsInOTPPassword((prev) => !prev);
+                }}
+              >
+                Back to Sign in?
+              </Components.Anchor>
+
+              <Components.Button
+                disabled={!formData.resetEmail} // button is disabled if email is empty
+                onClick={handleResetWithOTPClick}
+              >
+                Reset Password with OTP
+              </Components.Button>
+            </Components.Form>
+          </Components.SignInContainer>
+        ) : (
+          <Components.SignInContainer signinIn={signIn}>
+            <Components.Form noValidate>
+              <Components.Title>Reset Password</Components.Title>
+              <Components.Input
+                type="email"
+                name="resetEmail"
+                placeholder="Email"
+                value={formData.resetEmail}
+                onChange={handleChange}
+              />
+              {errors.resetEmail && (
+                <div style={{ color: "red" }}>{errors.resetEmail}</div>
+              )}
+              {errors.verifyError && (
+                <div style={{ color: "red" }}>{errors.verifyError}</div>
+              )}
+              {errors.verifySuccess && (
+                <div style={{ color: "#03adb5" }}>{errors.verifySuccess}</div>
+              )}
+              <Components.Anchor
+                style={{ cursor: "pointer" }}
+                onClick={() => setIsInResetPassword((prev) => !prev)}
+              >
+                Back to Sign in?
+              </Components.Anchor>
+              <Components.Button
+                disabled={!formData.resetEmail} // button is disabled if email is empty
+                onClick={handleResetClick}
+              >
+                Send OTP
+              </Components.Button>
+            </Components.Form>
+          </Components.SignInContainer>
+        )
+      ) : (
+        <Components.SignInContainer signinIn={signIn}>
+          <Components.Form noValidate>
+            <Components.Title>Sign in</Components.Title>
+            <Components.Input
+              type="email"
+              name="signInEmail"
+              placeholder="Email"
+              value={formData.signInEmail}
+              onChange={handleChange}
+            />
+            {errors.signInEmail && (
+              <div style={{ color: "red" }}>{errors.signInEmail}</div>
+            )}
+            <Components.Input
+              type="password"
+              name="signInPassword"
+              placeholder="Password"
+              value={formData.signInPassword}
+              onChange={handleChange}
+            />
+            {(errors.signInPassword || errors.signInError) && (
+              <div style={{ color: "red" }}>
+                {errors.signInPassword || errors.signInError}
+              </div>
+            )}
+
+            <Components.Anchor
+              style={{ cursor: "pointer" }}
+              onClick={() => setIsInResetPassword((prev) => !prev)}
+            >
+              Forgot your password?
+            </Components.Anchor>
+            <Components.Button
+              disabled={!areSignInFieldsFilled} // button is disabled if not both fields have some string value
+              onClick={handleSignInClick}
+            >
+              Sign In
+            </Components.Button>
+          </Components.Form>
+        </Components.SignInContainer>
+      )}
 
       <Components.OverlayContainer signinIn={signIn}>
         <Components.Overlay signinIn={signIn}>

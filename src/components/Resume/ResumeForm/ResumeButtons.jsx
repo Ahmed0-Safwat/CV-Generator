@@ -1,10 +1,12 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
-import shallow from "zustand/shallow";
 import { Button } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useStore } from "../../../hooks/useStore";
 import { useFormContext } from "react-hook-form";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
+import { shallow } from "zustand/shallow";
 
 const ResumeButtons = () => {
   const { globalState } = useStore(
@@ -16,7 +18,7 @@ const ResumeButtons = () => {
   const { activeStep } = globalState;
   const { handleSubmit } = useFormContext();
 
-  const onSubmit = (data) => {
+  const handleNextFunction = (data) => {
     console.log("data", data);
     useStore.setState({
       globalState: {
@@ -26,7 +28,12 @@ const ResumeButtons = () => {
     });
   };
 
-  const handleNext = handleSubmit(onSubmit);
+  const submit = (data) => {
+    console.log("data", data);
+  };
+
+  const handleNext = handleSubmit(handleNextFunction);
+  const handleSubmitFunction = handleSubmit(submit);
 
   const handleBack = () => {
     useStore.setState({
@@ -44,6 +51,33 @@ const ResumeButtons = () => {
         activeStep: 0,
       },
     });
+  };
+
+  const downloadPdfDocument = () => {
+    const element = document.getElementById("resume");
+
+    const captureAndSavePdf = () => {
+      html2canvas(element).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
+
+        const aspectRatio = canvas.width / canvas.height;
+
+        const imgWidth = 210;
+
+        const imgHeight = imgWidth / aspectRatio;
+        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+        pdf.save("advanced-styled-page.pdf");
+      });
+    };
+
+    // Ensure that styles have rendered before capturing content and saving PDF
+    if (document.readyState === "complete") {
+      captureAndSavePdf();
+    } else {
+      window.onload = captureAndSavePdf;
+    }
   };
 
   return (
@@ -95,7 +129,7 @@ const ResumeButtons = () => {
               }}
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              //   onClick={handleNext}
+              onClick={handleSubmitFunction}
             >
               Save
             </Button>
@@ -110,7 +144,7 @@ const ResumeButtons = () => {
               }}
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              //   onClick={handleNext}
+              onClick={downloadPdfDocument}
             >
               Download
             </Button>

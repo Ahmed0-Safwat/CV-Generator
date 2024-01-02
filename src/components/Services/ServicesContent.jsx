@@ -50,7 +50,6 @@ const ServicesContent = () => {
         padding={0}
         paddingBottom={2}
       >
-        <ResumeExample1 />
         <ResumeExample2 />
         <Template />
 

@@ -19,7 +19,7 @@ import * as Yup from "yup";
 const projectsSectionCards = [
   {
     id: 1,
-    source: "/images/temp 1.jpg",
+    source: "/images/temp 1.png",
     title: "Lina",
     subtitle: "Design, Mobile App, Web",
   },
@@ -31,19 +31,19 @@ const projectsSectionCards = [
   },
   {
     id: 3,
-    source: "/images/temp 3.webp",
+    source: "/images/temp 3.jpg",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 4,
-    source: "/images/temp 3.webp",
+    source: "/images/temp 1.png",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
   {
     id: 5,
-    source: "/images/temp 3.webp",
+    source: "/images/temp 2.jpg",
     title: "What’s On?",
     subtitle: "Design, Mobile App, Web",
   },
@@ -62,7 +62,6 @@ function Resume() {
   const personalSchema = Yup.object().shape({
     personal: Yup.object().shape({
       firstName: Yup.string().required("First name is required"),
-      middleName: Yup.string().required("Middle name is required"),
       lastName: Yup.string().required("Last name is required"),
       email: Yup.string()
         .email("Email must be a valid email address")
@@ -70,6 +69,8 @@ function Resume() {
       phone: Yup.string().required("Phone number is required"),
       address: Yup.string().required("Address is required"),
       img: Yup.mixed().required("Image is required"),
+      jobTitle: Yup.string().required("Job Title is required"),
+      aboutMe: Yup.string().required("About Me is required"),
     }),
   });
 
@@ -121,7 +122,8 @@ function Resume() {
     defaultValues: {
       personal: {
         firstName: "",
-        middleName: "",
+        jobTitle: "",
+        aboutMe: "",
         lastName: "",
         img: null,
         address: "",

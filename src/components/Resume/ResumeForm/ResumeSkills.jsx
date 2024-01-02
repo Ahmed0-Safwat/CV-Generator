@@ -1,5 +1,13 @@
-import React from "react";
-import { TextField, Stack, Typography, MenuItem } from "@mui/material";
+import React, { useState } from "react";
+import {
+  TextField,
+  Stack,
+  Typography,
+  MenuItem,
+  IconButton,
+} from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { useFormContext } from "react-hook-form";
 
 const currencies = [
@@ -11,6 +19,8 @@ const currencies = [
 ];
 
 const ResumeSkills = () => {
+  const [skillsFieldsCount, setSkillsFieldsCount] = useState(1);
+
   const {
     register,
     watch,
@@ -60,6 +70,16 @@ const ResumeSkills = () => {
     );
   };
 
+  const handleAddSkillsField = () => {
+    setSkillsFieldsCount((prevCount) => prevCount + 1);
+  };
+
+  const handleRemoveSkillsField = () => {
+    if (skillsFieldsCount > 1) {
+      setSkillsFieldsCount((prevCount) => prevCount - 1);
+    }
+  };
+
   return (
     <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>
       <Stack
@@ -69,15 +89,22 @@ const ResumeSkills = () => {
           color: "white",
           margin: "5px auto",
           p: 1.5,
+          position: "relative", // Added position relative
         }}
       >
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
           SKILLS
         </Typography>
+        <IconButton
+          color="primary"
+          sx={{ position: "absolute", top: "10px", right: "10px" }}
+          onClick={handleAddSkillsField}
+        >
+          <AddIcon />
+        </IconButton>
       </Stack>
       <Stack gap={2} sx={{ width: "100%", margin: "0 auto" }}>
-        {/* Adjust the index as per your data structure */}
-        {[0].map((index) => (
+        {Array.from({ length: skillsFieldsCount }).map((_, index) => (
           <Stack
             key={index}
             direction={{ xs: "column", sm: "row" }}
@@ -87,6 +114,25 @@ const ResumeSkills = () => {
             {renderSkillLevelField(index)}
           </Stack>
         ))}
+      </Stack>
+      <Stack
+        direction="row"
+        alignItems="flex-end"
+        justifyContent="flex-end"
+        mt={2}
+        sx={{ position: "relative" }}
+      >
+        <IconButton
+          color="secondary"
+          sx={{
+            position: "absolute",
+            bottom: "-5px",
+            right: "5px",
+          }}
+          onClick={handleRemoveSkillsField}
+        >
+          <RemoveIcon />
+        </IconButton>
       </Stack>
     </Stack>
   );
