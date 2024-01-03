@@ -1,27 +1,15 @@
-import "./style.scss";
-import { useWindowSize } from "../../../../hooks/useWindowSize";
 import React from "react";
 import { Stack, Typography } from "@mui/material";
+import "./style.scss";
+import { useWindowSize } from "../../../../hooks/useWindowSize";
 
 const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
-  const { isMobileView, isTabletView } = useWindowSize();
-
-  const scrollToTargetById = (id) => {
-    const element = document.getElementById(id);
-    const headerOffset = 76;
-    const elementPosition = element?.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  };
+  const { isMobileView } = useWindowSize();
 
   return (
     <Stack
       id="hero-card"
-      direction="row"
+      direction={{ xs: "column", md: "column", lg: "row" }} // Change direction based on screen size
       className="section-container"
       sx={{
         height: "90vh",
@@ -39,6 +27,27 @@ const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
         justifyContent: "space-around",
       }}
     >
+      {/* Image component moved up */}
+      <Stack
+        mt={5}
+        direction={{ xs: "column", sm: "row" }}
+        spacing={3}
+        justifyContent={{ sm: "center", md: "flex-start", lg: "center" }}
+        flexWrap="wrap"
+        useFlexGap
+      >
+        <img
+          src={"/images/resume home image.png"}
+          alt={"photo"}
+          width={410}
+          height={400}
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </Stack>
+
+      {/* Text component */}
       <Stack>
         <Stack
           className="section-content"
@@ -80,25 +89,6 @@ const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
             </Typography>
           </Stack>
         </Stack>
-      </Stack>
-
-      <Stack
-        mt={5}
-        direction={{ xs: "column", sm: "row" }}
-        spacing={3}
-        justifyContent={{ sm: "center", md: "flex-start", lg: "center" }}
-        flexWrap="wrap"
-        useFlexGap
-      >
-        <img
-          src={"/images/resume home image.png"}
-          alt={"photo"}
-          width={410}
-          height={400}
-          style={{
-            objectFit: "cover",
-          }}
-        />
       </Stack>
     </Stack>
   );

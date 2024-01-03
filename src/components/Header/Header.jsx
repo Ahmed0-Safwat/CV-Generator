@@ -74,6 +74,12 @@ const Header = () => {
       },
     });
 
+    const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+
+    if (route === "/aichat" && !sessionStorageUser) {
+      return setModalOpen(true);
+    }
+
     navigate(route);
   };
 

@@ -1,8 +1,6 @@
 import "./style.scss";
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import ResumeExample1 from "../../components/Resume/ResumeForm/ResumeExample1";
-import ResumeExample2 from "../../components/Resume/ResumeForm/ResumeExample2";
 import Template from "../../components/Resume/Template/Template";
 const SERVICES_CARDS = [
   {
@@ -50,7 +48,6 @@ const ServicesContent = () => {
         padding={0}
         paddingBottom={2}
       >
-        <ResumeExample2 />
         <Template />
 
         <Stack

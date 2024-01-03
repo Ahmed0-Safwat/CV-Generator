@@ -15,9 +15,12 @@ import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import useHelpForm from "../../../api/helpForm/helpForm";
+import { useNavigate } from "react-router-dom";
 
 const NewContactUs = () => {
   const { mutate: helpMutation } = useHelpForm();
+
+  const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
     firstName: "",
@@ -75,6 +78,10 @@ const NewContactUs = () => {
         },
       }
     );
+  };
+
+  const routeToCvPage = () => {
+    navigate("/resume");
   };
 
   return (

@@ -12,6 +12,8 @@ const Hero = () => {
     shallow
   );
 
+  const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+
   return (
     <Stack
       sx={{
@@ -70,7 +72,7 @@ const Hero = () => {
                 lineHeight: { xs: "30px", md: "45px", lg: "50px" },
               }}
             >
-              Ahmed Safwat
+              {sessionStorageUser?.name}
             </Typography>
 
             <Typography
@@ -82,7 +84,7 @@ const Hero = () => {
                 fontSize: { xs: "10px", md: "24px", lg: "30px" },
               }}
             >
-              ahmedsafwat11@yahoo.com
+              {sessionStorageUser?.email}
             </Typography>
           </Box>
         </Stack>

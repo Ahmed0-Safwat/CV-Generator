@@ -2,6 +2,7 @@ import "./style.scss";
 import { useWindowSize } from "../../../../hooks/useWindowSize";
 import React from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router";
 
 interface Props {
   title: string;
@@ -18,6 +19,8 @@ const HeroCard: React.FC<Props> = ({
 }) => {
   const { isMobileView, isTabletView } = useWindowSize();
 
+  const navigate = useNavigate();
+
   const scrollToTargetById = (id: string) => {
     const element = document.getElementById(id);
     const headerOffset = 76;
@@ -30,11 +33,8 @@ const HeroCard: React.FC<Props> = ({
     });
   };
 
-  const handleContactUs = () => {
-    if (isTabletView) {
-    } else {
-      scrollToTargetById("footer");
-    }
+  const routeToCvPage = () => {
+    navigate("/resume");
   };
 
   return (
@@ -95,7 +95,7 @@ const HeroCard: React.FC<Props> = ({
           </Typography>
           <Stack mt="32px">
             <Button
-              onClick={handleContactUs}
+              onClick={routeToCvPage}
               variant="contained"
               sx={{
                 display: "flex",

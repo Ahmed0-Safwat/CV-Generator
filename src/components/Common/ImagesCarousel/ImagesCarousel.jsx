@@ -8,6 +8,7 @@ import ArrowNext from "@mui/icons-material/ChevronRight";
 import { Stack } from "@mui/material";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { useStore } from "../../../hooks/useStore";
+import SignModal from "../../SignModal/SignModal";
 
 const POINTS_COUNT = 4;
 const POINT_WIDTH = 25;
@@ -62,8 +63,10 @@ const PrevArrow = (props) => {
 };
 
 const ImagesCarousel = ({ carouselImages, shouldClick }) => {
-  const { isTabletView, isMobileView } = useWindowSize();
+  const { isTabletView, isMobileView, width } = useWindowSize();
   const [slideWidth, setSlideWidth] = useState(DEFAULT_SLIDE_WIDTH);
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (isMobileView) {
@@ -74,6 +77,16 @@ const ImagesCarousel = ({ carouselImages, shouldClick }) => {
     }
   }, [isMobileView, isTabletView]);
 
+  const getSlidesToShow = () => {
+    if (width < 900) {
+      return 1;
+    }
+    if (width <= 1366) {
+      return 2;
+    }
+    return 3;
+  };
+
   const settings = {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -82,12 +95,18 @@ const ImagesCarousel = ({ carouselImages, shouldClick }) => {
     infinite: true,
     pauseOnFocus: true,
     easing: "ease",
-    slidesToShow: 4,
+    slidesToShow: getSlidesToShow(),
     centerMode: true,
   };
 
   const handleClick = (slideData) => {
     if (shouldClick) {
+      const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+
+      if (!sessionStorageUser) {
+        return setModalOpen(true);
+      }
+
       useStore.setState({
         globalState: {
           ...useStore.getState().globalState,
@@ -96,6 +115,10 @@ const ImagesCarousel = ({ carouselImages, shouldClick }) => {
         },
       });
     }
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   return (
@@ -127,6 +150,8 @@ const ImagesCarousel = ({ carouselImages, shouldClick }) => {
           );
         })}
       </Slider>
+
+      {modalOpen && <SignModal open={modalOpen} onClose={handleCloseModal} />}
     </div>
   );
 };

@@ -15,37 +15,34 @@ import ResumeLanguages from "../../components/Resume/ResumeForm/ResumeLanguages"
 import ResumeExample1 from "../../components/Resume/ResumeForm/ResumeExample1";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import ResumeExample2 from "../../components/Resume/ResumeForm/ResumeExample2";
+import Template from "../../components/Resume/Template/Template";
 
 const projectsSectionCards = [
   {
     id: 1,
     source: "/images/temp 1.png",
-    title: "Lina",
-    subtitle: "Design, Mobile App, Web",
+    title: "First Template",
   },
   {
     id: 2,
     source: "/images/temp 2.jpg",
-    title: "Nissan",
-    subtitle: "Design, Mobile App, Web",
+    title: "Second Template",
   },
   {
     id: 3,
     source: "/images/temp 3.jpg",
-    title: "What’s On?",
-    subtitle: "Design, Mobile App, Web",
+    title: "Third Template",
   },
   {
-    id: 4,
+    id: 1,
     source: "/images/temp 1.png",
-    title: "What’s On?",
-    subtitle: "Design, Mobile App, Web",
+    title: "First Template",
   },
   {
-    id: 5,
+    id: 2,
     source: "/images/temp 2.jpg",
-    title: "What’s On?",
-    subtitle: "Design, Mobile App, Web",
+    title: "Second Template",
   },
 ];
 
@@ -185,12 +182,14 @@ function Resume() {
           </>
         );
       case 2:
-        return <ResumeExample1 />;
-      // return <ResumeExample4 />;
-      // return <ResumeExample3 />;
-      // return <ResumeExample2 />;
-      // return <ResumeExample1 />;
-      // return <Template />;
+        if (globalState.selectedCV.id === 2) {
+          return <ResumeExample1 />;
+        }
+        if (globalState.selectedCV.id === 3) {
+          return <ResumeExample2 />;
+        }
+
+        return <Template />;
 
       default:
         break;

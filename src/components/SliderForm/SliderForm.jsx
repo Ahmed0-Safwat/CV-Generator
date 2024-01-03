@@ -4,7 +4,7 @@ import useSignupUser from "../../api/login/signup";
 import useSigninUser from "../../api/login/signin";
 import { Stack } from "@mui/material";
 import { useStore } from "../../hooks/useStore";
-import { set } from "date-fns";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function SliderForm({ handleClose }) {
   const [signIn, toggle] = React.useState(true);
@@ -22,6 +22,10 @@ function SliderForm({ handleClose }) {
     resetEmail: "", // Added resetEmail
     resetEmailPassword: "", // Added resetEmailPassword
   });
+
+  const location = useLocation();
+
+  const navigate = useNavigate();
 
   // Updated state with resetEmailError
   const [errors, setErrors] = React.useState({
@@ -159,6 +163,7 @@ function SliderForm({ handleClose }) {
         setErrors((prevErrors) => ({
           ...prevErrors,
           verifySuccess: "Email Verified Successfully Please Sign in",
+          verifyError: "",
         }));
       } else {
         setErrors((prevErrors) => ({
@@ -234,6 +239,10 @@ function SliderForm({ handleClose }) {
               resetEmailOtp: "",
               resetEmailPassword: "",
             });
+
+            if (location.pathname === "/resume") {
+              navigate("/");
+            }
 
             handleClose();
           }

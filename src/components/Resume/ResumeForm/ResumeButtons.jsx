@@ -30,18 +30,31 @@ const ResumeButtons = () => {
 
   const submit = (data) => {
     console.log("data", data);
+
+    // save data to locale storage with key cvData
+    localStorage.setItem("cvData", JSON.stringify(data));
   };
 
   const handleNext = handleSubmit(handleNextFunction);
   const handleSubmitFunction = handleSubmit(submit);
 
   const handleBack = () => {
-    useStore.setState({
-      globalState: {
-        ...useStore.getState().globalState,
-        activeStep: useStore.getState().globalState.activeStep - 1,
-      },
-    });
+    if (activeStep === 0) {
+      useStore.setState({
+        globalState: {
+          ...useStore.getState().globalState,
+          activeStep: 0,
+          shouldShowStepper: false,
+        },
+      });
+    } else {
+      useStore.setState({
+        globalState: {
+          ...useStore.getState().globalState,
+          activeStep: useStore.getState().globalState.activeStep - 1,
+        },
+      });
+    }
   };
 
   const handleReset = () => {
@@ -83,7 +96,6 @@ const ResumeButtons = () => {
   return (
     <Stack direction="row" justifyContent="space-between" width="80%">
       <Button
-        disabled={activeStep === 0}
         onClick={handleBack}
         sx={{
           fontSize: { xs: "17px", sm: "18px", md: "21px", lg: "24px" },

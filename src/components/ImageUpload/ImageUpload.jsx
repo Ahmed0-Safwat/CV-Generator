@@ -15,7 +15,7 @@ function ImageUpload() {
         },
       });
 
-      console.log("URL.createObjectURL(file)", URL.createObjectURL(file));
+      // console.log("URL.createObjectURL(file)", URL.createObjectURL(file));
 
       const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
 
