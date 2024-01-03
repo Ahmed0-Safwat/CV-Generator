@@ -9,7 +9,7 @@ import HorizontalNonLinearStepper from "../Stepper/Stepper";
 const hero = [
   {
     title: `Cv Generator`,
-    subTitle: `Create a Professional CV,\nOnline in No Time.`,
+    subTitle: `Create a Professional CV,Online in No Time.`,
     backgroundImageUrl: "/images/hero-image.png",
   },
 ];

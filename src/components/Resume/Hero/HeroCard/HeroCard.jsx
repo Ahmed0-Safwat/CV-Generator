@@ -27,26 +27,6 @@ const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
         justifyContent: "space-around",
       }}
     >
-      {/* Image component moved up */}
-      <Stack
-        mt={5}
-        direction={{ xs: "column", sm: "row" }}
-        spacing={3}
-        justifyContent={{ sm: "center", md: "flex-start", lg: "center" }}
-        flexWrap="wrap"
-        useFlexGap
-      >
-        <img
-          src={"/images/resume home image.png"}
-          alt={"photo"}
-          width={410}
-          height={400}
-          style={{
-            objectFit: "cover",
-          }}
-        />
-      </Stack>
-
       {/* Text component */}
       <Stack>
         <Stack
@@ -63,8 +43,12 @@ const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
           <Stack
             className="hero-content-wrapper"
             gap={3}
-            alignSelf={"flex-start"}
             pt="56px"
+            sx={{
+              "@media (max-width: 1200px)": {
+                textAlign: "center", // Align text to start on screens 1200px and smaller
+              },
+            }}
           >
             <Typography
               variant="h1"
@@ -89,6 +73,31 @@ const HeroCard = ({ title, subTitle, backgroundImageUrl, styleProps }) => {
             </Typography>
           </Stack>
         </Stack>
+      </Stack>
+
+      {/* Image component moved up */}
+      <Stack
+        mt={5}
+        direction={{ xs: "column", sm: "row" }}
+        spacing={3}
+        justifyContent={{ sm: "center", md: "flex-start", lg: "center" }}
+        flexWrap="wrap"
+        useFlexGap
+        sx={{
+          "@media (max-width: 1199px)": {
+            display: "none",
+          },
+        }}
+      >
+        <img
+          src={"/images/resume home image.png"}
+          alt={"photo"}
+          width={410}
+          height={400}
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </Stack>
     </Stack>
   );
