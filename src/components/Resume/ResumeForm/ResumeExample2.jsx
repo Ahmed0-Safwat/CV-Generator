@@ -48,7 +48,8 @@ const ResumeExample2 = () => {
               sx={{
                 width: "250px",
                 height: "250px",
-                m: "32px auto",
+                m: "10px auto",
+                objectFit: "contain",
               }}
               alt="Remy Sharp"
               src={imageURL}
@@ -69,10 +70,10 @@ const ResumeExample2 = () => {
             {data()?.education?.map((education, index) => (
               <EducationItem
                 key={index}
-                degree={education.department}
-                university={education.university}
                 startDate={new Date(education.startdate).getFullYear()}
                 endDate={new Date(education.enddate).getFullYear()}
+                degree={education.department}
+                university={education.university}
               />
             ))}
           </Stack>
@@ -81,18 +82,16 @@ const ResumeExample2 = () => {
           <SkillsList />
 
           {/* Language Section */}
-          <Stack
-            gap={2}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              width: "95%",
-              padding: "24px",
-            }}
-          >
+          <Stack>
             <SectionHeader title="Languages" />
 
-            <Stack spacing={4}>
+            <Stack
+              spacing={4}
+              sx={{
+                margin: "16px auto",
+                width: "80%",
+              }}
+            >
               {data()?.languages?.map((item) => (
                 <LanguageEntry
                   key={item.languageName}
@@ -181,41 +180,6 @@ const ResumeExample2 = () => {
               />
             ))}
           </Stack>
-
-          {/* <Divider
-            sx={{
-              fontSize: "30px",
-              fontWeight: "800",
-              fontStyle: "normal",
-              color: "#43443f",
-              mt: 10,
-            }}
-            textAlign="left"
-          >
-            REFERENCES
-          </Divider>
-
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            justifyContent="space-between"
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <ReferenceItem
-              name="Harumi Kobayashi"
-              position="Wardiere inc. / CEO"
-              phone="123-456-7890"
-              email="hello@reallygreatsite.com"
-            />
-            <ReferenceItem
-              name="Bailey Dupont"
-              position="Wardiere inc. / CEO"
-              phone="123-456-7890"
-              email="hello@reallygreatsite.com"
-            />
-          </Stack> */}
         </Grid>
       </Grid>
     </Grid>
@@ -229,7 +193,7 @@ const ContactInfo = () => {
     <Stack
       sx={{
         margin: "16px auto",
-        width: "80%",
+        width: "100%",
         gap: 2,
       }}
     >
@@ -272,25 +236,24 @@ const ContactInfo = () => {
       >
         <SectionHeader title="Contact Info" />
 
-        <Stack
-          direction="column"
-          justifyContent="space-between"
-          sx={{
-            width: "100%",
-          }}
-        >
+        <Stack direction="column" justifyContent="space-between">
           <Stack
             direction="column"
             spacing={2}
             alignItems="flex-start"
             marginBottom={3}
+            sx={{
+              margin: "16px auto",
+              width: "80%",
+            }}
           >
             <Stack direction="row" spacing={2}>
-              <CallIcon />
+              <CallIcon sx={{ color: "#43443f" }} />
               <Typography
                 sx={{
-                  fontSize: "17px",
-                  fontWeight: "500",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  color: "#43443f",
                 }}
               >
                 {data()?.personal?.phone}
@@ -298,11 +261,12 @@ const ContactInfo = () => {
             </Stack>
 
             <Stack direction="row" spacing={2}>
-              <LocationOnIcon />
+              <LocationOnIcon sx={{ color: "#43443f" }} />
               <Typography
                 sx={{
-                  fontSize: "17px",
-                  fontWeight: "500",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  color: "#43443f",
                 }}
               >
                 {data()?.personal?.address}
@@ -310,11 +274,12 @@ const ContactInfo = () => {
             </Stack>
 
             <Stack direction="row" spacing={2}>
-              <AlternateEmailIcon />
+              <AlternateEmailIcon sx={{ color: "#43443f" }} />
               <Typography
                 sx={{
-                  fontSize: "17px",
-                  fontWeight: "500",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  color: "#43443f",
                 }}
               >
                 {data()?.personal?.email}
@@ -332,8 +297,7 @@ const SectionHeader = ({ title }) => (
     sx={{
       margin: "16px auto",
       backgroundColor: "#43443f",
-      width: "80%",
-
+      width: "90%",
       borderRadius: "50px",
     }}
   >
@@ -354,7 +318,20 @@ const SectionHeader = ({ title }) => (
 );
 
 const EducationItem = ({ degree, university, startDate, endDate }) => (
-  <Stack>
+  <Stack sx={{ width: "70%" }}>
+    <Typography
+      sx={{
+        color: "#08474f",
+        fontSize: "17px",
+        fontWeight: "500",
+        fontStyle: "normal",
+      }}
+    >
+      <b>
+        {" "}
+        {startDate}-{endDate}
+      </b>
+    </Typography>
     <Typography
       sx={{
         color: "#43443f",
@@ -369,21 +346,11 @@ const EducationItem = ({ degree, university, startDate, endDate }) => (
       sx={{
         color: "#43443f",
         fontSize: "18px",
-        fontWeight: "400",
-        fontStyle: "normal",
-      }}
-    >
-      {university}
-    </Typography>
-    <Typography
-      sx={{
-        color: "#626161",
-        fontSize: "17px",
         fontWeight: "500",
         fontStyle: "normal",
       }}
     >
-      {startDate}-{endDate}
+      {university}
     </Typography>
   </Stack>
 );
@@ -403,9 +370,9 @@ const SkillsList = () => {
         <Typography
           key={item.skillName}
           sx={{
-            color: "#43443f",
-            fontSize: "17px",
+            fontSize: "18px",
             fontWeight: "600",
+            color: "#43443f",
             fontStyle: "normal",
           }}
         >
@@ -427,10 +394,10 @@ const WorkExperienceItem = ({ position, company, date, description }) => (
     >
       <Typography
         sx={{
-          fontSize: "20px",
+          fontSize: "22px",
           fontWeight: "600",
           fontStyle: "normal",
-          color: "#5d5d5d",
+          color: "#08474f",
         }}
       >
         {position}
@@ -440,7 +407,7 @@ const WorkExperienceItem = ({ position, company, date, description }) => (
           fontSize: "20px",
           fontWeight: "600",
           fontStyle: "normal",
-          color: "#5d5d5d",
+          color: "#08474f",
         }}
       >
         {date}
@@ -459,7 +426,7 @@ const WorkExperienceItem = ({ position, company, date, description }) => (
       </Typography>
       <Typography
         sx={{
-          fontSize: "20px",
+          fontSize: "22px",
           fontWeight: "500",
           fontStyle: "normal",
           color: "#5d5d5d",
@@ -517,13 +484,13 @@ const ReferenceItem = ({ name, position, phone, email }) => (
 );
 
 const LanguageEntry = ({ language, proficiency }) => (
-  <Stack direction="row">
+  <Stack direction="row" sx={{}}>
     <Typography
       sx={{
         fontSize: "18px",
         fontWeight: "600",
 
-        color: "#237781",
+        color: "#08474f",
       }}
     >
       {language}:

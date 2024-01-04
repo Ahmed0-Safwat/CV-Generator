@@ -48,11 +48,21 @@ const NewContactUs = () => {
 
   const validateFields = () => {
     let errors = {};
-    errors.name = formValues.firstName ? "" : "Name is required";
-    errors.name = formValues.lastName ? "" : "Name is required";
+    errors.firstName = formValues.firstName ? "" : "First Name is required";
+    errors.lastName = formValues.lastName ? "" : "Last Name is required";
     errors.email = formValues.email ? "" : "Email is required";
+    errors.text = formValues.text ? "" : "Message is required"; // New validation
     setFormErrors(errors);
     return !Object.values(errors).some((x) => x !== "");
+  };
+
+  const resetForm = () => {
+    setFormValues({
+      firstName: "",
+      lastName: "",
+      email: "",
+      text: "",
+    });
   };
 
   const handleSubmit = (event) => {
@@ -60,6 +70,7 @@ const NewContactUs = () => {
 
     if (validateFields()) {
       sendEmail(formValues);
+      resetForm();
     }
   };
 
@@ -75,6 +86,8 @@ const NewContactUs = () => {
         onSuccess: (data) => {
           console.log("data", data);
           setEmailSent(true);
+          // Reset the form values after successful submission
+          resetForm();
         },
       }
     );
@@ -258,7 +271,7 @@ const NewContactUs = () => {
               <Stack spacing={1}>
                 {emailSent && (
                   <Typography
-                    color="primary.main"
+                    color="success"
                     variant="h6"
                     textAlign="center"
                     fontWeight={400}

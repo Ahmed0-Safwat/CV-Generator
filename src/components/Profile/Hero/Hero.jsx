@@ -18,6 +18,7 @@ const Hero = () => {
     <Stack
       sx={{
         backgroundImage: "url(/images/hero-image.png)",
+        backgroundPosition: "center",
         height: { xs: "250px ", sm: "350px", md: "600px" },
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
