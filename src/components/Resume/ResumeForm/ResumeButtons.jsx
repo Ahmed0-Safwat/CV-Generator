@@ -15,7 +15,7 @@ const ResumeButtons = () => {
     }),
     shallow
   );
-  const { activeStep } = globalState;
+  const { activeStep, selectedCV } = globalState;
   const { handleSubmit } = useFormContext();
 
   const handleNextFunction = (data) => {
@@ -28,11 +28,31 @@ const ResumeButtons = () => {
     });
   };
 
-  const submit = (data) => {
-    console.log("data", data);
+  const submit = async (data) => {
+    const existingData = localStorage.getItem("cvData");
+    let cvDataArray = existingData ? JSON.parse(existingData) : [];
 
-    // save data to locale storage with key cvData
-    localStorage.setItem("cvData", JSON.stringify(data));
+    if (data.personal.img && data.personal.img[0]) {
+      const imgFile = data.personal.img[0];
+      const reader = new FileReader();
+
+      reader.onloadend = function () {
+        const base64String = reader.result;
+        const newData = {
+          selectedCV: selectedCV.id,
+          ...data,
+          personal: { ...data.personal, img: base64String },
+        };
+
+        cvDataArray.push(newData);
+        localStorage.setItem("cvData", JSON.stringify(cvDataArray));
+      };
+
+      reader.readAsDataURL(imgFile);
+    } else {
+      cvDataArray.push({ selectedCV: selectedCV.id, ...data });
+      localStorage.setItem("cvData", JSON.stringify(cvDataArray));
+    }
   };
 
   const handleNext = handleSubmit(handleNextFunction);

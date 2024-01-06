@@ -53,6 +53,8 @@ const Header = () => {
   const { isTabletView } = useWindowSize();
   const [modalOpen, setModalOpen] = useState(false);
 
+  const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+
   const handleDrawerToggle = (e) => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -120,9 +122,11 @@ const Header = () => {
         ))}
       </List>
 
-      <Button variant="contained" onClick={handleOpenModal}>
-        Sign In
-      </Button>
+      {!sessionStorageUser && (
+        <Button variant="contained" onClick={handleOpenModal}>
+          Login
+        </Button>
+      )}
     </Box>
   );
 

@@ -19,7 +19,7 @@ const accordionItems = [
     id: 2,
     accordionQuestion:
       "Can you create custom CV features and sections tailored to my career goals?",
-    accordionAnswer: `At CV Creator, we offer flexibility in creating custom CV features and sections tailored to your unique career goals. This includes personalized sections, content tailoring, design elements, keyword optimization, and integration with online profiles. Our aim is to help you craft a CV that perfectly aligns with your aspirations, regardless of your industry or sector.`,
+    accordionAnswer: `At CV Creator, we offer flexibility in creating custom CV features and sections tailored to your unique career goals. This includes personalized sections, content tailoring, design elements, keyword optimization, and integration with online profiles. Our aim is to help you craft a CV that perfectly aligns with your aspirations, regardless of your industry or sector.`,
   },
   {
     id: 3,
