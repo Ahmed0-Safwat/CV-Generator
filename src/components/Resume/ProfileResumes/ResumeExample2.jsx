@@ -45,8 +45,8 @@ const ResumeExample2 = ({ data }) => {
           <Stack>
             <Avatar
               sx={{
-                width: "250px",
-                height: "250px",
+                width: "200px",
+                height: "200px",
                 m: "10px auto",
                 objectFit: "contain",
               }}

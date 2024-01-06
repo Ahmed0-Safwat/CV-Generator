@@ -33,11 +33,12 @@ const Hero = () => {
           className="section-container"
           sx={{
             height: "90vh",
-            minHeight: { xs: "500px", sm: "600px" },
-            maxHeight: "600px",
+            minHeight: { xs: "500px", sm: "450px" },
+            maxHeight: "450px",
             backgroundImage: `url(/images/hero-image.png)`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
+            backgroundPosition: "center", // Center the background image
             borderRadius: {
               xs: "0px 0px 40px 40px",
               sm: "0px 0px 80px 80px",

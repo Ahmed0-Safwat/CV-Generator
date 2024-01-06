@@ -57,14 +57,6 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
-
-      {/* {activeStep === steps.length ? (
-        <React.Fragment>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-            <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleReset}>Reset</Button>
-          </Box>
-        </React.Fragment>} */}
     </Box>
   );
 }
