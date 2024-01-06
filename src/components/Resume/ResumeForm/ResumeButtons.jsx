@@ -7,8 +7,11 @@ import { useFormContext } from "react-hook-form";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import { shallow } from "zustand/shallow";
+import { useSnackbar } from "notistack";
 
 const ResumeButtons = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const { globalState } = useStore(
     (state) => ({
       globalState: state.globalState,
@@ -53,6 +56,8 @@ const ResumeButtons = () => {
       cvDataArray.push({ selectedCV: selectedCV.id, ...data });
       localStorage.setItem("cvData", JSON.stringify(cvDataArray));
     }
+
+    enqueueSnackbar("CV Created Successfully!", { variant: "success" });
   };
 
   const handleNext = handleSubmit(handleNextFunction);
