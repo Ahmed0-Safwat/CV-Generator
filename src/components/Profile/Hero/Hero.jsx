@@ -3,6 +3,8 @@ import { Stack, Typography, Avatar, Box } from "@mui/material";
 import ImageUpload from "../../ImageUpload/ImageUpload";
 import { useStore } from "../../../hooks/useStore";
 import shallow from "zustand/shallow";
+import Button from "@mui/material/Button";
+import useDeleteProfileImage from "../../../api/login/deleteProfileImg";
 
 const Hero = () => {
   const { globalState } = useStore(
@@ -12,7 +14,28 @@ const Hero = () => {
     shallow
   );
 
+  const { mutate: deleteImage } = useDeleteProfileImage();
+
   const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+
+  const handleDeleteImage = () => {
+    deleteImage();
+    useStore.setState({
+      globalState: {
+        ...useStore.getState().globalState,
+        image: null,
+      },
+    });
+
+    const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+    sessionStorage.setItem(
+      "user",
+      JSON.stringify({
+        ...sessionStorageUser,
+        image: "User has no Image",
+      })
+    );
+  };
 
   return (
     <Stack
@@ -54,13 +77,14 @@ const Hero = () => {
           <Box position="relative">
             <Avatar
               alt=""
-              src={globalState.image || ""}
+              src={`data:image/jpeg;base64,${globalState.image}`}
               sx={{
                 width: { xs: "64px", sm: "108px", md: "144px" },
                 height: { xs: "64px", sm: "108px", md: "144px" },
               }}
             />
             <ImageUpload />,
+            {/* <Button onClick={handleDeleteImage}>Delete Image</Button> */}
           </Box>
           <Box>
             <Typography

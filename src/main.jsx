@@ -15,6 +15,7 @@ import { theme } from "./utils/theme";
 import Profile from "./pages/Profile/Profile.jsx";
 import Projects from "./pages/Projects/Projects.jsx";
 import AIChat from "./pages/AiChat/AiChat.jsx";
+import { SnackbarProvider } from "notistack";
 
 const queryClient = new QueryClient();
 
@@ -63,7 +64,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <SnackbarProvider
+          maxSnack={1}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+        >
+          <RouterProvider router={router} />
+        </SnackbarProvider>
       </QueryClientProvider>
     </ThemeProvider>
   </React.StrictMode>

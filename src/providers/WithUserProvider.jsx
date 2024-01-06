@@ -4,6 +4,22 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
 
 const WithUserProvider = (Component) => {
+  const getImage = async () => {
+    const token = sessionStorage.getItem("token");
+
+    const response = await fetch(
+      "https://moaaaz2002-001-site1.btempurl.com/api/profileimages/user",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return await response.json();
+  };
+
   const WrappedComponent = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
@@ -17,6 +33,17 @@ const WithUserProvider = (Component) => {
           },
         });
       }
+
+      // getImage().then((data) => {
+      //   console.log("data", data);
+      //   if (data) {
+      //     useStore.setState({
+      //       globalState: {
+      //         image: `data:image/jpeg;base64,${data}`,
+      //       },
+      //     });
+      //   }
+      // });
 
       setIsLoading(false);
     }, []);

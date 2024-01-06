@@ -15,12 +15,12 @@ import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import useHelpForm from "../../../api/helpForm/helpForm";
-import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 const NewContactUs = () => {
   const { mutate: helpMutation } = useHelpForm();
 
-  const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
   const [formValues, setFormValues] = useState({
     firstName: "",
@@ -35,8 +35,6 @@ const NewContactUs = () => {
     email: "",
     text: "",
   });
-
-  const [emailSent, setEmailSent] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -70,31 +68,18 @@ const NewContactUs = () => {
 
     if (validateFields()) {
       sendEmail(formValues);
+      enqueueSnackbar("Message Sent Successfully!", { variant: "success" });
       resetForm();
     }
   };
 
   const sendEmail = (templateParams) => {
-    helpMutation(
-      {
-        firstName: templateParams.firstName,
-        lastName: templateParams.lastName,
-        email: templateParams.email,
-        message: templateParams.text,
-      },
-      {
-        onSuccess: (data) => {
-          console.log("data", data);
-          setEmailSent(true);
-          // Reset the form values after successful submission
-          resetForm();
-        },
-      }
-    );
-  };
-
-  const routeToCvPage = () => {
-    navigate("/resume");
+    helpMutation({
+      firstName: templateParams.firstName,
+      lastName: templateParams.lastName,
+      email: templateParams.email,
+      message: templateParams.text,
+    });
   };
 
   return (
@@ -269,17 +254,6 @@ const NewContactUs = () => {
           <Stack>
             <FormControl sx={{ width: "100%" }}>
               <Stack spacing={1}>
-                {emailSent && (
-                  <Typography
-                    color="success"
-                    variant="h6"
-                    textAlign="center"
-                    fontWeight={400}
-                  >
-                    Email has been sent successfully!
-                  </Typography>
-                )}
-
                 <Stack spacing={2}>
                   <Stack direction="row" width="100%" spacing={3}>
                     <TextField
@@ -340,6 +314,7 @@ const NewContactUs = () => {
                     error={!!formErrors.text}
                     helperText={formErrors.text}
                   />
+
                   <Button
                     onClick={handleSubmit}
                     variant="contained"

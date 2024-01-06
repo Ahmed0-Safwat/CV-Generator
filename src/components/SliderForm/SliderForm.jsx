@@ -174,6 +174,26 @@ function SliderForm({ handleClose }) {
     });
   };
 
+  const updateGlobalStateAndSession = (imagePreview) => {
+    useStore.setState({
+      globalState: {
+        ...useStore.getState().globalState,
+        image: imagePreview,
+      },
+    });
+
+    const sessionStorageUser = JSON.parse(
+      sessionStorage.getItem("user") || "{}"
+    );
+    sessionStorage.setItem(
+      "user",
+      JSON.stringify({
+        ...sessionStorageUser,
+        image: imagePreview,
+      })
+    );
+  };
+
   const handleSignInClick = (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -194,25 +214,28 @@ function SliderForm({ handleClose }) {
 
       signInMutation(data, {
         onSuccess: (response) => {
-          console.log("response", response);
           if (response.message === notVerifiedMessage) {
             setErrors((prevErrors) => ({
               ...prevErrors,
               signInError: "Email is not verified",
             }));
           } else {
+            const imageBase64 = response.imageBase64;
+            updateGlobalStateAndSession(imageBase64);
+
             useStore.setState({
               globalState: {
-                user: { ...response.user, image: response.imageBase64 },
+                user: { ...response.user, image: imageBase64 },
                 token: response.token,
-                image: response.imageBase64,
+                image: imageBase64,
               },
             });
             sessionStorage.setItem(
               "user",
-              JSON.stringify({ ...response.user, image: response.imageBase64 })
+              JSON.stringify({ ...response.user, image: imageBase64 })
             );
-            sessionStorage.setItem("token", JSON.stringify(response.token));
+            sessionStorage.setItem("token", response.token);
+            sessionStorage.removeItem("localImage");
 
             // clear data & errors
             setFormData({
@@ -265,8 +288,6 @@ function SliderForm({ handleClose }) {
     const resetError = validate("resetEmail", formData.resetEmail);
 
     if (!resetError) {
-      console.log("Reset email to be sent:", formData.resetEmail);
-
       // Construct the URL with the email as a query parameter
       const url = new URL(
         `https://moaaaz2002-001-site1.btempurl.com/api/Users/Email/ResetPassword`

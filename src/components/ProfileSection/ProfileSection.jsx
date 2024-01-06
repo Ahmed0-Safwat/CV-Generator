@@ -36,8 +36,6 @@ const ProfileSection = ({ handleOpenModal }) => {
 
   const { mutate: signOutMutation } = useSignoutUser();
 
-  console.log("image", image);
-
   useEffect(() => {
     setUserData(user);
   }, [user]);
@@ -63,7 +61,7 @@ const ProfileSection = ({ handleOpenModal }) => {
             aria-expanded={open ? "true" : undefined}
           >
             <Avatar
-              src={image || ""}
+              src={`data:image/jpeg;base64,${image}` || ""}
               sx={{
                 width: { xs: "32px", sm: "48px" },
                 height: { xs: "32px", sm: "48px" },
