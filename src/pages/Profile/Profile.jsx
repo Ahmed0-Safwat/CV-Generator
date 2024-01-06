@@ -17,9 +17,11 @@ import ResumeExample2 from "../../components/Resume/ProfileResumes/ResumeExample
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { useSnackbar } from "notistack";
 
 const Profile = () => {
   const { isMobileView, isTabletView } = useWindowSize();
+  const { enqueueSnackbar } = useSnackbar();
 
   const cvData = JSON.parse(localStorage.getItem("cvData"));
   console.log("cvData", cvData);
@@ -33,16 +35,11 @@ const Profile = () => {
     console.log("cvData.selectedCV", cvData);
     switch (cvData.selectedCV) {
       case 1:
-        console.log("HEREEEEEEEE111");
-
         return <ResumeExample1 data={cvData} />;
       case 2:
-        console.log("HEREEEEEEEE");
         return <ResumeExample1 data={cvData} />;
       default:
-        console.log("HEREEEEEEEE222");
-
-        return <ResumeExample1 data={cvData} />;
+        return <ResumeExample2 data={cvData} />;
     }
   };
 
@@ -71,6 +68,8 @@ const Profile = () => {
     } else {
       window.onload = captureAndSavePdf;
     }
+
+    enqueueSnackbar("PDF Downloaded Successfully!", { variant: "success" });
   };
 
   return (

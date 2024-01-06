@@ -116,6 +116,8 @@ const ResumeButtons = () => {
     } else {
       window.onload = captureAndSavePdf;
     }
+
+    enqueueSnackbar("PDF Downloaded Successfully!", { variant: "success" });
   };
 
   return (
