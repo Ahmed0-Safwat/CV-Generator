@@ -101,10 +101,22 @@ const ResumeButtons = () => {
 
         const aspectRatio = canvas.width / canvas.height;
 
-        const imgWidth = 210;
+        const imgWidth = 210; // A4 width in mm
+        const pageHeight = 297; // A4 height in mm
+        const imgHeight = imgWidth / aspectRatio; // image height in mm
+        let heightLeft = imgHeight; // remaining height to be printed
+        let position = 0; // initial position of the image
 
-        const imgHeight = imgWidth / aspectRatio;
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // add first page
+        heightLeft -= pageHeight; // subtract the height of the first page
+
+        while (heightLeft >= 0) {
+          // while there is still height left to be printed
+          position = heightLeft - imgHeight; // calculate the position of the next page
+          pdf.addPage(); // add a new page
+          pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // add the image to the new page
+          heightLeft -= pageHeight; // subtract the height of the new page
+        }
 
         pdf.save("advanced-styled-page.pdf");
       });
