@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { useFormContext } from "react-hook-form";
@@ -16,6 +16,12 @@ const ResumeExperience = () => {
     setValue,
     formState: { errors },
   } = useFormContext();
+
+  const expArrayLength = watch("experience").length;
+
+  useEffect(() => {
+    setExperienceFieldsCount(expArrayLength);
+  }, [watch("experience").length]);
 
   const renderTextField = (field, sectionIndex) => {
     let baseFieldName = field.toLowerCase().replace(/\s/g, "");
@@ -76,6 +82,15 @@ const ResumeExperience = () => {
   const handleRemoveExperienceField = () => {
     if (experienceFieldsCount > 1) {
       setExperienceFieldsCount((prevCount) => prevCount - 1);
+
+      const currentEXP = watch("experience");
+      if (currentEXP && currentEXP.length > 0) {
+        // Remove the last item from the array
+        const updatedEXP = currentEXP.slice(0, -1);
+
+        // Update the form state
+        setValue("experience", updatedEXP);
+      }
     }
   };
 

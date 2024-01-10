@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { useFormContext } from "react-hook-form";
@@ -16,6 +16,12 @@ const ResumeEducation = () => {
     setValue,
     formState: { errors },
   } = useFormContext();
+
+  const eduArrayLength = watch("education").length;
+
+  useEffect(() => {
+    setEducationFieldsCount(eduArrayLength);
+  }, [watch("education").length]);
 
   const renderTextField = (field, sectionIndex) => {
     const baseFieldName = field.toLowerCase().replace(/\s/g, "");
@@ -69,7 +75,17 @@ const ResumeEducation = () => {
 
   const handleRemoveEducationField = () => {
     if (educationFieldsCount > 1) {
+      // Decrease the count of reference fields
       setEducationFieldsCount((prevCount) => prevCount - 1);
+
+      const currentEdu = watch("education");
+      if (currentEdu && currentEdu.length > 0) {
+        // Remove the last item from the array
+        const updatedEdu = currentEdu.slice(0, -1);
+
+        // Update the form state
+        setValue("education", updatedEdu);
+      }
     }
   };
 

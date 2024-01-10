@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TextField,
   Stack,
@@ -26,6 +26,12 @@ const ResumeLanguages = () => {
     setValue,
     formState: { errors },
   } = useFormContext();
+
+  const langArrayLength = watch("languages").length;
+
+  useEffect(() => {
+    setLanguageFieldsCount(langArrayLength);
+  }, [watch("languages").length]);
 
   const renderLanguageNameField = (sectionIndex) => {
     const fieldName = `languages[${sectionIndex}].languageName`;
@@ -77,7 +83,17 @@ const ResumeLanguages = () => {
 
   const handleRemoveLanguageField = () => {
     if (languageFieldsCount > 1) {
+      // Decrease the count of reference fields
       setLanguageFieldsCount((prevCount) => prevCount - 1);
+
+      const currentLanguages = watch("languages");
+      if (currentLanguages && currentLanguages.length > 0) {
+        // Remove the last item from the array
+        const updatedLanguages = currentLanguages.slice(0, -1);
+
+        // Update the form state
+        setValue("languages", updatedLanguages);
+      }
     }
   };
 

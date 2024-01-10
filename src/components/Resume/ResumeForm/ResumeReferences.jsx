@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -13,6 +13,12 @@ const ResumeReferences = () => {
     setValue,
     formState: { errors },
   } = useFormContext();
+
+  const refArrayLength = watch("references").length;
+
+  useEffect(() => {
+    setReferenceFieldsCount(refArrayLength);
+  }, [watch("references").length]);
 
   const handlePhoneNumberChange = (event, index) => {
     const value = event.target.value;

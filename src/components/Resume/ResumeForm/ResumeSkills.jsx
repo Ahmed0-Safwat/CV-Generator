@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TextField,
   Stack,
@@ -27,6 +27,12 @@ const ResumeSkills = () => {
     setValue,
     formState: { errors },
   } = useFormContext();
+
+  const skillsArrayLength = watch("skills").length;
+
+  useEffect(() => {
+    setSkillsFieldsCount(skillsArrayLength);
+  }, [watch("skills").length]);
 
   const renderSkillNameField = (sectionIndex) => {
     const fieldName = `skills[${sectionIndex}].skillName`;
@@ -76,7 +82,18 @@ const ResumeSkills = () => {
 
   const handleRemoveSkillsField = () => {
     if (skillsFieldsCount > 1) {
+      // Decrease the count of reference fields
       setSkillsFieldsCount((prevCount) => prevCount - 1);
+
+      // Get current skills values
+      const currentSkills = watch("skills");
+      if (currentSkills && currentSkills.length > 0) {
+        // Remove the last item from the array
+        const updatedSkills = currentSkills.slice(0, -1);
+
+        // Update the form state
+        setValue("skills", updatedSkills);
+      }
     }
   };
 
