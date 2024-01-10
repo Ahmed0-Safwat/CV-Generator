@@ -1,26 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Stack, Typography, Divider, Avatar, Grid } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import { useFormContext } from "react-hook-form";
 
 const ResumeExample2 = ({ data }) => {
-  const [imageURL, setImageURL] = useState(null);
-
-  useEffect(() => {
-    if (data?.personal?.img && data.personal.img.length > 0) {
-      const file = data.personal.img[0];
-      if (file instanceof File) {
-        const newImageUrl = URL.createObjectURL(file);
-        setImageURL(newImageUrl);
-
-        // Clean up the object URL on unmount
-        return () => URL.revokeObjectURL(newImageUrl);
-      }
-    }
-  }, [data?.personal?.img]);
-
   return (
     <Grid
       id="resume"
@@ -51,7 +35,7 @@ const ResumeExample2 = ({ data }) => {
                 objectFit: "contain",
               }}
               alt="Remy Sharp"
-              src={imageURL}
+              src={data?.personal?.img}
             />
           </Stack>
 
@@ -176,6 +160,38 @@ const ResumeExample2 = ({ data }) => {
                 company={item.company}
                 position={item.jobTitle}
                 description={item.description}
+              />
+            ))}
+          </Stack>
+
+          <Divider
+            sx={{
+              fontSize: "30px",
+              fontWeight: "800",
+              fontStyle: "normal",
+              color: "#43443f",
+              mt: 10,
+            }}
+            textAlign="left"
+          >
+            REFERENCES
+          </Divider>
+
+          <Stack
+            spacing={10}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              mt: 4,
+            }}
+          >
+            {data?.references?.map((item) => (
+              <ReferenceItem
+                key={item.company}
+                name={`${item.name}`}
+                position={item.jobTitle}
+                phone={item.phone}
+                email={item.email}
               />
             ))}
           </Stack>
@@ -438,7 +454,7 @@ const ReferenceItem = ({ name, position, phone, email }) => (
     <Typography
       sx={{
         fontSize: "26px",
-        fontWeight: "800",
+        fontWeight: "500",
         fontStyle: "normal",
         color: "#43443f",
       }}
@@ -447,10 +463,10 @@ const ReferenceItem = ({ name, position, phone, email }) => (
     </Typography>
     <Typography
       sx={{
-        fontSize: "22px",
+        fontSize: "18px",
         fontWeight: "500",
         fontStyle: "normal",
-        color: "#43443f",
+        color: "gray",
       }}
     >
       {position}

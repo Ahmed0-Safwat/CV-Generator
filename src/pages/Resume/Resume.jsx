@@ -7,7 +7,7 @@ import { useStore } from "../../hooks/useStore";
 import shallow from "zustand/shallow";
 import ResumePersonal from "../../components/Resume/ResumeForm/ResumePersonal";
 import ResumeSkills from "../../components/Resume/ResumeForm/ResumeSkills";
-import ResumeProjects from "../../components/Resume/ResumeForm/ResumeProjects";
+import ResumeReferences from "../../components/Resume/ResumeForm/ResumeReferences";
 import ResumeExperience from "../../components/Resume/ResumeForm/ResumeExperience";
 import ResumeButtons from "../../components/Resume/ResumeForm/ResumeButtons";
 import ResumeEducation from "../../components/Resume/ResumeForm/ResumeEducation";
@@ -17,6 +17,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import ResumeExample2 from "../../components/Resume/ResumeForm/ResumeExample2";
 import Template from "../../components/Resume/Template/Template";
+import { useEffect } from "react";
 
 const projectsSectionCards = [
   {
@@ -54,7 +55,7 @@ function Resume() {
     shallow
   );
 
-  const { shouldShowStepper, activeStep } = globalState;
+  const { shouldShowStepper, activeStep, selectedCV } = globalState;
 
   const personalSchema = Yup.object().shape({
     personal: Yup.object().shape({
@@ -90,13 +91,18 @@ function Resume() {
         description: Yup.string().required("Description is required"),
       })
     ),
-    project: Yup.array().of(
-      Yup.object().shape({
-        projectname: Yup.string().required("Project name is required"),
-        projectlink: Yup.string().required("Project link is required"),
-        description: Yup.string().required("Description is required"),
-      })
-    ),
+    ...(selectedCV?.id === 3 && {
+      references: Yup.array().of(
+        Yup.object().shape({
+          name: Yup.string().required("Name is required"),
+          email: Yup.string()
+            .email("Email must be a valid email address")
+            .required("Email is required"),
+          phone: Yup.string().required("Phone number is required"),
+          jobTitle: Yup.string().required("Job Title is required"),
+        })
+      ),
+    }),
     skills: Yup.array().of(
       Yup.object().shape({
         skillName: Yup.string().required("Skill name is required"),
@@ -145,11 +151,12 @@ function Resume() {
           description: "",
         },
       ],
-      project: [
+      references: [
         {
-          projectname: "",
-          projectlink: "",
-          description: "",
+          name: "",
+          jobTitle: "",
+          email: "",
+          phone: "",
         },
       ],
       skills: [
@@ -167,6 +174,16 @@ function Resume() {
     },
   });
 
+  useEffect(() => {
+    useStore.setState({
+      globalState: {
+        ...useStore.getState().globalState,
+        activeStep: 0,
+        shouldShowStepper: false,
+      },
+    });
+  }, []);
+
   const getCurrentResumeComponent = () => {
     switch (activeStep) {
       case 0:
@@ -176,7 +193,7 @@ function Resume() {
           <>
             <ResumeEducation />
             <ResumeExperience />
-            <ResumeProjects />
+            {selectedCV.id === 3 && <ResumeReferences />}
             <ResumeSkills />
             <ResumeLanguages />
           </>
@@ -192,7 +209,7 @@ function Resume() {
         return <Template />;
 
       default:
-        break;
+        return <ResumePersonal />;
     }
   };
 

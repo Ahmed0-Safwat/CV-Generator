@@ -105,9 +105,7 @@ const ProfileSection = ({ handleOpenModal }) => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={() => navigate("/profile")}>
-          <Avatar src={image || ""} /> My profile
-        </MenuItem>
+        <MenuItem onClick={() => navigate("/profile")}>My Profile</MenuItem>
         <Divider />
         <MenuItem onClick={handleSignout}>
           <ListItemIcon>

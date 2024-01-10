@@ -180,6 +180,38 @@ const ResumeExample2 = () => {
               />
             ))}
           </Stack>
+
+          <Divider
+            sx={{
+              fontSize: "30px",
+              fontWeight: "800",
+              fontStyle: "normal",
+              color: "#43443f",
+              mt: 10,
+            }}
+            textAlign="left"
+          >
+            REFERENCES
+          </Divider>
+
+          <Stack
+            spacing={10}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              mt: 4,
+            }}
+          >
+            {data()?.references?.map((item) => (
+              <ReferenceItem
+                key={item.company}
+                name={`${item.name}`}
+                position={item.jobTitle}
+                phone={item.phone}
+                email={item.email}
+              />
+            ))}
+          </Stack>
         </Grid>
       </Grid>
     </Grid>
@@ -443,7 +475,7 @@ const ReferenceItem = ({ name, position, phone, email }) => (
     <Typography
       sx={{
         fontSize: "26px",
-        fontWeight: "800",
+        fontWeight: "500",
         fontStyle: "normal",
         color: "#43443f",
       }}
@@ -452,10 +484,10 @@ const ReferenceItem = ({ name, position, phone, email }) => (
     </Typography>
     <Typography
       sx={{
-        fontSize: "22px",
+        fontSize: "18px",
         fontWeight: "500",
         fontStyle: "normal",
-        color: "#43443f",
+        color: "gray",
       }}
     >
       {position}
