@@ -22,7 +22,6 @@ const ResumeButtons = () => {
   const { handleSubmit } = useFormContext();
 
   const handleNextFunction = (data) => {
-    console.log("data", data);
     useStore.setState({
       globalState: {
         ...globalState,
