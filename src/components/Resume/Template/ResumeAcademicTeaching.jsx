@@ -1,11 +1,15 @@
 import React from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 const TeachingExp = () => {
   const {
+    control,
     register,
     watch,
     setValue,
@@ -18,30 +22,56 @@ const TeachingExp = () => {
     const fieldName = `teachingExp[${sectionIndex}].${field
       .toLowerCase()
       .replace(/\s+/g, "")}`;
-    const error = Boolean(
-      errors.teachingExp?.[sectionIndex]?.[
-        field.toLowerCase().replace(/\s+/g, "")
-      ]
-    );
-    const helperText =
-      errors.teachingExp?.[sectionIndex]?.[
-        field.toLowerCase().replace(/\s+/g, "")
-      ]?.message;
+
+    const isDateField = field.includes("Date");
+    const error = Boolean(errors.teachingExp?.[sectionIndex]?.[fieldName]);
+    const helperText = errors.teachingExp?.[sectionIndex]?.[fieldName]?.message;
+
+    console.log("sectionIndex", sectionIndex);
+    console.log("helperText", helperText);
+
+    console.log("errors", errors);
+    console.log("error", error);
+
+    if (isDateField) {
+      return (
+        <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>
+          <Controller
+            name={fieldName}
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <DesktopDatePicker
+                label={field}
+                inputFormat="MM/dd/yyyy"
+                value={value}
+                onChange={onChange}
+                sx={{ width: "49%" }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    required
+                    error={error}
+                    helperText={helperText}
+                  />
+                )}
+              />
+            )}
+          />
+        </LocalizationProvider>
+      );
+    }
 
     return (
       <TextField
         key={fieldName}
         {...register(fieldName)}
         required
-        id={`outlined-${fieldName}`}
         label={field}
         value={watch(fieldName)}
-        type={field.includes("Date") ? "date" : "text"}
         onChange={(e) => setValue(fieldName, e.target.value)}
         error={error}
         helperText={helperText}
         sx={{ width: "49%" }}
-        InputLabelProps={field.includes("Date") ? { shrink: true } : null}
       />
     );
   };

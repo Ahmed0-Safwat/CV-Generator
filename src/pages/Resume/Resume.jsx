@@ -81,136 +81,113 @@ function Resume() {
     }),
   });
 
-  const otherSchema = Yup.object().shape({
-    ...(selectedCV?.id !== 1 && {
-      education: Yup.array().of(
-        Yup.object().shape({
-          university: Yup.string().required("University is required"),
-          department: Yup.string().required("Department is required"),
-          startdate: Yup.date().required("Start date is required"),
-          enddate: Yup.date().required("End date is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id !== 1 && {
-      experience: Yup.array().of(
-        Yup.object().shape({
-          jobTitle: Yup.string().required("Job title is required"),
-          company: Yup.string().required("Company is required"),
-          location: Yup.string().required("Location is required"),
-          startdate: Yup.date().required("Start date is required"),
-          enddate: Yup.date().required("End date is required"),
-          description: Yup.string().required("Description is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id !== 2 && {
-      references: Yup.array().of(
-        Yup.object().shape({
-          name: Yup.string().required("Name is required"),
-          email: Yup.string()
-            .email("Email must be a valid email address")
-            .required("Email is required"),
-          phone: Yup.string().required("Phone number is required"),
-          jobTitle: Yup.string().required("Job Title is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id !== 1 && {
-      skills: Yup.array().of(
-        Yup.object().shape({
-          skillName: Yup.string().required("Skill name is required"),
-          skillLevel: Yup.string().required("Skill level is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id !== 1 && {
-      languages: Yup.array().of(
-        Yup.object().shape({
-          languageName: Yup.string().required("Language name is required"),
-          languageLevel: Yup.string().required("Language level is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      personalInfo: Yup.array().of(
-        Yup.object().shape({
-          academicrank: Yup.string().nullable(),
-          department: Yup.string().nullable(),
-          specialization: Yup.string().nullable(),
-          googlescholar: Yup.string().nullable(),
-          researchgate: Yup.string().nullable(),
-          orcidrecord: Yup.string().nullable(),
-          scopusid: Yup.string().nullable(),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      education: Yup.array().of(
-        Yup.object().shape({
-          degree: Yup.string().required("Degree is required"),
-          discipline: Yup.string().required("Discipline is required"),
-          institution: Yup.string().required("Institution is required"),
-          year: Yup.string().required("Year is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      experience: Yup.array().of(
-        Yup.object().shape({
-          institution: Yup.string().required("Institution is required"),
-          rank: Yup.string().required("Rank is required"),
-          year: Yup.string().required("Year is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      researchInterests: Yup.array().of(
-        Yup.object().shape({
-          researchinterest: Yup.string().nullable(),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      publications: Yup.array().of(
-        Yup.object().shape({
-          publicationname: Yup.string().nullable(),
-          year: Yup.string().nullable(),
-          description: Yup.string().nullable(),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      certificates: Yup.array().of(
-        Yup.object().shape({
-          honor: Yup.string().nullable(),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      teachingExp: Yup.array().of(
-        Yup.object().shape({
-          title: Yup.string().required("Title is required"),
-          description: Yup.string().required("Description is required"),
-          startdate: Yup.string().required("Start date is required"),
-          enddate: Yup.string().required("End date is required"),
-        })
-      ),
-    }),
-    ...(selectedCV?.id === 1 && {
-      courses: Yup.array().of(
-        Yup.object().shape({
-          courses: Yup.string().required("Courses is required"),
-        })
-      ),
-    }),
+  const academicSchema = Yup.object().shape({
+    personalInfo: Yup.array().of(
+      Yup.object().shape({
+        academicrank: Yup.string().nullable(),
+        department: Yup.string().nullable(),
+        specialization: Yup.string().nullable(),
+        googlescholar: Yup.string().nullable(),
+        researchgate: Yup.string().nullable(),
+        orcidrecord: Yup.string().nullable(),
+        scopusid: Yup.string().nullable(),
+      })
+    ),
+    education: Yup.array().of(
+      Yup.object().shape({
+        degree: Yup.string().required("Degree is required"),
+        discipline: Yup.string().required("Discipline is required"),
+        institution: Yup.string().required("Institution is required"),
+        year: Yup.string().required("Year is required"),
+      })
+    ),
+    experience: Yup.array().of(
+      Yup.object().shape({
+        institution: Yup.string().required("Institution is required"),
+        rank: Yup.string().required("Rank is required"),
+        year: Yup.string().required("Year is required"),
+      })
+    ),
+    researchInterests: Yup.array().of(
+      Yup.object().shape({
+        researchinterest: Yup.string().nullable(),
+      })
+    ),
+    publications: Yup.array().of(
+      Yup.object().shape({
+        publicationname: Yup.string().nullable(),
+        year: Yup.string().nullable(),
+        description: Yup.string().nullable(),
+      })
+    ),
+    certificates: Yup.array().of(
+      Yup.object().shape({
+        honor: Yup.string().nullable(),
+      })
+    ),
+    teachingExp: Yup.array().of(
+      Yup.object().shape({
+        title: Yup.string().required("Title is required"),
+        description: Yup.string().required("Description is required"),
+        // startdate: Yup.string().required("Start date is required"),
+        // enddate: Yup.string().required("End date is required"),
+        startdate: Yup.string().nullable(),
+        enddate: Yup.string().nullable(),
+      })
+    ),
+    courses: Yup.array().of(
+      Yup.object().shape({
+        courses: Yup.string().required("Courses is required"),
+      })
+    ),
   });
 
-  const currentSchema = activeStep === 0 ? personalSchema : otherSchema;
+  const otherSchema = Yup.object().shape({
+    education: Yup.array().of(
+      Yup.object().shape({
+        university: Yup.string().required("University is required"),
+        department: Yup.string().required("Department is required"),
+        startdate: Yup.string().required("Start date is required"),
+        enddate: Yup.string().required("End date is required"),
+      })
+    ),
+    experience: Yup.array().of(
+      Yup.object().shape({
+        jobTitle: Yup.string().required("Job title is required"),
+        company: Yup.string().required("Company is required"),
+        location: Yup.string().required("Location is required"),
+        startdate: Yup.string().required("Start date is required"),
+        enddate: Yup.string().required("End date is required"),
+        description: Yup.string().required("Description is required"),
+      })
+    ),
+    references: Yup.array().of(
+      Yup.object().shape({
+        name: Yup.string().required("Name is required"),
+        email: Yup.string()
+          .email("Email must be a valid email address")
+          .required("Email is required"),
+        phone: Yup.string().required("Phone number is required"),
+        jobTitle: Yup.string().required("Job Title is required"),
+      })
+    ),
+    skills: Yup.array().of(
+      Yup.object().shape({
+        skillName: Yup.string().required("Skill name is required"),
+        skillLevel: Yup.string().required("Skill level is required"),
+      })
+    ),
+    languages: Yup.array().of(
+      Yup.object().shape({
+        languageName: Yup.string().required("Language name is required"),
+        languageLevel: Yup.string().required("Language level is required"),
+      })
+    ),
+  });
 
-  const formControl = useForm({
-    resolver: yupResolver(currentSchema),
-    defaultValues: {
+  function getDefaultFormValues(selectedCVId) {
+    console.log({ selectedCVId });
+    return {
       personal: {
         firstName: "",
         lastName: "",
@@ -222,26 +199,13 @@ function Resume() {
         aboutMe: "",
       },
       education:
-        selectedCV?.id !== 1
-          ? [
-              {
-                university: "",
-                department: "",
-                startdate: "",
-                enddate: "",
-              },
-            ]
-          : [
-              {
-                degree: "",
-                discipline: "",
-                institution: "",
-                year: "",
-              },
-            ],
+        selectedCVId === 1
+          ? [{ degree: "", discipline: "", institution: "", year: "" }]
+          : [{ university: "", department: "", startdate: "", enddate: "" }],
       experience:
-        selectedCV?.id !== 1
-          ? [
+        selectedCVId === 1
+          ? [{ institution: "", rank: "", year: "" }]
+          : [
               {
                 jobTitle: "",
                 company: "",
@@ -250,107 +214,71 @@ function Resume() {
                 enddate: "",
                 description: "",
               },
-            ]
-          : [
-              {
-                institution: "",
-                rank: "",
-                year: "",
-              },
             ],
-      references:
-        selectedCV?.id === 3
-          ? [
-              {
-                name: "",
-                email: "",
-                phone: "",
-                jobTitle: "",
-              },
-            ]
-          : [
-              {
-                reference: "",
-              },
-            ],
-      skills:
-        selectedCV?.id !== 1
-          ? [
-              {
-                skillName: "",
-                skillLevel: "",
-              },
-            ]
-          : [],
-      languages:
-        selectedCV?.id !== 1
-          ? [
-              {
-                languageName: "",
-                languageLevel: "",
-              },
-            ]
-          : [],
-      personalInfo:
-        selectedCV?.id === 1
-          ? [
-              {
-                academicRank: "",
-                department: "",
-                specialization: "",
-                googleScholar: "",
-                researchGate: "",
-                orcidRecord: "",
-                scopusId: "",
-              },
-            ]
-          : [],
-      researchInterests:
-        selectedCV?.id === 1
-          ? [
-              {
-                researchInterest: "",
-              },
-            ]
-          : [],
-      publications:
-        selectedCV?.id === 1
-          ? [
-              {
-                publicationName: "",
-                year: "",
-                description: "",
-              },
-            ]
-          : [],
-      certificates:
-        selectedCV?.id === 1
-          ? [
-              {
-                honor: "",
-              },
-            ]
-          : [],
-      teachingExp:
-        selectedCV?.id === 1
-          ? [
-              {
-                title: "",
-                description: "",
-                startDate: "",
-                endDate: "",
-              },
-            ]
-          : [],
-      courses:
-        selectedCV?.id === 1
-          ? [
-              {
-                courses: "",
-              },
-            ]
-          : [],
-    },
+      ...(selectedCVId === 3 && {
+        references: [{ name: "", email: "", phone: "", jobTitle: "" }],
+      }),
+      ...(selectedCVId === 1 && {
+        references: [{ reference: "" }],
+      }),
+      ...(selectedCVId !== 1 && {
+        skills: [{ skillName: "", skillLevel: "" }],
+      }),
+      ...(selectedCVId !== 1 && {
+        languages: [{ languageName: "", languageLevel: "" }],
+      }),
+      ...(selectedCVId === 1 && {
+        personalInfo: [
+          {
+            academicrank: "",
+            department: "",
+            specialization: "",
+            googlescholar: "",
+            researchgate: "",
+            orcidrecord: "",
+            scopusdd: "",
+          },
+        ],
+      }),
+      ...(selectedCVId === 1 && {
+        researchInterests: [{ researchinterest: "" }],
+      }),
+      ...(selectedCVId === 1 && {
+        publications: [{ publicationname: "", year: "", description: "" }],
+      }),
+      ...(selectedCVId === 1 && {
+        certificates: [{ honor: "" }],
+      }),
+      ...(selectedCVId === 1 && {
+        teachingExp: [
+          { title: "", description: "", startdate: "", enddate: "" },
+        ],
+      }),
+      ...(selectedCVId === 1 && {
+        courses: [{ courses: "" }],
+      }),
+    };
+  }
+
+  const [formDefaultValues, setFormDefaultValues] = React.useState(
+    getDefaultFormValues(selectedCV?.id || 1)
+  );
+
+  useEffect(() => {
+    formControl.reset(getDefaultFormValues(selectedCV?.id || 1));
+    setFormDefaultValues(getDefaultFormValues(selectedCV?.id || 1));
+  }, [selectedCV?.id]);
+
+  const currentSchema =
+    activeStep === 0
+      ? personalSchema
+      : activeStep === 1 && selectedCV?.id === 1
+      ? academicSchema
+      : otherSchema;
+
+  const formControl = useForm({
+    resolver: yupResolver(currentSchema),
+    defaultValues: formDefaultValues,
   });
 
   const { getValues } = formControl;

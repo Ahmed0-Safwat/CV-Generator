@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import AddIcon from "@mui/icons-material/Add";
@@ -14,6 +14,7 @@ const ResumeEducation = () => {
     register,
     watch,
     setValue,
+    control,
     formState: { errors },
   } = useFormContext();
 
@@ -21,12 +22,12 @@ const ResumeEducation = () => {
 
   useEffect(() => {
     setEducationFieldsCount(eduArrayLength);
-  }, [watch("education").length]);
+  }, [eduArrayLength]);
 
   const renderTextField = (field, sectionIndex) => {
     const baseFieldName = field.toLowerCase().replace(/\s/g, "");
     const fieldName = `education[${sectionIndex}].${baseFieldName}`;
-
+    console.log(fieldName);
     const error = Boolean(errors.education?.[sectionIndex]?.[baseFieldName]);
     const helperText =
       errors.education?.[sectionIndex]?.[baseFieldName]?.message;
@@ -34,18 +35,24 @@ const ResumeEducation = () => {
     if (baseFieldName === "startdate" || baseFieldName === "enddate") {
       return (
         <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>
-          <DesktopDatePicker
-            label={field}
-            inputFormat="MM/dd/yyyy"
-            value={watch(fieldName)}
-            onChange={(newValue) => setValue(fieldName, newValue)}
-            sx={{ width: "49%" }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                required
-                error={error}
-                helperText={helperText}
+          <Controller
+            name={fieldName}
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <DesktopDatePicker
+                label={field}
+                inputFormat="MM/dd/yyyy"
+                value={value}
+                onChange={onChange}
+                sx={{ width: "49%" }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    required
+                    error={error}
+                    helperText={helperText}
+                  />
+                )}
               />
             )}
           />

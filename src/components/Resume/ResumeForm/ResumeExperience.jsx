@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import AddIcon from "@mui/icons-material/Add";
@@ -11,6 +11,7 @@ const ResumeExperience = () => {
   const [experienceFieldsCount, setExperienceFieldsCount] = useState(1);
 
   const {
+    control,
     register,
     watch,
     setValue,
@@ -21,7 +22,7 @@ const ResumeExperience = () => {
 
   useEffect(() => {
     setExperienceFieldsCount(expArrayLength);
-  }, [watch("experience").length]);
+  }, [expArrayLength]);
 
   const renderTextField = (field, sectionIndex) => {
     let baseFieldName = field.toLowerCase().replace(/\s/g, "");
@@ -36,26 +37,29 @@ const ResumeExperience = () => {
 
     if (baseFieldName === "startdate" || baseFieldName === "enddate") {
       return (
-        <>
-          <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>
-            <DesktopDatePicker
-              label={field}
-              inputFormat="MM/dd/yyyy"
-              value={watch(fieldName)}
-              onChange={(newValue) => setValue(fieldName, newValue)}
-              sx={{ width: "32%" }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  required
-                  error={error}
-                  helperText={helperText}
-                  id={`experience-${sectionIndex}-${baseFieldName}`} // Added id here
-                />
-              )}
-            />
-          </LocalizationProvider>
-        </>
+        <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>
+          <Controller
+            name={fieldName}
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <DesktopDatePicker
+                label={field}
+                inputFormat="MM/dd/yyyy"
+                value={value}
+                onChange={onChange}
+                sx={{ width: "32%" }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    required
+                    error={error}
+                    helperText={helperText}
+                  />
+                )}
+              />
+            )}
+          />
+        </LocalizationProvider>
       );
     }
 
