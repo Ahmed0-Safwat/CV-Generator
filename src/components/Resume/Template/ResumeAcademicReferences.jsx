@@ -89,7 +89,7 @@ const ResumeReferences = () => {
         }}
       >
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
-          REFERENCES
+          References
         </Typography>
         <IconButton
           color="primary"
