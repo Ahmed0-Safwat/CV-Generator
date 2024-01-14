@@ -268,7 +268,7 @@ const Profile = () => {
                   userSelect: "none",
                 }}
               >
-                You Have No Your Curriculum vitaes
+                You Have No Curriculum vitaes
               </Typography>
 
               <Button variant="contained" size="large" onClick={routeToCvPage}>
