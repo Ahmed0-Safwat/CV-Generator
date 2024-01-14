@@ -34,17 +34,6 @@ const WithUserProvider = (Component) => {
         });
       }
 
-      // getImage().then((data) => {
-      //   console.log("data", data);
-      //   if (data) {
-      //     useStore.setState({
-      //       globalState: {
-      //         image: `data:image/jpeg;base64,${data}`,
-      //       },
-      //     });
-      //   }
-      // });
-
       setIsLoading(false);
     }, []);
 

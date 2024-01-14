@@ -1,34 +1,72 @@
 import React from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
 const Certificates = () => {
   const {
+    control,
     register,
     watch,
     setValue,
     formState: { errors },
   } = useFormContext();
 
-  const renderTextField = (sectionIndex) => {
-    const fieldName = `certificates[${sectionIndex}].honor`; // Align with your schema
-    const error = Boolean(errors.certificates?.[sectionIndex]?.honor);
-    const helperText = errors.certificates?.[sectionIndex]?.honor?.message;
+  const certificatesFields = ["Start Date", "End Date", "Description"];
+
+  const renderTextField = (field, sectionIndex) => {
+    const fieldName = `certificates[${sectionIndex}].${field
+      .toLowerCase()
+      .replace(/\s+/g, "")}`;
+
+    const isDateField = field.includes("Date");
+    const error = Boolean(errors.certificates?.[sectionIndex]?.[fieldName]);
+    const helperText =
+      errors.certificates?.[sectionIndex]?.[fieldName]?.message;
+
+    if (isDateField) {
+      return (
+        <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>
+          <Controller
+            name={fieldName}
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <DesktopDatePicker
+                label={field}
+                inputFormat="MM/dd/yyyy"
+                value={value}
+                onChange={onChange}
+                sx={{ width: "49%" }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    required
+                    error={error}
+                    helperText={helperText}
+                  />
+                )}
+              />
+            )}
+          />
+        </LocalizationProvider>
+      );
+    }
 
     return (
       <TextField
         key={fieldName}
         {...register(fieldName)}
-        id={`outlined-${fieldName}`}
-        label="Certificate Name" // Adjust label as needed
+        required
+        label={field}
         value={watch(fieldName)}
-        type="text"
         onChange={(e) => setValue(fieldName, e.target.value)}
         error={error}
         helperText={helperText}
-        fullWidth // Ensure full width
+        sx={{ width: "100%" }}
       />
     );
   };
@@ -86,10 +124,13 @@ const Certificates = () => {
       <Stack
         gap={2}
         sx={{ width: "100%", margin: "0 auto" }}
-        direction="column" // Change to column for full width
+        direction="row"
+        flexWrap="wrap"
       >
         {Array.from({ length: certificateFieldsCount }).map((_, index) => (
-          <React.Fragment key={index}>{renderTextField(index)}</React.Fragment>
+          <React.Fragment key={index}>
+            {certificatesFields.map((field) => renderTextField(field, index))}
+          </React.Fragment>
         ))}
       </Stack>
     </Stack>

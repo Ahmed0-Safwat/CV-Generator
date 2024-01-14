@@ -12,7 +12,6 @@ const ResumeExample2 = ({ data }) => {
       sx={{
         width: "90%",
         backgroundColor: "black",
-        margin: "50px auto",
         flexDirection: "column",
       }}
     >

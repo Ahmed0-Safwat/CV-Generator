@@ -27,7 +27,7 @@ const ResumeLanguages = () => {
     formState: { errors },
   } = useFormContext();
 
-  const langArrayLength = watch("languages").length;
+  const langArrayLength = watch("languages")?.length;
 
   useEffect(() => {
     setLanguageFieldsCount(langArrayLength);

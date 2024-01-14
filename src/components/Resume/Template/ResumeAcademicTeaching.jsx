@@ -27,12 +27,6 @@ const TeachingExp = () => {
     const error = Boolean(errors.teachingExp?.[sectionIndex]?.[fieldName]);
     const helperText = errors.teachingExp?.[sectionIndex]?.[fieldName]?.message;
 
-    console.log("sectionIndex", sectionIndex);
-    console.log("helperText", helperText);
-
-    console.log("errors", errors);
-    console.log("error", error);
-
     if (isDateField) {
       return (
         <LocalizationProvider dateAdapter={AdapterDateFns} key={fieldName}>

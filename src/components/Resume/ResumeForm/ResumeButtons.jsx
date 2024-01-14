@@ -19,7 +19,7 @@ const ResumeButtons = () => {
     shallow
   );
   const { activeStep, selectedCV } = globalState;
-  const { handleSubmit } = useFormContext();
+  const { handleSubmit, getValues } = useFormContext();
 
   const handleNextFunction = (data) => {
     useStore.setState({
@@ -60,7 +60,34 @@ const ResumeButtons = () => {
   };
 
   const handleNext = handleSubmit(handleNextFunction);
-  const handleSubmitFunction = handleSubmit(submit);
+  const handleSubmitFunction = handleSubmit(submit, (errors) => {
+    const existingData = localStorage.getItem("cvData");
+    let cvDataArray = existingData ? JSON.parse(existingData) : [];
+
+    if (getValues().personal.img && getValues().personal.img[0]) {
+      const imgFile = getValues().personal.img[0];
+      const reader = new FileReader();
+
+      reader.onloadend = function () {
+        const base64String = reader.result;
+        const newData = {
+          selectedCV: selectedCV.id,
+          ...getValues(),
+          personal: { ...getValues().personal, img: base64String },
+        };
+
+        cvDataArray.push(newData);
+        localStorage.setItem("cvData", JSON.stringify(cvDataArray));
+      };
+
+      reader.readAsDataURL(imgFile);
+    } else {
+      cvDataArray.push({ selectedCV: selectedCV.id, ...getValues() });
+      localStorage.setItem("cvData", JSON.stringify(cvDataArray));
+    }
+
+    enqueueSnackbar("CV Created Successfully!", { variant: "success" });
+  });
 
   const handleBack = () => {
     if (activeStep === 0) {
@@ -179,7 +206,7 @@ const ResumeButtons = () => {
               }}
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              onClick={handleSubmitFunction}
+              onClick={() => handleSubmitFunction()}
             >
               Save
             </Button>

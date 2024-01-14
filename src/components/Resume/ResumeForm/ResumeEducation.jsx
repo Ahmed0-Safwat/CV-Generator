@@ -18,7 +18,7 @@ const ResumeEducation = () => {
     formState: { errors },
   } = useFormContext();
 
-  const eduArrayLength = watch("education").length;
+  const eduArrayLength = watch("education")?.length;
 
   useEffect(() => {
     setEducationFieldsCount(eduArrayLength);
@@ -27,7 +27,6 @@ const ResumeEducation = () => {
   const renderTextField = (field, sectionIndex) => {
     const baseFieldName = field.toLowerCase().replace(/\s/g, "");
     const fieldName = `education[${sectionIndex}].${baseFieldName}`;
-    console.log(fieldName);
     const error = Boolean(errors.education?.[sectionIndex]?.[baseFieldName]);
     const helperText =
       errors.education?.[sectionIndex]?.[baseFieldName]?.message;
@@ -86,7 +85,7 @@ const ResumeEducation = () => {
       setEducationFieldsCount((prevCount) => prevCount - 1);
 
       const currentEdu = watch("education");
-      if (currentEdu && currentEdu.length > 0) {
+      if (currentEdu && currentEdu?.length > 0) {
         // Remove the last item from the array
         const updatedEdu = currentEdu.slice(0, -1);
 

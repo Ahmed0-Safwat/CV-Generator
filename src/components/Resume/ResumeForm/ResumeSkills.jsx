@@ -28,7 +28,7 @@ const ResumeSkills = () => {
     formState: { errors },
   } = useFormContext();
 
-  const skillsArrayLength = watch("skills").length;
+  const skillsArrayLength = watch("skills")?.length;
 
   useEffect(() => {
     setSkillsFieldsCount(skillsArrayLength);

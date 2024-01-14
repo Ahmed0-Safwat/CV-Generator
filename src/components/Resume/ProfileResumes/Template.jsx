@@ -1,7 +1,5 @@
 import React from "react";
 import { Typography, Stack, Divider, useMediaQuery } from "@mui/material";
-import { useFormContext } from "react-hook-form";
-import { useEffect, useState } from "react";
 
 const mappedValues = {
   academicrank: "Academic Rank",
@@ -28,34 +26,16 @@ const mappedValues = {
   aboutMe: "About Me",
 };
 
-const Template = () => {
+const Template = ({ data }) => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-
-  const { getValues: data } = useFormContext();
-  const [imageURL, setImageURL] = useState(null);
-
-  useEffect(() => {
-    if (data()?.personal?.img && data().personal.img.length > 0) {
-      const file = data().personal.img[0];
-      if (file instanceof File) {
-        const newImageUrl = URL.createObjectURL(file);
-        setImageURL(newImageUrl);
-
-        // Clean up the object URL on unmount
-        return () => URL.revokeObjectURL(newImageUrl);
-      }
-    }
-  }, [data()?.personal?.img]);
 
   return (
     <Stack
       id="resume"
       spacing={4}
       sx={{
-        width: "90%",
         border: "1px solid black",
         backgroundColor: "#e8e8e8",
-        margin: "auto",
         padding: "10px",
       }}
     >
@@ -74,8 +54,8 @@ const Template = () => {
         >
           {/* Personal Image */}
           <img
-            src={imageURL}
-            alt={`${data()?.personal.firstName} ${data()?.personal.lastName}`}
+            src={data?.personal?.img}
+            alt={`${data?.personal.firstName} ${data?.personal.lastName}`}
             style={{
               borderRadius: "20px",
               width: "240px",
@@ -94,28 +74,28 @@ const Template = () => {
             variant="h4"
             gutterBottom
           >
-            {data()?.personal.firstName} {data()?.personal.lastName}
+            {data?.personal.firstName} {data?.personal.lastName}
           </Typography>
           <Typography
             sx={{ color: "#868484", fontWeight: 600 }}
             variant="h6"
             gutterBottom
           >
-            Email: {data()?.personal.email}
+            Email: {data?.personal.email}
           </Typography>
           <Typography
             sx={{ color: "#868484", fontWeight: 600 }}
             variant="h6"
             gutterBottom
           >
-            Phone: {data()?.personal.phone}
+            Phone: {data?.personal.phone}
           </Typography>
           <Typography
             sx={{ color: "#868484", fontWeight: 600 }}
             variant="h6"
             gutterBottom
           >
-            Address: {data()?.personal.address}
+            Address: {data?.personal.address}
           </Typography>
         </Stack>
       </Stack>
@@ -124,7 +104,7 @@ const Template = () => {
       {/* Personal Information */}
       <TemplateEntry
         title="Personal Information"
-        content={<ListStack items={data()?.personalInfo} />}
+        content={<ListStack items={data?.personalInfo} />}
       />
 
       {/* Education */}
@@ -132,7 +112,7 @@ const Template = () => {
         title="Education"
         content={
           <EducationTable
-            items={data()?.education}
+            items={data?.education}
             isSmallScreen={isSmallScreen}
           />
         }
@@ -142,7 +122,7 @@ const Template = () => {
       <TemplateEntry
         title="Academic Experience"
         content={
-          <ListStack items={data()?.experience} title="Academic Experience" />
+          <ListStack items={data?.experience} title="Academic Experience" />
         }
       />
 
@@ -151,7 +131,7 @@ const Template = () => {
         title="Research Interests"
         content={
           <ListStack
-            items={data()?.researchInterests}
+            items={data?.researchInterests}
             title="Research Interests"
           />
         }
@@ -160,9 +140,7 @@ const Template = () => {
       {/* Publications */}
       <TemplateEntry
         title="Publications"
-        content={
-          <ListStack items={data()?.publications} title="Publications" />
-        }
+        content={<ListStack items={data?.publications} title="Publications" />}
       />
 
       {/* Certifications or Professional Registrations */}
@@ -180,7 +158,7 @@ const Template = () => {
 
         <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
         <ul>
-          {data()?.certificates.map((item, index) => (
+          {data?.certificates.map((item, index) => (
             <Stack key={index} direction="row" paddingY="4px">
               <li>
                 <b>
@@ -218,7 +196,7 @@ const Template = () => {
 
         <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
         <ul>
-          {data()?.teachingExp.map((item, index) => (
+          {data?.teachingExp.map((item, index) => (
             <Stack key={index} direction="row" paddingY="4px">
               <li>
                 <>
@@ -250,7 +228,7 @@ const Template = () => {
       {/* Courses Taught */}
       <TemplateEntry
         title="Courses Taught"
-        content={<ListStack items={data()?.courses} title="Courses Taught" />}
+        content={<ListStack items={data?.courses} title="Courses Taught" />}
       />
 
       {/* REFERENCES */}
@@ -268,7 +246,7 @@ const Template = () => {
         </Typography>
 
         <Divider></Divider>
-        {data()?.references?.map((item) => (
+        {data?.references?.map((item) => (
           <ReferenceItem
             key={item.company}
             name={`${item.name}`}

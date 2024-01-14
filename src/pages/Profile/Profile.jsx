@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Divider from "@mui/material/Divider";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Hero from "../../components/Profile/Hero/Hero";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import {
   Accordion,
   AccordionSummary,
@@ -18,13 +23,18 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useSnackbar } from "notistack";
+import Template from "../../components/Resume/ProfileResumes/Template";
 
 const Profile = () => {
   const { isMobileView, isTabletView } = useWindowSize();
   const { enqueueSnackbar } = useSnackbar();
 
-  const cvData = JSON.parse(localStorage.getItem("cvData"));
-  console.log("cvData", cvData);
+  const [cvData, setCvData] = useState(
+    JSON.parse(localStorage.getItem("cvData"))
+  );
+  const [open, setOpen] = React.useState(false);
+  const [deleteIdx, setDeleteIdx] = useState(null);
+
   const navigate = useNavigate();
 
   const routeToCvPage = () => {
@@ -32,10 +42,9 @@ const Profile = () => {
   };
 
   const getCorrectCV = (cvData) => {
-    console.log("cvData.selectedCV", cvData);
     switch (cvData.selectedCV) {
       case 1:
-        return <ResumeExample1 data={cvData} />;
+        return <Template data={cvData} />;
       case 2:
         return <ResumeExample1 data={cvData} />;
       default:
@@ -71,6 +80,57 @@ const Profile = () => {
 
     enqueueSnackbar("PDF Downloaded Successfully!", { variant: "success" });
   };
+
+  const handleClickOpen = (idx) => {
+    setDeleteIdx(idx);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleDeleteResume = () => {
+    const existingData = JSON.parse(localStorage.getItem("cvData")) || [];
+    const updatedData = existingData.filter((_, index) => index !== deleteIdx);
+
+    localStorage.setItem("cvData", JSON.stringify(updatedData));
+    setCvData(updatedData);
+    enqueueSnackbar("CV Deleted Successfully!", { variant: "success" });
+
+    handleClose();
+  };
+
+  const DeleteConfirmationModal = () => (
+    <React.Fragment>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Delete CV?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Are you sure you want to delete.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="inherit" variant="contained">
+            Cancel
+          </Button>
+          <Button
+            onClick={handleDeleteResume}
+            variant="contained"
+            color="error"
+            autoFocus
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
+  );
 
   return (
     <Stack
@@ -149,10 +209,10 @@ const Profile = () => {
                         justifyContent="flex-end"
                         p={2}
                         sx={{
-                          background: "#ebdbdb !important",
+                          background: "white",
                         }}
                       >
-                        {/* <Button
+                        <Button
                           sx={{
                             fontSize: {
                               xs: "17px",
@@ -163,9 +223,10 @@ const Profile = () => {
                           }}
                           variant="contained"
                           endIcon={<NavigateNextIcon />}
+                          onClick={() => handleClickOpen(idx)}
                         >
                           Delete
-                        </Button> */}
+                        </Button>
                         <Button
                           sx={{
                             fontSize: {
@@ -217,6 +278,7 @@ const Profile = () => {
           )}
         </Stack>
       </Stack>
+      <DeleteConfirmationModal />
     </Stack>
   );
 };

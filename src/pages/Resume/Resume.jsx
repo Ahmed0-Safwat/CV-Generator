@@ -115,22 +115,20 @@ function Resume() {
     ),
     publications: Yup.array().of(
       Yup.object().shape({
-        publicationname: Yup.string().nullable(),
-        year: Yup.string().nullable(),
         description: Yup.string().nullable(),
       })
     ),
     certificates: Yup.array().of(
       Yup.object().shape({
-        honor: Yup.string().nullable(),
+        description: Yup.string().nullable(),
+        startdate: Yup.string().nullable(),
+        enddate: Yup.string().nullable(),
       })
     ),
     teachingExp: Yup.array().of(
       Yup.object().shape({
         title: Yup.string().required("Title is required"),
         description: Yup.string().required("Description is required"),
-        // startdate: Yup.string().required("Start date is required"),
-        // enddate: Yup.string().required("End date is required"),
         startdate: Yup.string().nullable(),
         enddate: Yup.string().nullable(),
       })
@@ -186,7 +184,6 @@ function Resume() {
   });
 
   function getDefaultFormValues(selectedCVId) {
-    console.log({ selectedCVId });
     return {
       personal: {
         firstName: "",
@@ -198,28 +195,33 @@ function Resume() {
         jobTitle: "",
         aboutMe: "",
       },
-      education:
-        selectedCVId === 1
-          ? [{ degree: "", discipline: "", institution: "", year: "" }]
-          : [{ university: "", department: "", startdate: "", enddate: "" }],
-      experience:
-        selectedCVId === 1
-          ? [{ institution: "", rank: "", year: "" }]
-          : [
-              {
-                jobTitle: "",
-                company: "",
-                location: "",
-                startdate: "",
-                enddate: "",
-                description: "",
-              },
-            ],
-      ...(selectedCVId === 3 && {
-        references: [{ name: "", email: "", phone: "", jobTitle: "" }],
-      }),
+
       ...(selectedCVId === 1 && {
-        references: [{ reference: "" }],
+        education: [{ degree: "", discipline: "", institution: "", year: "" }],
+      }),
+      ...(selectedCVId === 3 && {
+        education: [
+          { university: "", department: "", startdate: "", enddate: "" },
+        ],
+      }),
+
+      ...(selectedCVId === 1 && {
+        experience: [{ institution: "", rank: "", year: "" }],
+      }),
+      ...(selectedCVId === 3 && {
+        experience: [
+          {
+            jobTitle: "",
+            company: "",
+            location: "",
+            startdate: "",
+            enddate: "",
+            description: "",
+          },
+        ],
+      }),
+      ...((selectedCVId === 3 || selectedCVId === 1) && {
+        references: [{ name: "", email: "", phone: "", jobTitle: "" }],
       }),
       ...(selectedCVId !== 1 && {
         skills: [{ skillName: "", skillLevel: "" }],
@@ -236,7 +238,7 @@ function Resume() {
             googlescholar: "",
             researchgate: "",
             orcidrecord: "",
-            scopusdd: "",
+            scopusid: "",
           },
         ],
       }),
@@ -244,10 +246,10 @@ function Resume() {
         researchInterests: [{ researchinterest: "" }],
       }),
       ...(selectedCVId === 1 && {
-        publications: [{ publicationname: "", year: "", description: "" }],
+        publications: [{ description: "" }],
       }),
       ...(selectedCVId === 1 && {
-        certificates: [{ honor: "" }],
+        certificates: [{ description: "", startdate: "", enddate: "" }],
       }),
       ...(selectedCVId === 1 && {
         teachingExp: [
@@ -282,7 +284,9 @@ function Resume() {
   });
 
   const { getValues } = formControl;
+
   console.log(getValues());
+
   useEffect(() => {
     useStore.setState({
       globalState: {

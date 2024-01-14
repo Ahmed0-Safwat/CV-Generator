@@ -18,7 +18,7 @@ const ResumeExperience = () => {
     formState: { errors },
   } = useFormContext();
 
-  const expArrayLength = watch("experience").length;
+  const expArrayLength = watch("experience")?.length;
 
   useEffect(() => {
     setExperienceFieldsCount(expArrayLength);
@@ -88,9 +88,9 @@ const ResumeExperience = () => {
       setExperienceFieldsCount((prevCount) => prevCount - 1);
 
       const currentEXP = watch("experience");
-      if (currentEXP && currentEXP.length > 0) {
+      if (currentEXP && currentEXP?.length > 0) {
         // Remove the last item from the array
-        const updatedEXP = currentEXP.slice(0, -1);
+        const updatedEXP = currentEXP?.slice(0, -1);
 
         // Update the form state
         setValue("experience", updatedEXP);

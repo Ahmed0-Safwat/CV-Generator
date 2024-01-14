@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
-import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { useFormContext } from "react-hook-form";
 
-const AcademicReferences = () => {
+const ResumeReferences = () => {
+  const [referenceFieldsCount, setReferenceFieldsCount] = useState(1);
+
   const {
     register,
     watch,
@@ -12,40 +14,46 @@ const AcademicReferences = () => {
     formState: { errors },
   } = useFormContext();
 
-  const referenceFields = ["Reference"];
+  const refArrayLength = watch("references").length;
 
-  const renderTextField = (field, sectionIndex) => {
-    const fieldName = `references[${sectionIndex}].${field
-      .toLowerCase()
-      .replace(/\s+/g, "")}`;
-    const error = Boolean(
-      errors.references?.[sectionIndex]?.[
-        field.toLowerCase().replace(/\s+/g, "")
-      ]
-    );
-    const helperText =
-      errors.references?.[sectionIndex]?.[
-        field.toLowerCase().replace(/\s+/g, "")
-      ]?.message;
+  useEffect(() => {
+    setReferenceFieldsCount(refArrayLength);
+  }, [watch("references").length]);
 
-    return (
-      <TextField
-        key={fieldName}
-        {...register(fieldName)}
-        required
-        id={`outlined-${fieldName}`}
-        label={field}
-        value={watch(fieldName)}
-        type="text"
-        onChange={(e) => setValue(fieldName, e.target.value)}
-        error={error}
-        helperText={helperText}
-        sx={{ width: "100%" }}
-      />
-    );
+  const handlePhoneNumberChange = (event, index) => {
+    const value = event.target.value;
+    // Replace any non-digit characters with an empty string
+    const filteredValue = value.replace(/\D/g, "");
+    setValue(`references[${index}].phone`, filteredValue);
   };
 
-  const [referenceFieldsCount, setReferenceFieldsCount] = React.useState(1);
+  const referenceFields = [
+    {
+      label: "Name",
+      placeholder: "e.g. Doe",
+      type: "text",
+      name: "name",
+    },
+    {
+      label: "Job Title",
+      placeholder: "Software Engineer",
+      type: "text",
+      name: "jobTitle",
+    },
+    {
+      label: "Email",
+      placeholder: "e.g. johndoe@gmail.com",
+      type: "email",
+      name: "email",
+    },
+    {
+      label: "Phone Nom:",
+      placeholder: "e.g. 456-768-798",
+      type: "tel",
+      name: "phone",
+      onChange: handlePhoneNumberChange,
+    },
+  ];
 
   const handleAddField = () => {
     setReferenceFieldsCount((prev) => prev + 1);
@@ -53,18 +61,23 @@ const AcademicReferences = () => {
 
   const handleRemoveField = () => {
     if (referenceFieldsCount > 1) {
+      // Decrease the count of reference fields
       setReferenceFieldsCount((prev) => prev - 1);
 
-      const currentRefs = watch("references");
-      if (currentRefs && currentRefs.length > 0) {
-        const updatedRefs = currentRefs.slice(0, -1);
-        setValue("references", updatedRefs);
+      // Get current references values
+      const currentReferences = watch("references");
+      if (currentReferences && currentReferences.length > 0) {
+        // Remove the last item from the array
+        const updatedReferences = currentReferences.slice(0, -1);
+
+        // Update the form state
+        setValue("references", updatedReferences);
       }
     }
   };
 
   return (
-    <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>
+    <Stack width="100%" spacing={4}>
       <Stack
         sx={{
           width: "100%",
@@ -76,7 +89,7 @@ const AcademicReferences = () => {
         }}
       >
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
-          Academic References
+          REFERENCES
         </Typography>
         <IconButton
           color="primary"
@@ -85,29 +98,58 @@ const AcademicReferences = () => {
         >
           <AddIcon />
         </IconButton>
-        {referenceFieldsCount > 1 && (
-          <IconButton
-            color="secondary"
-            sx={{ position: "absolute", top: "10px", right: "50px" }}
-            onClick={handleRemoveField}
-          >
-            <RemoveIcon />
-          </IconButton>
-        )}
       </Stack>
+      {Array.from({ length: referenceFieldsCount }).map((_, index) => (
+        <Stack key={index} direction="row" flexWrap="wrap" gap={2}>
+          {referenceFields.map((field, fieldIndex) => (
+            <TextField
+              key={fieldIndex}
+              {...register(`references[${index}].${field.name}`)}
+              type={field.type}
+              sx={{ width: "49%" }}
+              required
+              id={`outlined-${field.label.toLowerCase()}`}
+              label={field.label}
+              placeholder={field.placeholder}
+              variant="outlined"
+              name={field.name}
+              value={watch(`references[${index}].${field.name}`)}
+              onChange={
+                field.name === "phone"
+                  ? (e) => handlePhoneNumberChange(e, index)
+                  : (e) =>
+                      setValue(
+                        `references[${index}].${field.name}`,
+                        e.target.value
+                      )
+              }
+              error={Boolean(errors.references?.[index]?.[field.name])}
+              helperText={errors.references?.[index]?.[field.name]?.message}
+            />
+          ))}
+        </Stack>
+      ))}
       <Stack
-        gap={2}
-        sx={{ width: "100%", margin: "0 auto" }}
-        direction="column"
+        direction="row"
+        alignItems="flex-end"
+        justifyContent="flex-end"
+        mt={2}
+        sx={{ position: "relative" }}
       >
-        {Array.from({ length: referenceFieldsCount }).map((_, index) => (
-          <React.Fragment key={index}>
-            {referenceFields.map((field) => renderTextField(field, index))}
-          </React.Fragment>
-        ))}
+        <IconButton
+          color="secondary"
+          sx={{
+            position: "absolute",
+            bottom: "-5px",
+            right: "5px",
+          }}
+          onClick={handleRemoveField}
+        >
+          <RemoveIcon />
+        </IconButton>
       </Stack>
     </Stack>
   );
 };
 
-export default AcademicReferences;
+export default ResumeReferences;

@@ -14,7 +14,7 @@ const ResumeReferences = () => {
     formState: { errors },
   } = useFormContext();
 
-  const refArrayLength = watch("references").length;
+  const refArrayLength = watch("references")?.length;
 
   useEffect(() => {
     setReferenceFieldsCount(refArrayLength);
