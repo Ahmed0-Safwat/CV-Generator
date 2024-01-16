@@ -57,6 +57,7 @@ const Template = () => {
         backgroundColor: "#e8e8e8",
         margin: "auto",
         padding: "10px",
+        mb: 4,
       }}
     >
       <Stack

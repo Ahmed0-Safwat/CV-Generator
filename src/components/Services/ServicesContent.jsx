@@ -1,7 +1,6 @@
 import "./style.scss";
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import Template from "../../components/Resume/Template/Template";
 const SERVICES_CARDS = [
   {
     icon: "/images/web-design-icon.svg",
@@ -48,8 +47,6 @@ const ServicesContent = () => {
         padding={0}
         paddingBottom={2}
       >
-        <Template />
-
         <Stack
           pt="100px"
           maxWidth="1200px"

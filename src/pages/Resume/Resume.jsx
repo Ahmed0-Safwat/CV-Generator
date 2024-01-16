@@ -285,8 +285,6 @@ function Resume() {
 
   const { getValues } = formControl;
 
-  console.log(getValues());
-
   useEffect(() => {
     useStore.setState({
       globalState: {

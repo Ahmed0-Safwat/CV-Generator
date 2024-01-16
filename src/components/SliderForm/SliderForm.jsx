@@ -5,6 +5,7 @@ import useSigninUser from "../../api/login/signin";
 import { Stack } from "@mui/material";
 import { useStore } from "../../hooks/useStore";
 import { useNavigate, useLocation } from "react-router-dom";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 function SliderForm({ handleClose }) {
   const [signIn, toggle] = React.useState(true);
@@ -45,6 +46,12 @@ function SliderForm({ handleClose }) {
   const [submitted, setSubmitted] = React.useState(false);
   const { mutate: signUpMutation } = useSignupUser();
   const { mutate: signInMutation } = useSigninUser();
+
+  const [isLoadingSignin, setisLoadingSignin] = useState(false);
+  const [isLoadingSignup, setisLoadingSignup] = useState(false);
+  const [isLoadingVerify, setisLoadingVerify] = useState(false);
+  const [isLoadingSendOTP, setisLoadingSendOTP] = useState(false);
+  const [isLoadingResetWithOTP, setisLoadingResetWithOTP] = useState(false);
 
   const areSignInFieldsFilled = formData.signInEmail && formData.signInPassword;
   const areSignUpFieldsFilled =
@@ -106,6 +113,7 @@ function SliderForm({ handleClose }) {
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    setisLoadingSignup(true);
     setSubmitted(true);
 
     const nameError = validate("name", formData.name);
@@ -125,6 +133,7 @@ function SliderForm({ handleClose }) {
             ...prevErrors,
             signUpError: "An error occurred during sign up.",
           }));
+          setisLoadingSignup(false);
         },
         onSettled: (res) => {
           if (res?.status === 400) {
@@ -132,8 +141,10 @@ function SliderForm({ handleClose }) {
               ...prevErrors,
               signUpError: "Email Already Exists",
             }));
+            setisLoadingSignup(false);
           } else {
             setShowValidationComponent(true);
+            setisLoadingSignup(false);
           }
         },
       });
@@ -142,6 +153,7 @@ function SliderForm({ handleClose }) {
 
   const handleVerifyEmail = async (e) => {
     e.preventDefault();
+    setisLoadingVerify(true);
     setSubmitted(true);
 
     const data = {
@@ -171,6 +183,7 @@ function SliderForm({ handleClose }) {
           verifyError: "Invalid OTP Number",
         }));
       }
+      setisLoadingVerify(false);
     });
   };
 
@@ -195,6 +208,7 @@ function SliderForm({ handleClose }) {
   };
 
   const handleSignInClick = (e) => {
+    setisLoadingSignin(true);
     e.preventDefault();
     setSubmitted(true);
 
@@ -267,10 +281,13 @@ function SliderForm({ handleClose }) {
               navigate("/");
             }
 
+            setisLoadingSignin(false);
             handleClose();
           }
         },
         onError: (error) => {
+          setisLoadingSignin(false);
+
           if (error) {
             setErrors((prevErrors) => ({
               ...prevErrors,
@@ -284,6 +301,7 @@ function SliderForm({ handleClose }) {
 
   const handleResetClick = async (e) => {
     e.preventDefault();
+    setisLoadingSendOTP(true);
     setSubmitted(true);
     const resetError = validate("resetEmail", formData.resetEmail);
 
@@ -299,6 +317,7 @@ function SliderForm({ handleClose }) {
       }).then((res) => {
         if (res.status === 200) {
           setIsInOTPPassword(true);
+          setisLoadingSendOTP(false);
         } else {
           console.error("Error Response:", res); // Debug log for error response
           setErrors((prevErrors) => ({
@@ -312,6 +331,7 @@ function SliderForm({ handleClose }) {
 
   const handleResetWithOTPClick = async (e) => {
     e.preventDefault();
+    setisLoadingResetWithOTP(true);
     setSubmitted(true);
     const resetError = validate("resetEmail", formData.resetEmail);
     const otpError = validate("otp", formData.otp);
@@ -360,6 +380,7 @@ function SliderForm({ handleClose }) {
             resetEmailOtp: "",
             resetEmailPassword: "",
           });
+          setisLoadingResetWithOTP(false);
         } else {
           console.error("Error Response:", res); // Debug log for error response
           setErrors((prevErrors) => ({
@@ -392,12 +413,22 @@ function SliderForm({ handleClose }) {
                 <div style={{ color: "#03adb5" }}>{errors.verifySuccess}</div>
               )}
 
-              <Components.Button
+              <LoadingButton
                 disabled={!areSignUpFieldsFilled} // button is disabled if not both fields have some string value
                 onClick={handleVerifyEmail}
+                loading={isLoadingVerify}
+                variant="contained"
+                sx={{
+                  width: "144px",
+                  borderRadius: "20px",
+                  padding: "8px",
+                  fontSize: "12px",
+                  height: "44px",
+                  alignSelf: "center",
+                }}
               >
-                Verify
-              </Components.Button>
+                <b>VERIFY</b>
+              </LoadingButton>
             </Stack>
           </Components.Form>
         ) : (
@@ -435,12 +466,23 @@ function SliderForm({ handleClose }) {
                   {errors.signUpPassword || errors.signUpError}
                 </div>
               )}
-              <Components.Button
-                disabled={!areSignUpFieldsFilled} // button is disabled if not both fields have some string value
+
+              <LoadingButton
+                disabled={!areSignUpFieldsFilled}
                 onClick={handleSignUp}
+                loading={isLoadingSignup}
+                variant="contained"
+                sx={{
+                  width: "144px",
+                  borderRadius: "20px",
+                  padding: "8px",
+                  fontSize: "12px",
+                  height: "44px",
+                  alignSelf: "center",
+                }}
               >
-                Sign Up
-              </Components.Button>
+                <b>SIGN UP</b>
+              </LoadingButton>
             </Stack>
           </Components.Form>
         )}
@@ -494,12 +536,21 @@ function SliderForm({ handleClose }) {
                 Back to Sign in?
               </Components.Anchor>
 
-              <Components.Button
-                disabled={!formData.resetEmail} // button is disabled if email is empty
+              <LoadingButton
+                disabled={!formData.resetEmail}
                 onClick={handleResetWithOTPClick}
+                loading={isLoadingResetWithOTP}
+                variant="contained"
+                sx={{
+                  width: "250px",
+                  borderRadius: "20px",
+                  padding: "8px",
+                  fontSize: "12px",
+                  height: "44px",
+                }}
               >
-                Reset Password with OTP
-              </Components.Button>
+                <b>RESET PASSWORD WITH OTP</b>
+              </LoadingButton>
             </Components.Form>
           </Components.SignInContainer>
         ) : (
@@ -528,12 +579,22 @@ function SliderForm({ handleClose }) {
               >
                 Back to Sign in?
               </Components.Anchor>
-              <Components.Button
+
+              <LoadingButton
                 disabled={!formData.resetEmail} // button is disabled if email is empty
                 onClick={handleResetClick}
+                loading={isLoadingSendOTP}
+                variant="contained"
+                sx={{
+                  width: "144px",
+                  borderRadius: "20px",
+                  padding: "8px",
+                  fontSize: "12px",
+                  height: "44px",
+                }}
               >
-                Send OTP
-              </Components.Button>
+                <b>SEND OTP</b>
+              </LoadingButton>
             </Components.Form>
           </Components.SignInContainer>
         )
@@ -570,12 +631,21 @@ function SliderForm({ handleClose }) {
             >
               Forgot your password?
             </Components.Anchor>
-            <Components.Button
-              disabled={!areSignInFieldsFilled} // button is disabled if not both fields have some string value
+            <LoadingButton
+              disabled={!areSignInFieldsFilled}
               onClick={handleSignInClick}
+              loading={isLoadingSignin}
+              variant="contained"
+              sx={{
+                width: "144px",
+                borderRadius: "20px",
+                padding: "8px",
+                fontSize: "12px",
+                height: "44px",
+              }}
             >
-              Sign In
-            </Components.Button>
+              <b>SIGN IN</b>
+            </LoadingButton>
           </Components.Form>
         </Components.SignInContainer>
       )}

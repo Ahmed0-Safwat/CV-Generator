@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Divider from "@mui/material/Divider";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import Hero from "../../components/Profile/Hero/Hero";
@@ -40,6 +40,14 @@ const Profile = () => {
   const routeToCvPage = () => {
     navigate("/resume");
   };
+
+  useEffect(() => {
+    const sessionStorageUser = JSON.parse(sessionStorage.getItem("user"));
+
+    if (!sessionStorageUser) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const getCorrectCV = (cvData) => {
     switch (cvData.selectedCV) {

@@ -18,10 +18,10 @@ const ResumeAcademicPersonalInfo = () => {
   const renderTextField = (field, sectionIndex) => {
     let baseFieldName = field.toLowerCase().replace(/\s/g, "");
     if (baseFieldName === "Academic Rank") baseFieldName = "academicRank";
-    if (field === "Google Scholar") baseFieldName = "googleScholar";
+    if (field === "Google Scholar") baseFieldName = "googlescholar";
     if (baseFieldName === "Research Gate") baseFieldName = "researchGate";
-    if (field === "Orcid Record") baseFieldName = "orcidRecord";
-    if (baseFieldName === "Scopus Id") baseFieldName = "scopusId";
+    if (field === "Orcid Record") baseFieldName = "orcidrecord";
+    if (baseFieldName === "Scopus Id") baseFieldName = "scopusid";
 
     const fieldName = `personalInfo[${sectionIndex}].${baseFieldName}`;
 
