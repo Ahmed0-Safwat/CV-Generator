@@ -35,7 +35,7 @@ const Template = ({ data }) => {
       spacing={4}
       sx={{
         border: "1px solid black",
-        backgroundColor: "#e8e8e8",
+        // backgroundColor: "#e8e8e8",
         padding: "10px",
       }}
     >

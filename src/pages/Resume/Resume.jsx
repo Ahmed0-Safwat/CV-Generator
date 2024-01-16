@@ -283,8 +283,6 @@ function Resume() {
     defaultValues: formDefaultValues,
   });
 
-  const { getValues } = formControl;
-
   useEffect(() => {
     useStore.setState({
       globalState: {
