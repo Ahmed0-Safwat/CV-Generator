@@ -83,15 +83,11 @@ const ResumeLanguages = () => {
 
   const handleRemoveLanguageField = () => {
     if (languageFieldsCount > 1) {
-      // Decrease the count of reference fields
       setLanguageFieldsCount((prevCount) => prevCount - 1);
 
       const currentLanguages = watch("languages");
       if (currentLanguages && currentLanguages.length > 0) {
-        // Remove the last item from the array
         const updatedLanguages = currentLanguages.slice(0, -1);
-
-        // Update the form state
         setValue("languages", updatedLanguages);
       }
     }
@@ -112,13 +108,19 @@ const ResumeLanguages = () => {
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
           LANGUAGES
         </Typography>
-        <IconButton
-          color="primary"
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={2}
           sx={{ position: "absolute", top: "10px", right: "10px" }}
-          onClick={handleAddLanguageField}
         >
-          <AddIcon />
-        </IconButton>
+          <IconButton color="primary" onClick={handleAddLanguageField}>
+            <AddIcon />
+          </IconButton>
+          <IconButton color="secondary" onClick={handleRemoveLanguageField}>
+            <RemoveIcon />
+          </IconButton>
+        </Stack>
       </Stack>
       <Stack gap={2} sx={{ width: "100%", margin: "0 auto" }}>
         {Array.from({ length: languageFieldsCount }).map((_, index) => (
@@ -139,17 +141,7 @@ const ResumeLanguages = () => {
         mt={2}
         sx={{ position: "relative" }}
       >
-        <IconButton
-          color="secondary"
-          sx={{
-            position: "absolute",
-            bottom: "-5px",
-            right: "5px",
-          }}
-          onClick={handleRemoveLanguageField}
-        >
-          <RemoveIcon />
-        </IconButton>
+        {/* Remove icon is part of the same Stack */}
       </Stack>
     </Stack>
   );

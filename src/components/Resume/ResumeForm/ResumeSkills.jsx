@@ -82,16 +82,11 @@ const ResumeSkills = () => {
 
   const handleRemoveSkillsField = () => {
     if (skillsFieldsCount > 1) {
-      // Decrease the count of reference fields
       setSkillsFieldsCount((prevCount) => prevCount - 1);
 
-      // Get current skills values
       const currentSkills = watch("skills");
       if (currentSkills && currentSkills.length > 0) {
-        // Remove the last item from the array
         const updatedSkills = currentSkills.slice(0, -1);
-
-        // Update the form state
         setValue("skills", updatedSkills);
       }
     }
@@ -106,19 +101,25 @@ const ResumeSkills = () => {
           color: "white",
           margin: "5px auto",
           p: 1.5,
-          position: "relative", // Added position relative
+          position: "relative",
         }}
       >
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
           SKILLS
         </Typography>
-        <IconButton
-          color="primary"
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={2}
           sx={{ position: "absolute", top: "10px", right: "10px" }}
-          onClick={handleAddSkillsField}
         >
-          <AddIcon />
-        </IconButton>
+          <IconButton color="primary" onClick={handleAddSkillsField}>
+            <AddIcon />
+          </IconButton>
+          <IconButton color="secondary" onClick={handleRemoveSkillsField}>
+            <RemoveIcon />
+          </IconButton>
+        </Stack>
       </Stack>
       <Stack gap={2} sx={{ width: "100%", margin: "0 auto" }}>
         {Array.from({ length: skillsFieldsCount }).map((_, index) => (
@@ -139,17 +140,7 @@ const ResumeSkills = () => {
         mt={2}
         sx={{ position: "relative" }}
       >
-        <IconButton
-          color="secondary"
-          sx={{
-            position: "absolute",
-            bottom: "-5px",
-            right: "5px",
-          }}
-          onClick={handleRemoveSkillsField}
-        >
-          <RemoveIcon />
-        </IconButton>
+        {/* Remove icon is part of the same Stack */}
       </Stack>
     </Stack>
   );

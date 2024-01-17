@@ -117,13 +117,19 @@ const ResumeEducation = () => {
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
           EDUCATION
         </Typography>
-        <IconButton
-          color="primary"
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={2}
           sx={{ position: "absolute", top: "10px", right: "10px" }}
-          onClick={handleAddEducationField}
         >
-          <AddIcon />
-        </IconButton>
+          <IconButton color="primary" onClick={handleAddEducationField}>
+            <AddIcon />
+          </IconButton>
+          <IconButton color="secondary" onClick={handleRemoveEducationField}>
+            <RemoveIcon />
+          </IconButton>
+        </Stack>
       </Stack>
       <Stack gap={2} sx={{ margin: "0 auto" }} direction="row" flexWrap="wrap">
         {Array.from({ length: educationFieldsCount }).map((_, index) =>
@@ -138,20 +144,10 @@ const ResumeEducation = () => {
                   sx={{
                     position: "relative",
                     width: "100%",
-                    marginTop: "15px", // Adjust the marginTop here
+                    marginTop: "15px",
                   }}
                 >
-                  <IconButton
-                    color="secondary"
-                    sx={{
-                      position: "absolute",
-                      bottom: "-5px",
-                      right: "5px",
-                    }}
-                    onClick={handleRemoveEducationField}
-                  >
-                    <RemoveIcon />
-                  </IconButton>
+                  {/* The remove icon is now part of the same Stack */}
                 </Stack>
               )}
             </React.Fragment>

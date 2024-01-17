@@ -89,10 +89,7 @@ const ResumeExperience = () => {
 
       const currentEXP = watch("experience");
       if (currentEXP && currentEXP?.length > 0) {
-        // Remove the last item from the array
         const updatedEXP = currentEXP?.slice(0, -1);
-
-        // Update the form state
         setValue("experience", updatedEXP);
       }
     }
@@ -122,13 +119,19 @@ const ResumeExperience = () => {
         <Typography sx={{ color: "#FFF", fontSize: "22px", fontWeight: "400" }}>
           EXPERIENCE
         </Typography>
-        <IconButton
-          color="primary"
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={2}
           sx={{ position: "absolute", top: "10px", right: "10px" }}
-          onClick={handleAddExperienceField}
         >
-          <AddIcon />
-        </IconButton>
+          <IconButton color="primary" onClick={handleAddExperienceField}>
+            <AddIcon />
+          </IconButton>
+          <IconButton color="secondary" onClick={handleRemoveExperienceField}>
+            <RemoveIcon />
+          </IconButton>
+        </Stack>
       </Stack>
       <Stack
         gap={2}
@@ -143,25 +146,6 @@ const ResumeExperience = () => {
             </React.Fragment>
           ))
         )}
-      </Stack>
-      <Stack
-        direction="row"
-        alignItems="flex-end"
-        justifyContent="flex-end"
-        spacing={2}
-        sx={{ position: "relative", width: "100%", marginTop: "15px" }}
-      >
-        <IconButton
-          color="secondary"
-          sx={{
-            position: "absolute",
-            bottom: "-5px",
-            right: "5px",
-          }}
-          onClick={handleRemoveExperienceField}
-        >
-          <RemoveIcon />
-        </IconButton>
       </Stack>
     </Stack>
   );
