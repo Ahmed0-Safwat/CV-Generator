@@ -6,6 +6,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import Divider from "@mui/material/Divider";
 
 const Certificates = () => {
   const {
@@ -129,6 +130,7 @@ const Certificates = () => {
       >
         {Array.from({ length: certificateFieldsCount }).map((_, index) => (
           <React.Fragment key={index}>
+            {index > 0 && <Divider sx={{ width: "100%", my: 2 }} />}
             {certificatesFields.map((field) => renderTextField(field, index))}
           </React.Fragment>
         ))}

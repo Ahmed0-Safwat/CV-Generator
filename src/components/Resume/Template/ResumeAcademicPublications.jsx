@@ -3,6 +3,7 @@ import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import Divider from "@mui/material/Divider";
 
 const Publications = () => {
   const {
@@ -103,6 +104,7 @@ const Publications = () => {
       >
         {Array.from({ length: publicationFieldsCount }).map((_, index) => (
           <React.Fragment key={index}>
+            {index > 0 && <Divider sx={{ width: "100%", my: 2 }} />}
             {publicationFields.map((field) => renderTextField(field, index))}
           </React.Fragment>
         ))}

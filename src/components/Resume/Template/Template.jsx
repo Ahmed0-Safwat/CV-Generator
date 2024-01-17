@@ -52,9 +52,8 @@ const Template = () => {
       id="resume"
       spacing={4}
       sx={{
-        width: "90%",
+        width: "80%",
         border: "1px solid black",
-        backgroundColor: "#e8e8e8",
         margin: "auto",
         padding: "10px",
         mb: 4,
@@ -71,6 +70,7 @@ const Template = () => {
           sx={{
             width: { xs: "100%", md: "25%" },
             alignItems: "center",
+            paddingTop: 2,
           }}
         >
           {/* Personal Image */}
@@ -91,31 +91,19 @@ const Template = () => {
           sx={{ width: { xs: "100%", md: "75%" }, p: 6, textAlign: "center" }}
         >
           <Typography
-            sx={{ color: "#312b2b", fontWeight: 500 }}
+            sx={{ color: "#312b2b", fontWeight: 700 }}
             variant="h4"
             gutterBottom
           >
             {data()?.personal.firstName} {data()?.personal.lastName}
           </Typography>
-          <Typography
-            sx={{ color: "#868484", fontWeight: 600 }}
-            variant="h6"
-            gutterBottom
-          >
+          <Typography sx={{ fontWeight: 500 }} variant="h5" gutterBottom>
             Email: {data()?.personal.email}
           </Typography>
-          <Typography
-            sx={{ color: "#868484", fontWeight: 600 }}
-            variant="h6"
-            gutterBottom
-          >
+          <Typography sx={{ fontWeight: 500 }} variant="h5" gutterBottom>
             Phone: {data()?.personal.phone}
           </Typography>
-          <Typography
-            sx={{ color: "#868484", fontWeight: 600 }}
-            variant="h6"
-            gutterBottom
-          >
+          <Typography sx={{ fontWeight: 500 }} variant="h5" gutterBottom>
             Address: {data()?.personal.address}
           </Typography>
         </Stack>
@@ -172,8 +160,8 @@ const Template = () => {
           sx={{
             color: "#312b2b",
             fontWeight: 600,
+            fontSize: "1.8rem",
           }}
-          variant="h5"
           gutterBottom
         >
           Certifications or Professional Registrations
@@ -183,8 +171,8 @@ const Template = () => {
         <ul>
           {data()?.certificates.map((item, index) => (
             <Stack key={index} direction="row" paddingY="4px">
-              <li>
-                <b>
+              <li style={{ fontSize: "18px", fontWeight: "500" }}>
+                <b style={{ fontSize: "19px" }}>
                   {new Date(item.startdate).toLocaleDateString("en-US", {
                     month: "short",
                     year: "numeric",
@@ -196,7 +184,7 @@ const Template = () => {
                   })}{" "}
                   :&nbsp;
                 </b>
-                {item.honor}
+                {item.description}
               </li>
             </Stack>
           ))}
@@ -210,8 +198,8 @@ const Template = () => {
           sx={{
             color: "#312b2b",
             fontWeight: 600,
+            fontSize: "1.8rem",
           }}
-          variant="h5"
           gutterBottom
         >
           Teaching experience
@@ -221,9 +209,9 @@ const Template = () => {
         <ul>
           {data()?.teachingExp.map((item, index) => (
             <Stack key={index} direction="row" paddingY="4px">
-              <li>
+              <li style={{ fontSize: "18px", fontWeight: "500" }}>
                 <>
-                  <b>
+                  <b style={{ fontSize: "19px" }}>
                     {new Date(item.startdate).toLocaleDateString("en-US", {
                       month: "short",
                       year: "numeric",
@@ -261,14 +249,14 @@ const Template = () => {
           sx={{
             color: "#312b2b",
             fontWeight: 600,
+            fontSize: "1.8rem",
           }}
-          variant="h5"
           gutterBottom
         >
           References
         </Typography>
 
-        <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
+        <Divider></Divider>
         {data()?.references?.map((item) => (
           <ReferenceItem
             key={item.company}
@@ -289,8 +277,8 @@ const TemplateEntry = ({ title, content }) => (
       sx={{
         color: "#312b2b",
         fontWeight: 600,
+        fontSize: "1.8rem",
       }}
-      variant="h5"
       gutterBottom
     >
       {title}
@@ -306,11 +294,21 @@ const ListItem = ({ item, title }) => (
       if (title === "Academic Experience") {
         return (
           <>
-            <Stack key={value} direction="row" paddingY="4px">
-              <Typography>
-                <b>{mappedValues[key]}</b>
+            <Stack
+              key={value}
+              direction="row"
+              paddingY="4px"
+              alignItems="center"
+              pt={1}
+              paddingLeft={2}
+            >
+              <Typography fontSize="20px">
+                <b>{mappedValues[key]}:&nbsp;</b>
               </Typography>
-              <Typography>{`: ${value}`}</Typography>
+              <Typography
+                fontSize="18px"
+                fontWeight={500}
+              >{`${value}`}</Typography>
             </Stack>
 
             {mappedValues[key] === "Year" && (
@@ -329,7 +327,8 @@ const ListItem = ({ item, title }) => (
             style={{
               marginTop: "24px",
               marginBottom: "24px",
-              fontSize: "18px",
+              fontSize: "20px",
+              fontWeight: "500",
             }}
             key={key}
           >
@@ -339,15 +338,24 @@ const ListItem = ({ item, title }) => (
       }
 
       return (
-        <li style={{ marginTop: "24px", marginBottom: "24px" }} key={key}>
-          <Stack direction="row">
+        <li
+          style={{
+            marginTop: "24px",
+            marginBottom: "24px",
+            fontWeight: "500",
+            fontSize: "18px",
+          }}
+          key={key}
+        >
+          <Stack direction="row" alignItems="baseline">
             <Typography sx={{ textUnderlineOffset: "2px" }}>
-              <b>
+              <b style={{ fontSize: "20px" }}>
                 <u>{mappedValues[key]}</u>{" "}
               </b>
             </Typography>
-
-            {`: ${value}`}
+            <Typography fontWeight={500} fontSize="18px">
+              <b>:</b>&nbsp;{`${value}`}
+            </Typography>
           </Stack>
         </li>
       );
@@ -356,7 +364,12 @@ const ListItem = ({ item, title }) => (
 );
 const ListStack = ({ items, title = null }) => (
   <Stack spacing={3}>
-    <ul>
+    <ul
+      style={{
+        padding:
+          title === "Academic Experience" ? "inherit" : "20px !important",
+      }}
+    >
       {title === "Academic Experience" ? (
         <Stack spacing={0}>
           {items.map((item, index) => (
@@ -426,7 +439,7 @@ const tableCellStyle = (
 });
 
 const ReferenceItem = ({ name, position, phone, email }) => (
-  <Stack spacing={1} sx={{ py: 3, width: "50%" }}>
+  <Stack spacing="4px" sx={{ py: 3, width: "50%" }}>
     <Typography
       sx={{
         fontSize: "26px",

@@ -6,6 +6,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import Divider from "@mui/material/Divider";
 
 const TeachingExp = () => {
   const {
@@ -128,6 +129,7 @@ const TeachingExp = () => {
       >
         {Array.from({ length: teachingExpFieldsCount }).map((_, index) => (
           <React.Fragment key={index}>
+            {index > 0 && <Divider sx={{ width: "100%", my: 2 }} />}
             {teachingExpFields.map((field) => renderTextField(field, index))}
           </React.Fragment>
         ))}

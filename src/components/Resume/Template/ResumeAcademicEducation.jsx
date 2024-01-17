@@ -3,6 +3,7 @@ import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import Divider from "@mui/material/Divider";
 
 const AcademicEducation = () => {
   const {
@@ -92,6 +93,7 @@ const AcademicEducation = () => {
           </IconButton>
         )}
       </Stack>
+
       <Stack
         gap={2}
         sx={{ width: "100%", margin: "0 auto" }}
@@ -100,6 +102,7 @@ const AcademicEducation = () => {
       >
         {Array.from({ length: educationFieldsCount }).map((_, index) => (
           <React.Fragment key={index}>
+            {index > 0 && <Divider sx={{ width: "100%", my: 2 }} />}
             {educationFields.map((field) => renderTextField(field, index))}
           </React.Fragment>
         ))}
