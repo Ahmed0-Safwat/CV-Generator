@@ -277,7 +277,7 @@ const ListItem = ({ item, title }) => (
               paddingY="4px"
               alignItems="center"
               pt={1}
-              paddingLeft={2}
+              paddingLeft={4}
             >
               <Typography fontSize="20px">
                 <b>{mappedValues[key]}:&nbsp;</b>
@@ -416,7 +416,7 @@ const tableCellStyle = (
 });
 
 const ReferenceItem = ({ name, position, phone, email }) => (
-  <Stack spacing="4px" sx={{ py: 3, width: "50%" }}>
+  <Stack spacing="4px" sx={{ py: 3, width: "50%", paddingLeft: 4 }}>
     <Typography
       sx={{
         fontSize: "26px",
