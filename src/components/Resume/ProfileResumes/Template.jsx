@@ -233,7 +233,7 @@ const Template = ({ data, id }) => {
           References
         </Typography>
 
-        <Divider></Divider>
+        <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
         {data?.references?.map((item) => (
           <ReferenceItem
             key={item.company}
