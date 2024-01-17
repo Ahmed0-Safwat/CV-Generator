@@ -5,11 +5,11 @@ import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
-const ResumeExample1 = ({ data }) => {
+const ResumeExample1 = ({ data, id }) => {
   return (
     <>
       <Stack
-        id="resume"
+        id={id}
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "column", lg: "row" },

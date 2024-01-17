@@ -26,12 +26,12 @@ const mappedValues = {
   aboutMe: "About Me",
 };
 
-const Template = ({ data }) => {
+const Template = ({ data, id }) => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   return (
     <Stack
-      id="resume"
+      id={id}
       spacing={4}
       sx={{
         border: "1px solid black",

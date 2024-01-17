@@ -4,10 +4,10 @@ import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
-const ResumeExample2 = ({ data }) => {
+const ResumeExample2 = ({ data, id }) => {
   return (
     <Grid
-      id="resume"
+      id={id}
       container
       sx={{
         width: "90%",

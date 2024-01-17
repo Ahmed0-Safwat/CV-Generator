@@ -49,20 +49,21 @@ const Profile = () => {
     }
   }, [navigate]);
 
-  const getCorrectCV = (cvData) => {
+  const getCorrectCV = (cvData, cvId) => {
     switch (cvData.selectedCV) {
       case 1:
-        return <Template data={cvData} />;
+        return <Template data={cvData} id={`resume-${cvId}`} />;
       case 2:
-        return <ResumeExample1 data={cvData} />;
+        return <ResumeExample1 data={cvData} id={`resume-${cvId}`} />;
       default:
-        return <ResumeExample2 data={cvData} />;
+        return <ResumeExample2 data={cvData} id={`resume-${cvId}`} />;
     }
   };
 
-  const downloadPdfDocument = () => {
-    const element = document.getElementById("resume");
+  const downloadPdfDocument = (cvId) => {
+    const element = document.getElementById(`resume-${cvId}`);
 
+    console.log("element", `resume-${cvId}`);
     const captureAndSavePdf = () => {
       html2canvas(element).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
@@ -100,6 +101,46 @@ const Profile = () => {
 
     enqueueSnackbar("PDF Downloaded Successfully!", { variant: "success" });
   };
+  // const downloadPdfDocument = () => {
+  //   const element = document.getElementById("resume");
+
+  //   const captureAndSavePdf = () => {
+  //     html2canvas(element).then((canvas) => {
+  //       const imgData = canvas.toDataURL("image/png");
+  //       const pdf = new jsPDF("p", "mm", "a4");
+
+  //       const aspectRatio = canvas.width / canvas.height;
+
+  //       const imgWidth = 210; // A4 width in mm
+  //       const pageHeight = 297; // A4 height in mm
+  //       const imgHeight = imgWidth / aspectRatio; // image height in mm
+  //       let heightLeft = imgHeight; // remaining height to be printed
+  //       let position = 0; // initial position of the image
+
+  //       pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // add first page
+  //       heightLeft -= pageHeight; // subtract the height of the first page
+
+  //       while (heightLeft >= 0) {
+  //         // while there is still height left to be printed
+  //         position = heightLeft - imgHeight; // calculate the position of the next page
+  //         pdf.addPage(); // add a new page
+  //         pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // add the image to the new page
+  //         heightLeft -= pageHeight; // subtract the height of the new page
+  //       }
+
+  //       pdf.save("advanced-styled-page.pdf");
+  //     });
+  //   };
+
+  //   // Ensure that styles have rendered before capturing content and saving PDF
+  //   if (document.readyState === "complete") {
+  //     captureAndSavePdf();
+  //   } else {
+  //     window.onload = captureAndSavePdf;
+  //   }
+
+  //   enqueueSnackbar("PDF Downloaded Successfully!", { variant: "success" });
+  // };
 
   const handleClickOpen = (idx) => {
     setDeleteIdx(idx);
@@ -221,7 +262,7 @@ const Profile = () => {
                     }}
                   >
                     <Stack>
-                      {getCorrectCV(data)}
+                      {getCorrectCV(data, idx + 1)}
 
                       <Stack
                         direction="row"
@@ -258,7 +299,7 @@ const Profile = () => {
                           }}
                           variant="contained"
                           endIcon={<NavigateNextIcon />}
-                          onClick={downloadPdfDocument}
+                          onClick={() => downloadPdfDocument(idx + 1)}
                         >
                           Download
                         </Button>
