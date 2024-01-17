@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext, Controller } from "react-hook-form";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -71,7 +71,7 @@ const TeachingExp = () => {
     );
   };
 
-  const [teachingExpFieldsCount, setTeachingExpFieldsCount] = React.useState(1);
+  const [teachingExpFieldsCount, setTeachingExpFieldsCount] = useState(1);
 
   const handleAddField = () => {
     setTeachingExpFieldsCount((prev) => prev + 1);
@@ -88,6 +88,10 @@ const TeachingExp = () => {
       }
     }
   };
+
+  useEffect(() => {
+    setTeachingExpFieldsCount(watch("teachingExp")?.length || 1);
+  }, [watch("teachingExp")?.length]);
 
   return (
     <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
@@ -14,6 +14,20 @@ const AcademicExperience = () => {
   } = useFormContext();
 
   const experienceFields = ["Institution", "Rank", "Year"];
+
+  // Retrieve existing experience data
+  const existingExperience = watch("experience") || [];
+  const initialExperienceFieldsCount =
+    existingExperience.length > 0 ? existingExperience.length : 1;
+
+  const [experienceFieldsCount, setExperienceFieldsCount] = React.useState(
+    initialExperienceFieldsCount
+  );
+
+  useEffect(() => {
+    // Set the initial fields count based on existing data
+    setExperienceFieldsCount(existingExperience.length);
+  }, [existingExperience.length]);
 
   const renderTextField = (field, sectionIndex) => {
     const fieldName = `experience[${sectionIndex}].${field
@@ -46,8 +60,6 @@ const AcademicExperience = () => {
       />
     );
   };
-
-  const [experienceFieldsCount, setExperienceFieldsCount] = React.useState(1);
 
   const handleAddField = () => {
     setExperienceFieldsCount((prev) => prev + 1);

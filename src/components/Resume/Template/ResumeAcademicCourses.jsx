@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
@@ -11,6 +11,20 @@ const Courses = () => {
     setValue,
     formState: { errors },
   } = useFormContext();
+
+  // Retrieve existing courses data
+  const existingCourses = watch("courses") || [];
+  const initialCourseFieldsCount =
+    existingCourses.length > 0 ? existingCourses.length : 1;
+
+  const [courseFieldsCount, setCourseFieldsCount] = React.useState(
+    initialCourseFieldsCount
+  );
+
+  useEffect(() => {
+    // Set the initial fields count based on existing data
+    setCourseFieldsCount(existingCourses.length);
+  }, [existingCourses.length]);
 
   const renderTextField = (sectionIndex) => {
     const fieldName = `courses[${sectionIndex}].courses`; // Align with your schema
@@ -33,8 +47,6 @@ const Courses = () => {
       />
     );
   };
-
-  const [courseFieldsCount, setCourseFieldsCount] = React.useState(1);
 
   const handleAddField = () => {
     setCourseFieldsCount((prev) => prev + 1);

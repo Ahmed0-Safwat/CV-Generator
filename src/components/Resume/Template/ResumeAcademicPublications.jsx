@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
@@ -14,6 +14,20 @@ const Publications = () => {
   } = useFormContext();
 
   const publicationFields = ["Publication Name", "Year", "Description"];
+
+  // Retrieve existing publications data
+  const existingPublications = watch("publications") || [];
+  const initialPublicationFieldsCount =
+    existingPublications.length > 0 ? existingPublications.length : 1;
+
+  const [publicationFieldsCount, setPublicationFieldsCount] = React.useState(
+    initialPublicationFieldsCount
+  );
+
+  useEffect(() => {
+    // Set the initial fields count based on existing data
+    setPublicationFieldsCount(existingPublications.length);
+  }, [existingPublications.length]);
 
   const renderTextField = (field, sectionIndex) => {
     const fieldName = `publications[${sectionIndex}].${field
@@ -45,8 +59,6 @@ const Publications = () => {
       />
     );
   };
-
-  const [publicationFieldsCount, setPublicationFieldsCount] = React.useState(1);
 
   const handleAddField = () => {
     setPublicationFieldsCount((prev) => prev + 1);

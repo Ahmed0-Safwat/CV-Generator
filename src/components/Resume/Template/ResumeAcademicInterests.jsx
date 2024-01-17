@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
@@ -13,6 +13,19 @@ const ResearchInterests = () => {
   } = useFormContext();
 
   const researchInterestFields = ["Research Interest"];
+
+  // Retrieve existing research interests data
+  const existingInterests = watch("researchInterests") || [];
+  const initialInterestFieldsCount =
+    existingInterests.length > 0 ? existingInterests.length : 1;
+
+  const [researchInterestFieldsCount, setResearchInterestFieldsCount] =
+    React.useState(initialInterestFieldsCount);
+
+  useEffect(() => {
+    // Set the initial fields count based on existing data
+    setResearchInterestFieldsCount(existingInterests.length);
+  }, [existingInterests.length]);
 
   const renderTextField = (field, sectionIndex) => {
     const fieldName = `researchInterests[${sectionIndex}].${field
@@ -44,9 +57,6 @@ const ResearchInterests = () => {
       />
     );
   };
-
-  const [researchInterestFieldsCount, setResearchInterestFieldsCount] =
-    React.useState(1);
 
   const handleAddField = () => {
     setResearchInterestFieldsCount((prev) => prev + 1);

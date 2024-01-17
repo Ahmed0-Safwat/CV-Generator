@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
@@ -14,6 +14,20 @@ const AcademicEducation = () => {
   } = useFormContext();
 
   const educationFields = ["Degree", "Discipline", "Institution", "Year"];
+
+  // Retrieve existing education data
+  const existingEducation = watch("education") || [];
+  const initialEducationFieldsCount =
+    existingEducation.length > 0 ? existingEducation.length : 1;
+
+  const [educationFieldsCount, setEducationFieldsCount] = React.useState(
+    initialEducationFieldsCount
+  );
+
+  useEffect(() => {
+    // Set the initial fields count based on existing data
+    setEducationFieldsCount(existingEducation.length);
+  }, [existingEducation.length]);
 
   const renderTextField = (field, sectionIndex) => {
     const fieldName = `education[${sectionIndex}].${field.toLowerCase()}`;
@@ -39,8 +53,6 @@ const AcademicEducation = () => {
       />
     );
   };
-
-  const [educationFieldsCount, setEducationFieldsCount] = React.useState(1);
 
   const handleAddField = () => {
     setEducationFieldsCount((prev) => prev + 1);

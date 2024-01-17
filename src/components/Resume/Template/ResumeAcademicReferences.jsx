@@ -15,11 +15,11 @@ const ResumeReferences = () => {
     formState: { errors },
   } = useFormContext();
 
-  const refArrayLength = watch("references").length;
+  const refArrayLength = watch("references")?.length || 0;
 
   useEffect(() => {
     setReferenceFieldsCount(refArrayLength);
-  }, [watch("references").length]);
+  }, [refArrayLength]);
 
   const handlePhoneNumberChange = (event, index) => {
     const value = event.target.value;
@@ -78,7 +78,7 @@ const ResumeReferences = () => {
   };
 
   return (
-    <Stack width="100%" spacing={4}>
+    <Stack sx={{ mb: 4 }} width="100%" spacing={4}>
       <Stack
         sx={{
           width: "100%",
@@ -99,13 +99,24 @@ const ResumeReferences = () => {
         >
           <AddIcon />
         </IconButton>
+        {referenceFieldsCount > 1 && (
+          <IconButton
+            color="secondary"
+            sx={{ position: "absolute", top: "10px", right: "50px" }}
+            onClick={handleRemoveField}
+          >
+            <RemoveIcon />
+          </IconButton>
+        )}
       </Stack>
       {Array.from({ length: referenceFieldsCount }).map((_, index) => (
         <Stack key={index} direction="row" flexWrap="wrap" gap={2}>
           {referenceFields.map((field, fieldIndex) => (
             <TextField
               key={fieldIndex}
-              {...register(`references[${index}].${field.name}`)}
+              {...register(`references[${index}].${field.name}`, {
+                required: true,
+              })}
               type={field.type}
               sx={{ width: "49%" }}
               required
@@ -130,25 +141,6 @@ const ResumeReferences = () => {
           ))}
         </Stack>
       ))}
-      <Stack
-        direction="row"
-        alignItems="flex-end"
-        justifyContent="flex-end"
-        mt={2}
-        sx={{ position: "relative" }}
-      >
-        <IconButton
-          color="secondary"
-          sx={{
-            position: "absolute",
-            bottom: "-5px",
-            right: "5px",
-          }}
-          onClick={handleRemoveField}
-        >
-          <RemoveIcon />
-        </IconButton>
-      </Stack>
     </Stack>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Stack, Typography, IconButton } from "@mui/material";
 import { useFormContext, Controller } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
@@ -72,7 +72,7 @@ const Certificates = () => {
     );
   };
 
-  const [certificateFieldsCount, setCertificateFieldsCount] = React.useState(1);
+  const [certificateFieldsCount, setCertificateFieldsCount] = useState(1);
 
   const handleAddField = () => {
     setCertificateFieldsCount((prev) => prev + 1);
@@ -89,6 +89,10 @@ const Certificates = () => {
       }
     }
   };
+
+  useEffect(() => {
+    setCertificateFieldsCount(watch("certificates")?.length || 1);
+  }, [watch("certificates")?.length]);
 
   return (
     <Stack width="100%" spacing={4} sx={{ mb: 4, mt: 4 }}>
