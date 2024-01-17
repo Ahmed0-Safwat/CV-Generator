@@ -66,27 +66,19 @@ const Profile = () => {
     const captureAndSavePdf = () => {
       html2canvas(element).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("p", "mm", "a4");
+        const imgWidth = canvas.width; // use the actual canvas width
+        const imgHeight = canvas.height; // use the actual canvas height
+        const pdfWidth = imgWidth * 0.264583; // convert pixels to mm
+        const pdfHeight = imgHeight * 0.264583; // convert pixels to mm
 
-        const aspectRatio = canvas.width / canvas.height;
+        // Create a PDF with the same dimensions as the canvas (scaled to mm)
+        const pdf = new jsPDF({
+          orientation: pdfWidth > pdfHeight ? "l" : "p",
+          unit: "mm",
+          format: [pdfWidth, pdfHeight],
+        });
 
-        const imgWidth = 210; // A4 width in mm
-        const pageHeight = 297; // A4 height in mm
-        const imgHeight = imgWidth / aspectRatio; // image height in mm
-        let heightLeft = imgHeight; // remaining height to be printed
-        let position = 0; // initial position of the image
-
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // add first page
-        heightLeft -= pageHeight; // subtract the height of the first page
-
-        while (heightLeft >= 0) {
-          // while there is still height left to be printed
-          position = heightLeft - imgHeight; // calculate the position of the next page
-          pdf.addPage(); // add a new page
-          pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // add the image to the new page
-          heightLeft -= pageHeight; // subtract the height of the new page
-        }
-
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
         pdf.save("advanced-styled-page.pdf");
       });
     };

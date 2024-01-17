@@ -70,7 +70,6 @@ function AiBot() {
         return data.json();
       })
       .then((data) => {
-        console.log(data);
         setMessages([
           ...chatMessages,
           {
@@ -110,7 +109,6 @@ function AiBot() {
               }
             >
               {messages.map((message, i) => {
-                console.log(message);
                 return <Message key={i} model={message} />;
               })}
             </MessageList>
