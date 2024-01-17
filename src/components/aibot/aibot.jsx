@@ -10,7 +10,7 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = "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";
+const API_KEY = "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";
 const systemMessage = {
   role: "system",
   content:
@@ -93,11 +93,18 @@ function AiBot() {
       <div
         style={{
           position: "relative",
-          height: "800px",
-          width: "1200px",
+          height: "650px",
+          width: "1000px",
         }}
       >
-        <MainContainer style={{ border: "2px solid #9bd3d5" }} className="test">
+        <MainContainer
+          style={{
+            border: "4px solid #d9f1f0",
+            borderBottomRightRadius: "15px",
+            borderBottomLeftRadius: "15px",
+          }}
+          className="test"
+        >
           <ChatContainer className="test">
             <MessageList
               className="test"
