@@ -14,6 +14,7 @@ const ResumeExample1 = ({ data, id }) => {
           display: "flex",
           flexDirection: { xs: "column", md: "column", lg: "row" },
           margin: "0",
+          width:"100%"
         }}
       >
         {/* Left Column */}

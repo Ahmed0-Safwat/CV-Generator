@@ -10,7 +10,7 @@ const ResumeExample2 = ({ data, id }) => {
       id={id}
       container
       sx={{
-        width: "90%",
+        width: "100%",
         backgroundColor: "black",
         flexDirection: "column",
       }}
@@ -289,9 +289,11 @@ const ContactInfo = ({ data }) => {
               <AlternateEmailIcon sx={{ color: "#43443f" }} />
               <Typography
                 sx={{
-                  fontSize: "18px",
+                  fontSize: "17px",
                   fontWeight: "600",
+                  width: "90%",
                   color: "#43443f",
+                  wordWrap: "break-word", // Add this line for word wrapping
                 }}
               >
                 {data?.personal?.email}
@@ -357,9 +359,10 @@ const EducationItem = ({ degree, university, startDate, endDate }) => (
     <Typography
       sx={{
         color: "#43443f",
-        fontSize: "18px",
+        fontSize: "16px",
         fontWeight: "500",
         fontStyle: "normal",
+        width: "110%",
       }}
     >
       {university}
@@ -426,7 +429,7 @@ const WorkExperienceItem = ({ position, company, date, description }) => (
     <Stack>
       <Typography
         sx={{
-          fontSize: "24px",
+          fontSize: "20px",
           fontWeight: "700",
           fontStyle: "normal",
           color: "#43443f",

@@ -1,22 +1,26 @@
-.border {
-  border: 2px solid black;
-}
 .test {
-  background-color: transparent;
+  background-color: #f1fbfc;
   font-size: 15px;
   padding-top: 4px;
 }
-.test .cs-message__content {
-  background: linear-gradient(302deg, #03adb5 8.02%, #060103 78.29%);
-  color: white;
+.test .cs-message--outgoing .cs-message__content {
+  background-color: #03adb6; /* Sender background color */
+  color: #d0faff; /* Sender text color */
 }
 
+.test .cs-message--incoming .cs-message__content {
+  background-color: #efefef; /* Respond background color */
+  color: #050505; /* Respond text color */
+  font-weight: bold;
+}
+
+
 .test .cs-message-input__content-editor-wrapper {
-  background-color: #03adb5;
+  background-color: #e9f1f1;
 }
 .test .cs-message-input__content-editor {
-  background-color: #03adb5;
-  color: white;
+  background-color: #e9f1f1;
+  color: black;
 }
 .test .cs-message-input__content-editor[data-placeholder]:empty:before {
   color: white;
@@ -25,6 +29,20 @@
   display: none;
 }
 .test .cs-message-input__tools:last-child .cs-button:last-child {
-  background: linear-gradient(302deg, #03adb5 8.02%, #060103 78.29%);
+  background:#aeb9b9;
   color: white;
+  margin-left: 8px;
 }
+
+.cs-message-list .cs-typing-indicator{
+  background-color: #f1fbfc;
+}
+
+.cs-chat-container .cs-message-input{
+  background-color:#f1fbfc;
+  border-top: 4px solid #d9f1f0;
+}
+.test .cs-message-input__content-editor[data-placeholder]:empty:before {
+  color: gray;
+}
+
