@@ -35,14 +35,14 @@ const projectsSectionCards = [
     title: "First Template",
   },
   {
-    id: 2,
-    source: "/images/temp 2.jpg",
-    title: "Second Template",
-  },
-  {
     id: 3,
     source: "/images/temp 3.jpg",
     title: "Third Template",
+  },
+  {
+    id: 2,
+    source: "/images/temp 2.jpg",
+    title: "Second Template",
   },
   {
     id: 1,

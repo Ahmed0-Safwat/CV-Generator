@@ -51,3 +51,8 @@ a {
   margin: auto;
   box-sizing: border-box;
 }
+
+.slide-image-hover:hover {
+  transform: scale(1.001);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}

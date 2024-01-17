@@ -133,7 +133,9 @@ const ImagesCarousel = ({ carouselImages, shouldClick }) => {
               onClick={() => handleClick(slideData)}
             >
               <Stack
-                className="slide-image"
+                className={`slide-image ${
+                  shouldClick ? "slide-image-hover" : ""
+                }`}
                 sx={{
                   maxWidth: slideWidth,
                   cursor: shouldClick ? "pointer" : "default",

@@ -215,21 +215,8 @@ const NewContactUs = () => {
           </Stack>
 
           <Stack direction="row" spacing={2}>
-            <a
-              href="https://www.facebook.com/wexcute"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FacebookIcon sx={{ fontSize: "36px", color: "white" }} />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/company/wexcute/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <LinkedInIcon sx={{ fontSize: "36px", color: "white" }} />
-            </a>
+            <FacebookIcon sx={{ fontSize: "36px", color: "white" }} />
+            <LinkedInIcon sx={{ fontSize: "36px", color: "white" }} />
           </Stack>
         </Stack>
 
