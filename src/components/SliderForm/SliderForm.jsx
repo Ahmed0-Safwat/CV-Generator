@@ -401,7 +401,7 @@ function SliderForm({ handleClose }) {
             <Stack spacing={3}>
               <Components.Title>Verify Account</Components.Title>
               <Components.Input
-                type="number"
+                type="text"
                 name="otp"
                 placeholder="Enter OTP"
                 value={formData.otp}
@@ -506,7 +506,7 @@ function SliderForm({ handleClose }) {
               )}
 
               <Components.Input
-                type="number"
+                type="text"
                 name="otp"
                 placeholder="Enter OTP"
                 value={formData.otp}
