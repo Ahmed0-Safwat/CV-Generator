@@ -9,6 +9,8 @@ import {
 import PersonIcon from "@mui/icons-material/Person";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { useFormContext } from "react-hook-form";
+import { useStore } from "../../../hooks/useStore";
+import shallow from "zustand/shallow";
 
 const ResumePersonal = () => {
   const {
@@ -17,6 +19,15 @@ const ResumePersonal = () => {
     watch,
     formState: { errors },
   } = useFormContext();
+
+  const { globalState } = useStore(
+    (state) => ({
+      globalState: state.globalState,
+    }),
+    shallow
+  );
+
+  const { selectedCV } = globalState;
 
   const [imageURL, setImageURL] = useState(null);
   const selectedImageFile = watch("personal.img");
@@ -47,6 +58,18 @@ const ResumePersonal = () => {
     const filteredValue = value.replace(/\D/g, "");
     setValue("personal.phone", filteredValue);
   };
+
+  const aboutMeField =
+    selectedCV?.id !== 1
+      ? [
+          {
+            label: "About Me",
+            placeholder: "About Me...",
+            type: "text",
+            name: "aboutMe",
+          },
+        ]
+      : [];
 
   const textFieldData = [
     {
@@ -87,12 +110,7 @@ const ResumePersonal = () => {
       type: "text",
       name: "address",
     },
-    {
-      label: "About Me",
-      placeholder: "About Me...",
-      type: "text",
-      name: "aboutMe",
-    },
+    ...aboutMeField,
     { label: "Your Image", placeholder: "", type: "file", name: "img" },
   ];
 

@@ -77,7 +77,7 @@ function Resume() {
       address: Yup.string().required("Address is required"),
       img: Yup.mixed().required("Image is required"),
       jobTitle: Yup.string().required("Job Title is required"),
-      aboutMe: Yup.string().required("About Me is required"),
+      aboutMe: Yup.string().nullable(),
     }),
   });
 

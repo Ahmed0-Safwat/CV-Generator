@@ -13,7 +13,7 @@ const Publications = () => {
     formState: { errors },
   } = useFormContext();
 
-  const publicationFields = ["Publication Name", "Year", "Description"];
+  const publicationFields = ["Description"];
 
   // Retrieve existing publications data
   const existingPublications = watch("publications") || [];

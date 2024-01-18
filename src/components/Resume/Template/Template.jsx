@@ -13,7 +13,6 @@ const mappedValues = {
   googleScholar: "Google Scholar",
   scopusid: "Scopus ID",
   researchinterest: "Research Interest",
-  publicationname: "Publication Name",
   year: "Year",
   description: "Description",
   honor: "Honor",
