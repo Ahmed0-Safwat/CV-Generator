@@ -320,6 +320,7 @@ function SliderForm({ handleClose }) {
           setisLoadingSendOTP(false);
         } else {
           console.error("Error Response:", res); // Debug log for error response
+          setisLoadingSendOTP(false);
           setErrors((prevErrors) => ({
             ...prevErrors,
             verifyError: "No user registered with that email.",
