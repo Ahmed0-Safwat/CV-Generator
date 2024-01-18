@@ -27,6 +27,22 @@ const mappedValues = {
   aboutMe: "About Me",
 };
 
+const isEmptyValue = (value) => {
+  return value === null || value === undefined || value === "";
+};
+
+const isObjectEmpty = (obj) => {
+  return (
+    !obj ||
+    Object.keys(obj).length === 0 ||
+    Object.values(obj).every((value) => isEmptyValue(value))
+  );
+};
+
+const isArrayWithEmptyObjects = (arr) => {
+  return !arr || arr.length === 0 || arr.every((item) => isObjectEmpty(item));
+};
+
 const Template = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
@@ -45,6 +61,17 @@ const Template = () => {
       }
     }
   }, [data()?.personal?.img]);
+
+  const certifications = data()?.certificates.filter(
+    (certificate) => !isObjectEmpty(certificate)
+  );
+  const teachingExperiences = data()?.teachingExp.filter(
+    (exp) => !isObjectEmpty(exp)
+  );
+  const courses = data()?.courses.filter((course) => !isObjectEmpty(course));
+  const references = data()?.references.filter(
+    (reference) => !isObjectEmpty(reference)
+  );
 
   return (
     <Stack
@@ -110,106 +137,81 @@ const Template = () => {
       <Divider sx={{ borderBottom: "2px solid gray" }} />
 
       {/* Personal Information */}
-      <TemplateEntry
-        title="Personal Information"
-        content={<ListStack items={data()?.personalInfo} />}
-      />
+      {!isArrayWithEmptyObjects(data()?.personalInfo) && (
+        <TemplateEntry
+          title="Personal Information"
+          content={<ListStack items={data()?.personalInfo} />}
+        />
+      )}
 
       {/* Education */}
-      <TemplateEntry
-        title="Education"
-        content={
-          <EducationTable
-            items={data()?.education}
-            isSmallScreen={isSmallScreen}
-          />
-        }
-      />
+      {!isObjectEmpty(data()?.education) && (
+        <TemplateEntry
+          title="Education"
+          content={
+            <EducationTable
+              items={data()?.education}
+              isSmallScreen={isSmallScreen}
+            />
+          }
+        />
+      )}
 
       {/* Academic Experience */}
-      <TemplateEntry
-        title="Academic Experience"
-        content={
-          <ListStack items={data()?.experience} title="Academic Experience" />
-        }
-      />
+
+      {!isObjectEmpty(data()?.experience) && (
+        <TemplateEntry
+          title="Academic Experience"
+          content={
+            <ListStack items={data()?.experience} title="Academic Experience" />
+          }
+        />
+      )}
 
       {/* Research Interests */}
-      <TemplateEntry
-        title="Research Interests"
-        content={
-          <ListStack
-            items={data()?.researchInterests}
-            title="Research Interests"
-          />
-        }
-      />
+
+      {!isArrayWithEmptyObjects(data()?.researchInterests) && (
+        <TemplateEntry
+          title="Research Interests"
+          content={
+            <ListStack
+              items={data()?.researchInterests}
+              title="Research Interests"
+            />
+          }
+        />
+      )}
 
       {/* Publications */}
-      <TemplateEntry
-        title="Publications"
-        content={
-          <ListStack items={data()?.publications} title="Publications" />
-        }
-      />
+
+      {!isArrayWithEmptyObjects(data()?.publications) && (
+        <TemplateEntry
+          title="Publications"
+          content={
+            <ListStack items={data()?.publications} title="Publications" />
+          }
+        />
+      )}
 
       {/* Certifications or Professional Registrations */}
-      <Stack sx={{ paddingX: 4, m: 0 }}>
-        <Typography
-          sx={{
-            color: "#312b2b",
-            fontWeight: 600,
-            fontSize: "1.8rem",
-          }}
-          gutterBottom
-        >
-          Certifications or Professional Registrations
-        </Typography>
+      {certifications && certifications.length > 0 && (
+        <Stack sx={{ paddingX: 4, m: 0 }}>
+          <Typography
+            sx={{
+              color: "#312b2b",
+              fontWeight: 600,
+              fontSize: "1.8rem",
+            }}
+            gutterBottom
+          >
+            Certifications or Professional Registrations
+          </Typography>
 
-        <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
-        <ul>
-          {data()?.certificates.map((item, index) => (
-            <Stack key={index} direction="row" paddingY="4px">
-              <li style={{ fontSize: "18px", fontWeight: "500" }}>
-                <b style={{ fontSize: "19px" }}>
-                  {new Date(item.startdate).toLocaleDateString("en-US", {
-                    month: "short",
-                    year: "numeric",
-                  })}{" "}
-                  -{" "}
-                  {new Date(item.enddate).toLocaleDateString("en-US", {
-                    month: "short",
-                    year: "numeric",
-                  })}{" "}
-                  :&nbsp;
-                </b>
-                {item.description}
-              </li>
-            </Stack>
-          ))}
-        </ul>
-      </Stack>
-
-      {/* Teaching Experience */}
-
-      <Stack sx={{ paddingX: 4, m: 0 }}>
-        <Typography
-          sx={{
-            color: "#312b2b",
-            fontWeight: 600,
-            fontSize: "1.8rem",
-          }}
-          gutterBottom
-        >
-          Teaching experience
-        </Typography>
-
-        <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
-        <ul>
-          {data()?.teachingExp.map((item, index) => (
-            <Stack key={index} direction="row" paddingY="4px">
-              <li style={{ fontSize: "18px", fontWeight: "500" }}>
-                <>
+          <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
+          <ul>
+            {data()?.certificates.map((item, index) => (
+              <Stack key={index} direction="row" paddingY="4px">
+                <li style={{ fontSize: "18px", fontWeight: "500" }}>
                   <b style={{ fontSize: "19px" }}>
                     {new Date(item.startdate).toLocaleDateString("en-US", {
                       month: "short",
@@ -220,52 +222,98 @@ const Template = () => {
                       month: "short",
                       year: "numeric",
                     })}{" "}
-                    :
+                    :&nbsp;
                   </b>
-                  &nbsp;{item.title}
-                </>
+                  {item.description}
+                </li>
+              </Stack>
+            ))}
+          </ul>
+        </Stack>
+      )}
 
-                {/* Nested list for item.description */}
-                <ul>
-                  <li>{item.description}</li>
-                </ul>
-              </li>
-            </Stack>
-          ))}
-        </ul>
-      </Stack>
+      {/* Teaching Experience */}
+
+      {teachingExperiences && teachingExperiences.length > 0 && (
+        <Stack sx={{ paddingX: 4, m: 0 }}>
+          <Typography
+            sx={{
+              color: "#312b2b",
+              fontWeight: 600,
+              fontSize: "1.8rem",
+            }}
+            gutterBottom
+          >
+            Teaching experience
+          </Typography>
+
+          <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
+          <ul>
+            {data()?.teachingExp.map((item, index) => (
+              <Stack key={index} direction="row" paddingY="4px">
+                <li style={{ fontSize: "18px", fontWeight: "500" }}>
+                  <>
+                    <b style={{ fontSize: "19px" }}>
+                      {new Date(item.startdate).toLocaleDateString("en-US", {
+                        month: "short",
+                        year: "numeric",
+                      })}{" "}
+                      -{" "}
+                      {new Date(item.enddate).toLocaleDateString("en-US", {
+                        month: "short",
+                        year: "numeric",
+                      })}{" "}
+                      :
+                    </b>
+                    &nbsp;{item.title}
+                  </>
+
+                  {/* Nested list for item.description */}
+                  <ul>
+                    <li>{item.description}</li>
+                  </ul>
+                </li>
+              </Stack>
+            ))}
+          </ul>
+        </Stack>
+      )}
 
       {/* Courses Taught */}
-      <TemplateEntry
-        title="Courses Taught"
-        content={<ListStack items={data()?.courses} title="Courses Taught" />}
-      />
+      {courses && courses.length > 0 && (
+        <TemplateEntry
+          title="Courses Taught"
+          content={<ListStack items={data()?.courses} title="Courses Taught" />}
+        />
+      )}
 
       {/* REFERENCES */}
 
-      <Stack sx={{ paddingX: 4, m: 0 }}>
-        <Typography
-          sx={{
-            color: "#312b2b",
-            fontWeight: 600,
-            fontSize: "1.8rem",
-          }}
-          gutterBottom
-        >
-          References
-        </Typography>
+      {references && references.length > 0 && (
+        <Stack sx={{ paddingX: 4, m: 0 }}>
+          <Typography
+            sx={{
+              color: "#312b2b",
+              fontWeight: 600,
+              fontSize: "1.8rem",
+            }}
+            gutterBottom
+          >
+            References
+          </Typography>
 
-        <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
-        {data()?.references?.map((item) => (
-          <ReferenceItem
-            key={item.company}
-            name={`${item.name}`}
-            position={item.jobTitle}
-            phone={item.phone}
-            email={item.email}
-          />
-        ))}
-      </Stack>
+          <Divider sx={{ borderBottom: "2px solid black" }}></Divider>
+          {data()?.references?.map((item) => (
+            <ReferenceItem
+              key={item.company}
+              name={`${item.name}`}
+              position={item.jobTitle}
+              phone={item.phone}
+              email={item.email}
+            />
+          ))}
+        </Stack>
+      )}
     </Stack>
   );
 };
@@ -361,60 +409,72 @@ const ListItem = ({ item, title }) => (
     })}
   </>
 );
-const ListStack = ({ items, title = null }) => (
-  <Stack spacing={3}>
-    <ul
-      style={{
-        padding:
-          title === "Academic Experience" ? "inherit" : "20px !important",
-      }}
-    >
-      {title === "Academic Experience" ? (
-        <Stack spacing={0}>
-          {items.map((item, index) => (
+const ListStack = ({ items, title = null }) => {
+  const filteredItems = items.filter((item) => !isObjectEmpty(item));
+
+  if (filteredItems.length === 0) return null;
+
+  return (
+    <Stack spacing={3}>
+      <ul
+        style={{
+          padding:
+            title === "Academic Experience" ? "inherit" : "20px !important",
+        }}
+      >
+        {title === "Academic Experience" ? (
+          <Stack spacing={0}>
+            {items.map((item, index) => (
+              <ListItem key={index} item={item} title={title} />
+            ))}
+          </Stack>
+        ) : (
+          items.map((item, index) => (
             <ListItem key={index} item={item} title={title} />
-          ))}
-        </Stack>
-      ) : (
-        items.map((item, index) => (
-          <ListItem key={index} item={item} title={title} />
-        ))
-      )}
-    </ul>
-  </Stack>
-);
-const EducationTable = ({ items, isSmallScreen }) => (
-  <table
-    style={{ width: "100%", borderCollapse: "collapse", marginTop: "20px" }}
-  >
-    <thead>
-      <tr>
-        <th style={tableHeaderStyle(isSmallScreen)}>Degree</th>
-        <th style={tableHeaderStyle(isSmallScreen)}>Discipline</th>
-        <th style={tableHeaderStyle(isSmallScreen)}>Institution</th>
-        <th style={tableHeaderStyle(isSmallScreen)}>Year</th>
-      </tr>
-    </thead>
-    <tbody>
-      {items.map((item, index) => (
-        <tr key={index}>
-          <td style={tableCellStyle(isSmallScreen, "500", "21px")}>
-            {item.degree}
-          </td>
-          <td style={tableCellStyle(isSmallScreen, "500", "18px")}>
-            {item.discipline}
-          </td>
-          <td style={tableCellStyle(isSmallScreen, "500", "18px", "320px")}>
-            {item.institution}
-          </td>
-          <td style={tableCellStyle(isSmallScreen, "500", "18px")}>
-            {item.year}
-          </td>
+          ))
+        )}
+      </ul>
+    </Stack>
+  );
+};
+const EducationTable = ({ items, isSmallScreen }) => {
+  const filteredItems = items.filter((item) => !isObjectEmpty(item));
+
+  if (filteredItems.length === 0) return null;
+
+  return (
+    <table
+      style={{ width: "100%", borderCollapse: "collapse", marginTop: "20px" }}
+    >
+      <thead>
+        <tr>
+          <th style={tableHeaderStyle(isSmallScreen)}>Degree</th>
+          <th style={tableHeaderStyle(isSmallScreen)}>Discipline</th>
+          <th style={tableHeaderStyle(isSmallScreen)}>Institution</th>
+          <th style={tableHeaderStyle(isSmallScreen)}>Year</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
-);
+      </thead>
+      <tbody>
+        {items.map((item, index) => (
+          <tr key={index}>
+            <td style={tableCellStyle(isSmallScreen, "500", "21px")}>
+              {item.degree}
+            </td>
+            <td style={tableCellStyle(isSmallScreen, "500", "18px")}>
+              {item.discipline}
+            </td>
+            <td style={tableCellStyle(isSmallScreen, "500", "18px", "320px")}>
+              {item.institution}
+            </td>
+            <td style={tableCellStyle(isSmallScreen, "500", "18px")}>
+              {item.year}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
 const tableHeaderStyle = (isSmallScreen) => ({
   border: "2px solid black",
   textAlign: "left",
