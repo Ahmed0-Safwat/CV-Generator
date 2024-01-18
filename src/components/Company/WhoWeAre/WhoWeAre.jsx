@@ -1,11 +1,13 @@
 import { Button, Stack, Typography } from "@mui/material";
 import "./style.scss";
 import React from "react";
-const WhoWeAre = () => {
-  // const router = useRouter();
+import { useNavigate } from "react-router-dom";
 
+const WhoWeAre = () => {
+  const navigate = useNavigate();
   const handleExploreProjectsClick = () => {
-    // router.push('/projects');
+    window.scrollTo(0, 0);
+    navigate("/projects");
   };
 
   return (

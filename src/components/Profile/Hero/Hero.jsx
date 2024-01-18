@@ -3,7 +3,6 @@ import { Stack, Typography, Avatar, Box } from "@mui/material";
 import ImageUpload from "../../ImageUpload/ImageUpload";
 import { useStore } from "../../../hooks/useStore";
 import shallow from "zustand/shallow";
-import Button from "@mui/material/Button";
 import useDeleteProfileImage from "../../../api/login/deleteProfileImg";
 
 const Hero = () => {
@@ -84,7 +83,6 @@ const Hero = () => {
               }}
             />
             <ImageUpload />,
-            {/* <Button onClick={handleDeleteImage}>Delete Image</Button> */}
           </Box>
           <Box>
             <Typography
